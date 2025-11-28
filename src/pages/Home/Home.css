@@ -1,0 +1,811 @@
+/* ================================
+   HOME PAGE – GLOBAL
+   ================================ */
+
+.home-page {
+  min-height: 100vh;
+}
+
+/* Generic section header layout used across home sections */
+
+.home-section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.section-eyebrow {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.7;
+  margin-bottom: 0.3rem;
+}
+
+.home-section-header-main {
+  max-width: 40rem;
+}
+
+.home-section-header-cta {
+  margin-left: auto;
+  align-self: center;
+}
+
+.home-section-title {
+  font-size: 1.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.home-section-subtitle {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-section-intro {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ================================
+   1️⃣ HERO SECTION
+   ================================ */
+
+.home-hero {
+  padding-top: 5.5rem;
+  padding-bottom: 5rem;
+}
+
+.home-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 3rem;
+}
+
+/* LEFT TEXT SIDE */
+
+.home-hero-eyebrow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.5rem;
+}
+
+.home-hero-pill {
+  align-self: flex-start;
+  padding: 0.18rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background-color: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(10px);
+}
+
+.home-hero-tagline {
+  font-size: 0.82rem;
+  opacity: 0.8;
+}
+
+.home-hero-title {
+  font-size: clamp(2.4rem, 3vw + 1.4rem, 3.2rem);
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+
+.home-hero-title-accent {
+  color: var(--color-primary-soft-text, #e0f2fe);
+}
+
+.home-hero-subtitle {
+  max-width: 38rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  margin-bottom: 1.7rem;
+}
+
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+/* STATS */
+
+.home-hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+
+.home-stat {
+  min-width: 7rem;
+}
+
+.home-stat-number {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.home-stat-label {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* RIGHT MEDIA SIDE */
+
+.home-hero-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.home-hero-media {
+  position: relative;
+  max-width: 25rem;
+}
+
+/* Main lab image card */
+
+.home-media-main {
+  padding: 0;
+  overflow: hidden;
+}
+
+.home-media-main-img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.home-media-main-label {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 1.1rem;
+}
+
+/* Video preview card */
+
+.home-media-video {
+  position: absolute;
+  right: -1.5rem;
+  bottom: -1.5rem;
+  width: 70%;
+  padding: 1rem;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.45);
+}
+
+.home-media-video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  font-size: 0.8rem;
+}
+
+.home-media-video-duration {
+  opacity: 0.8;
+  font-size: 0.75rem;
+}
+
+.home-media-video-body {
+  position: relative;
+}
+
+.home-media-video-thumb {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.home-media-video-thumb img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+/* Play button */
+
+.home-media-play-btn {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: radial-gradient(circle at 30% 20%, #ffffff, #e5e7eb);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.38);
+  transition:
+    transform 160ms ease-out,
+    box-shadow 160ms ease-out;
+}
+
+.home-media-play-btn::after {
+  content: "";
+  position: absolute;
+  inset: -0.35rem;
+  border-radius: inherit;
+  border: 2px solid rgba(248, 250, 252, 0.85);
+  opacity: 0.85;
+  animation: home-play-pulse 1.7s ease-out infinite;
+}
+
+.home-media-play-icon {
+  margin-left: 2px;
+  font-size: 1.1rem;
+}
+
+.home-media-play-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.5);
+}
+
+.home-media-play-hint {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.75rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  background-color: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+/* ================================
+   2️⃣ VISION & MISSION
+   ================================ */
+
+.home-vision {
+  background: radial-gradient(circle at 0 0, rgba(37, 99, 235, 0.04), transparent 55%),
+    #ffffff;
+}
+
+.home-vision-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 1.5rem;
+}
+
+.home-vision-block p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.home-vision-list {
+  padding-left: 1.1rem;
+  margin: 0.4rem 0 0;
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.94rem;
+}
+
+/* ================================
+   3️⃣ RESEARCH THEMES PREVIEW
+   ================================ */
+
+.home-research-preview {
+  background: #f8fafc;
+}
+
+.home-research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.home-research-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-research-card p {
+  font-size: 0.92rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+/* ================================
+   4️⃣ NEUROSCIENCE FOCUS
+   ================================ */
+
+.home-neuro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+  gap: 1.8rem;
+  align-items: flex-start;
+}
+
+.home-neuro-list {
+  padding-left: 1.1rem;
+  margin: 0.4rem 0 0.8rem;
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.93rem;
+}
+
+.home-neuro-footer {
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+/* ================================
+   5️⃣ FLAGSHIP PROJECTS
+   ================================ */
+
+.home-flagship-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.home-flagship-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.home-flagship-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.home-flagship-meta {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  opacity: 0.8;
+}
+
+.home-flagship-top {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.7rem;
+}
+
+/* ================================
+   6️⃣ GLOBAL COLLABORATIONS
+   ================================ */
+
+.home-collab-header {
+  margin-bottom: 1.8rem;
+}
+
+.home-collab-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.home-collab-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.home-collab-logo {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px dashed var(--color-border-subtle, rgba(148, 163, 184, 0.7));
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.home-collab-text {
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+/* ================================
+   7️⃣ FUNDING PREVIEW
+   ================================ */
+
+.home-funding-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.home-funding-card h3 {
+  font-size: 1.02rem;
+  margin-bottom: 0.4rem;
+}
+
+.home-funding-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.home-funding-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.7rem;
+  gap: 0.5rem;
+}
+
+.home-funding-deadline {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+/* ================================
+   8️⃣ OPPORTUNITIES PREVIEW
+   ================================ */
+
+.home-opportunities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.home-opportunity-card h3 {
+  font-size: 1.02rem;
+  margin-bottom: 0.4rem;
+}
+
+.home-opportunity-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 0.4rem;
+}
+
+/* ================================
+   9️⃣ IMPACT STATS
+   ================================ */
+
+.home-impact-header {
+  margin-bottom: 2rem;
+}
+
+.home-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.home-impact-card {
+  text-align: left;
+}
+
+.home-impact-number {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.home-impact-label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* 🔟 FEATURED PEOPLE */
+
+.home-people-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.home-person-card {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.home-person-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  background: radial-gradient(circle at 30% 0, #e0f2fe, #bfdbfe);
+  color: #0f172a;
+  flex-shrink: 0;
+}
+
+.home-person-name {
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+.home-person-role {
+  font-size: 0.86rem;
+  opacity: 0.85;
+  margin-bottom: 0.3rem;
+}
+
+.home-person-meta {
+  font-size: 0.84rem;
+  opacity: 0.85;
+}
+
+/* 1️⃣1️⃣ NEWS & EVENTS */
+
+.home-news-events-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 1.8rem;
+}
+
+.home-news-heading {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.home-news-card {
+  margin-bottom: 0.9rem;
+}
+
+.home-news-card h4 {
+  font-size: 0.98rem;
+  margin: 0.3rem 0 0.3rem;
+}
+
+.home-news-card p {
+  font-size: 0.88rem;
+  opacity: 0.9;
+}
+
+.home-event-card {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-bottom: 0.9rem;
+}
+
+.home-event-date {
+  width: 2.6rem;
+  border-radius: 12px;
+  text-align: center;
+  padding: 0.35rem 0.2rem;
+  background: #0f172a;
+  color: #f9fafb;
+  flex-shrink: 0;
+}
+
+.home-event-day {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.home-event-month {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.home-event-body h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.home-event-body p {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.home-news-more {
+  display: inline-block;
+  margin-top: 0.4rem;
+}
+
+/* 1️⃣2️⃣ CONTACT CTA STRIP */
+
+.home-contact-cta {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.home-contact-cta-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-contact-cta-text {
+  max-width: 32rem;
+}
+
+.home-contact-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+/* ================================
+   ANIMATIONS & MOTION
+   ================================ */
+
+@keyframes home-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes home-fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes home-play-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+}
+
+/* Staggered classes for hero text */
+
+.animate-in-delay-1 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 80ms;
+  opacity: 0;
+}
+
+.animate-in-delay-2 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 140ms;
+  opacity: 0;
+}
+
+.animate-in-delay-3 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 220ms;
+  opacity: 0;
+}
+
+.animate-in-delay-4 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 300ms;
+  opacity: 0;
+}
+
+.animate-in-delay-5 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 380ms;
+  opacity: 0;
+}
+
+.home-hero-right.animate-in-delay-3 {
+  animation-name: home-fade-in-right;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 1024px) {
+  .home-hero-inner {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+    gap: 2.5rem;
+  }
+
+  .home-media-main-img {
+    height: 230px;
+  }
+
+  .home-impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-research-grid,
+  .home-flagship-grid,
+  .home-funding-grid,
+  .home-opportunities-grid,
+  .home-people-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .home-hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-hero-right {
+    justify-content: flex-start;
+  }
+
+  .home-hero {
+    padding-top: 4.5rem;
+  }
+
+  .home-media-video {
+    right: 0;
+    bottom: -1rem;
+  }
+
+  .home-neuro-layout,
+  .home-news-events-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-section-header-cta {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-hero-stats {
+    gap: 1.2rem;
+  }
+
+  .home-media-main-img {
+    height: 210px;
+  }
+
+  .home-research-grid,
+  .home-flagship-grid,
+  .home-funding-grid,
+  .home-opportunities-grid,
+  .home-people-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-impact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-contact-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in-delay-1,
+  .animate-in-delay-2,
+  .animate-in-delay-3,
+  .animate-in-delay-4,
+  .animate-in-delay-5 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .home-media-play-btn::after {
+    animation: none;
+    opacity: 0;
+  }
+}

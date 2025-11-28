@@ -1,0 +1,347 @@
+/* ================================
+   OVERALL
+   ================================ */
+
+.people-page {
+  min-height: 100vh;
+}
+
+/* ================================
+   HERO
+   ================================ */
+
+.people-hero {
+  position: relative;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  color: #f9fafb;
+}
+
+.people-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+  gap: 2.4rem;
+  align-items: center;
+}
+
+.people-hero-eyebrow {
+  color: rgba(248, 250, 252, 0.82);
+}
+
+.people-hero-title {
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin-bottom: 0.7rem;
+}
+
+.people-hero-subtitle {
+  font-size: 0.97rem;
+  max-width: 42rem;
+  opacity: 0.95;
+  margin-bottom: 0.6rem;
+}
+
+.people-hero-subtitle.secondary {
+  opacity: 0.9;
+}
+
+.people-hero-subtitle strong {
+  font-weight: 600;
+}
+
+.people-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.3rem;
+}
+
+/* HERO INFO CARD */
+
+.people-hero-info {
+  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.18), transparent),
+    rgba(15, 23, 42, 0.96);
+  color: #e5e7eb;
+  padding: 1.3rem 1.2rem 1.1rem;
+}
+
+.people-hero-info-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.people-hero-info-text {
+  margin: 0 0 0.7rem;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.people-hero-bullets {
+  margin: 0 0 0.6rem;
+  padding-left: 1.1rem;
+  font-size: 0.86rem;
+  opacity: 0.92;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.people-hero-info-link {
+  font-size: 0.86rem;
+}
+
+/* ================================
+   MAIN
+   ================================ */
+
+.people-main {
+  padding-top: 2.4rem;
+}
+
+.people-block {
+  padding: 2.2rem 0 1.8rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.people-block-band {
+  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.07), transparent),
+    var(--color-surface, #ffffff);
+  border-radius: 1.1rem;
+  padding: 2.2rem 1.4rem 1.9rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+}
+
+.people-block-soft {
+  background-color: var(--color-surface-alt, #f7f8fb);
+  border-radius: 1rem;
+  padding: 2.2rem 1.4rem 1.9rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.people-block-header {
+  margin-bottom: 1.4rem;
+}
+
+.people-block-header--tight {
+  margin-bottom: 1.1rem;
+}
+
+.people-block-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0 0 0.35rem;
+}
+
+.people-block-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 40rem;
+}
+
+/* ================================
+   OVERVIEW STRIP
+   ================================ */
+
+.people-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.people-overview-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+.people-overview-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* ================================
+   FILTERS & DIRECTORY
+   ================================ */
+
+.people-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.people-filter-pill {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  padding: 0.28rem 0.9rem;
+  font-size: 0.8rem;
+  background-color: #ffffff;
+  color: var(--color-text-soft, #4b5563);
+  cursor: pointer;
+  transition:
+    background-color 160ms ease-out,
+    color 160ms ease-out,
+    border-color 160ms ease-out,
+    transform 160ms ease-out,
+    box-shadow 160ms ease-out;
+}
+
+.people-filter-pill:hover {
+  transform: translateY(-1px);
+  background-color: var(--color-surface-alt, #f4f4f7);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.09);
+}
+
+.people-filter-pill.is-active {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgba(190, 24, 93, 0.4);
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+.people-card {
+  padding: 1rem 0.95rem 0.9rem;
+}
+
+.people-card-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.people-avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: radial-gradient(circle at top, #f97316, #ec4899);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f9fafb;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.people-avatar-initial {
+  transform: translateY(1px);
+}
+
+.people-card-main {
+  min-width: 0;
+}
+
+.people-name {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.people-role {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.people-badge {
+  font-size: 0.7rem;
+  padding: 0.16rem 0.6rem;
+  border-radius: 999px;
+  background-color: rgba(148, 163, 184, 0.15);
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.people-interests {
+  margin: 0 0 0.4rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.people-placeholder-note {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-text-soft, #4b5563);
+  opacity: 0.9;
+}
+
+/* ================================
+   JOINING
+   ================================ */
+
+.people-join-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+.people-join-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+.people-join-card p {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.people-join-link {
+  margin-top: 0.1rem;
+  font-size: 0.86rem;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 1024px) {
+  .people-hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .people-hero-info {
+    order: -1;
+  }
+
+  .people-overview-grid,
+  .people-grid,
+  .people-join-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .people-hero {
+    padding-top: 3rem;
+    padding-bottom: 2.6rem;
+  }
+
+  .people-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .people-overview-grid,
+  .people-grid,
+  .people-join-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

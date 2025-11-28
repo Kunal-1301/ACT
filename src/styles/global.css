@@ -1,0 +1,569 @@
+/* src/styles/global.css */
+
+/* Reset-ish */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* Layout shell */
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
+
+/* Utilities */
+.container {
+  padding-inline: clamp(1rem, 4vw, 3rem);
+  max-width: 1500px;
+  margin-inline: auto;
+}
+
+
+.section {
+  padding: 64px 0;
+}
+
+.section-header {
+  margin-bottom: 24px;
+}
+
+.section-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 650;
+  margin: 4px 0 8px;
+  color: var(--color-primary);
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  max-width: 680px;
+}
+
+/* Links & buttons */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+  color: white;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    filter 0.18s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+}
+
+
+
+/* ================================
+   GLOBAL MOTION & INTERACTIONS
+   Phase 1 – Buttons, Cards, Links
+   ================================ */
+
+/* 1. Smooth transitions for interactive elements */
+button,
+a,
+.card {
+  transition:
+    background-color 180ms ease-out,
+    color 180ms ease-out,
+    border-color 180ms ease-out,
+    box-shadow 180ms ease-out,
+    transform 180ms ease-out;
+}
+
+/* 2. Base button style */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.2;
+
+  background-color: transparent;
+  color: var(--color-text);
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Primary button */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  background-color: var(--color-primary-strong, var(--color-primary));
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(0.99);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary / subtle button */
+.btn-secondary {
+  background-color: var(--color-surface-alt, #f7f7f9);
+  color: var(--color-text-soft, var(--color-text));
+  border-color: var(--color-border-subtle);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  background-color: var(--color-surface-alt-strong, #f0f0f5);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+.btn-secondary:active {
+  transform: translateY(-1px) scale(0.99);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+/* 3. Global card style */
+.card {
+  position: relative;
+  border-radius: 16px;
+  padding: 1.5rem;
+  background-color: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border-subtle, rgba(15, 23, 42, 0.08));
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.10);
+}
+
+.card-header {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+
+.card-meta {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* Make cards keyboard-focusable if needed */
+.card[tabindex] {
+  cursor: pointer;
+}
+
+/* 4. Animated inline links */
+.link-animated {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.link-animated::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15em;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 180ms ease-out;
+}
+
+.link-animated:hover::after {
+  transform: scaleX(1);
+}
+
+/* 5. Focus-visible accessibility */
+.btn:focus-visible,
+.card:focus-visible,
+.link-animated:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Optional: remove default outline on mouse click, keep on keyboard */
+.btn:focus:not(:focus-visible),
+.card:focus:not(:focus-visible),
+.link-animated:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+
+
+/* ================================
+   GLOBAL UTILITY CHIPS & BADGES
+   ================================ */
+
+/* Base chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.3;
+
+  border: 1px solid transparent;
+  background-color: var(--color-surface-alt, #f4f4f7);
+  color: var(--color-text-soft, #4b5563);
+
+  white-space: nowrap;
+}
+
+/* Status chips for Funding / Calls */
+.chip-status-open {
+  background-color: rgba(34, 197, 94, 0.12);    /* green-ish */
+  color: #15803d;
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.chip-status-upcoming {
+  background-color: rgba(245, 158, 11, 0.12);   /* amber */
+  color: #92400e;
+  border-color: rgba(245, 158, 11, 0.5);
+}
+
+.chip-status-closed {
+  background-color: rgba(148, 163, 184, 0.18);  /* grey */
+  color: #475569;
+  border-color: rgba(148, 163, 184, 0.6);
+}
+
+/* Small dot inside chip (optional) */
+.chip-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background-color: currentColor;
+}
+
+/* Filter pill buttons (People, Events, News filters) */
+.pill-filter {
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--color-border-subtle, rgba(148, 163, 184, 0.6));
+  background-color: var(--color-surface, #ffffff);
+  color: var(--color-text-soft, #4b5563);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease-out,
+    color 160ms ease-out,
+    border-color 160ms ease-out,
+    transform 160ms ease-out,
+    box-shadow 160ms ease-out;
+}
+
+.pill-filter:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-surface-alt, #f4f4f7);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.07);
+}
+
+.pill-filter--active {
+  background-color: var(--color-primary-soft, rgba(37, 99, 235, 0.12));
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
+}
+
+/* Tiny "NEW" badge for news / events */
+.badge-new {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-primary, #2563eb),
+    #22c55e
+  );
+  color: #ffffff;
+}
+
+
+/* ================================
+   SECTIONS & BACKGROUND SYSTEM
+   Phase 2 – Sections + Backgrounds
+   ================================ */
+
+.section {
+  position: relative;
+  padding: 4rem 0;
+}
+
+.section--tight {
+  padding: 2.5rem 0;
+}
+
+.section--xl {
+  padding: 5.5rem 0;
+}
+
+/* Constrain width for content inside sections */
+.section .container {
+  width: min(1120px, 100% - 2.5rem);
+  margin: 0 auto;
+}
+
+/* Shared background behavior */
+.section--bg,
+.section--bg-tech,
+.section--bg-campus,
+.section--bg-lab,
+.section--bg-events {
+  position: relative;
+  color: #ffffff;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay for readability */
+.section--bg::before,
+.section--bg-tech::before,
+.section--bg-campus::before,
+.section--bg-lab::before,
+.section--bg-events::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 0 0,
+      rgba(255, 255, 255, 0.06),
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.78),
+      rgba(15, 23, 42, 0.92)
+    );
+  mix-blend-mode: normal;
+  pointer-events: none;
+}
+
+/* Ensure content is above overlay */
+.section--bg > .container,
+.section--bg-tech > .container,
+.section--bg-campus > .container,
+.section--bg-lab > .container,
+.section--bg-events > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tech / research feel – hero, research, etc. */
+.section--bg-tech {
+  background-image:
+    radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.12), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.18), transparent 55%),
+    url("/media/bg-hero-tech.jpg");
+}
+
+/* Campus / people / about / contact location */
+.section--bg-campus {
+  background-image:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.90), rgba(15, 23, 42, 0.85)),
+    url("/media/bg-campus.jpg");
+}
+
+/* Lab / facilities */
+.section--bg-lab {
+  background-image:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 64, 175, 0.82)),
+    url("/media/bg-lab.jpg");
+}
+
+/* Events / activities */
+.section--bg-events {
+  background-image:
+    radial-gradient(circle at 10% 0, rgba(244, 63, 94, 0.18), transparent 55%),
+    radial-gradient(circle at 100% 80%, rgba(52, 211, 153, 0.16), transparent 55%),
+    url("/media/bg-events.jpg");
+}
+
+/* Optional: a variant with softer overlay (for People, News strips) */
+.section--bg-soft {
+  color: #0f172a;
+  background-image: radial-gradient(circle at 0 0, rgba(37, 99, 235, 0.08), transparent 55%);
+}
+
+.section--bg-soft::before {
+  background: linear-gradient(
+    135deg,
+    rgba(248, 250, 252, 0.9),
+    rgba(241, 245, 249, 0.98)
+  );
+  mix-blend-mode: normal;
+}
+
+@keyframes bg-float {
+  0% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 52% 48%;
+  }
+}
+
+/* Apply gentle float to selected sections */
+.section--bg-tech,
+.section--bg-lab,
+.section--bg-events {
+  animation: bg-float 18s ease-in-out infinite alternate;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .section--bg-tech,
+  .section--bg-lab,
+  .section--bg-events {
+    animation: none;
+    background-position: center;
+  }
+}
+
+
+/* ================================
+   SCROLL REVEAL SYSTEM
+   ================================ */
+
+/* Base hidden state for revealable sections/blocks */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 360ms ease-out,
+    transform 360ms ease-out;
+}
+
+/* When visible */
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: small variant for cards/rows */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 320ms ease-out,
+    transform 320ms ease-out;
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion: just show everything */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-section,
+  .reveal-section.is-visible,
+  .reveal-item,
+  .reveal-item.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

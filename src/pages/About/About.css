@@ -1,0 +1,320 @@
+/* ================================
+   OVERALL
+   ================================ */
+
+.about-page {
+  min-height: 100vh;
+}
+
+/* ================================
+   HERO
+   ================================ */
+
+.about-hero {
+  position: relative;
+  padding-top: 3.4rem;
+  padding-bottom: 3.4rem;
+  color: #f9fafb;
+}
+
+.about-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+  gap: 2.4rem;
+  align-items: center;
+}
+
+.about-hero-eyebrow {
+  color: rgba(248, 250, 252, 0.82);
+}
+
+.about-hero-title {
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin-bottom: 0.7rem;
+}
+
+.about-hero-subtitle {
+  font-size: 0.97rem;
+  max-width: 42rem;
+  opacity: 0.95;
+  margin-bottom: 0.6rem;
+}
+
+.about-hero-subtitle.secondary {
+  opacity: 0.9;
+}
+
+.about-hero-subtitle strong {
+  font-weight: 600;
+}
+
+.about-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.3rem;
+}
+
+/* HERO INFO CARD */
+
+.about-hero-info {
+  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.18), transparent),
+    rgba(15, 23, 42, 0.96);
+  color: #e5e7eb;
+  padding: 1.3rem 1.2rem 1.1rem;
+}
+
+.about-hero-info-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.about-hero-info-text {
+  margin: 0 0 0.7rem;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.about-hero-bullets {
+  margin: 0 0 0.6rem;
+  padding-left: 1.1rem;
+  font-size: 0.86rem;
+  opacity: 0.92;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.about-hero-info-link {
+  font-size: 0.86rem;
+}
+
+/* ================================
+   MAIN
+   ================================ */
+
+.about-main {
+  padding-top: 2.4rem;
+}
+
+.about-block {
+  padding: 2.2rem 0 1.8rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.about-block-band {
+  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.07), transparent),
+    var(--color-surface, #ffffff);
+  border-radius: 1.1rem;
+  padding: 2.2rem 1.4rem 1.9rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+}
+
+.about-block-soft {
+  background-color: var(--color-surface-alt, #f7f8fb);
+  border-radius: 1rem;
+  padding: 2.2rem 1.4rem 1.9rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.about-block-header {
+  margin-bottom: 1.4rem;
+}
+
+.about-block-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0 0 0.35rem;
+}
+
+.about-block-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 40rem;
+}
+
+/* ================================
+   MISSION / VISION / VALUES
+   ================================ */
+
+.about-mvv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+.about-mvv-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+.about-mvv-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.about-mvv-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  display: grid;
+  gap: 0.3rem;
+}
+
+/* ================================
+   ORIGIN / TIMELINE
+   ================================ */
+
+.about-timeline {
+  border-left: 2px solid rgba(209, 213, 219, 0.95);
+  padding-left: 1.3rem;
+  display: grid;
+  gap: 1.3rem;
+}
+
+.about-timeline-item {
+  position: relative;
+}
+
+.about-timeline-dot {
+  position: absolute;
+  left: -1.05rem;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.15);
+}
+
+.about-timeline-content h3 {
+  margin: 0 0 0.3rem;
+  font-size: 0.98rem;
+  color: var(--color-primary);
+}
+
+.about-timeline-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* ================================
+   GOVERNANCE & STRUCTURE
+   ================================ */
+
+.about-structure-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+.about-structure-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+.about-structure-card p {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.about-structure-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  display: grid;
+  gap: 0.3rem;
+}
+
+.about-structure-note {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.about-structure-link {
+  margin-top: 0.3rem;
+  font-size: 0.86rem;
+}
+
+/* ================================
+   HOW WE WORK
+   ================================ */
+
+.about-how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+.about-how-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+.about-how-card p {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.about-how-link {
+  margin-top: 0.2rem;
+  font-size: 0.86rem;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 1024px) {
+  .about-hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-hero-info {
+    order: -1;
+  }
+
+  .about-mvv-grid,
+  .about-structure-grid,
+  .about-how-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding-top: 3rem;
+    padding-bottom: 2.6rem;
+  }
+
+  .about-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .about-mvv-grid,
+  .about-structure-grid,
+  .about-how-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-timeline {
+    padding-left: 1rem;
+  }
+}
