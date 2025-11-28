@@ -13,92 +13,81 @@ const Facilities = () => {
 
   return (
     <div className="facilities-page" id="facilities">
-      {/* HERO */}
-      <section className="section section--bg-lab facilities-hero">
-        <div className="container facilities-hero-layout">
+      {/* HERO — simplified inline hero using /media image */}
+      <section className="section facilities-hero facilities-hero-simple" role="banner" aria-label="ACT Centre facilities hero">
+        <img
+          className="facilities-hero-bg"
+          src="/media/hero-campus-1600.jpg"
+          alt="Labs and spaces at ACT Centre"
+          loading="eager"
+          onError={(e) => {
+            const cur = e.currentTarget.src;
+            if (cur.endsWith("hero-facilities-1600.jpg")) {
+              e.currentTarget.src = "/media/hero-facilities-1600.JPG";
+            }
+          }}
+        />
+
+        <div className="facilities-hero-overlay" aria-hidden />
+
+        <div className="container facilities-hero-inner">
           <div
             ref={heroTextRef}
-            className={`facilities-hero-text reveal-section ${
-              heroTextVisible ? "is-visible" : ""
-            }`}
+            className={`facilities-hero-text reveal-section ${heroTextVisible ? "is-visible" : ""}`}
           >
-            <p className="section-eyebrow facilities-hero-eyebrow">
-              Labs &amp; Spaces
-            </p>
+            <p className="section-eyebrow facilities-hero-eyebrow">Labs &amp; Spaces</p>
             <h1 className="facilities-hero-title">Facilities at ACT Centre</h1>
             <p className="facilities-hero-subtitle">
               ACT provides shared labs, studios, and testbeds where{" "}
-              <strong>engineering</strong>,{" "}
-              <strong>cognitive science</strong>,{" "}
-              <strong>arts &amp; humanities</strong>, and{" "}
-              <strong>social sciences</strong> can meet. Spaces are designed for
-              both controlled experiments and open-ended exploration.
+              <strong>engineering</strong>, <strong>cognitive science</strong>,{" "}
+              <strong>arts &amp; humanities</strong>, and <strong>social sciences</strong>{" "}
+              can meet. Spaces are designed for both controlled experiments and open exploration.
             </p>
             <p className="facilities-hero-subtitle secondary">
-              This page gives an overview of core labs, key equipment clusters,
-              and how to book and use the facilities.
+              Overview of core labs, key equipment clusters, and how to book and use the spaces.
             </p>
 
             <div className="facilities-hero-ctas">
-              <a href="#labs" className="btn btn-primary">
-                Explore Labs &amp; Testbeds
-              </a>
-              <a href="#booking" className="btn btn-secondary">
-                View Booking &amp; Usage
-              </a>
+              <a href="#labs" className="btn btn-primary">Explore Labs &amp; Testbeds</a>
+              <a href="#booking" className="btn btn-secondary">View Booking &amp; Usage</a>
             </div>
 
             <div className="facilities-hero-quick-links">
-              <a href="#equipment" className="facilities-chip">
-                Equipment clusters
-              </a>
-              <a href="#support" className="facilities-chip">
-                Technical support
-              </a>
+              <a href="#equipment" className="facilities-chip">Equipment clusters</a>
+              <a href="#support" className="facilities-chip">Technical support</a>
             </div>
           </div>
 
           <aside
             ref={heroMediaRef}
-            className={`facilities-hero-media card reveal-section ${
-              heroMediaVisible ? "is-visible" : ""
-            }`}
+            className={`facilities-hero-media card reveal-section ${heroMediaVisible ? "is-visible" : ""}`}
+            aria-hidden
           >
             <div className="facilities-hero-media-header">
               <p className="facilities-hero-media-label">A place to experiment</p>
               <p className="facilities-hero-media-caption">
-                Spaces are configured to move seamlessly between experiments,
-                prototyping, teaching, and public-facing demos.
+                Spaces configured to move between experiments, prototyping, teaching, and public demos.
               </p>
             </div>
 
             <div className="facilities-hero-badges">
               <div className="facilities-hero-badge">
-                <span className="facilities-hero-badge-label">
-                  Cognitive &amp; Behaviour Labs
-                </span>
+                <span className="facilities-hero-badge-label">Cognitive &amp; Behaviour Labs</span>
               </div>
               <div className="facilities-hero-badge">
-                <span className="facilities-hero-badge-label">
-                  Data &amp; Sensing Testbeds
-                </span>
+                <span className="facilities-hero-badge-label">Data &amp; Sensing Testbeds</span>
               </div>
               <div className="facilities-hero-badge">
-                <span className="facilities-hero-badge-label">
-                  Learning &amp; Interaction Studios
-                </span>
+                <span className="facilities-hero-badge-label">Learning &amp; Interaction Studios</span>
               </div>
             </div>
 
             <div className="facilities-hero-media-footer">
               <p>
-                Access is coordinated via ACT, with clear booking rules and
-                shared norms to respect experiments, participants, and equipment.
+                Access is coordinated via ACT, with clear booking rules and shared norms to protect experiments and participants.
               </p>
               <p className="facilities-hero-media-link">
-                <Link to="/processes" className="link-animated">
-                  See how lab use fits into ACT processes
-                </Link>
+                <Link to="/processes" className="link-animated">See how lab use fits into ACT processes</Link>
               </p>
             </div>
           </aside>
@@ -109,20 +98,11 @@ const Facilities = () => {
       <section className="section facilities-main">
         <div className="container">
           {/* LAB STRIPS */}
-          <section
-            id="labs"
-            ref={labsRef}
-            className={`facilities-block facilities-block-band reveal-section ${
-              labsVisible ? "is-visible" : ""
-            }`}
-          >
+          <section id="labs" ref={labsRef} className={`facilities-block facilities-block-band reveal-section ${labsVisible ? "is-visible" : ""}`}>
             <div className="facilities-block-header">
-              <h2 className="facilities-block-title">
-                Core Labs &amp; Testbeds
-              </h2>
+              <h2 className="facilities-block-title">Core Labs &amp; Testbeds</h2>
               <p className="facilities-block-subtitle">
-                Each lab is shared across projects and disciplines. The exact
-                naming and locations can be updated as spaces are finalised.
+                Each lab is shared across projects and disciplines. Naming and locations can be updated as spaces are finalised.
               </p>
             </div>
 
@@ -131,9 +111,7 @@ const Facilities = () => {
                 <div className="facilities-lab-main card">
                   <h3>Cognition &amp; Behaviour Lab</h3>
                   <p>
-                    A quiet, configurable space for behavioural experiments,
-                    cognitive tasks, interviews, and small-group studies with
-                    participants.
+                    Configurable space for behavioural experiments, cognitive tasks, interviews, and small-group studies.
                   </p>
                   <ul>
                     <li>Workstations for experiment control &amp; logging</li>
@@ -143,15 +121,9 @@ const Facilities = () => {
                 </div>
                 <div className="facilities-lab-meta card facilities-lab-meta--glass">
                   <h4>Typical use</h4>
-                  <p>
-                    User studies, mental workload assessments, interaction
-                    studies, and small-scale pilots before scaling to larger
-                    populations.
-                  </p>
+                  <p>User studies, workload assessments, interaction studies, and pilots.</p>
                   <p className="facilities-lab-meta-link">
-                    <Link to="/research" className="link-animated">
-                      See projects that use this lab
-                    </Link>
+                    <Link to="/research" className="link-animated">See projects that use this lab</Link>
                   </p>
                 </div>
               </article>
@@ -159,11 +131,7 @@ const Facilities = () => {
               <article className="facilities-lab-strip">
                 <div className="facilities-lab-main card">
                   <h3>Data &amp; Sensing Testbed</h3>
-                  <p>
-                    Infrastructure for deploying sensors, collecting data, and
-                    running prototypes that interface with the campus or
-                    controlled environments.
-                  </p>
+                  <p>Infrastructure for deploying sensors, collecting data, and running campus-integrated prototypes.</p>
                   <ul>
                     <li>Environmental &amp; activity sensing (to be detailed)</li>
                     <li>Edge devices and gateways for streaming data</li>
@@ -172,21 +140,14 @@ const Facilities = () => {
                 </div>
                 <div className="facilities-lab-meta card facilities-lab-meta--glass">
                   <h4>Typical use</h4>
-                  <p>
-                    Energy dashboards, mobility and environment monitoring,
-                    context-aware applications, and data-driven interventions.
-                  </p>
+                  <p>Energy dashboards, mobility monitoring, context-aware applications.</p>
                 </div>
               </article>
 
               <article className="facilities-lab-strip">
                 <div className="facilities-lab-main card">
                   <h3>Learning &amp; Interaction Studio</h3>
-                  <p>
-                    A flexible studio for running learning experiments,
-                    workshops, serious games, and multi-modal interaction
-                    sessions.
-                  </p>
+                  <p>Flexible studio for learning experiments, workshops, games, and multi-modal interaction sessions.</p>
                   <ul>
                     <li>Large displays / projection &amp; audio setup</li>
                     <li>Reconfigurable seating and collaboration zones</li>
@@ -195,31 +156,18 @@ const Facilities = () => {
                 </div>
                 <div className="facilities-lab-meta card facilities-lab-meta--glass">
                   <h4>Typical use</h4>
-                  <p>
-                    Classroom studies, game-based learning pilots, design
-                    studios, and public demos of ACT projects.
-                  </p>
+                  <p>Classroom studies, game-based learning pilots, design studios, and public demos.</p>
                 </div>
               </article>
             </div>
           </section>
 
           {/* EQUIPMENT CLUSTERS */}
-          <section
-            id="equipment"
-            ref={equipRef}
-            className={`facilities-block facilities-block-soft reveal-section ${
-              equipVisible ? "is-visible" : ""
-            }`}
-          >
+          <section id="equipment" ref={equipRef} className={`facilities-block facilities-block-soft reveal-section ${equipVisible ? "is-visible" : ""}`}>
             <div className="facilities-block-header">
-              <h2 className="facilities-block-title">
-                Equipment &amp; Capabilities (Indicative)
-              </h2>
+              <h2 className="facilities-block-title">Equipment &amp; Capabilities (Indicative)</h2>
               <p className="facilities-block-subtitle">
-                Once procurement is complete, this section can be expanded into
-                a detailed catalogue. For now, it communicates the flavour of
-                capabilities ACT aims to support.
+                When procurement completes this will become a searchable catalogue. For now it's indicative.
               </p>
             </div>
 
@@ -228,7 +176,7 @@ const Facilities = () => {
                 <h3>Human Studies &amp; Sensing</h3>
                 <ul>
                   <li>Workstations for stimulus presentation &amp; logging</li>
-                  <li>Audio / video capture setups with consent workflows</li>
+                  <li>Audio / video capture with consent workflows</li>
                   <li>Physiological / wearable sensors (to be updated)</li>
                   <li>Secure participant data handling practices</li>
                 </ul>
@@ -240,128 +188,73 @@ const Facilities = () => {
                   <li>Interactive displays, tablets, and touch interfaces</li>
                   <li>Rapid prototyping kits &amp; microcontroller platforms</li>
                   <li>VR/AR or immersive setups (as added)</li>
-                  <li>Support for quick iteration and testing</li>
                 </ul>
               </article>
 
               <article className="facilities-equipment-card card">
                 <h3>Data &amp; Computing</h3>
                 <ul>
-                  <li>Dedicated workstations for data analysis &amp; modelling</li>
+                  <li>Workstations for data analysis &amp; modelling</li>
                   <li>Secure storage for project datasets</li>
-                  <li>Access points to institute computing resources</li>
-                  <li>Support for reproducible workflows</li>
+                  <li>Access to institute computing resources</li>
                 </ul>
               </article>
             </div>
           </section>
 
           {/* BOOKING & USAGE */}
-          <section
-            id="booking"
-            ref={bookingRef}
-            className={`facilities-block reveal-section ${
-              bookingVisible ? "is-visible" : ""
-            }`}
-          >
+          <section id="booking" ref={bookingRef} className={`facilities-block reveal-section ${bookingVisible ? "is-visible" : ""}`}>
             <div className="facilities-block-header">
               <h2 className="facilities-block-title">Booking &amp; Usage</h2>
-              <p className="facilities-block-subtitle">
-                The detailed booking and usage rules will be finalised along
-                with infrastructure and project processes. This section outlines
-                the intended flow.
-              </p>
+              <p className="facilities-block-subtitle">Intended booking flow and norms (indicative).</p>
             </div>
 
             <div className="facilities-booking-grid">
               <article className="facilities-booking-card card">
                 <h3>Who Can Book?</h3>
                 <ul>
-                  <li>
-                    PIs and co-PIs of approved ACT projects (and their
-                    authorised team members).
-                  </li>
-                  <li>
-                    Students and faculty using the space for ACT-endorsed
-                    pilots, workshops, or teaching experiments.
-                  </li>
-                  <li>
-                    Visitors and collaborators under prior arrangement with ACT.
-                  </li>
+                  <li>PIs and authorised team members of approved ACT projects.</li>
+                  <li>Students &amp; faculty for ACT-endorsed pilots and teaching.</li>
+                  <li>Visitors and collaborators by arrangement with ACT.</li>
                 </ul>
               </article>
 
               <article className="facilities-booking-card card">
                 <h3>How Booking Works (Indicative)</h3>
                 <ol>
-                  <li>Check lab availability via ACT calendar / system.</li>
-                  <li>
-                    Submit a brief booking request with purpose, time, and any
-                    special requirements.
-                  </li>
-                  <li>
-                    Receive confirmation and guidelines from the ACT office or
-                    lab coordinator.
-                  </li>
-                  <li>
-                    After use, log activity, incidents (if any), and basic
-                    statistics as required.
-                  </li>
+                  <li>Check availability via ACT calendar / system.</li>
+                  <li>Submit brief request with purpose, time, and requirements.</li>
+                  <li>Receive confirmation and lab guidelines.</li>
+                  <li>Log activity and incidents after use.</li>
                 </ol>
               </article>
 
               <article className="facilities-booking-card card">
                 <h3>Norms &amp; Responsibilities</h3>
                 <ul>
-                  <li>
-                    Respect ongoing experiments and confidentiality of
-                    participants.
-                  </li>
-                  <li>Follow safe handling practices for all equipment.</li>
-                  <li>
-                    Restore furniture and layout to agreed configurations after
-                    use.
-                  </li>
-                  <li>
-                    Report any issues to ACT staff promptly so they can be
-                    addressed.
-                  </li>
+                  <li>Respect ongoing experiments and participant confidentiality.</li>
+                  <li>Follow safe handling practices for equipment.</li>
+                  <li>Restore furniture/layout after use.</li>
+                  <li>Report issues promptly to ACT staff.</li>
                 </ul>
               </article>
             </div>
           </section>
 
           {/* SUPPORT & CONTACT */}
-          <section
-            id="support"
-            ref={supportRef}
-            className={`facilities-block facilities-contact-block reveal-section ${
-              supportVisible ? "is-visible" : ""
-            }`}
-          >
+          <section id="support" ref={supportRef} className={`facilities-block facilities-contact-block reveal-section ${supportVisible ? "is-visible" : ""}`}>
             <div className="facilities-contact-card card">
               <h2>Technical Support &amp; Queries</h2>
               <p>
-                For questions related to facility access, equipment, or
-                technical feasibility of a proposed study, please contact the
-                ACT Centre office or designated lab coordinators.
+                For access, equipment, or feasibility queries, contact ACT Centre office or lab coordinators.
               </p>
               <ul>
-                <li>
-                  Booking &amp; scheduling: <span>To be updated</span>
-                </li>
-                <li>
-                  Technical support: <span>To be updated</span>
-                </li>
-                <li>
-                  Safety / ethics concerns: <span>To be updated</span>
-                </li>
+                <li>Booking &amp; scheduling: <span>To be updated</span></li>
+                <li>Technical support: <span>To be updated</span></li>
+                <li>Safety / ethics concerns: <span>To be updated</span></li>
               </ul>
               <p className="facilities-contact-note">
-                When reaching out, please mention your{" "}
-                <strong>project title</strong>,{" "}
-                <strong>role (student / faculty / collaborator)</strong>, and
-                any deadlines related to your study or pilot.
+                When contacting, mention <strong>project title</strong>, <strong>role</strong>, and relevant deadlines.
               </p>
             </div>
           </section>

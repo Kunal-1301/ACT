@@ -18,11 +18,21 @@ const Navbar = () => {
         {/* Left: Logo */}
         <div className="navbar-left">
           <NavLink to="/" className="navbar-logo" onClick={closeMenu} end>
-            <div className="logo-mark">ACT</div>
+            <img
+              src="/media/act-logo.png"
+              alt="ACT Centre Logo"
+              className="logo-img"
+              onError={(e) => {
+                if (e.currentTarget.src.endsWith("act-logo.png")) {
+                  e.currentTarget.src = "/media/act-logo.jpg"; // fallback
+                }
+              }}
+            />
+
             <div className="logo-text">
               <span className="logo-title">ACT Centre</span>
               <span className="logo-subtitle">
-                Advanced Communication &amp; Technology · TIET
+                Applied Cognitive Technologies · TIET
               </span>
             </div>
           </NavLink>

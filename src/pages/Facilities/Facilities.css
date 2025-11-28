@@ -4,65 +4,93 @@
 
 .facilities-page {
   min-height: 100vh;
+  color: var(--color-text, #0f172a);
 }
 
 /* ================================
-   HERO
+   HERO — inline hero (image + overlay)
    ================================ */
 
-.facilities-hero {
+.facilities-hero-simple {
   position: relative;
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
-  color: #f9fafb;
+  width: 100%;
+  min-height: 68vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 0;
 }
 
-.facilities-hero-layout {
+.facilities-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  display: block;
+}
+
+/* overlay to keep text readable */
+.facilities-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 26, 63, 0.58) 0%, rgba(10, 26, 63, 0.55) 100%);
+  z-index: 1;
+}
+
+/* inner content grid */
+.facilities-hero-inner {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
   gap: 2.4rem;
   align-items: center;
+  padding: 4.25rem 1rem;
 }
 
+/* left text copy */
+.facilities-hero-text { color: #fff; }
+
 .facilities-hero-eyebrow {
-  color: rgba(248, 250, 252, 0.82);
+  color: rgba(248, 250, 252, 0.9);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.4rem;
 }
 
 .facilities-hero-title {
-  font-size: 2.1rem;
-  line-height: 1.1;
-  margin-bottom: 0.7rem;
-}
-
-.facilities-hero-subtitle {
-  font-size: 0.97rem;
-  max-width: 42rem;
-  opacity: 0.95;
-  margin-bottom: 0.6rem;
-}
-
-.facilities-hero-subtitle.secondary {
-  opacity: 0.9;
-}
-
-.facilities-hero-subtitle strong {
+  font-size: clamp(1.8rem, 3vw + 1.2rem, 2.4rem);
+  line-height: 1.12;
+  margin-bottom: 0.8rem;
   font-weight: 600;
 }
 
+.facilities-hero-subtitle {
+  font-size: 0.98rem;
+  max-width: 42rem;
+  opacity: 0.94;
+  margin-bottom: 0.6rem;
+}
+
+.facilities-hero-subtitle.secondary { opacity: 0.9; }
+
 .facilities-hero-ctas {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin: 1.3rem 0 0.9rem;
+  gap: 0.85rem;
+  margin-top: 0.9rem;
 }
 
 .facilities-hero-quick-links {
   display: flex;
-  flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 0.6rem;
 }
 
+/* small chips */
 .facilities-chip {
   display: inline-flex;
   align-items: center;
@@ -70,38 +98,23 @@
   padding: 0.28rem 0.8rem;
   border-radius: 999px;
   font-size: 0.78rem;
-  border: 1px solid rgba(248, 250, 252, 0.4);
-  background-color: rgba(15, 23, 42, 0.2);
+  border: 1px solid rgba(248, 250, 252, 0.35);
+  background: rgba(15, 23, 42, 0.22);
   color: #e5e7eb;
   text-decoration: none;
-  backdrop-filter: blur(6px);
-  transition:
-    background-color 160ms ease-out,
-    transform 160ms ease-out,
-    box-shadow 160ms ease-out;
-}
-
-.facilities-chip:hover {
-  transform: translateY(-1px);
-  background-color: rgba(15, 23, 42, 0.32);
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.28);
 }
 
 /* HERO MEDIA CARD */
-
 .facilities-hero-media {
-  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.18), transparent),
-    rgba(15, 23, 42, 0.96);
+  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.14), transparent), rgba(15, 23, 42, 0.94);
   color: #e5e7eb;
-  padding: 1.3rem 1.2rem 1.1rem;
-}
-
-.facilities-hero-media-header {
-  margin-bottom: 0.8rem;
+  padding: 1.3rem 1.2rem 1.2rem;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .facilities-hero-media-label {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   opacity: 0.82;
@@ -109,93 +122,64 @@
 }
 
 .facilities-hero-media-caption {
-  font-size: 0.9rem;
-  opacity: 0.96;
+  font-size: 0.88rem;
+  opacity: 0.92;
 }
 
+/* badges inside media */
 .facilities-hero-badges {
   display: grid;
-  gap: 0.4rem;
-  margin: 0.9rem 0 0.9rem;
+  gap: 0.45rem;
+  margin: 0.9rem 0 1rem;
 }
 
 .facilities-hero-badge {
   border-radius: 0.7rem;
   padding: 0.42rem 0.6rem;
-  border: 1px solid rgba(148, 163, 184, 0.55);
-  background-color: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.48);
+  background: rgba(15, 23, 42, 0.88);
 }
 
 .facilities-hero-badge-label {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   opacity: 0.95;
+  display: block;
 }
 
+/* media footer */
 .facilities-hero-media-footer p {
   font-size: 0.86rem;
   opacity: 0.94;
 }
 
-.facilities-hero-media-link {
-  margin-top: 0.3rem;
-}
+.facilities-hero-media-link { margin-top: 0.3rem; }
 
 /* ================================
    MAIN
    ================================ */
 
-.facilities-main {
-  padding-top: 2.4rem;
-}
+.facilities-main { padding-top: 2.4rem; }
 
 .facilities-block {
   padding: 2.2rem 0 1.8rem;
   border-top: 1px solid rgba(226, 232, 240, 0.9);
 }
 
-.facilities-block-band {
-  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.07), transparent),
-    var(--color-surface, #ffffff);
+.facilities-block-band, .facilities-block-soft {
   border-radius: 1.1rem;
   padding: 2.2rem 1.4rem 1.9rem;
   margin-bottom: 0.8rem;
   border: 1px solid rgba(226, 232, 240, 0.95);
 }
 
-.facilities-block-soft {
-  background-color: var(--color-surface-alt, #f7f8fb);
-  border-radius: 1rem;
-  padding: 2.2rem 1.4rem 1.9rem;
-  margin-bottom: 0.8rem;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-}
+.facilities-block-soft { background: var(--color-surface-alt, #f7f8fb); border: 1px solid rgba(226,232,240,0.9); }
 
-.facilities-block-header {
-  margin-bottom: 1.4rem;
-}
+.facilities-block-header { margin-bottom: 1.4rem; }
+.facilities-block-title { font-size: 1.25rem; font-weight: 600; color: var(--color-primary); margin: 0 0 0.35rem; }
+.facilities-block-subtitle { font-size: 0.9rem; color: var(--color-text-muted); max-width: 40rem; }
 
-.facilities-block-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  margin: 0 0 0.35rem;
-}
-
-.facilities-block-subtitle {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  margin: 0;
-  max-width: 40rem;
-}
-
-/* ================================
-   LAB STRIPS
-   ================================ */
-
-.facilities-lab-strips {
-  display: grid;
-  gap: 1.6rem;
-}
+/* LAB STRIPS */
+.facilities-lab-strips { display: grid; gap: 1.6rem; }
 
 .facilities-lab-strip {
   display: grid;
@@ -204,196 +188,58 @@
   align-items: stretch;
 }
 
-.facilities-lab-main h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1.02rem;
-  color: var(--color-primary);
-}
+.facilities-lab-main h3 { margin: 0 0 0.4rem; font-size: 1.02rem; color: var(--color-primary); }
+.facilities-lab-main p, .facilities-lab-main ul { margin: 0 0 0.5rem; font-size: 0.9rem; color: var(--color-text-muted); }
+.facilities-lab-main ul { padding-left: 1.1rem; display: grid; gap: 0.25rem; }
 
-.facilities-lab-main p {
-  margin: 0 0 0.5rem;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
+.facilities-lab-meta { font-size: 0.88rem; color: var(--color-text-muted); padding: 1rem; border-radius: 12px; }
+.facilities-lab-meta h4 { margin: 0 0 0.3rem; font-size: 0.95rem; color: var(--color-primary); }
+.facilities-lab-meta--glass { background: linear-gradient(135deg, rgba(148,163,184,0.18), rgba(148,163,184,0.05)); backdrop-filter: blur(8px); }
 
-.facilities-lab-main ul {
-  margin: 0;
-  padding-left: 1.1rem;
-  font-size: 0.88rem;
-  color: var(--color-text-muted);
-  display: grid;
-  gap: 0.25rem;
-}
-
-.facilities-lab-meta {
-  font-size: 0.88rem;
-  color: var(--color-text-muted);
-}
-
-.facilities-lab-meta h4 {
-  margin: 0 0 0.3rem;
-  font-size: 0.95rem;
-  color: var(--color-primary);
-}
-
-.facilities-lab-meta p {
-  margin: 0 0 0.4rem;
-}
-
-.facilities-lab-meta--glass {
-  background: linear-gradient(
-      135deg,
-      rgba(148, 163, 184, 0.2),
-      rgba(148, 163, 184, 0.05)
-    ),
-    #ffffff;
-  backdrop-filter: blur(8px);
-}
-
-.facilities-lab-meta-link {
-  margin-top: 0.2rem;
-  font-size: 0.86rem;
-}
-
-/* ================================
-   EQUIPMENT
-   ================================ */
-
+/* EQUIPMENT */
 .facilities-equipment-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.3rem;
 }
+.facilities-equipment-card h3 { margin: 0 0 0.4rem; font-size: 1rem; color: var(--color-primary); }
+.facilities-equipment-card ul { padding-left: 1.1rem; display: grid; gap: 0.25rem; }
 
-.facilities-equipment-card h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1rem;
-  color: var(--color-primary);
-}
-
-.facilities-equipment-card ul {
-  margin: 0;
-  padding-left: 1.1rem;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  display: grid;
-  gap: 0.25rem;
-}
-
-/* ================================
-   BOOKING & USAGE
-   ================================ */
-
+/* BOOKING */
 .facilities-booking-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.3rem;
 }
+.facilities-booking-card h3 { margin: 0 0 0.4rem; font-size: 1rem; color: var(--color-primary); }
+.facilities-booking-card ul, .facilities-booking-card ol { padding-left: 1.1rem; display: grid; gap: 0.25rem; }
 
-.facilities-booking-card h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1rem;
-  color: var(--color-primary);
-}
-
-.facilities-booking-card ul {
-  margin: 0;
-  padding-left: 1.1rem;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  display: grid;
-  gap: 0.25rem;
-}
-
-.facilities-booking-card ol {
-  margin: 0;
-  padding-left: 1.1rem;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  display: grid;
-  gap: 0.25rem;
-}
+/* CONTACT */
+.facilities-contact-card { border-radius: 1rem; padding: 1.5rem 1.3rem 1.4rem; background: linear-gradient(135deg, rgba(11,46,89,0.97), rgba(30,75,130,0.95)), #0f172a; color: #fff; }
+.facilities-contact-card h2 { margin: 0 0 0.7rem; font-size: 1.15rem; }
+.facilities-contact-card p { margin: 0 0 0.7rem; font-size: 0.9rem; }
+.facilities-contact-note { font-size: 0.84rem; opacity: 0.96; }
 
 /* ================================
-   SUPPORT & CONTACT
+   ANIMATIONS & REVEAL
    ================================ */
 
-.facilities-contact-block {
-  padding-bottom: 0;
-}
-
-.facilities-contact-card {
-  border-radius: 1rem;
-  padding: 1.5rem 1.3rem 1.4rem;
-  background: linear-gradient(
-      135deg,
-      rgba(11, 46, 89, 0.97),
-      rgba(30, 75, 130, 0.95)
-    ),
-    #0f172a;
-  color: #ffffff;
-}
-
-.facilities-contact-card h2 {
-  margin: 0 0 0.7rem;
-  font-size: 1.15rem;
-}
-
-.facilities-contact-card p {
-  margin: 0 0 0.7rem;
-  font-size: 0.9rem;
-}
-
-.facilities-contact-card ul {
-  margin: 0 0 0.6rem;
-  padding-left: 1.1rem;
-  font-size: 0.86rem;
-}
-
-.facilities-contact-card span {
-  font-weight: 500;
-}
-
-.facilities-contact-note {
-  font-size: 0.84rem;
-  opacity: 0.96;
-}
+.reveal-section { opacity: 0; transform: translateY(18px); transition: all 420ms ease; }
+.reveal-section.is-visible { opacity: 1; transform: translateY(0); }
 
 /* ================================
    RESPONSIVE
    ================================ */
 
 @media (max-width: 1024px) {
-  .facilities-hero-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .facilities-hero-media {
-    order: -1;
-  }
-
-  .facilities-lab-strip {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .facilities-equipment-grid,
-  .facilities-booking-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .facilities-hero-inner { grid-template-columns: minmax(0, 1fr); padding: 3.2rem 1rem; }
+  .facilities-hero-media { order: -1; }
+  .facilities-lab-strip { grid-template-columns: minmax(0, 1fr); }
+  .facilities-equipment-grid, .facilities-booking-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
-  .facilities-hero {
-    padding-top: 3rem;
-    padding-bottom: 2.6rem;
-  }
-
-  .facilities-hero-title {
-    font-size: 1.8rem;
-  }
-
-  .facilities-equipment-grid,
-  .facilities-booking-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  .facilities-hero { padding-top: 3rem; padding-bottom: 2.6rem; }
+  .facilities-hero-title { font-size: 1.8rem; }
+  .facilities-equipment-grid, .facilities-booking-grid { grid-template-columns: minmax(0, 1fr); }
 }

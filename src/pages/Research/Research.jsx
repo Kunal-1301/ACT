@@ -5,7 +5,6 @@ import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 const Research = () => {
   const { ref: heroTextRef, isVisible: heroTextVisible } = useRevealOnScroll();
-  const { ref: heroMediaRef, isVisible: heroMediaVisible } = useRevealOnScroll();
   const { ref: themesRef, isVisible: themesVisible } = useRevealOnScroll();
   const { ref: areasRef, isVisible: areasVisible } = useRevealOnScroll();
   const { ref: ongoingRef, isVisible: ongoingVisible } = useRevealOnScroll();
@@ -16,9 +15,26 @@ const Research = () => {
 
   return (
     <div className="research-page" id="research">
-      {/* HERO – similar feel to Home hero */}
-      <section className="section section--bg-tech research-hero">
-        <div className="container research-hero-layout">
+      {/* HERO */}
+      <section className="section research-hero research-hero-simple">
+        {/* HERO BACKGROUND IMG */}
+        <img
+          src="/media/hero-campus-1600.jpg"
+          alt="ACT Centre campus"
+          className="research-hero-bg"
+          loading="eager"
+          onError={(e) => {
+            if (e.currentTarget.src.endsWith(".jpg")) {
+              e.currentTarget.src = "/media/hero-campus-1600.JPG";
+            }
+          }}
+        />
+
+        {/* OVERLAY */}
+        <div className="research-hero-overlay" aria-hidden />
+
+        <div className="container research-hero-inner">
+          {/* LEFT TEXT */}
           <div
             ref={heroTextRef}
             className={`research-hero-text reveal-section ${
@@ -26,102 +42,47 @@ const Research = () => {
             }`}
           >
             <p className="section-eyebrow research-hero-eyebrow">Research</p>
-            <h1 className="research-hero-title">Research at ACT Centre</h1>
+
+            <h1 className="research-hero-title">
+              Research at the ACT Centre
+            </h1>
+
             <p className="research-hero-subtitle">
-              ACT Centre connects engineering, cognitive science, arts,
-              humanities, and social sciences to work on{" "}
-              <strong>health &amp; well-being</strong>,{" "}
-              <strong>cognition</strong>,{" "}
-              <strong>energy &amp; environment</strong>, and{" "}
-              <strong>learning &amp; pedagogy</strong>. This page is your entry
-              point into ACT themes, ideas, projects, and collaborations.
+              ACT connects <strong>engineering</strong>,{" "}
+              <strong>cognitive science</strong>,{" "}
+              <strong>arts &amp; humanities</strong> and{" "}
+              <strong>social sciences</strong> — tackling real problems around
+              health, cognition, learning and environment.
             </p>
 
             <div className="research-hero-ctas">
               <Link to="/funding" className="btn btn-primary">
-                Explore Funding &amp; Calls
+                Explore Funding Calls
               </Link>
               <Link to="/resources" className="btn btn-secondary">
-                View Templates &amp; Forms
+                Proposal Templates
               </Link>
             </div>
 
-            {/* Quick nav chips inside hero */}
+            {/* QUICK NAV */}
             <div className="research-quick-nav">
-              <a href="#themes" className="research-chip">
-                Research Themes
-              </a>
-              <a href="#areas" className="research-chip">
-                Idea Clusters
-              </a>
-              <a href="#projects-ongoing" className="research-chip">
-                Ongoing Projects
-              </a>
-              <a href="#projects-completed" className="research-chip">
-                Completed Projects
-              </a>
-              <a href="#publications" className="research-chip">
-                Publications
-              </a>
-              <a href="#collaborations" className="research-chip">
-                Collaborations
-              </a>
-              <a href="#opportunities" className="research-chip">
-                Opportunities
-              </a>
+              <a href="#themes" className="research-chip">Themes</a>
+              <a href="#areas" className="research-chip">Idea Clusters</a>
+              <a href="#projects-ongoing" className="research-chip">Ongoing</a>
+              <a href="#projects-completed" className="research-chip">Completed</a>
+              <a href="#publications" className="research-chip">Publications</a>
+              <a href="#collaborations" className="research-chip">Collaborations</a>
+              <a href="#opportunities" className="research-chip">Opportunities</a>
             </div>
           </div>
-
-          <aside
-            ref={heroMediaRef}
-            className={`research-hero-media card reveal-section ${
-              heroMediaVisible ? "is-visible" : ""
-            }`}
-          >
-            <div className="research-hero-media-header">
-              <p className="research-hero-media-label">ACT in one glance</p>
-              <p className="research-hero-media-caption">
-                A hub for experiments, prototypes, and ideas that move between
-                lab, classroom, and community.
-              </p>
-            </div>
-            <div className="research-hero-metrics">
-              <div className="research-hero-metric">
-                <span className="research-hero-metric-number">4</span>
-                <span className="research-hero-metric-label">Core themes</span>
-              </div>
-              <div className="research-hero-metric">
-                <span className="research-hero-metric-number">3+</span>
-                <span className="research-hero-metric-label">
-                  Labs &amp; testbeds
-                </span>
-              </div>
-              <div className="research-hero-metric">
-                <span className="research-hero-metric-number">Multi-</span>
-                <span className="research-hero-metric-label">
-                  disciplinary teams
-                </span>
-              </div>
-            </div>
-            <div className="research-hero-media-footer">
-              <p>
-                Start with an idea, shape it with others, and move it towards a
-                funded project through ACT Centre calls.
-              </p>
-              <p className="research-hero-media-link">
-                <Link to="/processes" className="link-animated">
-                  See how the project flow works
-                </Link>
-              </p>
-            </div>
-          </aside>
         </div>
       </section>
 
-      {/* MAIN CONTENT BANDS */}
+      {/* MAIN */}
       <section className="section research-main">
         <div className="container">
-          {/* Themes section */}
+
+          {/* THEMES */}
           <section
             id="themes"
             ref={themesRef}
@@ -132,53 +93,46 @@ const Research = () => {
             <div className="research-block-header">
               <h3 className="research-block-title">Research Themes</h3>
               <p className="research-block-subtitle">
-                High-level themes that emerged from ACT ideation. Each theme is
-                intentionally broad and supports multiple projects and
-                collaborations.
+                Thematic anchors that guide ACT projects and collaborations.
               </p>
             </div>
 
             <div className="research-theme-grid">
-              <article className="research-theme-card card reveal-item">
+              <article className="research-theme-card card">
                 <p className="research-theme-tag">T1</p>
                 <h4>Health &amp; Well-being</h4>
                 <p>
-                  Digital companions, serious games, and assistive
-                  technologies that support mental and physical health,
-                  especially for students and young adults.
+                  Digital companions, serious games, and behavioural tools to support mental and emotional health.
                 </p>
               </article>
 
-              <article className="research-theme-card card reveal-item">
+              <article className="research-theme-card card">
                 <p className="research-theme-tag">T2</p>
                 <h4>Cognition &amp; Behaviour</h4>
                 <p>
-                  Understanding attention, memory, learning, and decision
-                  making through experiments, interactive tools, and data.
+                  Studying attention, memory, decisions & behaviour through experiments and data.
                 </p>
               </article>
 
-              <article className="research-theme-card card reveal-item">
+              <article className="research-theme-card card">
                 <p className="research-theme-tag">T3</p>
                 <h4>Energy &amp; Environment</h4>
                 <p>
-                  Sensing, data, and visualisation to make energy and resource
-                  use visible, and encourage low-carbon behaviours.
+                  Sensing, visualisation & nudges for low-carbon habits and sustainable campuses.
                 </p>
               </article>
 
-              <article className="research-theme-card card reveal-item">
+              <article className="research-theme-card card">
                 <p className="research-theme-tag">T4</p>
                 <h4>Learning &amp; Pedagogy</h4>
                 <p>
-                  Games, simulations, and AI-supported feedback that reimagine
-                  how people experience learning inside and outside classrooms.
+                  Interactive simulations, VR/AR and AI-enabled learning pathways.
                 </p>
               </article>
             </div>
           </section>
 
-          {/* Idea clusters / focus areas */}
+          {/* IDEA CLUSTERS */}
           <section
             id="areas"
             ref={areasRef}
@@ -187,70 +141,39 @@ const Research = () => {
             }`}
           >
             <div className="research-block-header">
-              <h3 className="research-block-title">
-                Idea Clusters &amp; Use Cases
-              </h3>
+              <h3 className="research-block-title">Idea Clusters &amp; Use Cases</h3>
               <p className="research-block-subtitle">
-                These example clusters show how ACT projects can combine
-                technology, theory, and practice. They are starting points for
-                sandpit meetings and future calls.
+                These clusters represent directions where ACT encourages early pilots.
               </p>
             </div>
 
             <div className="research-areas-layout">
               <ul className="research-areas-list">
-                <li>
-                  Digital companions and self-help tools for stress, anxiety,
-                  and emotional regulation.
-                </li>
-                <li>
-                  Serious games and interactive experiences for mental health
-                  and cognitive training.
-                </li>
-                <li>
-                  Wearable and sensor-based platforms for monitoring activity,
-                  sleep, and daily routines.
-                </li>
-                <li>
-                  Classroom and lab tools that provide rich feedback to learners
-                  and instructors in real time.
-                </li>
-                <li>
-                  AI-supported personalised learning pathways and adaptive
-                  assessments.
-                </li>
-                <li>
-                  Energy dashboards and visualisations that make campus
-                  consumption patterns visible and actionable.
-                </li>
-                <li>
-                  Low-cost environmental sensing and data storytelling with
-                  local communities.
-                </li>
-                <li>
-                  Inclusive interfaces that keep people with different abilities
-                  at the centre of design.
-                </li>
+                <li>Digital companions and self-help platforms.</li>
+                <li>Serious games for cognitive training.</li>
+                <li>Wearable + sensor-based behaviour tracking.</li>
+                <li>Real-time feedback tools for classrooms.</li>
+                <li>AI-supported personalised learning systems.</li>
+                <li>Energy dashboards for sustainable behaviour.</li>
+                <li>Environmental sensing for local communities.</li>
+                <li>Inclusive interface & accessibility design.</li>
               </ul>
 
               <aside className="research-highlight-card card">
-                <h4>Highlight – From Idea to ACT Call</h4>
+                <h4>How Ideas Become Projects</h4>
                 <p>
-                  Teams can begin with small pilots, student projects, or
-                  studio-style experiments. Mature ideas can then move into
-                  formal proposals under ACT funding rounds, using the proposal
-                  format and evaluation matrix shared in the Resources section.
+                  Early pilots → proposal shaping → ACT funding → deployment + evaluation.
                 </p>
                 <p className="research-highlight-link">
                   <Link to="/resources" className="link-animated">
-                    Go to Resources &amp; Templates
+                    View ACT Resources
                   </Link>
                 </p>
               </aside>
             </div>
           </section>
 
-          {/* Ongoing projects */}
+          {/* ONGOING PROJECTS */}
           <section
             id="projects-ongoing"
             ref={ongoingRef}
@@ -260,73 +183,51 @@ const Research = () => {
           >
             <div className="research-block-header">
               <h3 className="research-block-title">Ongoing Projects</h3>
-              <p className="research-block-subtitle">
-                Early projects and pilots that illustrate the kind of work ACT
-                Centre aims to support. Details and formal lists will grow over
-                time.
-              </p>
             </div>
 
             <div className="research-projects-grid">
-              <article className="research-project-card card reveal-item">
+              <article className="research-project-card card">
                 <p className="research-project-status research-status-ongoing">
                   Ongoing
                 </p>
-                <h4>Digital Mental Health Companion for Young Adults</h4>
+                <h4>Digital Mental Health Companion</h4>
                 <p className="research-project-meta">
-                  <span>Themes:</span> Health &amp; Well-being · Cognition
+                  <span>Themes:</span> Health • Cognition
                 </p>
                 <p className="research-project-text">
-                  Exploring conversational and game-based interfaces that help
-                  students track mood, build coping strategies, and connect to
-                  appropriate support, with strong attention to ethics and
-                  privacy.
-                </p>
-                <p className="research-project-extra">
-                  PI / Team: To be updated · Funding: ACT internal / external –
-                  to be updated
+                  Game-based & conversational tools supporting emotional well-being for young adults.
                 </p>
               </article>
 
-              <article className="research-project-card card reveal-item">
+              <article className="research-project-card card">
                 <p className="research-project-status research-status-ongoing">
                   Ongoing
                 </p>
-                <h4>ACT Smart Campus: Energy &amp; Environment Dashboard</h4>
+                <h4>ACT Smart Campus Dashboard</h4>
                 <p className="research-project-meta">
-                  <span>Themes:</span> Energy &amp; Environment · Learning
+                  <span>Themes:</span> Energy • Learning
                 </p>
                 <p className="research-project-text">
-                  Building visual dashboards and interactive kiosks that surface
-                  real-time energy and resource use on campus, nudging students
-                  and staff towards low-carbon behaviours.
-                </p>
-                <p className="research-project-extra">
-                  PI / Team: To be updated · Funding: To be updated
+                  Visualising campus energy & resource patterns for awareness and low-carbon action.
                 </p>
               </article>
 
-              <article className="research-project-card card reveal-item">
+              <article className="research-project-card card">
                 <p className="research-project-status research-status-ongoing">
                   Ongoing
                 </p>
-                <h4>Immersive Learning Lab for STEM Education</h4>
+                <h4>Immersive Learning Lab</h4>
                 <p className="research-project-meta">
-                  <span>Themes:</span> Learning &amp; Pedagogy · Cognition
+                  <span>Themes:</span> Learning • Cognition
                 </p>
                 <p className="research-project-text">
-                  Prototyping VR/AR and interactive tabletop experiences that
-                  allow students to manipulate complex systems and visualise
-                  abstract concepts inside the classroom and beyond.
-                </p>
-                <p className="research-project-extra">
-                  PI / Team: To be updated · Funding: To be updated
+                  VR/AR + simulations to explore complex STEM concepts through rich visual feedback.
                 </p>
               </article>
             </div>
           </section>
 
-          {/* Completed projects */}
+          {/* COMPLETED PROJECTS */}
           <section
             id="projects-completed"
             ref={completedRef}
@@ -336,36 +237,22 @@ const Research = () => {
           >
             <div className="research-block-header">
               <h3 className="research-block-title">Completed Projects</h3>
-              <p className="research-block-subtitle">
-                As ACT Centre matures, this section will capture projects that
-                have completed their lifecycle, along with open tools, datasets,
-                and public-facing artefacts.
-              </p>
             </div>
 
             <div className="research-completed-layout">
               <ul className="research-completed-list">
-                <li>
-                  <strong>Project Title Placeholder 1</strong> – Short one-line
-                  description of a completed project and its key outcome.
-                </li>
-                <li>
-                  <strong>Project Title Placeholder 2</strong> – Short one-line
-                  description of a completed project and its outcome.
-                </li>
-                <li>
-                  <strong>Project Title Placeholder 3</strong> – Short one-line
-                  description of a completed project and its outcome.
-                </li>
+                <li><strong>Placeholder 1</strong> — Summary of completed output.</li>
+                <li><strong>Placeholder 2</strong> — One-line outcome description.</li>
+                <li><strong>Placeholder 3</strong> — Outcome summary.</li>
               </ul>
+
               <p className="research-completed-note">
-                A detailed catalogue of completed ACT projects with summaries,
-                documentation, and links will be added here over time.
+                A full archive of completed ACT projects will appear here.
               </p>
             </div>
           </section>
 
-          {/* Publications */}
+          {/* PUBLICATIONS */}
           <section
             id="publications"
             ref={pubsRef}
@@ -375,38 +262,26 @@ const Research = () => {
           >
             <div className="research-block-header">
               <h3 className="research-block-title">Publications</h3>
-              <p className="research-block-subtitle">
-                Representative publications from ACT-affiliated faculty and
-                researchers. Later this can be driven by Google Scholar or an
-                internal database with filters by theme and year.
-              </p>
             </div>
 
             <div className="research-pubs-layout">
               <div className="research-pubs-feature card">
                 <h4>Highlighted Publications</h4>
                 <ul>
-                  <li>
-                    Placeholder citation for a flagship paper related to digital
-                    health, cognition, or technology-supported learning.
-                  </li>
-                  <li>
-                    Placeholder citation for a high-impact journal or conference
-                    paper in energy, environment, or human-centred AI.
-                  </li>
+                  <li>Placeholder publication entry.</li>
+                  <li>Another placeholder citation.</li>
                 </ul>
               </div>
+
               <div className="research-pubs-note-card card">
                 <p>
-                  A full publication list (by year, theme, or faculty) will be
-                  made available here, with options to filter, search, and
-                  export citations.
+                  Full publication database (with filters) will appear here.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Collaborations */}
+          {/* COLLABORATIONS */}
           <section
             id="collaborations"
             ref={collabRef}
@@ -416,69 +291,39 @@ const Research = () => {
           >
             <div className="research-block-header">
               <h3 className="research-block-title">Collaborations</h3>
-              <p className="research-block-subtitle">
-                ACT Centre is designed as a collaborative space. Most projects
-                will involve multiple departments, external partners, and user
-                communities.
-              </p>
             </div>
 
             <div className="research-collab-grid">
-              <article className="research-collab-card card reveal-item">
-                <h4>Academic Collaborations</h4>
+              <article className="research-collab-card card">
+                <h4>Academic</h4>
                 <ul>
-                  <li>
-                    Joint projects with departments across the institute
-                    (engineering, humanities, management, sciences).
-                  </li>
-                  <li>
-                    Collaborations with national and international universities.
-                  </li>
-                  <li>
-                    Co-supervision of students and shared labs or studio
-                    formats.
-                  </li>
+                  <li>Joint projects across departments.</li>
+                  <li>International academic collaborations.</li>
+                  <li>Co-supervision & shared labs.</li>
                 </ul>
               </article>
 
-              <article className="research-collab-card card reveal-item">
+              <article className="research-collab-card card">
                 <h4>Industry &amp; Start-ups</h4>
                 <ul>
-                  <li>
-                    Problem statements and pilots with industry and start-ups in
-                    health, education, and sustainability.
-                  </li>
-                  <li>
-                    Co-created prototypes, usability studies, and field
-                    deployments.
-                  </li>
-                  <li>
-                    Internships and innovation challenges hosted through ACT.
-                  </li>
+                  <li>Pilot studies with industry.</li>
+                  <li>Usability testing & prototypes.</li>
+                  <li>Internships through ACT.</li>
                 </ul>
               </article>
 
-              <article className="research-collab-card card reveal-item">
+              <article className="research-collab-card card">
                 <h4>Government &amp; Civil Society</h4>
                 <ul>
-                  <li>
-                    Projects supported by funding agencies and public-sector
-                    partners.
-                  </li>
-                  <li>
-                    Interventions co-designed with schools, hospitals, and
-                    community organisations.
-                  </li>
-                  <li>
-                    Testbeds and pilots aligned with national and regional
-                    priorities.
-                  </li>
+                  <li>Public sector research projects.</li>
+                  <li>Co-designed interventions.</li>
+                  <li>Community-aligned testbeds.</li>
                 </ul>
               </article>
             </div>
           </section>
 
-          {/* Opportunities */}
+          {/* OPPORTUNITIES */}
           <section
             id="opportunities"
             ref={oppRef}
@@ -489,36 +334,23 @@ const Research = () => {
             <div className="research-opportunities-card card">
               <h3>Student &amp; Research Opportunities</h3>
               <p>
-                ACT Centre will regularly host opportunities for B.Tech, M.Tech,
-                PhD scholars, post-doctoral fellows, and visiting researchers to
-                join ongoing projects or co-create new ones.
+                ACT hosts regular opportunities for students, fellows, and visiting researchers.
               </p>
+
               <ul>
-                <li>
-                  Project assistant and research fellow roles under funded
-                  projects.
-                </li>
-                <li>
-                  Summer and semester-long research internships in ACT labs.
-                </li>
-                <li>
-                  Possibilities for joint supervision and interdisciplinary
-                  design studios.
-                </li>
+                <li>Research assistant & project roles.</li>
+                <li>Semester & summer internships.</li>
+                <li>Joint supervision and design studios.</li>
               </ul>
+
               <p className="research-opportunities-note">
-                Current openings and calls will be advertised through the{" "}
-                <Link to="/funding" className="link-animated">
-                  Funding
-                </Link>{" "}
-                and{" "}
-                <Link to="/events" className="link-animated">
-                  Events
-                </Link>{" "}
-                sections, as well as institute-wide communication channels.
+                Visit{" "}
+                <Link to="/funding" className="link-animated">Funding</Link> and{" "}
+                <Link to="/events" className="link-animated">Events</Link> for latest openings.
               </p>
             </div>
           </section>
+
         </div>
       </section>
     </div>
