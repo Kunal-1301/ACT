@@ -17,8 +17,6 @@ const groups = [
 
 /* ==========================================
    DIRECTORY DATA (placeholder)
-   Real images can be added later using:
-   avatar: "/media/filename.jpg"
 ========================================== */
 const peopleData = [
   {
@@ -27,6 +25,7 @@ const peopleData = [
     department: "Department / Centre",
     group: "Core Faculty",
     interests: "Cognition, technology, learning, interdisciplinary design.",
+    avatar: "/media/people/name1.jpg",
   },
   {
     name: "Name Placeholder 2",
@@ -34,6 +33,7 @@ const peopleData = [
     department: "Department / Centre",
     group: "Core Faculty",
     interests: "Digital health, behaviour change, HCI.",
+    avatar: "/media/people/name1.jpg",
   },
   {
     name: "Name Placeholder 3",
@@ -41,6 +41,7 @@ const peopleData = [
     department: "Engineering / Sciences",
     group: "Affiliated Faculty",
     interests: "Sensing, data analytics, applied AI.",
+    avatar: "/media/people/name1.jpg",
   },
   {
     name: "Name Placeholder 4",
@@ -48,6 +49,7 @@ const peopleData = [
     department: "Humanities / Social Sciences",
     group: "Affiliated Faculty",
     interests: "Ethics, social impact, qualitative methods.",
+    avatar: "/media/Vinay.jpg",
   },
   {
     name: "Name Placeholder 5",
@@ -55,6 +57,7 @@ const peopleData = [
     department: "ACT Centre",
     group: "Research Fellows",
     interests: "Serious games, immersive learning.",
+    avatar: "/media/rahul.jpeg",
   },
   {
     name: "Name Placeholder 6",
@@ -62,6 +65,7 @@ const peopleData = [
     department: "Department / Centre",
     group: "PhD Scholars",
     interests: "Dashboards, behaviour change, visualization.",
+    avatar: "/media/people/name1.jpg",
   },
   {
     name: "Name Placeholder 7",
@@ -69,6 +73,7 @@ const peopleData = [
     department: "Department / Centre",
     group: "PhD Scholars",
     interests: "Digital companions, mental health, conversational AI.",
+    avatar: "/media/people/name1.jpg",
   },
   {
     name: "Name Placeholder 8",
@@ -76,6 +81,7 @@ const peopleData = [
     department: "ACT Centre",
     group: "Staff",
     interests: "Operations, coordination, engagement.",
+    avatar: "/media/people/name1.jpg",
   },
 ];
 
@@ -86,7 +92,6 @@ const People = () => {
   const [activeGroup, setActiveGroup] = useState("All");
 
   const { ref: heroTextRef, isVisible: heroTextVisible } = useRevealOnScroll();
-  const { ref: heroInfoRef, isVisible: heroInfoVisible } = useRevealOnScroll();
   const { ref: overviewRef, isVisible: overviewVisible } = useRevealOnScroll();
   const { ref: directoryRef, isVisible: directoryVisible } = useRevealOnScroll();
   const { ref: rolesRef, isVisible: rolesVisible } = useRevealOnScroll();
@@ -106,7 +111,6 @@ const People = () => {
         role="region"
         aria-label="People at ACT Centre"
       >
-        {/* Background image */}
         <img
           src="/media/hero-campus-1600.jpg"
           alt=""
@@ -129,7 +133,6 @@ const People = () => {
               heroTextVisible ? "is-visible" : ""
             }`}
           >
-            <p className="section-eyebrow people-hero-eyebrow">People</p>
 
             <h1 className="people-hero-title">People at the ACT Centre</h1>
 
@@ -154,37 +157,6 @@ const People = () => {
               </Link>
             </div>
           </div>
-
-          {/* Right Info Card */}
-          <aside
-            ref={heroInfoRef}
-            className={`people-hero-info card reveal-section ${
-              heroInfoVisible ? "is-visible" : ""
-            }`}
-          >
-            <h3 className="people-hero-info-title">
-              A Multidisciplinary Community
-            </h3>
-
-            <p className="people-hero-info-text">
-              ACT brings together people who are curious about how humans think,
-              feel, and act — and how technology can support or complicate these
-              processes.
-            </p>
-
-            <ul className="people-hero-bullets">
-              <li>Core faculty shaping ACT’s strategy</li>
-              <li>Affiliated faculty from many departments</li>
-              <li>Research fellows, PhD scholars & students</li>
-              <li>Operations, labs & support staff</li>
-            </ul>
-
-            <p className="people-hero-info-link">
-              <Link to="/about" className="link-animated">
-                Learn more about ACT's structure
-              </Link>
-            </p>
-          </aside>
         </div>
       </section>
 
@@ -250,14 +222,14 @@ const People = () => {
             }`}
           >
             <div className="people-block-header people-block-header--tight">
-              <h2 className="people-block-title">Directory (Placeholder)</h2>
+              <h2 className="people-block-title">Directory</h2>
               <p className="people-block-subtitle">
-                Filters and structure are ready — this section will display real
-                profiles once provided.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolores, molestiae quis! Corporis vitae temporibus explicabo
+                velit impedit sit architecto ad vero sed esse.
               </p>
             </div>
 
-            {/* FILTERS */}
             <div className="people-filters">
               {groups.map((g) => (
                 <button
@@ -272,26 +244,19 @@ const People = () => {
               ))}
             </div>
 
-            {/* GRID */}
             <div className="people-grid">
               {filteredPeople.map((p, i) => (
                 <article key={i} className="people-card card">
                   <div className="people-card-header">
-                    {/* Avatar: supports image OR initial */}
                     {p.avatar ? (
                       <img
                         src={p.avatar}
                         alt={p.name}
                         className="people-avatar-img"
-                        onError={(e) => {
-                          e.currentTarget.style.display = "none";
-                        }}
                       />
                     ) : (
                       <div className="people-avatar-placeholder">
-                        <span className="people-avatar-initial">
-                          {p.name.charAt(0)}
-                        </span>
+                        {p.name.charAt(0)}
                       </div>
                     )}
 

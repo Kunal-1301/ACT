@@ -32,7 +32,7 @@ const Navbar = () => {
             <div className="logo-text">
               <span className="logo-title">ACT Centre</span>
               <span className="logo-subtitle">
-                Applied Cognitive Technologies · TIET
+                Centre For Transdisciplinary Research
               </span>
             </div>
           </NavLink>

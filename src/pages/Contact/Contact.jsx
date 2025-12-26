@@ -282,7 +282,7 @@ const Contact = () => {
 
                 <div className="contact-form-row">
                   <div className="contact-field">
-                    <label htmlFor="contact-role">Affiliation / Role</label>
+                    <label htmlFor="contact-role">Current Affiliation &amp; Role</label>
                     <input
                       id="contact-role"
                       name="role"
