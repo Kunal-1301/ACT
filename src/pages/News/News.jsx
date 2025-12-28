@@ -4,12 +4,16 @@ import "./News.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 const News = () => {
-  const { ref: heroRef, isVisible: heroVisible } = useRevealOnScroll();
-  const { ref: featuredRef, isVisible: featuredVisible } = useRevealOnScroll();
-  const { ref: updatesRef, isVisible: updatesVisible } = useRevealOnScroll();
-  const { ref: callsRef, isVisible: callsVisible } = useRevealOnScroll();
-  const { ref: archiveRef, isVisible: archiveVisible } = useRevealOnScroll();
-  const { ref: subscribeRef, isVisible: subscribeVisible } = useRevealOnScroll();
+  /* ================================
+     REVEAL HOOKS (TUPLE-BASED)
+     ================================ */
+
+  const [heroRef, heroVisible] = useRevealOnScroll();
+  const [featuredRef, featuredVisible] = useRevealOnScroll();
+  const [updatesRef, updatesVisible] = useRevealOnScroll();
+  const [callsRef, callsVisible] = useRevealOnScroll();
+  const [archiveRef, archiveVisible] = useRevealOnScroll();
+  const [subscribeRef, subscribeVisible] = useRevealOnScroll();
 
   return (
     <div className="news-page" id="news">
@@ -23,14 +27,20 @@ const News = () => {
             }`}
           >
             <div className="news-hero-text">
-              <p className="section-eyebrow news-hero-eyebrow">News &amp; Updates</p>
-              <h1 className="news-hero-title">What’s happening at the ACT Centre</h1>
+              <p className="section-eyebrow news-hero-eyebrow">
+                News &amp; Updates
+              </p>
+              <h1 className="news-hero-title">
+                What’s happening at the ACT Centre
+              </h1>
               <p className="news-hero-subtitle">
-                This page gathers <strong>announcements, short highlights, calls,</strong>{" "}
+                This page gathers{" "}
+                <strong>announcements, short highlights, calls,</strong>{" "}
                 and <strong>deadlines</strong> related to the ACT Centre – in one
                 place, instead of scattered across emails and posters.
               </p>
             </div>
+
             <div className="news-hero-side">
               <p className="news-hero-side-label">Status snapshot</p>
               <ul className="news-hero-bullets">
@@ -65,10 +75,12 @@ const News = () => {
             }`}
           >
             <div className="news-block-header">
-              <h2 className="news-block-title">Featured Highlight (Placeholder)</h2>
+              <h2 className="news-block-title">
+                Featured Highlight (Placeholder)
+              </h2>
               <p className="news-block-subtitle">
-                Once ACT is announced, the latest major update or story can be featured
-                here with a prominent card, image, or video snippet.
+                Once ACT is announced, the latest major update or story can be
+                featured here with a prominent card, image, or video snippet.
               </p>
             </div>
 
@@ -86,9 +98,9 @@ const News = () => {
               </p>
 
               <p className="news-featured-text">
-                This featured space can later carry a short narrative about the formal
-                launch of ACT, the core themes, and how students and faculty can start
-                engaging with the centre.
+                This featured space can later carry a short narrative about the
+                formal launch of ACT, the core themes, and how students and
+                faculty can start engaging with the centre.
               </p>
 
               <p className="news-featured-note">
@@ -99,7 +111,7 @@ const News = () => {
             </article>
           </section>
 
-          {/* RECENT UPDATES LIST */}
+          {/* RECENT UPDATES */}
           <section
             ref={updatesRef}
             className={`news-block reveal-section ${
@@ -109,8 +121,8 @@ const News = () => {
             <div className="news-block-header">
               <h2 className="news-block-title">News &amp; Short Updates</h2>
               <p className="news-block-subtitle">
-                A running list of short, scannable updates. These can be used instead of
-                sending separate emails for every small change.
+                A running list of short, scannable updates. These can be used
+                instead of sending separate emails for every small change.
               </p>
             </div>
 
@@ -124,9 +136,9 @@ const News = () => {
                   Placeholder: Project proposal &amp; approval process drafted
                 </h3>
                 <p className="news-item-text">
-                  A structured flow for ACT project approval – from concept note to
-                  full proposal, evaluation matrix, and implementation – has been
-                  drafted and is under review.
+                  A structured flow for ACT project approval – from concept note
+                  to full proposal, evaluation matrix, and implementation – has
+                  been drafted and is under review.
                 </p>
                 <p className="news-item-link">
                   Later, this can link to a{" "}
@@ -143,7 +155,8 @@ const News = () => {
                   <span className="news-item-date">To be updated</span>
                 </div>
                 <h3 className="news-item-title">
-                  Placeholder: Drafts of student &amp; faculty funding schemes prepared
+                  Placeholder: Drafts of student &amp; faculty funding schemes
+                  prepared
                 </h3>
                 <p className="news-item-text">
                   Initial versions of internal funding schemes (for students and
@@ -182,7 +195,7 @@ const News = () => {
             </div>
           </section>
 
-          {/* CALLS & DEADLINES STRIP */}
+          {/* CALLS */}
           <section
             ref={callsRef}
             className={`news-block news-block-band reveal-section ${
@@ -192,8 +205,7 @@ const News = () => {
             <div className="news-block-header news-block-header--tight">
               <h2 className="news-block-title">Calls &amp; Key Deadlines</h2>
               <p className="news-block-subtitle">
-                Quick view of important calls related to ACT. Detailed information
-                continues to live on the Funding and Events pages.
+                Quick view of important calls related to ACT.
               </p>
             </div>
 
@@ -209,8 +221,8 @@ const News = () => {
                   Placeholder: Student Seed Grant – Call 1
                 </h3>
                 <p className="news-call-text">
-                  Short description of the first student-focused internal funding call,
-                  including broad themes and expected timelines.
+                  Short description of the first student-focused internal funding
+                  call.
                 </p>
                 <ul className="news-call-meta">
                   <li>
@@ -233,8 +245,8 @@ const News = () => {
                   Placeholder: ACT Conversation Series – Call for Speakers
                 </h3>
                 <p className="news-call-text">
-                  An open call for colleagues who want to propose topics and speakers
-                  for an ACT conversation series.
+                  An open call for colleagues who want to propose topics and
+                  speakers.
                 </p>
                 <ul className="news-call-meta">
                   <li>
@@ -257,8 +269,8 @@ const News = () => {
                   Placeholder: Recruitment &amp; Timesheets – Guidance
                 </h3>
                 <p className="news-call-text">
-                  A note about how recruitment for ACT-linked positions and timesheet
-                  processes will be handled.
+                  A note about how recruitment and timesheet processes will be
+                  handled.
                 </p>
                 <ul className="news-call-meta">
                   <li>
@@ -272,7 +284,7 @@ const News = () => {
             </div>
           </section>
 
-          {/* ARCHIVE PLACEHOLDER */}
+          {/* ARCHIVE */}
           <section
             ref={archiveRef}
             className={`news-block reveal-section ${
@@ -282,27 +294,23 @@ const News = () => {
             <div className="news-block-header">
               <h2 className="news-block-title">Archive (Future View)</h2>
               <p className="news-block-subtitle">
-                As items accumulate, older news can be folded into an archive table or
-                filterable list so the main page stays light.
+                Older news can be folded into an archive table or filterable
+                list.
               </p>
             </div>
 
             <div className="news-archive card">
               <p className="news-archive-text">
                 The archive could allow filtering by{" "}
-                <strong>year, type (announcement / call / event)</strong>, and{" "}
-                <strong>status (open / closed)</strong>. For now, this space is kept as
-                a placeholder.
+                <strong>year, type,</strong> and <strong>status</strong>.
               </p>
               <p className="news-archive-note">
-                When you start publishing real news, this section can be wired to a
-                simple JSON file, CMS, or database that powers both the main list and
-                the archive.
+                This is a placeholder until real content is published.
               </p>
             </div>
           </section>
 
-          {/* SUBSCRIBE / STAY UPDATED */}
+          {/* SUBSCRIBE */}
           <section
             ref={subscribeRef}
             className={`news-block news-subscribe-block reveal-section ${
@@ -313,22 +321,22 @@ const News = () => {
               <div className="news-subscribe-main">
                 <h2 className="news-subscribe-title">Staying Updated</h2>
                 <p className="news-subscribe-text">
-                  Over time, ACT may use mailing lists, campus channels, or a simple
-                  newsletter to keep people informed about calls and events. Until
-                  then, this page acts as the single reference point.
+                  This page acts as the single reference point for ACT updates.
                 </p>
                 <ul className="news-subscribe-list">
-                  <li>Bookmark this News page for key changes</li>
-                  <li>Watch the Funding &amp; Events pages for detailed calls</li>
-                  <li>Look out for ACT announcements on institutional channels</li>
+                  <li>Bookmark this News page</li>
+                  <li>Watch Funding &amp; Events pages</li>
+                  <li>Follow institutional announcements</li>
                 </ul>
               </div>
               <div className="news-subscribe-side">
                 <p className="news-subscribe-note">
-                  A simple subscription box (email, Google group, etc.) can be added
-                  here later once communication channels are chosen.
+                  Subscription options can be added later.
                 </p>
-                <button className="btn btn-secondary news-subscribe-btn" disabled>
+                <button
+                  className="btn btn-secondary news-subscribe-btn"
+                  disabled
+                >
                   Subscription option – coming soon
                 </button>
               </div>

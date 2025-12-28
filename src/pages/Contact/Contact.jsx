@@ -4,11 +4,15 @@ import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
-  const { ref: heroTextRef, isVisible: heroTextVisible } = useRevealOnScroll();
-  const { ref: heroInfoRef, isVisible: heroInfoVisible } = useRevealOnScroll();
-  const { ref: locationRef, isVisible: locationVisible } = useRevealOnScroll();
-  const { ref: contactsRef, isVisible: contactsVisible } = useRevealOnScroll();
-  const { ref: formRef, isVisible: formVisible } = useRevealOnScroll();
+  /* ================================
+     REVEAL HOOKS (TUPLE-BASED)
+     ================================ */
+
+  const [heroTextRef, heroTextVisible] = useRevealOnScroll();
+  const [heroInfoRef, heroInfoVisible] = useRevealOnScroll();
+  const [locationRef, locationVisible] = useRevealOnScroll();
+  const [contactsRef, contactsVisible] = useRevealOnScroll();
+  const [formRef, formVisible] = useRevealOnScroll();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,39 +45,6 @@ const Contact = () => {
               <strong>events</strong>.
             </p>
           </div>
-
-          <aside
-            ref={heroInfoRef}
-            className={`contact-hero-card card reveal-section ${
-              heroInfoVisible ? "is-visible" : ""
-            }`}
-          >
-            <h3 className="contact-hero-card-title">
-              Location &amp; Office Details
-            </h3>
-            <p className="contact-hero-card-text">
-              The ACT Centre will be housed within TIET. Exact building and lab
-              locations will be updated here once finalised.
-            </p>
-            <div className="contact-hero-location">
-              <p className="contact-hero-location-heading">Proposed location</p>
-              <p className="contact-hero-location-text">
-                ACT Centre<br />
-                TIET Campus<br />
-                (Building / Floor details – to be updated)
-              </p>
-            </div>
-            <a
-              href="#map"
-              className="btn btn-secondary contact-hero-map-btn"
-            >
-              View campus location (to be updated)
-            </a>
-            <p className="contact-hero-card-note">
-              For now, please refer to institute directions and campus maps
-              while this space is being set up.
-            </p>
-          </aside>
         </div>
       </section>
 
@@ -282,7 +253,9 @@ const Contact = () => {
 
                 <div className="contact-form-row">
                   <div className="contact-field">
-                    <label htmlFor="contact-role">Current Affiliation &amp; Role</label>
+                    <label htmlFor="contact-role">
+                      Current Affiliation &amp; Role
+                    </label>
                     <input
                       id="contact-role"
                       name="role"

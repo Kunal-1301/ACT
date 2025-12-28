@@ -4,13 +4,16 @@ import "./Events.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 const Events = () => {
-  const { ref: heroTextRef, isVisible: heroTextVisible } = useRevealOnScroll();
-  const { ref: heroSideRef, isVisible: heroSideVisible } = useRevealOnScroll();
-  const { ref: upcomingRef, isVisible: upcomingVisible } = useRevealOnScroll();
-  const { ref: timelineRef, isVisible: timelineVisible } = useRevealOnScroll();
-  const { ref: formatsRef, isVisible: formatsVisible } = useRevealOnScroll();
-  const { ref: participateRef, isVisible: participateVisible } =
-    useRevealOnScroll();
+  /* ================================
+     REVEAL HOOKS (TUPLE-BASED)
+     ================================ */
+
+  const [heroTextRef, heroTextVisible] = useRevealOnScroll();
+  const [heroSideRef, heroSideVisible] = useRevealOnScroll();
+  const [upcomingRef, upcomingVisible] = useRevealOnScroll();
+  const [timelineRef, timelineVisible] = useRevealOnScroll();
+  const [formatsRef, formatsVisible] = useRevealOnScroll();
+  const [participateRef, participateVisible] = useRevealOnScroll();
 
   return (
     <div className="events-page" id="events">
@@ -56,38 +59,13 @@ const Events = () => {
               </a>
             </div>
           </div>
-
-          <aside
-            ref={heroSideRef}
-            className={`events-hero-side card reveal-section ${
-              heroSideVisible ? "is-visible" : ""
-            }`}
-          >
-            <h3 className="events-hero-side-title">Why events matter at ACT</h3>
-            <p className="events-hero-side-text">
-              Events are where people encounter new ideas, test early versions
-              of projects, and meet potential collaborators. They keep the
-              centre <strong>visible, porous, and accountable.</strong>
-            </p>
-            <ul className="events-hero-bullets">
-              <li>Talks and conversations across disciplines</li>
-              <li>Hands-on workshops and studios</li>
-              <li>Showcase days and demonstrations</li>
-              <li>Small-group reading / reflection circles</li>
-            </ul>
-            <p className="events-hero-side-link">
-              <Link to="/about" className="link-animated">
-                See how events connect with ACT’s mission
-              </Link>
-            </p>
-          </aside>
         </div>
       </section>
 
       {/* MAIN */}
       <section className="section events-main">
         <div className="container">
-          {/* UPCOMING EVENTS – CARD GRID */}
+          {/* UPCOMING EVENTS */}
           <section
             id="upcoming"
             ref={upcomingRef}
@@ -153,7 +131,7 @@ const Events = () => {
             </div>
           </section>
 
-          {/* TIMELINE – PAST HIGHLIGHTS */}
+          {/* TIMELINE */}
           <section
             id="timeline"
             ref={timelineRef}
@@ -162,7 +140,9 @@ const Events = () => {
             }`}
           >
             <div className="events-block-header">
-              <h2 className="events-block-title">Recent &amp; Sample Highlights</h2>
+              <h2 className="events-block-title">
+                Recent &amp; Sample Highlights
+              </h2>
               <p className="events-block-subtitle">
                 Once ACT events begin, this timeline can display key moments
                 from each semester with short summaries and links.
@@ -172,49 +152,34 @@ const Events = () => {
             <div className="events-timeline">
               <div className="events-timeline-line" />
 
-              <div className="events-timeline-item">
-                <div className="events-timeline-dot" />
-                <div className="events-timeline-card card">
-                  <div className="events-timeline-date">Semester Placeholder</div>
-                  <h3 className="events-timeline-title">
-                    Sample: Launch &amp; Orientation Session
-                  </h3>
-                  <p className="events-timeline-text">
-                    A gathering introducing the vision of ACT, early themes, and
-                    how colleagues and students can get involved. In the future,
-                    photos and slides can be linked here.
-                  </p>
+              {[
+                {
+                  title: "Sample: Launch & Orientation Session",
+                  text:
+                    "A gathering introducing the vision of ACT, early themes, and how colleagues and students can get involved.",
+                },
+                {
+                  title: "Sample: Cross-Disciplinary Methods Workshop",
+                  text:
+                    "A practical session on how to combine quantitative and qualitative methods across disciplines.",
+                },
+                {
+                  title: "Sample: Showcase / Open Studio",
+                  text:
+                    "A public-facing day where teams share prototypes, demos, and reflections.",
+                },
+              ].map((item, i) => (
+                <div key={i} className="events-timeline-item">
+                  <div className="events-timeline-dot" />
+                  <div className="events-timeline-card card">
+                    <div className="events-timeline-date">
+                      Semester Placeholder
+                    </div>
+                    <h3 className="events-timeline-title">{item.title}</h3>
+                    <p className="events-timeline-text">{item.text}</p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="events-timeline-item">
-                <div className="events-timeline-dot" />
-                <div className="events-timeline-card card">
-                  <div className="events-timeline-date">Semester Placeholder</div>
-                  <h3 className="events-timeline-title">
-                    Sample: Cross-Disciplinary Methods Workshop
-                  </h3>
-                  <p className="events-timeline-text">
-                    A practical session on how to combine quantitative and
-                    qualitative methods across disciplines, built around active
-                    projects at ACT.
-                  </p>
-                </div>
-              </div>
-
-              <div className="events-timeline-item">
-                <div className="events-timeline-dot" />
-                <div className="events-timeline-card card">
-                  <div className="events-timeline-date">Semester Placeholder</div>
-                  <h3 className="events-timeline-title">
-                    Sample: Showcase / Open Studio
-                  </h3>
-                  <p className="events-timeline-text">
-                    A public-facing day where teams share prototypes, demos, and
-                    reflections, inviting feedback from across the campus.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </section>
 
@@ -290,7 +255,7 @@ const Events = () => {
             </div>
           </section>
 
-          {/* HOW TO HOST / PARTICIPATE */}
+          {/* PARTICIPATE */}
           <section
             id="participate"
             ref={participateRef}
@@ -310,20 +275,10 @@ const Events = () => {
                 <article className="events-participate-column">
                   <h3>Indicative Flow</h3>
                   <ol>
-                    <li>
-                      Draft a short concept note (what, why, who, and how it
-                      connects to ACT themes).
-                    </li>
-                    <li>
-                      Identify tentative date, format, and required facilities.
-                    </li>
-                    <li>
-                      Share with the ACT office / events coordination group.
-                    </li>
-                    <li>
-                      Refine details, confirm logistics, and publicise through
-                      ACT channels.
-                    </li>
+                    <li>Draft a short concept note.</li>
+                    <li>Identify date, format, and facilities.</li>
+                    <li>Share with ACT office.</li>
+                    <li>Refine, confirm, and publicise.</li>
                   </ol>
                 </article>
 
@@ -331,34 +286,22 @@ const Events = () => {
                   <h3>Contact &amp; Support</h3>
                   <p>
                     For now, event proposals and queries can be routed via the
-                    ACT Centre office. Final contact details will be added here.
+                    ACT Centre office.
                   </p>
                   <ul>
-                    <li>
-                      Event coordination: <span>To be updated</span>
-                    </li>
-                    <li>
-                      Communication / design support: <span>To be updated</span>
-                    </li>
-                    <li>
-                      Technical / facilities support: <span>To be updated</span>
-                    </li>
+                    <li>Event coordination: <span>To be updated</span></li>
+                    <li>Communication / design: <span>To be updated</span></li>
+                    <li>Technical support: <span>To be updated</span></li>
                   </ul>
-                  <p className="events-contact-note">
-                    When getting in touch, please include a{" "}
-                    <strong>working title</strong>,{" "}
-                    <strong>intended audience</strong>, and{" "}
-                    <strong>preferred format</strong> so we can respond quickly.
-                  </p>
                 </article>
               </div>
 
               <p className="events-contact-links">
-                You can also keep an eye on{" "}
+                You can also follow{" "}
                 <Link to="/news" className="link-animated">
                   News &amp; Announcements
-                </Link>{" "}
-                for calls to participate in specific events and activities.
+                </Link>
+                .
               </p>
             </div>
           </section>

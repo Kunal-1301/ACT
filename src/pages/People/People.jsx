@@ -7,12 +7,10 @@ import useRevealOnScroll from "../../hooks/useRevealOnScroll";
    GROUPS
 ========================================== */
 const groups = [
-  "All",
   "Core Faculty",
   "Affiliated Faculty",
-  "Research Fellows",
-  "PhD Scholars",
-  "Staff",
+  "Research Faculty",
+  "Research Scholars",
 ];
 
 /* ==========================================
@@ -20,68 +18,68 @@ const groups = [
 ========================================== */
 const peopleData = [
   {
-    name: "Name Placeholder 1",
-    role: "Core Faculty",
-    department: "Department / Centre",
+    name: "Dr. Efthymios Constantinides",
+    role: "Chair",
+    department: "",
     group: "Core Faculty",
-    interests: "Cognition, technology, learning, interdisciplinary design.",
-    avatar: "/media/people/name1.jpg",
+    interests: "ACT Centre Professor, TSLAS.",
+    avatar: "/media/EC.jpg",
   },
   {
-    name: "Name Placeholder 2",
-    role: "Core Faculty",
-    department: "Department / Centre",
+    name: "Dr. Vinay Kumar",
+    role: "Dean",
+    department: "",
     group: "Core Faculty",
-    interests: "Digital health, behaviour change, HCI.",
-    avatar: "/media/people/name1.jpg",
+    interests: "TSLAS Professor, TIET.",
+    avatar: "/media/Vinay.jpeg",
   },
   {
-    name: "Name Placeholder 3",
-    role: "Affiliated Faculty",
-    department: "Engineering / Sciences",
-    group: "Affiliated Faculty",
-    interests: "Sensing, data analytics, applied AI.",
-    avatar: "/media/people/name1.jpg",
-  },
-  {
-    name: "Name Placeholder 4",
-    role: "Affiliated Faculty",
-    department: "Humanities / Social Sciences",
-    group: "Affiliated Faculty",
-    interests: "Ethics, social impact, qualitative methods.",
-    avatar: "/media/Vinay.jpg",
-  },
-  {
-    name: "Name Placeholder 5",
-    role: "Research Fellow",
-    department: "ACT Centre",
-    group: "Research Fellows",
-    interests: "Serious games, immersive learning.",
+    name: "Dr. Rahul Upadhyay",
+    role: "Head",
+    department: "",
+    group: "Core Faculty",
+    interests: "ACT Centre Associate Professor, TIET.",
     avatar: "/media/rahul.jpeg",
   },
   {
-    name: "Name Placeholder 6",
-    role: "PhD Scholar",
-    department: "Department / Centre",
-    group: "PhD Scholars",
-    interests: "Dashboards, behaviour change, visualization.",
-    avatar: "/media/people/name1.jpg",
+    name: "Dr. T. Brandon Evans",
+    role: "Coordinator",
+    department: "",
+    group: "Core Faculty",
+    interests: "ACT Centre Associate Professor, TSLAS.",
+    avatar: "/media/brandon.jpg",
   },
   {
-    name: "Name Placeholder 7",
-    role: "PhD Scholar",
-    department: "Department / Centre",
-    group: "PhD Scholars",
-    interests: "Digital companions, mental health, conversational AI.",
-    avatar: "/media/people/name1.jpg",
-  },
-  {
-    name: "Name Placeholder 8",
-    role: "Centre Coordinator",
+    name: "Dr. Tanvi Dovedi",
+    role: "Research Faculty",
     department: "ACT Centre",
-    group: "Staff",
-    interests: "Operations, coordination, engagement.",
-    avatar: "/media/people/name1.jpg",
+    group: "Research Faculty",
+    interests: "",
+    avatar: "/media/tanvi.jpeg",
+  },
+  {
+    name: "Dr. Manvir Kaur",
+    role: "Research Faculty",
+    department: "",
+    group: "Research Faculty",
+    interests: "",
+    avatar: "/media/tanvi.jpeg",
+  },
+  {
+    name: "Ms. Himanshi Upadhyay",
+    role: "Research Scholar",
+    department: "",
+    group: "Research Scholars",
+    interests: "",
+    avatar: "/media/tanvi.jpeg",
+  },
+  {
+    name: "Mr. Kunal Gupta",
+    role: "",
+    department: "",
+    group: "",
+    interests: "",
+    avatar: "/media/",
   },
 ];
 
@@ -91,10 +89,13 @@ const peopleData = [
 const People = () => {
   const [activeGroup, setActiveGroup] = useState("All");
 
-  const { ref: heroTextRef, isVisible: heroTextVisible } = useRevealOnScroll();
-  const { ref: overviewRef, isVisible: overviewVisible } = useRevealOnScroll();
-  const { ref: directoryRef, isVisible: directoryVisible } = useRevealOnScroll();
-  const { ref: rolesRef, isVisible: rolesVisible } = useRevealOnScroll();
+  /* ================================
+     REVEAL HOOKS (TUPLE-BASED)
+     ================================ */
+  const [heroTextRef, heroTextVisible] = useRevealOnScroll();
+  const [overviewRef, overviewVisible] = useRevealOnScroll();
+  const [directoryRef, directoryVisible] = useRevealOnScroll();
+  const [rolesRef, rolesVisible] = useRevealOnScroll();
 
   const filteredPeople =
     activeGroup === "All"
@@ -126,14 +127,12 @@ const People = () => {
         <div className="people-hero-overlay" aria-hidden />
 
         <div className="container people-hero-layout">
-          {/* Left Text */}
           <div
             ref={heroTextRef}
             className={`people-hero-text reveal-section ${
               heroTextVisible ? "is-visible" : ""
             }`}
           >
-
             <h1 className="people-hero-title">People at the ACT Centre</h1>
 
             <p className="people-hero-subtitle">
@@ -144,8 +143,8 @@ const People = () => {
             </p>
 
             <p className="people-hero-subtitle secondary">
-              This is a placeholder directory structure; as profiles are
-              finalised, photos, bios, and project links will be added.
+              {/* This is a placeholder directory structure; as profiles are
+              finalised, photos, bios, and project links will be added. */}
             </p>
 
             <div className="people-hero-ctas">
@@ -175,7 +174,7 @@ const People = () => {
             <div className="people-block-header">
               <h2 className="people-block-title">People &amp; Roles</h2>
               <p className="people-block-subtitle">
-                A quick overview of how the ACT Centre community is structured.
+
               </p>
             </div>
 
@@ -199,8 +198,8 @@ const People = () => {
               <article className="people-overview-card card">
                 <h3>Researchers &amp; Students</h3>
                 <p>
-                  Fellows, PhD scholars & students who build prototypes,
-                  conduct studies, and analyze data.
+                  Fellows, PhD scholars & students who build prototypes, conduct
+                  studies, and analyze data.
                 </p>
               </article>
 
@@ -224,9 +223,7 @@ const People = () => {
             <div className="people-block-header people-block-header--tight">
               <h2 className="people-block-title">Directory</h2>
               <p className="people-block-subtitle">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Dolores, molestiae quis! Corporis vitae temporibus explicabo
-                velit impedit sit architecto ad vero sed esse.
+                
               </p>
             </div>
 
@@ -273,8 +270,7 @@ const People = () => {
                   <p className="people-interests">{p.interests}</p>
 
                   <p className="people-placeholder-note">
-                    Details such as email, research areas, and publications will
-                    be added later.
+                    
                   </p>
                 </article>
               ))}

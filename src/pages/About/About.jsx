@@ -3,82 +3,97 @@ import { Link } from "react-router-dom";
 import "./About.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
+/* ======================================================
+   STATIC CONTENT
+   ====================================================== */
+
 const timelineItems = [
   {
     title: "Initial Conversations & Concept Notes",
-    text: "Faculty from multiple departments began outlining the need for a shared space to work on cognition, technology, and society – collecting early ideas and use cases.",
+    text:
+      "Faculty across departments identified the need for a shared institutional framework to support research at the intersection of cognition, technology, and society.",
   },
   {
     title: "Core Group & Ideation Meetings",
-    text: "A core group of faculty was formed; meetings defined themes, infrastructure requirements, and processes for funding and evaluation.",
+    text:
+      "A core faculty group defined priority themes, infrastructure needs, and principles for funding, evaluation, and collaboration.",
   },
   {
     title: "Formalisation of Processes",
-    text: "Project approval flow, financial assistance guidelines, recruitment process for research staff, and evaluation matrix were drafted and refined.",
+    text:
+      "Project approval workflows, financial guidelines, recruitment processes, and evaluation criteria were developed and refined.",
   },
   {
     title: "Launch & First Calls",
-    text: "With governance, infrastructure, and processes in place, ACT planned its first calls for proposals and pilot projects.",
+    text:
+      "With governance and infrastructure in place, ACT prepared its first calls for proposals and pilot research projects.",
   },
 ];
 
 const structureCards = [
   {
     title: "Core Leadership",
-    body: "The centre is guided by a core leadership team that oversees strategic direction, approves calls, and monitors impact.",
-    note: "Details of the leadership team and committees will be listed on the People page.",
-    link: { to: "/people", text: "Meet the people behind ACT" },
+    body:
+      "A core leadership team provides strategic direction, approves calls for proposals, and oversees the overall functioning of the centre.",
+    note:
+      "Details of leadership roles and committees will be listed on the People page.",
+    link: { to: "/people", text: "Meet the ACT leadership and teams" },
   },
   {
     title: "Evaluation & Advisory",
-    body: "A group reviews proposals using the ACT evaluation matrix, provides feedback, and may invite external experts where needed.",
+    body:
+      "Proposals are reviewed using a structured evaluation framework, with feedback provided to applicants. External expertise may be invited where appropriate.",
     list: [
-      "Structured scoring and qualitative comments",
+      "Structured scoring and qualitative assessment",
       "Conflict-of-interest safeguards",
-      "Transparent communication to applicants",
+      "Transparent communication of outcomes",
     ],
   },
   {
     title: "Operations & Labs",
-    body: "Operations teams coordinate lab access, equipment, finances, and reporting so that researchers can focus on their work.",
-    link: { to: "/facilities", text: "Explore labs & facilities" },
+    body:
+      "Operations teams manage shared facilities, equipment access, financial workflows, and reporting requirements, enabling researchers to focus on their work.",
+    link: { to: "/facilities", text: "Explore labs & shared facilities" },
   },
 ];
 
 const howCards = [
   {
     title: "From Idea to Proposal",
-    text: "Teams start from societal questions, use ACT ideation notes and sandpit sessions to shape ideas, then prepare formal proposals using official templates.",
-    link: { to: "/resources", text: "Go to Resources & Templates" },
+    text:
+      "Teams begin with societally relevant questions, refine ideas through cross-disciplinary discussion, and prepare proposals using ACT templates and guidelines.",
   },
   {
     title: "Implementation & Reporting",
-    text: "Approved projects follow the ACT implementation process – recruitment, procurement, regular check-ins, and final reporting with timesheets and documentation.",
+    text:
+      "Approved projects follow defined processes for recruitment, procurement, progress review, and final reporting, in line with institute norms.",
   },
   {
-    title: "Impact & Public Engagement",
-    text: "ACT encourages teams to share tools, datasets, and stories through open events, exhibitions, and outreach where appropriate.",
+    title: "Impact & Engagement",
+    text:
+      "Where appropriate, ACT encourages dissemination through publications, events, tools, and public or policy-facing engagement.",
   },
 ];
 
+/* ======================================================
+   COMPONENT
+   ====================================================== */
+
 const About = () => {
-  const { ref: heroTextRef, isVisible: heroTextVisible } = useRevealOnScroll();
-  const { ref: heroInfoRef, isVisible: heroInfoVisible } = useRevealOnScroll();
-  const { ref: missionRef, isVisible: missionVisible } = useRevealOnScroll();
-  const { ref: originRef, isVisible: originVisible } = useRevealOnScroll();
-  const { ref: structureRef, isVisible: structureVisible } =
-    useRevealOnScroll();
-  const { ref: howRef, isVisible: howVisible } = useRevealOnScroll();
+  const [heroTextRef, heroTextVisible] = useRevealOnScroll();
+  const [missionRef, missionVisible] = useRevealOnScroll();
+  const [originRef, originVisible] = useRevealOnScroll();
+  const [structureRef, structureVisible] = useRevealOnScroll();
+  const [howRef, howVisible] = useRevealOnScroll();
 
   return (
     <main className="about-page" id="about">
-      {/* HERO */}
+      {/* ================= HERO ================= */}
       <section
         className="section about-hero section--bg-campus"
         role="region"
-        aria-label="About the ACT centre hero"
+        aria-label="About the ACT Centre"
       >
-        {/* hero background image (same approach as Home for reliability) */}
         <img
           src="/media/hero-campus-1600.jpg"
           alt=""
@@ -90,6 +105,7 @@ const About = () => {
             }
           }}
         />
+
         <div className="about-hero-overlay" aria-hidden />
 
         <div className="container about-hero-layout">
@@ -99,20 +115,19 @@ const About = () => {
               heroTextVisible ? "is-visible" : ""
             }`}
           >
-           
             <h1 className="about-hero-title">About the ACT Centre</h1>
+
             <p className="about-hero-subtitle">
-              The ACT Centre is a multidisciplinary initiative that connects{" "}
-              <strong>engineering</strong>, <strong>cognitive science</strong>,{" "}
-              <strong>arts &amp; humanities</strong>, and{" "}
-              <strong>social sciences</strong> to work on real-world questions
-              around health, cognition, environment, and learning.
+              The ACT Centre is a transdisciplinary research initiative at{" "}
+              <strong>Thapar Institute of Engineering and Technology</strong>,
+              bringing together engineering, cognitive science, social sciences,
+              and the humanities to address complex real-world challenges.
             </p>
 
             <p className="about-hero-subtitle secondary">
-              A space where ideas move fluidly between labs, classrooms and
-              communities — supported by shared infrastructure, structured
-              funding, and collaborative practices.
+              ACT supports research questions that cannot be effectively
+              addressed within a single discipline, through shared
+              infrastructure, structured funding, and collaborative processes.
             </p>
 
             <div className="about-hero-ctas">
@@ -120,47 +135,14 @@ const About = () => {
                 Explore Research Themes
               </Link>
               <Link to="/funding" className="btn btn-secondary">
-                Learn about Funding
+                View Funding Opportunities
               </Link>
             </div>
           </div>
-
-          <aside
-            ref={heroInfoRef}
-            className={`about-hero-info about-hero-info--image card reveal-section ${
-              heroInfoVisible ? "is-visible" : ""
-            }`}
-            aria-labelledby="what-is-act"
-          >
-            <div className="about-hero-info-content">
-              <h3 id="what-is-act" className="about-hero-info-title">
-                What is ACT?
-              </h3>
-
-              <p className="about-hero-info-text">
-                ACT (Applied Cognition &amp; Technology) brings together people
-                who care about how humans think, learn and act in the world —
-                and how technology can be used responsibly to support them.
-              </p>
-
-              <ul className="about-hero-bullets" aria-hidden>
-                <li>Multidisciplinary faculty and students</li>
-                <li>Shared labs, studios and testbeds</li>
-                <li>Internal funding and structured processes</li>
-                <li>Focus on societal questions, not just tools</li>
-              </ul>
-
-              <p className="about-hero-info-link">
-                <Link to="/processes" className="link-animated">
-                  See how ACT projects are run
-                </Link>
-              </p>
-            </div>
-          </aside>
         </div>
       </section>
 
-      {/* MAIN CONTENT */}
+      {/* ================= MAIN CONTENT ================= */}
       <section className="section about-main" aria-labelledby="mission-heading">
         <div className="container">
           {/* Mission / Vision / Values */}
@@ -176,8 +158,8 @@ const About = () => {
                 Mission, Vision &amp; Values
               </h2>
               <p className="about-block-subtitle">
-                A shared mission keeps ACT grounded even as projects and
-                technologies evolve.
+                A clear mission anchors ACT’s work across projects and
+                disciplines.
               </p>
             </div>
 
@@ -185,28 +167,27 @@ const About = () => {
               <article className="about-mvv-card card">
                 <h3>Mission</h3>
                 <p>
-                  To create a collaborative environment where technology and
-                  human sciences come together to design, test, and evaluate
-                  interventions that improve people’s lived experiences.
+                  To enable rigorous, collaborative research that integrates
+                  technological and human sciences to generate academic and
+                  societal value.
                 </p>
               </article>
 
               <article className="about-mvv-card card">
                 <h3>Vision</h3>
                 <p>
-                  To become a recognised hub for applied cognition and
-                  technology, where ideas move from concept to prototype to
-                  real-world impact in health, education, and sustainability.
+                  To establish ACT as a recognised hub for applied cognition and
+                  technology within the institute and beyond.
                 </p>
               </article>
 
               <article className="about-mvv-card card">
                 <h3>Values</h3>
                 <ul>
-                  <li>Interdisciplinarity by design, not by accident.</li>
-                  <li>Ethics, inclusion, and care as first principles.</li>
-                  <li>Openness to iteration, critique and learning.</li>
-                  <li>Respect for human complexity and context.</li>
+                  <li>Collaboration across disciplines by design.</li>
+                  <li>Academic rigor combined with real-world relevance.</li>
+                  <li>Ethical responsibility, inclusion, and transparency.</li>
+                  <li>Openness to critique, iteration, and learning.</li>
                 </ul>
               </article>
             </div>
@@ -223,12 +204,11 @@ const About = () => {
           >
             <div className="about-block-header">
               <h2 id="origin-heading" className="about-block-title">
-                How the ACT Centre Started
+                How the ACT Centre Evolved
               </h2>
               <p className="about-block-subtitle">
-                The centre emerged from a series of conversations, design
-                meetings and ideation sessions that brought together faculty
-                from different disciplines.
+                ACT emerged through a structured process of planning and
+                cross-departmental collaboration.
               </p>
             </div>
 
@@ -256,8 +236,8 @@ const About = () => {
             <div className="about-block-header">
               <h2 className="about-block-title">Governance &amp; Structure</h2>
               <p className="about-block-subtitle">
-                Clear governance and structured processes ensure that ACT
-                remains transparent, fair, and aligned with institutional goals.
+                ACT operates through defined roles and processes to ensure
+                fairness, accountability, and institutional alignment.
               </p>
             </div>
 
@@ -302,8 +282,8 @@ const About = () => {
                 How ACT Projects Work
               </h2>
               <p className="about-block-subtitle">
-                ACT is intentionally process-driven so that projects remain
-                accountable and teams get the support they need.
+                A structured lifecycle supports projects from early ideas to
+                completion.
               </p>
             </div>
 

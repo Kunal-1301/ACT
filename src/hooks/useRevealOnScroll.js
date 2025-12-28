@@ -1,44 +1,36 @@
 // src/hooks/useRevealOnScroll.js
 import { useEffect, useRef, useState } from "react";
 
-function useRevealOnScroll(options = {}) {
+export default function useRevealOnScroll(options = {}) {
   const { threshold = 0.2, rootMargin = "0px 0px -10% 0px" } = options;
-  const ref = useRef(null);
+
+  const elementRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const element = ref.current;
+    const element = elementRef.current;
     if (!element) return;
 
-    // Fallback: if IntersectionObserver not supported, just show it
-    if (typeof window !== "undefined" && !("IntersectionObserver" in window)) {
-      setIsVisible(true);
-      return;
+    if (!("IntersectionObserver" in window)) {
+      const id = requestAnimationFrame(() => setIsVisible(true));
+      return () => cancelAnimationFrame(id);
     }
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target); // trigger only once
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
       },
-      {
-        threshold,
-        rootMargin,
-      }
+      { threshold, rootMargin }
     );
 
     observer.observe(element);
 
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
-  return { ref, isVisible };
+  // ⬇️ RETURN AS TUPLE
+  return [elementRef, isVisible];
 }
-
-export default useRevealOnScroll;

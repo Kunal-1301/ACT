@@ -24,7 +24,7 @@ const Navbar = () => {
               className="logo-img"
               onError={(e) => {
                 if (e.currentTarget.src.endsWith("act-logo.png")) {
-                  e.currentTarget.src = "/media/act-logo.jpg"; // fallback
+                  e.currentTarget.src = "/media/act-logo.png"; // fallback
                 }
               }}
             />

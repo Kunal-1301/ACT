@@ -1,58 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 import "./Research.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 const Research = () => {
-  const { ref: heroTextRef, isVisible: heroTextVisible } = useRevealOnScroll();
-  const { ref: themesRef, isVisible: themesVisible } = useRevealOnScroll();
-  const { ref: areasRef, isVisible: areasVisible } = useRevealOnScroll();
-  const { ref: ongoingRef, isVisible: ongoingVisible } = useRevealOnScroll();
-  const { ref: completedRef, isVisible: completedVisible } = useRevealOnScroll();
-  const { ref: pubsRef, isVisible: pubsVisible } = useRevealOnScroll();
-  const { ref: collabRef, isVisible: collabVisible } = useRevealOnScroll();
-  const { ref: oppRef, isVisible: oppVisible } = useRevealOnScroll();
+  const [heroTextRef, heroTextVisible] = useRevealOnScroll();
+  const [themesRef, themesVisible] = useRevealOnScroll();
+  const [areasRef, areasVisible] = useRevealOnScroll();
+  const [ongoingRef, ongoingVisible] = useRevealOnScroll();
+  const [pubsRef, pubsVisible] = useRevealOnScroll();
+  const [collabRef, collabVisible] = useRevealOnScroll();
+  const [oppRef, oppVisible] = useRevealOnScroll();
+  const [activeProject, setActiveProject] = useState(null);
 
   return (
     <div className="research-page" id="research">
       {/* HERO */}
       <section className="section research-hero research-hero-simple">
-        {/* HERO BACKGROUND IMG */}
         <img
-          src="/media/hero-campus-1600.jpg"
+          src="/media/research.JPG"
           alt="ACT Centre campus"
           className="research-hero-bg"
           loading="eager"
-          onError={(e) => {
-            if (e.currentTarget.src.endsWith(".jpg")) {
-              e.currentTarget.src = "/media/hero-campus-1600.JPG";
-            }
-          }}
         />
-
-        {/* OVERLAY */}
         <div className="research-hero-overlay" aria-hidden />
 
         <div className="container research-hero-inner">
-          {/* LEFT TEXT */}
           <div
             ref={heroTextRef}
             className={`research-hero-text reveal-section ${
               heroTextVisible ? "is-visible" : ""
             }`}
           >
-            <p className="section-eyebrow research-hero-eyebrow">Research</p>
-
-            <h1 className="research-hero-title">
-              Research at the ACT Centre
-            </h1>
+            <h1 className="research-hero-title">Research at the ACT Centre</h1>
 
             <p className="research-hero-subtitle">
-              ACT connects <strong>engineering</strong>,{" "}
-              <strong>cognitive science</strong>,{" "}
-              <strong>arts &amp; humanities</strong> and{" "}
-              <strong>social sciences</strong> — tackling real problems around
-              health, cognition, learning and environment.
+              ACT conducts interdisciplinary research across engineering,
+              cognitive science, arts & humanities, and social sciences —
+              addressing real-world challenges in learning, behaviour,
+              sustainability, and society.
             </p>
 
             <div className="research-hero-ctas">
@@ -64,15 +51,28 @@ const Research = () => {
               </Link>
             </div>
 
-            {/* QUICK NAV */}
             <div className="research-quick-nav">
-              <a href="#themes" className="research-chip">Themes</a>
-              <a href="#areas" className="research-chip">Idea Clusters</a>
-              <a href="#projects-ongoing" className="research-chip">Ongoing</a>
-              <a href="#projects-completed" className="research-chip">Completed</a>
-              <a href="#publications" className="research-chip">Publications</a>
-              <a href="#collaborations" className="research-chip">Collaborations</a>
-              <a href="#opportunities" className="research-chip">Opportunities</a>
+              <a href="#themes" className="research-chip">
+                Themes
+              </a>
+              <a href="#areas" className="research-chip">
+                Idea Clusters
+              </a>
+              <a href="#projects-strategic" className="research-chip">
+                Strategic
+              </a>
+              <a href="#projects-ongoing" className="research-chip">
+                Ongoing
+              </a>
+              <a href="#publications" className="research-chip">
+                Publications
+              </a>
+              <a href="#collaborations" className="research-chip">
+                Collaborations
+              </a>
+              <a href="#opportunities" className="research-chip">
+                Openings
+              </a>
             </div>
           </div>
         </div>
@@ -81,7 +81,6 @@ const Research = () => {
       {/* MAIN */}
       <section className="section research-main">
         <div className="container">
-
           {/* THEMES */}
           <section
             id="themes"
@@ -93,40 +92,39 @@ const Research = () => {
             <div className="research-block-header">
               <h3 className="research-block-title">Research Themes</h3>
               <p className="research-block-subtitle">
-                Thematic anchors that guide ACT projects and collaborations.
+                Core thematic areas that anchor ACT’s interdisciplinary
+                research.
               </p>
             </div>
 
             <div className="research-theme-grid">
               <article className="research-theme-card card">
                 <p className="research-theme-tag">T1</p>
-                <h4>Health &amp; Well-being</h4>
-                <p>
-                  Digital companions, serious games, and behavioural tools to support mental and emotional health.
-                </p>
+                <h4>Health & Well-being</h4>
+                <p>Digital companions, serious games, and behavioural tools.</p>
               </article>
 
               <article className="research-theme-card card">
                 <p className="research-theme-tag">T2</p>
-                <h4>Cognition &amp; Behaviour</h4>
+                <h4>Cognition & Behaviour</h4>
                 <p>
-                  Studying attention, memory, decisions & behaviour through experiments and data.
+                  Attention, memory, decision-making, and behaviour analysis.
                 </p>
               </article>
 
               <article className="research-theme-card card">
                 <p className="research-theme-tag">T3</p>
-                <h4>Energy &amp; Environment</h4>
+                <h4>Energy & Environment</h4>
                 <p>
-                  Sensing, visualisation & nudges for low-carbon habits and sustainable campuses.
+                  Sensing, sustainability, and climate-aligned interventions.
                 </p>
               </article>
 
               <article className="research-theme-card card">
                 <p className="research-theme-tag">T4</p>
-                <h4>Learning &amp; Pedagogy</h4>
+                <h4>Learning & Pedagogy</h4>
                 <p>
-                  Interactive simulations, VR/AR and AI-enabled learning pathways.
+                  AI-enabled learning systems, simulations, and immersive tools.
                 </p>
               </article>
             </div>
@@ -141,34 +139,35 @@ const Research = () => {
             }`}
           >
             <div className="research-block-header">
-              <h3 className="research-block-title">Idea Clusters &amp; Use Cases</h3>
+              <h3 className="research-block-title">
+                Idea Clusters & Use Cases
+              </h3>
               <p className="research-block-subtitle">
-                These clusters represent directions where ACT encourages early pilots.
+                Directions where ACT encourages early pilots and
+                experimentation.
               </p>
             </div>
 
             <div className="research-areas-layout">
               <ul className="research-areas-list">
+                <li>AI-driven personalised learning systems.</li>
                 <li>Digital companions and self-help platforms.</li>
-                <li>Serious games for cognitive training.</li>
-                <li>Wearable + sensor-based behaviour tracking.</li>
-                <li>Real-time feedback tools for classrooms.</li>
-                <li>AI-supported personalised learning systems.</li>
+                <li>Serious games for cognition and training.</li>
+                <li>Wearable and sensor-based behaviour tracking.</li>
                 <li>Energy dashboards for sustainable behaviour.</li>
                 <li>Environmental sensing for local communities.</li>
-                <li>Inclusive interface & accessibility design.</li>
+                <li>Inclusive and accessible interface design.</li>
               </ul>
 
               <aside className="research-highlight-card card">
-                <h4>How Ideas Become Projects</h4>
+                <h4>From Idea to Project</h4>
                 <p>
-                  Early pilots → proposal shaping → ACT funding → deployment + evaluation.
+                  Early pilots → proposal shaping → ACT funding → deployment and
+                  evaluation.
                 </p>
-                <p className="research-highlight-link">
-                  <Link to="/resources" className="link-animated">
-                    View ACT Resources
-                  </Link>
-                </p>
+                <Link to="/resources" className="link-animated">
+                  View ACT Resources
+                </Link>
               </aside>
             </div>
           </section>
@@ -182,75 +181,222 @@ const Research = () => {
             }`}
           >
             <div className="research-block-header">
-              <h3 className="research-block-title">Ongoing Projects</h3>
+              <h3 className="research-block-title">
+                Ongoing Research Projects
+              </h3>
+            </div>
+
+            <div className="research-projects-grid">
+              {/* Project 1 */}
+              <article className="research-project-card card">
+                <img
+                  src="/media/p1.png"
+                  alt="Personalized Learning"
+                  className="research-project-image"
+                />
+
+                <p className="research-project-status research-status-ongoing">
+                  Ongoing
+                </p>
+
+                <h4>Towards a Personalized Learning Experience</h4>
+
+                <p className="research-project-meta">
+                  <span>Faculty:</span> Dr. Pankaj Narula, Dr. Harpreet Singh,
+                  Dr. Aastha Dhoopar
+                </p>
+
+                <p className="research-project-text">
+                  AI-driven framework using advanced knowledge tracing
+                  techniques.
+                </p>
+
+                <button
+                  className="btn btn-secondary btn-sm"
+                  onClick={() =>
+                    setActiveProject({
+                      title: "Towards a Personalized Learning Experience",
+                      faculty:
+                        "Dr. Pankaj Narula, Dr. Harpreet Singh, Dr. Aastha Dhoopar",
+                      description:
+                        "This project develops an AI-based adaptive learning framework that models how student knowledge evolves over time using advanced knowledge tracing methods. It recommends personalised learning resources to improve learning outcomes and reduce disengagement.",
+                      image: "/media/p1.png",
+                    })
+                  }
+                >
+                  View details
+                </button>
+              </article>
+
+              {/* Project 2 */}
+              <article className="research-project-card card">
+                <img
+                  src="/media/p2.png"
+                  alt="Sustainable Crop Production"
+                  className="research-project-image"
+                />
+
+                <p className="research-project-status research-status-ongoing">
+                  Ongoing
+                </p>
+
+                <h4>Sustainable Crop Production in Punjab</h4>
+
+                <p className="research-project-meta">
+                  <span>Faculty:</span> Dr. Richa Babbar, Prof. Dwarikanath
+                  Ratha, Dr. Kavita, Dr. Sheikh Adil Edrisi
+                </p>
+
+                <p className="research-project-text">
+                  Interdisciplinary project addressing climate change and
+                  groundwater depletion.
+                </p>
+
+                <button
+                  className="btn btn-secondary btn-sm"
+                  onClick={() =>
+                    setActiveProject({
+                      title: "Sustainable Crop Production in Punjab",
+                      faculty:
+                        "Dr. Richa Babbar, Prof. Dwarikanath Ratha, Dr. Kavita, Dr. Sheikh Adil Edrisi",
+                      description:
+                        "This project addresses climate change, groundwater depletion, and socio-economic vulnerability in Punjab agriculture. It develops a composite index to guide climate-resilient and locally acceptable crop strategies.",
+                      image: "/media/p2.png",
+                    })
+                  }
+                >
+                  View details
+                </button>
+              </article>
+
+              {/* Project 3 */}
+              <article className="research-project-card card">
+                <img
+                  src="/media/p3.png"
+                  alt="Myths and Morality"
+                  className="research-project-image"
+                />
+
+                <p className="research-project-status research-status-ongoing">
+                  Ongoing
+                </p>
+
+                <h4>Myths and Morality</h4>
+
+                <p className="research-project-meta">
+                  <span>Faculty:</span> Dr. Andrea Raimondi, Dr. Ruchika Jain,
+                  Dr. Shruti Krishna Bhat
+                </p>
+
+                <p className="research-project-text">
+                  Study of myths and narratives shaping moral reasoning.
+                </p>
+
+                <button
+                  className="btn btn-secondary btn-sm"
+                  onClick={() =>
+                    setActiveProject({
+                      title: "Myths and Morality",
+                      faculty:
+                        "Dr. Andrea Raimondi, Dr. Ruchika Jain, Dr. Shruti Krishna Bhat",
+                      description:
+                        "A humanities-led research project examining how myths, epics, and traditional narratives shape moral reasoning and ethical behaviour, with particular attention to Indian philosophical traditions.",
+                      image: "/media/p3.png",
+                    })
+                  }
+                >
+                  View details
+                </button>
+              </article>
+            </div>
+          </section>
+
+          {/* STRATEGIC PROJECTS */}
+          <section
+            id="projects-strategic"
+            className="research-block research-block-band reveal-section is-visible"
+          >
+            <div className="research-block-header">
+              <h3 className="research-block-title">
+                Strategic / Flagship Projects
+              </h3>
+              <p className="research-block-subtitle">
+                Long-term initiatives defining ACT’s institutional research
+                vision.
+              </p>
             </div>
 
             <div className="research-projects-grid">
               <article className="research-project-card card">
-                <p className="research-project-status research-status-ongoing">
-                  Ongoing
-                </p>
-                <h4>Digital Mental Health Companion</h4>
-                <p className="research-project-meta">
-                  <span>Themes:</span> Health • Cognition
-                </p>
-                <p className="research-project-text">
-                  Game-based & conversational tools supporting emotional well-being for young adults.
-                </p>
-              </article>
+                <img
+                  src="/media/ThaparBrain.png"
+                  alt="Thapar Brain"
+                  className="research-project-image"
+                />
 
-              <article className="research-project-card card">
-                <p className="research-project-status research-status-ongoing">
-                  Ongoing
-                </p>
-                <h4>ACT Smart Campus Dashboard</h4>
-                <p className="research-project-meta">
-                  <span>Themes:</span> Energy • Learning
-                </p>
-                <p className="research-project-text">
-                  Visualising campus energy & resource patterns for awareness and low-carbon action.
-                </p>
-              </article>
+                <p className="research-project-status">Strategic Flagship</p>
 
-              <article className="research-project-card card">
-                <p className="research-project-status research-status-ongoing">
-                  Ongoing
-                </p>
-                <h4>Immersive Learning Lab</h4>
-                <p className="research-project-meta">
-                  <span>Themes:</span> Learning • Cognition
-                </p>
+                <h4>Thapar Brain: Neuromarketing for Everyone</h4>
+
                 <p className="research-project-text">
-                  VR/AR + simulations to explore complex STEM concepts through rich visual feedback.
+                  Privacy-first neuromarketing platform for attention and
+                  engagement analysis.
                 </p>
+
+                <button
+                  className="btn btn-secondary btn-sm"
+                  onClick={() =>
+                    setActiveProject({
+                      title: "Thapar Brain: Neuromarketing for Everyone",
+                      faculty: "ACT Centre interdisciplinary team",
+                      description:
+                        "Thapar Brain is a flagship neuromarketing platform designed to democratise access to attention, emotion, and engagement analytics. It integrates low-cost sensing, behavioural signals, creative testing, and ethical-by-design data practices.",
+                      image: "/media/ThaparBrain.png",
+                    })
+                  }
+                >
+                  View details
+                </button>
               </article>
             </div>
           </section>
 
-          {/* COMPLETED PROJECTS */}
-          <section
-            id="projects-completed"
-            ref={completedRef}
-            className={`research-block research-block-soft reveal-section ${
-              completedVisible ? "is-visible" : ""
-            }`}
-          >
-            <div className="research-block-header">
-              <h3 className="research-block-title">Completed Projects</h3>
-            </div>
+          {activeProject && (
+            <div
+              className="research-modal-overlay"
+              onClick={() => setActiveProject(null)}
+            >
+              <div
+                className="research-modal"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  className="research-modal-close"
+                  onClick={() => setActiveProject(null)}
+                >
+                  ×
+                </button>
 
-            <div className="research-completed-layout">
-              <ul className="research-completed-list">
-                <li><strong>Placeholder 1</strong> — Summary of completed output.</li>
-                <li><strong>Placeholder 2</strong> — One-line outcome description.</li>
-                <li><strong>Placeholder 3</strong> — Outcome summary.</li>
-              </ul>
+                {activeProject.image && (
+                  <img
+                    src={activeProject.image}
+                    alt={activeProject.title}
+                    className="research-modal-image"
+                  />
+                )}
 
-              <p className="research-completed-note">
-                A full archive of completed ACT projects will appear here.
-              </p>
+                <h3>{activeProject.title}</h3>
+
+                <p className="research-modal-meta">
+                  <strong>Faculty:</strong> {activeProject.faculty}
+                </p>
+
+                <p className="research-modal-text">
+                  {activeProject.description}
+                </p>
+              </div>
             </div>
-          </section>
+          )}
 
           {/* PUBLICATIONS */}
           <section
@@ -268,14 +414,14 @@ const Research = () => {
               <div className="research-pubs-feature card">
                 <h4>Highlighted Publications</h4>
                 <ul>
-                  <li>Placeholder publication entry.</li>
-                  <li>Another placeholder citation.</li>
+                  <li>Publication listings will appear here.</li>
                 </ul>
               </div>
 
               <div className="research-pubs-note-card card">
                 <p>
-                  Full publication database (with filters) will appear here.
+                  A searchable publication database will be added as outputs
+                  grow.
                 </p>
               </div>
             </div>
@@ -297,27 +443,24 @@ const Research = () => {
               <article className="research-collab-card card">
                 <h4>Academic</h4>
                 <ul>
-                  <li>Joint projects across departments.</li>
-                  <li>International academic collaborations.</li>
-                  <li>Co-supervision & shared labs.</li>
+                  <li>Interdisciplinary and international collaborations</li>
+                  <li>Joint supervision and shared labs</li>
                 </ul>
               </article>
 
               <article className="research-collab-card card">
-                <h4>Industry &amp; Start-ups</h4>
+                <h4>Industry & Start-ups</h4>
                 <ul>
-                  <li>Pilot studies with industry.</li>
-                  <li>Usability testing & prototypes.</li>
-                  <li>Internships through ACT.</li>
+                  <li>Pilot studies and applied research</li>
+                  <li>Usability testing and prototypes</li>
                 </ul>
               </article>
 
               <article className="research-collab-card card">
-                <h4>Government &amp; Civil Society</h4>
+                <h4>Government & Civil Society</h4>
                 <ul>
-                  <li>Public sector research projects.</li>
-                  <li>Co-designed interventions.</li>
-                  <li>Community-aligned testbeds.</li>
+                  <li>Public-sector research projects</li>
+                  <li>Community-aligned interventions</li>
                 </ul>
               </article>
             </div>
@@ -332,25 +475,25 @@ const Research = () => {
             }`}
           >
             <div className="research-opportunities-card card">
-              <h3>Student &amp; Research Opportunities</h3>
-              <p>
-                ACT hosts regular opportunities for students, fellows, and visiting researchers.
-              </p>
-
+              <h3>Openings & Opportunities</h3>
               <ul>
-                <li>Research assistant & project roles.</li>
-                <li>Semester & summer internships.</li>
-                <li>Joint supervision and design studios.</li>
+                <li>Research assistant and project positions</li>
+                <li>Student internships and thesis opportunities</li>
+                <li>Calls for interdisciplinary proposals</li>
               </ul>
-
               <p className="research-opportunities-note">
                 Visit{" "}
-                <Link to="/funding" className="link-animated">Funding</Link> and{" "}
-                <Link to="/events" className="link-animated">Events</Link> for latest openings.
+                <Link to="/funding" className="link-animated">
+                  Funding
+                </Link>{" "}
+                and{" "}
+                <Link to="/events" className="link-animated">
+                  Events
+                </Link>{" "}
+                for current openings.
               </p>
             </div>
           </section>
-
         </div>
       </section>
     </div>

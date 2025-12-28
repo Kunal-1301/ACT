@@ -4,103 +4,111 @@ import "./Home.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 function Home() {
-  // reveal refs
-  const { ref: visionRef, isVisible: visionVisible } = useRevealOnScroll();
-  const { ref: researchRef, isVisible: researchVisible } = useRevealOnScroll();
-  const { ref: neuroRef, isVisible: neuroVisible } = useRevealOnScroll();
-  const { ref: flagshipRef, isVisible: flagshipVisible } = useRevealOnScroll();
-  const { ref: fundingRef, isVisible: fundingVisible } = useRevealOnScroll();
-  const { ref: oppRef, isVisible: oppVisible } = useRevealOnScroll();
-  const { ref: impactRef, isVisible: impactVisible } = useRevealOnScroll();
-  const { ref: peopleRef, isVisible: peopleVisible } = useRevealOnScroll();
-  const { ref: updatesRef, isVisible: updatesVisible } = useRevealOnScroll();
-  const { ref: contactRef, isVisible: contactVisible } = useRevealOnScroll();
+  /* ======================================================
+     REVEAL HOOKS
+     ====================================================== */
+  const [visionRef, visionVisible] = useRevealOnScroll();
+  const [researchRef, researchVisible] = useRevealOnScroll();
+  const [neuroRef, neuroVisible] = useRevealOnScroll();
+  const [flagshipRef, flagshipVisible] = useRevealOnScroll();
+  const [fundingRef, fundingVisible] = useRevealOnScroll();
+  const [oppRef, oppVisible] = useRevealOnScroll();
+  const [impactRef, impactVisible] = useRevealOnScroll();
+  const [peopleRef, peopleVisible] = useRevealOnScroll();
+  const [updatesRef, updatesVisible] = useRevealOnScroll();
+  const [contactRef, contactVisible] = useRevealOnScroll();
 
-  // Gallery images (update names if necessary)
-  const galleryImages = [
+  /* ======================================================
+     LIGHTBOX STATE
+     ====================================================== */
+  const imageGallery = [
     "/media/hero-campus-800.JPG",
     "/media/hero-campus-800.JPG",
     "/media/hero-campus-800.JPG",
     "/media/hero-campus-800.JPG",
-    "/media/hero-campus-800.JPG",
-    "/media/hero-campus-800.JPG",
-    "/media/hero-campus-800.JPG",
-    "/media/hero-campus-800.JPG",
-  ].filter(Boolean);
+  ];
 
-  // Lightbox state (kept local to page)
-  const [lightbox, setLightbox] = useState({ open: false, index: 0 });
+  const videoGallery = [
+    { youtubeId: "Hr_48d8YKNw" },
+    { youtubeId: "mtVY5SXH_f0" },
+  ];
 
-  const openLightbox = (index) => setLightbox({ open: true, index });
-  const closeLightbox = () => setLightbox({ open: false, index: 0 });
+  const [lightbox, setLightbox] = useState({
+    open: false,
+    index: 0,
+    type: "image",
+  });
+
+  const closeLightbox = () =>
+    setLightbox({ open: false, index: 0, type: "image" });
+
   const nextLightbox = () =>
-    setLightbox((s) => ({
-      open: true,
-      index: (s.index + 1) % galleryImages.length,
-    }));
-  const prevLightbox = () =>
-    setLightbox((s) => ({
-      open: true,
-      index: (s.index - 1 + galleryImages.length) % galleryImages.length,
-    }));
+    setLightbox((s) => {
+      const list = s.type === "image" ? imageGallery : videoGallery;
+      return { ...s, index: (s.index + 1) % list.length };
+    });
 
-  // keyboard navigation for lightbox
+  const prevLightbox = () =>
+    setLightbox((s) => {
+      const list = s.type === "image" ? imageGallery : videoGallery;
+      return { ...s, index: (s.index - 1 + list.length) % list.length };
+    });
+
+  /* ======================================================
+     KEYBOARD NAV
+     ====================================================== */
   useEffect(() => {
-    function onKey(e) {
+    const onKey = (e) => {
       if (!lightbox.open) return;
       if (e.key === "Escape") closeLightbox();
       if (e.key === "ArrowRight") nextLightbox();
       if (e.key === "ArrowLeft") prevLightbox();
-    }
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [lightbox.open, galleryImages.length]);
+  }, [lightbox.open]);
 
+  /* ======================================================
+     🔥 FAILSAFE VISIBILITY FIX
+     ====================================================== */
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      document
+        .querySelectorAll(".reveal-section")
+        .forEach((el) => el.classList.add("is-visible"));
+    }, 900);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  /* ======================================================
+     RENDER
+     ====================================================== */
   return (
     <div className="home-page">
-      {/* 1️⃣ HERO SECTION - simplified inline hero using local jpgs */}
-      <section
-        className="section home-hero home-hero-simple"
-        role="banner"
-        aria-label="ACT Centre hero"
-      >
-        {/* background image */}
-        <img
-          src="/media/hero-campus-1600.jpg"
-          alt="Thapar Institute — ACT Centre building"
-          className="home-hero-bg"
-          loading="eager"
-        />
-
-        {/* overlay */}
-        <div className="home-hero-overlay" aria-hidden />
-
-        {/* content */}
+      {/* ================= HERO ================= */}
+      <section className="section home-hero home-hero-simple">
+        <img src="/media/bghome.png" className="home-hero-bg" alt="" />
+        <div className="home-hero-overlay" />
         <div className="container home-hero-inner">
-          {/* LEFT: TEXT */}
           <div className="home-hero-left">
-            {/* ADDED: institutional logos */}
-
             <div className="home-hero-eyebrow hero-animate hero-delay-2">
               <span className="home-hero-pill">
                 Centre for Transdisciplinary Research
               </span>
-              {/* <span className="home-hero-tagline">
-                Thapar Institute of Engineering &amp; Technology
-              </span> */}
             </div>
 
             <h1 className="home-hero-title hero-animate hero-delay-3">
-              Where cognition, technology{" "}
-              <span className="home-hero-title-accent">&amp; society</span>
+              Where Discipline Converges,{" "}
+              <span className="home-hero-title-accent">&amp; Impact</span>
               <br />
-              meet in practice.
+              Imerges
             </h1>
 
             <p className="home-hero-subtitle hero-animate hero-delay-4">
-              ACT is a cross–cutting centre that brings together researchers,
-              students and partners to design, test and deploy human–centred
-              technologies in real–world environments.
+              The ACT Centre envisions a future where trans-disciplinary
+              collaboration is not just encouraged but embedded in our
+              educational and research culture.
             </p>
 
             <div className="home-hero-actions hero-animate hero-delay-5">
@@ -111,75 +119,45 @@ function Home() {
                 Funding &amp; opportunities
               </Link>
             </div>
-
-            <div
-              className="home-hero-stats hero-animate hero-delay-6"
-              aria-hidden
-            >
-              <div className="home-stat">
-                <div className="home-stat-number">8+</div>
-                <div className="home-stat-label">Labs &amp; testbeds</div>
-              </div>
-              <div className="home-stat">
-                <div className="home-stat-number">40+</div>
-                <div className="home-stat-label">
-                  Core &amp; affiliated faculty
-                </div>
-              </div>
-              <div className="home-stat">
-                <div className="home-stat-number">120+</div>
-                <div className="home-stat-label">
-                  Students &amp; researchers
-                </div>
-              </div>
-            </div>
           </div>
 
-          {/* RIGHT: FLOATING SLIDESHOW (ADDED) */}
-          <div className="home-hero-slideshow animate-in-delay-4" aria-hidden>
+          <div className="home-hero-slideshow">
             <div className="slideshow-track">
-              <img src="/media/tiet.jpg" alt="" />
-              <img src="/media/hero-campus-1600.jpg" alt="" />
-              <img src="/media/tslas.jpg" alt="" />
+              <img src="/media/tiet.png" alt="" />
+              <img src="/media/act-home.png" alt="" />
+              <img src="/media/tslas.png" alt="" />
+              <img src="/media/ThaparBrain.png" alt="" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2️⃣ VISION & MISSION */}
+      {/* ================= VISION ================= */}
       <section
         ref={visionRef}
         className={`section home-vision reveal-section ${
           visionVisible ? "is-visible" : ""
         }`}
       >
-        <div className="container home-section-header">
-          <p className="section-eyebrow">Vision &amp; Mission</p>
+        <div className="container">
           <div className="home-vision-layout">
             <div className="home-vision-block card">
-              <h2 className="home-section-title">Our vision</h2>
+              <h2 className="home-section-title">
+                <span className="vision-animated-text">Our vision</span>
+              </h2>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                est, ratione enim saepe earum labore ipsam animi expedita vero
-                velit, voluptatibus quam in.
+                ACT envisions a future where{" "}
+                <span className="vision-highlight">
+                  transdisciplinary cooperation
+                </span>{" "}
+                drives innovative and sustainable technologies to address
+                complex societal challenges, transforming knowledge into
+                meaningful real-world impact.
               </p>
             </div>
-            <div className="home-vision-block card">
-              <h3 className="home-section-title">Our mission</h3>
-              <ul className="home-vision-list">
-                <li>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Ullam, labore.
-                </li>
-                <li>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Mollitia, provident!
-                </li>
-                <li>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ipsum, quidem.
-                </li>
-              </ul>
+
+            <div className="home-vision-image card">
+              <img src="/media/homebg2.png" alt="" />
             </div>
           </div>
         </div>
@@ -350,9 +328,6 @@ function Home() {
                   <span className="chip-dot" /> Ongoing
                 </span>
               </div>
-              <div className="card-thumb">
-                <img src="/media/20230206_174427.jpg" alt="Mobility lab" />
-              </div>
               <div className="card-body">
                 <h3>Human–Centred Campus Mobility Lab</h3>
                 <p>
@@ -371,9 +346,6 @@ function Home() {
                 <span className="chip chip-status-upcoming">
                   <span className="chip-dot" /> In development
                 </span>
-              </div>
-              <div className="card-thumb">
-                <img src="/media/hero-campus-800.JPG" alt="Infrastructure" />
               </div>
               <div className="card-body">
                 <h3>Cognitive Workflows for Smart Infrastructure</h3>
@@ -395,9 +367,6 @@ function Home() {
                   <span className="chip-dot" /> Completed
                 </span>
               </div>
-              <div className="card-thumb">
-                <img src="/media/hero-campus-800.JPG" alt="Behaviour systems" />
-              </div>
               <div className="card-body">
                 <h3>Behaviour–Aware Information Systems</h3>
                 <p>
@@ -415,29 +384,56 @@ function Home() {
       </section>
 
       {/* INLINE GALLERY (no extra files) */}
-      <section className="section home-gallery">
+      <section className="section home-featured-videos">
         <div className="container">
           <div className="home-section-header">
-            <p className="section-eyebrow">Gallery</p>
+            <p className="section-eyebrow">Perspectives</p>
             <div className="home-section-header-main">
-              <h2 className="home-section-title">Visual tour</h2>
+              <h2 className="home-section-title">Ideas that shape ACT</h2>
               <p className="home-section-intro">
-                A quick visual tour of the campus, labs and events at ACT.
+                These ideas reflect how ACT approaches complex problems — across
+                disciplines, beyond silos, and with clarity.
               </p>
             </div>
           </div>
 
-          <div className="gallery-grid">
-            {galleryImages.map((src, i) => (
-              <button
-                key={src}
-                className="gallery-item"
-                onClick={() => openLightbox(i)}
-                aria-label={`Open image ${i + 1}`}
-              >
-                <img src={src} alt={`ACT photo ${i + 1}`} loading="lazy" />
-              </button>
-            ))}
+          <div className="featured-videos-grid">
+            {/* VIDEO 1 */}
+            <article className="featured-video-card">
+              <div className="featured-video-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/Hr_48d8YKNw"
+                  title="ACT featured talk"
+                  allow="accelerometer; clipboard-write; fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+
+              <blockquote className="featured-quote">
+                <p>
+                  “For every complex problem there is an answer that is clear,
+                  simple, and wrong.”
+                </p>
+                <footer>— H. L. Mencken</footer>
+              </blockquote>
+            </article>
+
+            {/* VIDEO 2 */}
+            <article className="featured-video-card">
+              <div className="featured-video-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/mtVY5SXH_f0"
+                  title="ACT featured talk"
+                  allow="accelerometer; clipboard-write; fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+
+              <blockquote className="featured-quote">
+                <p>“The real world is not divided into departments.”</p>
+                <footer>— Russell L. Ackoff</footer>
+              </blockquote>
+            </article>
           </div>
         </div>
       </section>
@@ -451,29 +447,39 @@ function Home() {
           onClick={closeLightbox}
         >
           <div className="lightbox-inner" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="lightbox-close"
-              onClick={closeLightbox}
-              aria-label="Close"
-            >
+            <button className="lightbox-close" onClick={closeLightbox}>
               ✕
             </button>
+
             <button
               className="lightbox-nav lightbox-prev"
               onClick={prevLightbox}
-              aria-label="Previous"
             >
               ‹
             </button>
-            <img
-              className="lightbox-img"
-              src={galleryImages[lightbox.index]}
-              alt={`ACT photo ${lightbox.index + 1}`}
-            />
+
+            {lightbox.type === "image" ? (
+              <img
+                className="lightbox-img"
+                src={imageGallery[lightbox.index]}
+                alt=""
+              />
+            ) : (
+              <div className="lightbox-video">
+                <iframe
+                  src={`https://www.youtube.com/embed/${
+                    videoGallery[lightbox.index].youtubeId
+                  }?autoplay=1`}
+                  title="ACT video"
+                  allow="accelerometer; clipboard-write; fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            )}
+
             <button
               className="lightbox-nav lightbox-next"
               onClick={nextLightbox}
-              aria-label="Next"
             >
               ›
             </button>
@@ -718,10 +724,27 @@ function Home() {
           </div>
 
           <div className="home-people-grid">
+            <article className="card home-person-card home-person-card--featured">
+              <div className="home-person-photo">
+                <img
+                  src="/media/EC.jpg"
+                  alt="Dr. Efthymios Constantinides"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="home-person-body">
+                <h3 className="home-person-name">
+                  Dr. Efthymios Constantinides
+                </h3>
+                <p className="home-person-role">Chair</p>
+                <p className="home-person-meta">ACT Centre Professor, TSLAS.</p>
+              </div>
+            </article>
             <article className="card home-person-card">
               <div className="home-person-photo">
                 <img
-                  src="/media/Vinay.jpg"
+                  src="/media/Vinay.jpeg"
                   alt="Dr. Vinay Kumar"
                   loading="lazy"
                 />
@@ -729,10 +752,8 @@ function Home() {
 
               <div className="home-person-body">
                 <h3 className="home-person-name">Dr. Vinay Kumar</h3>
-                <p className="home-person-role">Centre Lead / Faculty</p>
-                <p className="home-person-meta">
-                  Cognitive science, mobility behaviour, human–centred design.
-                </p>
+                <p className="home-person-role">Dean</p>
+                <p className="home-person-meta">TSLAS Professor, TIET.</p>
               </div>
             </article>
 
@@ -747,9 +768,9 @@ function Home() {
 
               <div className="home-person-body">
                 <h3 className="home-person-name">Dr. Rahul Upadhyay</h3>
-                <p className="home-person-role">Centre Lead / Faculty</p>
+                <p className="home-person-role">Head</p>
                 <p className="home-person-meta">
-                  Cognitive science, mobility behaviour, human–centred design.
+                  ACT Centre Associate Professor, TIET.
                 </p>
               </div>
             </article>
@@ -765,9 +786,9 @@ function Home() {
 
               <div className="home-person-body">
                 <h3 className="home-person-name">Dr. T. Brandon Evans </h3>
-                <p className="home-person-role">Centre Lead / Faculty</p>
+                <p className="home-person-role">Coordinator</p>
                 <p className="home-person-meta">
-                  Cognitive science, mobility behaviour, human–centred design.
+                  ACT Centre Associate Professor, TSLAS.
                 </p>
               </div>
             </article>
