@@ -99,13 +99,12 @@ const Research = () => {
 
             <div className="research-theme-grid">
               <article className="research-theme-card card">
-                <p className="research-theme-tag">T1</p>
                 <h4>Health & Well-being</h4>
                 <p>Digital companions, serious games, and behavioural tools.</p>
               </article>
 
               <article className="research-theme-card card">
-                <p className="research-theme-tag">T2</p>
+          
                 <h4>Cognition & Behaviour</h4>
                 <p>
                   Attention, memory, decision-making, and behaviour analysis.
@@ -113,7 +112,7 @@ const Research = () => {
               </article>
 
               <article className="research-theme-card card">
-                <p className="research-theme-tag">T3</p>
+             
                 <h4>Energy & Environment</h4>
                 <p>
                   Sensing, sustainability, and climate-aligned interventions.
@@ -121,7 +120,7 @@ const Research = () => {
               </article>
 
               <article className="research-theme-card card">
-                <p className="research-theme-tag">T4</p>
+            
                 <h4>Learning & Pedagogy</h4>
                 <p>
                   AI-enabled learning systems, simulations, and immersive tools.

@@ -218,7 +218,7 @@ function Home() {
                 />
               </div>
               <div className="card-body">
-                <h3>Environment, Energy &amp; Sustainability</h3>
+                <h3>Energy, Environment &amp; Sustainability</h3>
                 <p>
                   Exploration of sustainable solutions to environmental
                   challenges, including biodiversity preservation, and
@@ -247,6 +247,29 @@ function Home() {
                   Investigating novel methods and strategies to advance
                   education and pedagogical practices, with a focus on fostering
                   lifelong learning.
+                </p>
+                <Link to="/research" className="btn btn-tertiary">
+                  View related projects →
+                </Link>
+              </div>
+            </article>
+            <article className="card home-research-card">
+              <div className="card-thumb">
+                <img
+                  src="/media/energy.png"
+                  alt="Built environment thumbnail"
+                  onError={(e) => {
+                    if (e.currentTarget.src.endsWith("_DSC9441.JPG"))
+                      e.currentTarget.src = "/media/_DSC9441.jpg";
+                  }}
+                />
+              </div>
+              <div className="card-body">
+                <h3>Cognition  &amp; Behaviour</h3>
+                <p>
+                  Exploration of sustainable solutions to environmental
+                  challenges, including biodiversity preservation, and
+                  mitigation of climate change impacts.
                 </p>
                 <Link to="/research" className="btn btn-tertiary">
                   View related projects →
@@ -314,9 +337,7 @@ function Home() {
             <div className="home-section-header-main">
               <h2 className="home-section-title">Flagship projects</h2>
               <p className="home-section-intro">
-                A selection of multi–stakeholder projects that illustrate how
-                ACT integrates cognitive science, data and infrastructure in
-                practice.
+                
               </p>
             </div>
           </div>
@@ -391,8 +412,7 @@ function Home() {
             <div className="home-section-header-main">
               <h2 className="home-section-title">Ideas that shape ACT</h2>
               <p className="home-section-intro">
-                These ideas reflect how ACT approaches complex problems — across
-                disciplines, beyond silos, and with clarity.
+                
               </p>
             </div>
           </div>
@@ -541,8 +561,7 @@ function Home() {
                 Current &amp; upcoming calls
               </h2>
               <p className="home-section-intro">
-                A quick snapshot of ACT–linked funding calls. Visit the Funding
-                page for full details, timelines and documents.
+               
               </p>
             </div>
             <Link
@@ -594,12 +613,11 @@ function Home() {
       >
         <div className="container">
           <div className="home-section-header">
-            <p className="section-eyebrow">For students &amp; researchers</p>
+            <p className="section-eyebrow">For Faculty, Students &amp; Researchers</p>
             <div className="home-section-header-main">
-              <h2 className="home-section-title">Ways to get involved ###</h2>
+              <h2 className="home-section-title">Ways To Get Involved</h2>
               <p className="home-section-intro">
-                ACT is designed as a shared space. Students, scholars and staff
-                can engage through projects, internships.
+                
               </p>
             </div>
           </div>
@@ -654,8 +672,7 @@ function Home() {
             <div className="home-section-header-main">
               <h2 className="home-section-title">ACT in numbers</h2>
               <p className="home-section-intro">
-                Early indicators of how ACT is building a different kind of
-                research and practice space within TIET.
+                
               </p>
             </div>
           </div>
@@ -692,11 +709,9 @@ function Home() {
           <div className="home-section-header">
             <p className="section-eyebrow">People</p>
             <div className="home-section-header-main">
-              <h2 className="home-section-title">Featured people</h2>
+              <h2 className="home-section-title">ACT Core Team</h2>
               <p className="home-section-intro">
-                A glimpse of the faculty and researchers shaping the Centre’s
-                agenda. Visit the People page for the full list of core and
-                affiliated members.
+                
               </p>
             </div>
             <Link
@@ -721,8 +736,8 @@ function Home() {
                 <h3 className="home-person-name">
                   Dr. Efthymios Constantinides
                 </h3>
-                <p className="home-person-role">Chair</p>
-                <p className="home-person-meta">ACT Centre Professor, TSLAS.</p>
+                <p className="home-person-role">Chair, ACT Centre</p>
+                <p className="home-person-meta">Professor @ TSLAS.</p>
               </div>
             </article>
             <article className="card home-person-card">
@@ -736,8 +751,8 @@ function Home() {
 
               <div className="home-person-body">
                 <h3 className="home-person-name">Dr. Vinay Kumar</h3>
-                <p className="home-person-role">Dean</p>
-                <p className="home-person-meta">TSLAS Professor, TIET.</p>
+                <p className="home-person-role">Dean @ TSLAS</p>
+                <p className="home-person-meta">Professor @ TIET & TSLAS.</p>
               </div>
             </article>
 
@@ -752,9 +767,9 @@ function Home() {
 
               <div className="home-person-body">
                 <h3 className="home-person-name">Dr. Rahul Upadhyay</h3>
-                <p className="home-person-role">Head</p>
+                <p className="home-person-role">Head, ACT Centre</p>
                 <p className="home-person-meta">
-                  ACT Centre Associate Professor, TIET.
+                Associate Professor @ TIET & TSLAS.
                 </p>
               </div>
             </article>
@@ -770,9 +785,9 @@ function Home() {
 
               <div className="home-person-body">
                 <h3 className="home-person-name">Dr. T. Brandon Evans </h3>
-                <p className="home-person-role">Coordinator</p>
+                <p className="home-person-role">Coordinator, ACT Centre</p>
                 <p className="home-person-meta">
-                  ACT Centre Associate Professor, TSLAS.
+                Assistant Professor @ TSLAS.
                 </p>
               </div>
             </article>
