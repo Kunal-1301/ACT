@@ -13,7 +13,7 @@
 
 .people-hero {
   position: relative;
-  min-height: 72vh;          /* 👈 increase hero height */
+  min-height: 80vh;          /* 👈 increase hero height */
   padding: 6rem 0 5rem;      /* more vertical breathing room */
   color: #f9fafb;
   overflow: hidden;
@@ -218,11 +218,19 @@
 /* Header */
 .people-card-header {
   display: grid;
-  grid-template-columns: 52px 1fr;
-  gap: 0.8rem;
+  grid-template-columns: 80px 1fr; /* 🔑 MATCH avatar size */
+  gap: 0.9rem;
   align-items: center;
   margin-bottom: 0.6rem;
 }
+.people-card-main {
+  min-width: 0; /* prevents text overflow issues in grid */
+}
+.people-name {
+  word-break: break-word;
+  line-height: 1.35;
+}
+
 
 /* Avatar */
 .people-avatar-img,
@@ -253,7 +261,10 @@
   margin: 0;
   font-weight: 600;
   color: var(--color-primary);
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
+
 
 .people-role {
   font-size: 0.82rem;

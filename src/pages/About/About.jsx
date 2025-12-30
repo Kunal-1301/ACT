@@ -158,8 +158,7 @@ const About = () => {
                 Mission, Vision &amp; Values
               </h2>
               <p className="about-block-subtitle">
-                A clear mission anchors ACT’s work across projects and
-                disciplines.
+               
               </p>
             </div>
 
@@ -207,8 +206,7 @@ const About = () => {
                 How the ACT Centre Evolved
               </h2>
               <p className="about-block-subtitle">
-                ACT emerged through a structured process of planning and
-                cross-departmental collaboration.
+                
               </p>
             </div>
 
@@ -236,8 +234,7 @@ const About = () => {
             <div className="about-block-header">
               <h2 className="about-block-title">Governance &amp; Structure</h2>
               <p className="about-block-subtitle">
-                ACT operates through defined roles and processes to ensure
-                fairness, accountability, and institutional alignment.
+                
               </p>
             </div>
 
@@ -282,8 +279,7 @@ const About = () => {
                 How ACT Projects Work
               </h2>
               <p className="about-block-subtitle">
-                A structured lifecycle supports projects from early ideas to
-                completion.
+                
               </p>
             </div>
 

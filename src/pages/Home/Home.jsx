@@ -99,7 +99,7 @@ function Home() {
             </div>
 
             <h1 className="home-hero-title hero-animate hero-delay-3">
-              Where Discipline Converges,{" "}
+              Where Discipline Converges{" "}
               <span className="home-hero-title-accent">&amp; Impact</span>
               <br />
               Imerges
@@ -132,36 +132,36 @@ function Home() {
         </div>
       </section>
 
-      {/* ================= VISION ================= */}
-      <section
-        ref={visionRef}
-        className={`section home-vision reveal-section ${
-          visionVisible ? "is-visible" : ""
-        }`}
-      >
-        <div className="container">
-          <div className="home-vision-layout">
-            <div className="home-vision-block card">
-              <h2 className="home-section-title">
-                <span className="vision-animated-text">Our vision</span>
-              </h2>
-              <p>
-                ACT envisions a future where{" "}
-                <span className="vision-highlight">
-                  transdisciplinary cooperation
-                </span>{" "}
-                drives innovative and sustainable technologies to address
-                complex societal challenges, transforming knowledge into
-                meaningful real-world impact.
-              </p>
-            </div>
+{/* ================= VISION ================= */}
+<section
+  ref={visionRef}
+  className={`section home-vision reveal-section ${
+    visionVisible ? "is-visible" : ""
+  }`}
+>
+  <div className="home-vision-container">
+    <div className="home-vision-content">
+      <h2 className="home-section-title">
+        <span className="vision-animated-text">Our vision</span>
+      </h2>
 
-            <div className="home-vision-image card">
-              <img src="/media/homebg2.png" alt="" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <p className="home-vision-text">
+        ACT envisions a future where{" "}
+        <span className="vision-highlight">
+          transdisciplinary cooperation
+        </span>{" "}
+        drives innovative and sustainable technologies to address complex
+        societal challenges, transforming knowledge into meaningful
+        real-world impact.
+      </p>
+    </div>
+
+    <div className="home-vision-visual">
+      <img src="/media/homebg2.png" alt="" />
+    </div>
+  </div>
+</section>
+
 
       {/* 3️⃣ RESEARCH THEMES PREVIEW (thumbnails added) */}
       <section
@@ -174,9 +174,9 @@ function Home() {
           <div className="home-section-header">
             <p className="section-eyebrow">Research at ACT</p>
             <div className="home-section-header-main">
-              <h2 className="home-section-title">Research Themes ###</h2>
+              <h2 className="home-section-title">Research Themes</h2>
               <p className="home-section-intro">
-                Explore our Areas of Interest, Stride Towards Perfection.
+                
               </p>
             </div>
           </div>
@@ -185,7 +185,7 @@ function Home() {
             <article className="card home-research-card">
               <div className="card-thumb">
                 <img
-                  src="/media/hero-campus-800.JPG"
+                  src="/media/health.png"
                   alt="Mobility thumbnail"
                   onError={(e) => {
                     if (e.currentTarget.src.endsWith("424A2199.JPG"))
@@ -209,7 +209,7 @@ function Home() {
             <article className="card home-research-card">
               <div className="card-thumb">
                 <img
-                  src="/media/hero-campus-800.JPG"
+                  src="/media/energy.png"
                   alt="Built environment thumbnail"
                   onError={(e) => {
                     if (e.currentTarget.src.endsWith("_DSC9441.JPG"))
@@ -233,7 +233,7 @@ function Home() {
             <article className="card home-research-card">
               <div className="card-thumb">
                 <img
-                  src="/media/hero-campus-800.JPG"
+                  src="/media/learning.png"
                   alt="Human-AI thumbnail"
                   onError={(e) => {
                     if (e.currentTarget.src.endsWith("424A6960.JPG"))
@@ -565,22 +565,6 @@ function Home() {
               <p>
                 Small grants to help faculty and researchers run early–stage
                 pilots linked to ACT themes and testbeds.
-              </p>
-            </article>
-
-            <article className="card home-funding-card">
-              <div className="home-funding-top">
-                <span className="chip chip-status-upcoming">
-                  <span className="chip-dot" /> Upcoming
-                </span>
-                <span className="home-funding-deadline">
-                  Call opening: June
-                </span>
-              </div>
-              <h3>Doctoral &amp; Postdoctoral Fellowships</h3>
-              <p>
-                Structured fellowships for PhD and postdoctoral researchers
-                working on cognition, mobility, human–AI and infrastructure.
               </p>
             </article>
 

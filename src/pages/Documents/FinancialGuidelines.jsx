@@ -19,7 +19,7 @@ const FinancialGuidelines = () => {
             </p>
 
             <a
-              href="/docs/act-financial-assistance.pdf"
+              href="/docs/FinancialGuidelines.pdf"
               className="btn btn-primary"
               target="_blank"
               rel="noreferrer"

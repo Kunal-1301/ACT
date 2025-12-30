@@ -18,6 +18,10 @@
 .funding-hero {
   position: relative;
   overflow: hidden;
+  width : 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
   padding: 3.5rem 0;
   color: #f9fafb;
 }
@@ -81,78 +85,6 @@
   margin: 1.4rem 0 1.2rem;
 }
 
-/* =========================================================
-   4. HERO ASIDE CARD
-   ========================================================= */
-
-.funding-hero-side {
-  position: relative;
-  overflow: hidden;
-  background: rgba(15, 23, 42, 0.94);
-  color: #e5e7eb;
-  padding: 1.3rem 1.2rem;
-  border-radius: 12px;
-}
-
-/* Aside background image */
-.funding-hero-side-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%) contrast(1.1);
-  opacity: 0.25;
-  z-index: 0;
-}
-
-/* Dark overlay on aside */
-.funding-hero-side::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.65);
-  z-index: 0;
-}
-
-/* Content above overlays */
-.funding-hero-side-content {
-  position: relative;
-  z-index: 1;
-}
-
-/* Aside typography */
-.funding-hero-side-label {
-  font-weight: 600;
-  color: #f8fafc;
-}
-
-.funding-hero-side-caption {
-  color: rgba(226, 232, 240, 0.9);
-}
-
-/* Mini flow list */
-.funding-hero-mini-flow {
-  margin: 0.9rem 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.3rem;
-  font-size: 0.86rem;
-  opacity: 0.92;
-}
-
-.funding-hero-mini-flow li::marker {
-  color: rgba(148, 163, 184, 0.9);
-}
-
-.funding-hero-side-link a {
-  color: #93c5fd;
-  font-weight: 500;
-}
-
-.funding-hero-side-link a:hover {
-  color: #bfdbfe;
-}
 
 /* =========================================================
    5. MAIN CONTENT WRAPPER
@@ -210,126 +142,237 @@
    6. FUNDING FLOW
    ========================================================= */
 
+/* =========================================================
+   FUNDING FLOW – PROCESS RAIL
+   ========================================================= */
+
 .funding-flow-steps {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 1.1rem;
+  gap: 1.6rem;
+
   padding: 0;
-  margin: 0;
+  margin: 2rem 0 0;
+
+  position: relative;
 }
 
+/* connecting line */
+.funding-flow-steps::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(148, 163, 184, 0.35);
+  z-index: 0;
+}
+
+/* individual step */
 .funding-flow-step {
   position: relative;
-  padding-top: 1.8rem;
-  font-size: 0.86rem;
-  transition: transform 160ms ease;
+  text-align: center;
+  font-size: 0.85rem;
+  z-index: 1;
 }
 
+/* REMOVE hover lift – this is a process, not a card */
 .funding-flow-step:hover {
-  transform: translateY(-3px);
+  transform: none;
 }
 
-.funding-flow-step h4 {
-  font-size: 0.9rem;
-  color: var(--color-primary);
-}
-
+/* step number */
 .funding-flow-circle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 999px;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-primary-light)
-  );
-  color: #fff;
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 0.7rem;
+
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #ffffff;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+
+  font-size: 0.85rem;
   font-weight: 600;
+}
+
+/* step label */
+.funding-flow-step h4 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0;
+
+  color: #334155;
+}
+.funding-flow-step.is-active .funding-flow-circle {
+  background: #0f172a;
+}
+
+/* =========================================================
+   RESPONSIVE – SCROLLABLE ON MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .funding-flow-steps {
+    grid-template-columns: repeat(6, minmax(140px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 0.8rem;
+  }
+
+  .funding-flow-steps::before {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
 }
 
 /* =========================================================
    7. FUNDING CALL CARDS
    ========================================================= */
 
+/* =========================================================
+   FUNDING CALLS – GRID
+   ========================================================= */
+
 .funding-calls-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.4rem;
+  gap: 1.8rem;
+  align-items: stretch; /* ensures equal-height cards */
 }
+.funding-what-list {
+  margin-top: 0.8rem;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #475569;
+}
+
+.funding-what-list li {
+  margin-bottom: 0.45rem;
+}
+
+/* =========================================================
+   FUNDING CALL CARD
+   ========================================================= */
 
 .funding-call-card {
-  padding: 1.2rem;
-  border-radius: 8px;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  background: #fff;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 14px;
+  padding: 1.6rem 1.5rem;
+
+  display: flex;
+  flex-direction: column; /* enables footer alignment later */
 }
 
-/* Header */
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
 .funding-call-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 1rem;
 }
 
 .funding-call-tag {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  font-weight: 500;
+  color: #475569;
 }
 
-/* Status chips */
+/* =========================================================
+   STATUS CHIPS
+   ========================================================= */
+
 .funding-call-status {
-  font-size: 0.72rem;
-  padding: 0.16rem 0.6rem;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.7rem;
   border-radius: 999px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .funding-status-open {
-  background: rgba(34, 197, 94, 0.12);
-  color: #15803d;
+  background: rgba(34, 197, 94, 0.14);
+  color: #166534;
 }
 
 .funding-status-upcoming {
-  background: rgba(245, 158, 11, 0.12);
+  background: rgba(245, 158, 11, 0.14);
   color: #92400e;
 }
 
 .funding-status-closed {
-  background: rgba(148, 163, 184, 0.12);
+  background: rgba(148, 163, 184, 0.14);
   color: #475569;
 }
 
-/* Card content */
+/* =========================================================
+   CARD BODY
+   ========================================================= */
+
 .funding-call-title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--color-primary);
+  margin-bottom: 0.45rem;
 }
 
 .funding-call-text {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #475569;
+  max-width: 42rem;
+  margin-bottom: 0.6rem;
 }
+
+/* =========================================================
+   META LIST — HORIZONTAL, COMPACT
+   ========================================================= */
 
 .funding-call-meta {
   list-style: none;
   padding: 0;
-  margin: 0.6rem 0;
-  font-size: 0.82rem;
+  margin-top: auto; /* pushes meta to bottom for visual alignment */
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.4rem;
+
+  font-size: 0.83rem;
+  line-height: 1.4;
+  color: #475569;
+}
+
+.funding-call-meta li {
+  margin: 0;
+  white-space: nowrap;
 }
 
 .funding-call-meta span {
   font-weight: 500;
-  color: var(--color-primary);
+  color: #0f172a;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .funding-calls-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =========================================================
@@ -380,16 +423,88 @@
    9. FAQ
    ========================================================= */
 
-.funding-faq-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.3rem;
+/* =========================================================
+   FAQ – PROFESSIONAL ACCORDION
+   ========================================================= */
+
+.funding-faq-list {
+  max-width: 820px;
+  margin-top: 1.6rem;
 }
 
+/* Individual FAQ item */
+.funding-faq-card {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.95);
+  padding: 1.1rem 0;
+}
+
+/* Question button */
+.funding-faq-card h4 {
+  margin: 0;
+}
+
+.funding-faq-card button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #0f172a;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Indicator */
+.funding-faq-card button::after {
+  content: "+";
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #64748b;
+  transition: transform 180ms ease;
+}
+
+/* Expanded state */
+.funding-faq-card button[aria-expanded="true"]::after {
+  content: "–";
+}
+
+/* Answer */
 .funding-faq-card p {
   margin-top: 0.6rem;
+  max-width: 44rem;
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #475569;
+
   animation: fadeIn 220ms ease;
 }
+
+/* Remove generic card behaviour */
+.funding-faq-card.card {
+  box-shadow: none;
+  border-radius: 0;
+  transform: none;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .funding-faq-list {
+    max-width: 100%;
+  }
+}
+
 
 /* =========================================================
    10. CONTACT CARD

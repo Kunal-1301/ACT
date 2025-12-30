@@ -47,50 +47,44 @@ const docs = [
   {
     id: "proposal-format",
     title: "ACT Project Proposal Format",
-    description:
-      "Structure for problem statement, objectives, methodology, team, budget, and timeline.",
+    description: "",
     slug: "/documents/proposal-format",
-    image: "/media/docs/proposal.png",
+    image: "/media/projectproposal.png",
   },
   {
     id: "finance-guidelines",
     title: "Financial Assistance & Budget Guidelines",
-    description:
-      "Rules for what can be supported, budget heads, and documentation required for purchases.",
+    description: "",
     slug: "/documents/financial-guidelines",
-    image: "/media/docs/finance.png",
+    image: "/media/finance.png",
   },
   {
     id: "evaluation-matrix",
     title: "Evaluation Matrix",
-    description:
-      "Criteria and scoring sheet used by reviewers during assessment.",
+    description: "",
     slug: "/documents/evaluation-matrix",
-    image: "/media/docs/evaluation.png",
+    image: "/media/evaluation.png",
   },
   {
     id: "recruitment-process",
     title: "Recruitment Process for Project Staff",
-    description:
-      "Process and safeguards for hiring research fellows / project staff under ACT projects.",
+    description: "",
     slug: "/documents/recruitment-process",
-    image: "/media/docs/recruitment.png",
+    image: "/media/recruitment.png",
   },
   {
     id: "timesheet",
-    title: "ProjectApprovalProcess",
-    description:
-      "Template for recording project staff time across work packages.",
+    title: "Project Approval & Implementation Process",
+    description: "",
     slug: "/documents/project-approval-process",
-    image: "/media/docs/timesheet.png",
+    image: "/media/projectapproval.png",
   },
   {
     id: "ideation-notes",
     title: "ACT Ideation Notes",
-    description:
-      "Idea areas and prompts to help teams frame new projects aligned with ACT themes.",
+    description: "",
     slug: "/documents/ideation-notes",
-    image: "/media/docs/ideation.png",
+    image: "/media/ideation.png",
   },
 ];
 
@@ -107,7 +101,6 @@ const Funding = () => {
      ================================ */
 
   const [heroTextRef, heroTextVisible] = useRevealOnScroll();
-  const [heroSideRef, heroSideVisible] = useRevealOnScroll();
   const [flowRef, flowVisible] = useRevealOnScroll();
   const [callsRef, callsVisible] = useRevealOnScroll();
   const [whatRef, whatVisible] = useRevealOnScroll();
@@ -151,7 +144,7 @@ const Funding = () => {
               </a>
 
               <a
-                href="/docs/act-proposal-format.docx"
+                href="/docs/ProposalFormat.pdf"
                 className="btn btn-secondary"
                 target="_blank"
                 rel="noreferrer"
@@ -173,9 +166,7 @@ const Funding = () => {
               flowVisible ? "is-visible" : ""
             }`}
           >
-            <h3 className="funding-section-title">
-              Funding Flow at a Glance
-            </h3>
+            <h3 className="funding-section-title">Funding Flow at a Glance</h3>
 
             <ol className="funding-flow-steps">
               {[
@@ -242,68 +233,54 @@ const Funding = () => {
           <section
             id="what-we-fund"
             ref={whatRef}
-            className={`funding-section-block funding-soft-block reveal-section ${
+            className={`funding-section-block reveal-section ${
               whatVisible ? "is-visible" : ""
             }`}
           >
             <div className="funding-section-header">
               <h3 className="funding-section-title">What ACT Can Fund</h3>
               <p className="funding-section-subtitle">
-                A high-level view based on the ACT financial assistance and
-                project implementation guidelines. Always refer to the specific
-                call for exact rules.
+                An indicative outline of what ACT supports; specific
+                requirements are detailed in each call
               </p>
             </div>
 
-            <div className="funding-what-grid">
-              <div className="funding-what-card card">
-                <h4>Eligible Support (Indicative)</h4>
-                <ul>
+            {/* Reuse funding calls grid for visual consistency */}
+            <div className="funding-calls-grid">
+              <div className="funding-call-card">
+                <h4 className="funding-call-title">
+                  Eligible Support (Indicative)
+                </h4>
+
+                <ul className="funding-what-list">
                   <li>
                     Computing resources, essential software, and
-                    project-specific subscriptions.
+                    project-specific subscriptions
                   </li>
                   <li>
-                    Hardware, sensors, and prototyping materials that remain
-                    with the institute / ACT labs.
+                    Hardware, sensors, and prototyping materials retained by ACT
+                    labs
                   </li>
                   <li>
-                    Data acquisition, fieldwork, and travel linked to research
-                    questions and ethics approvals.
+                    Data acquisition, fieldwork, and research-linked travel
                   </li>
+                  <li>Student assistants, project staff, or fellows</li>
                   <li>
-                    Student assistants, project staff, or fellows as per
-                    recruitment process.
-                  </li>
-                  <li>
-                    Printing, materials, and exhibition costs for public-facing
-                    outputs and pilots.
+                    Printing and exhibition costs for public-facing outputs and
+                    pilots
                   </li>
                 </ul>
               </div>
 
-              <div className="funding-what-card card funding-what-card--muted">
-                <h4>Typically Not Supported</h4>
-                <ul>
-                  <li>
-                    General-purpose devices not justified by the project (e.g.
-                    personal laptops).
-                  </li>
-                  <li>
-                    Routine operational expenses or items already covered by
-                    departmental budgets.
-                  </li>
-                  <li>
-                    Non-essential travel, honoraria, or hospitality not clearly
-                    linked to project outcomes.
-                  </li>
-                  <li>
-                    Long-term recurring subscriptions without clear exit plans.
-                  </li>
-                  <li>
-                    Any expenditure not compliant with institute financial rules
-                    and ACT guidelines.
-                  </li>
+              <div className="funding-call-card funding-call-card--muted">
+                <h4 className="funding-call-title">Typically Not Supported</h4>
+
+                <ul className="funding-what-list">
+                  <li>General-purpose devices not justified by the project</li>
+                  <li>Routine operational or departmental expenses</li>
+                  <li>Non-essential travel, hospitality, or honoraria</li>
+                  <li>Long-term recurring subscriptions without exit plans</li>
+                  <li>Expenditure non-compliant with ACT or institute rules</li>
                 </ul>
               </div>
             </div>
@@ -346,7 +323,7 @@ const Funding = () => {
 
                 <p className="funding-eval-download">
                   <a
-                    href="/docs/act-evaluation-matrix.pdf"
+                    href="/docs/EvaluationMatrix.pdf"
                     className="link-animated"
                     target="_blank"
                     rel="noreferrer"
@@ -357,7 +334,7 @@ const Funding = () => {
 
                 <p className="funding-eval-download">
                   <a
-                    href="/docs/act-project-approval-process.pdf"
+                    href="/docs/ProjectApprovalProcess.pdf"
                     className="link-animated"
                     target="_blank"
                     rel="noreferrer"
@@ -427,13 +404,10 @@ const Funding = () => {
               <h3 className="funding-section-title">
                 Frequently Asked Questions
               </h3>
-              <p className="funding-section-subtitle">
-                Common questions from students and researchers. Scheme-specific
-                FAQs may appear inside each call document.
-              </p>
+              <p className="funding-section-subtitle"></p>
             </div>
 
-            <div className="funding-faq-grid" role="list">
+            <div className="funding-faq-list" role="list">
               {[
                 {
                   q: "Can I apply to more than one scheme?",
@@ -484,9 +458,9 @@ const Funding = () => {
             <div className="funding-contact-card card">
               <h3>Need Help with Applications?</h3>
               <p>
-                For questions related to eligibility, documentation, or
-                technical issues with submission, please contact the ACT Centre
-                office.
+                For queries related to project alignment, evaluation process,
+                research fellows/interns hiring, or any other issue, please
+                contact the ACT Centre:
               </p>
               <ul>
                 <li>
@@ -497,9 +471,8 @@ const Funding = () => {
                 </li>
               </ul>
               <p className="funding-contact-note">
-                When writing to us, please mention the{" "}
-                <strong>name of the call</strong> and your role (student, PhD,
-                faculty, etc.) so we can respond quickly.
+                Please mention the <strong>name of the call</strong> and your
+                role (student, PhD, faculty, etc.) so we can respond quickly.
               </p>
             </div>
           </section>

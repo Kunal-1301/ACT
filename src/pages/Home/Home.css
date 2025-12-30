@@ -69,7 +69,7 @@
 .home-hero-simple {
   position: relative;
   width: 100%;
-  min-height: 74vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -343,50 +343,49 @@
 /* ================================
    2️⃣ VISION & MISSION
    ================================ */
-
 /* ================================
-   VISION SECTION (EDITORIAL STYLE)
+   VISION SECTION (EDITORIAL CORE)
    ================================ */
 
 .home-vision {
   background:
     radial-gradient(
-      circle at 12% 0%,
-      rgba(37, 99, 235, 0.035),
+      circle at 10% 0%,
+      rgba(37, 99, 235, 0.04),
       transparent 55%
     ),
     #ffffff;
   padding: clamp(3rem, 6vw, 4.5rem) 0;
 }
 
-/* Constrained, asymmetric layout */
-.home-vision-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr);
-  gap: 2.4rem;
-  max-width: 1100px;     /* 🔑 fixes width issue */
+/* SINGLE, STRONG CONTAINER */
+.home-vision-container {
+  max-width: 1120px;
   margin: 0 auto;
+  padding: 0 1.2rem;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: 3rem;
 }
 
-/* TEXT BLOCK — remove card heaviness */
-.home-vision-block {
-  background: transparent;
-  box-shadow: none;
-  padding: 0;
+/* TEXT SIDE */
+.home-vision-content {
+  max-width: 46rem;
 }
 
-.home-vision-block .home-section-title {
-  font-size: 1.8rem;
+.home-vision-content .home-section-title {
+  font-size: 1.85rem;
   font-weight: 600;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
   color: #0f172a;
 }
 
-.home-vision-block p {
+.home-vision-text {
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: #334155;
-  max-width: 44rem;
 }
 
 .vision-highlight {
@@ -394,39 +393,42 @@
   font-weight: 500;
 }
 
-/* IMAGE BLOCK — secondary visual */
-.home-vision-image {
-  border-radius: 14px;
+/* VISUAL SIDE (NOT A CARD) */
+.home-vision-visual {
+  position: relative;
+  border-radius: 16px;
   overflow: hidden;
   background: #f8fafc;
 }
 
-.home-vision-image img {
+.home-vision-visual img {
   width: 100%;
   height: 100%;
-  min-height: 260px;
+  min-height: 280px;
   object-fit: cover;
   display: block;
-  transition: transform 420ms ease;
 }
 
-.home-vision-image:hover img {
-  transform: scale(1.02);
-}
-
-/* Kill generic card hover for this section only */
-.home-vision .card:hover {
-  transform: none;
-  box-shadow: none;
+/* SUBTLE IMAGE DEPTH — NO HOVER GIMMICKS */
+.home-vision-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(0, 0, 0, 0.05)
+  );
+  pointer-events: none;
 }
 
 /* ================================
-   VISION TEXT ANIMATION (SUBTLE)
+   TITLE ACCENT (ACADEMIC)
    ================================ */
 
 .vision-animated-text {
-  display: inline-block;
   position: relative;
+  display: inline-block;
 }
 
 .vision-animated-text::after {
@@ -434,13 +436,9 @@
   position: absolute;
   left: 0;
   bottom: -8px;
-  width: 36px; /* shorter = academic */
+  width: 34px;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--color-primary),
-    var(--color-primary-light)
-  );
+  background: var(--color-primary);
   opacity: 0;
   transform: translateY(4px);
   transition: opacity 400ms ease, transform 400ms ease;
@@ -452,21 +450,19 @@
 }
 
 /* ================================
-   RESPONSIVE (MATCH NEUROSCIENCE)
+   RESPONSIVE
    ================================ */
 
 @media (max-width: 900px) {
-  .home-vision-layout {
+  .home-vision-container {
     grid-template-columns: 1fr;
-    gap: 1.8rem;
+    gap: 2rem;
   }
 
-  .home-vision-image img {
+  .home-vision-visual img {
     min-height: 220px;
   }
 }
-
-
 
 /* ================================
    3️⃣ RESEARCH THEMES PREVIEW

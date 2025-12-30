@@ -19,7 +19,7 @@ const ProjectApprovalProcess = () => {
             </p>
 
             <a
-              href="/docs/act-project-approval-process.pdf"
+              href="/docs/ProjectApprovalProcess.pdf"
               className="btn btn-primary"
               target="_blank"
               rel="noreferrer"
@@ -158,7 +158,7 @@ const ProjectApprovalProcess = () => {
               </p>
 
               <a
-                href="/docs/act-project-approval-process.pdf"
+                href="/docs/ProjectApprovalProcess.pdf"
                 className="btn btn-secondary"
                 target="_blank"
                 rel="noreferrer"

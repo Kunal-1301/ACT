@@ -14,6 +14,10 @@
   background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.16), transparent),
     linear-gradient(to right, #f9fafb, #eef2ff);
   border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  width : 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
 }
 
 .news-hero-inner {

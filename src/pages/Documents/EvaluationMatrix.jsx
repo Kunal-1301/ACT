@@ -19,7 +19,7 @@ const EvaluationMatrix = () => {
             </p>
 
             <a
-              href="/docs/act-evaluation-matrix.pdf"
+              href="/docs/EvaluationMatrix.pdf"
               className="btn btn-primary"
               target="_blank"
               rel="noreferrer"
@@ -180,7 +180,7 @@ const EvaluationMatrix = () => {
               </p>
 
               <a
-                href="/docs/act-evaluation-matrix.pdf"
+                href="/docs/EvaluationMatrix.pdf"
                 className="btn btn-secondary"
                 target="_blank"
                 rel="noreferrer"

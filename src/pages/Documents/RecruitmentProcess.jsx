@@ -19,7 +19,7 @@ const RecruitmentProcess = () => {
             </p>
 
             <a
-              href="/docs/act-recruitment-process.pdf"
+              href="/docs/ProcessRecruitment.pdf"
               className="btn btn-primary"
               target="_blank"
               rel="noreferrer"
@@ -195,7 +195,7 @@ const RecruitmentProcess = () => {
               </p>
 
               <a
-                href="/docs/act-recruitment-process.pdf"
+                href="/docs/ProcessRecruitment.pdf"
                 className="btn btn-secondary"
                 target="_blank"
                 rel="noreferrer"

@@ -63,7 +63,7 @@ const peopleData = [
     department: "",
     group: "Research Faculty",
     interests: "",
-    avatar: "/media/tanvi.jpeg",
+    avatar: "/media/manvir.jpg",
   },
   {
     name: "Ms. Himanshi Upadhyay",
@@ -71,7 +71,7 @@ const peopleData = [
     department: "",
     group: "Research Scholars",
     interests: "",
-    avatar: "/media/tanvi.jpeg",
+    avatar: "/media/himanshi.jpeg",
   },
   {
     name: "Mr. Kunal Gupta",

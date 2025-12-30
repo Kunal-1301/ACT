@@ -15,6 +15,10 @@
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
   color: #f9fafb;
+  width : 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
 }
 
 .events-hero-layout {

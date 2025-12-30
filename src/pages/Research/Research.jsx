@@ -215,11 +215,11 @@ const Research = () => {
                   className="btn btn-secondary btn-sm"
                   onClick={() =>
                     setActiveProject({
-                      title: "Towards a Personalized Learning Experience",
+                      title: "Towards Personalized Learning Experience: Developing a Learning Material Recommender Framework based on Knowledge Tracing",
                       faculty:
                         "Dr. Pankaj Narula, Dr. Harpreet Singh, Dr. Aastha Dhoopar",
                       description:
-                        "This project develops an AI-based adaptive learning framework that models how student knowledge evolves over time using advanced knowledge tracing methods. It recommends personalised learning resources to improve learning outcomes and reduce disengagement.",
+                        "This project focuses on developing an intelligent, AI-driven framework to personalize learning for individual students by continuously modelling how their knowledge evolves over time. Using advanced knowledge tracing techniques, including deep learning and transformer-based models, the system analyses students’ interactions with learning materials to identify strengths, gaps, and learning patterns. Based on these insights, it recommends customized learning resources and adaptive study paths tailored to each learner’s needs. The project aims to improve learning outcomes, reduce academic disengagement, and support students in mastering skills more effectively through data-driven, personalized educational interventions.",
                       image: "/media/p1.png",
                     })
                   }
@@ -256,11 +256,11 @@ const Research = () => {
                   className="btn btn-secondary btn-sm"
                   onClick={() =>
                     setActiveProject({
-                      title: "Sustainable Crop Production in Punjab",
+                      title: "A Socio-Economic Approach for Addressing Sustainable Crop Production in Punjab under Impending Climate Change Effects",
                       faculty:
                         "Dr. Richa Babbar, Prof. Dwarikanath Ratha, Dr. Kavita, Dr. Sheikh Adil Edrisi",
                       description:
-                        "This project addresses climate change, groundwater depletion, and socio-economic vulnerability in Punjab agriculture. It develops a composite index to guide climate-resilient and locally acceptable crop strategies.",
+                        "This project addresses the growing challenges of sustainable agriculture in Punjab caused by climate change, groundwater depletion, and increasing weather extremes. It adopts an interdisciplinary approach that integrates climate science, socio-economic analysis, and community participation to develop a composite socio-economic index for climate-resilient crop production. By combining climate trends, groundwater conditions, farmers’ social vulnerability, and economic feasibility of adaptation strategies, the project aims to identify locally acceptable and sustainable solutions. The outcomes are intended to support farmers and policymakers in making informed decisions that enhance agricultural resilience, protect livelihoods, and promote long-term food and water security.",
                       image: "/media/p2.png",
                     })
                   }
@@ -300,7 +300,7 @@ const Research = () => {
                       faculty:
                         "Dr. Andrea Raimondi, Dr. Ruchika Jain, Dr. Shruti Krishna Bhat",
                       description:
-                        "A humanities-led research project examining how myths, epics, and traditional narratives shape moral reasoning and ethical behaviour, with particular attention to Indian philosophical traditions.",
+                        "This project explores how myths, epics, and traditional narratives shape moral understanding and ethical behaviour in society. Drawing on Hindu, Buddhist, and Jain traditions, it examines stories such as the Ramayana, Mahabharata, and Jataka tales to understand how virtues, vices, and moral dilemmas are conveyed through narrative rather than formal moral theory. By combining philosophy, literary studies, and religious studies, the project analyses how these narratives guide moral reasoning, character formation, and ethical reflection. The research highlights the continued relevance of ancient stories in addressing contemporary moral questions and advances Indian virtue ethics as a distinct and rigorous ethical framework.",
                       image: "/media/p3.png",
                     })
                   }
@@ -350,7 +350,7 @@ const Research = () => {
                       title: "Thapar Brain: Neuromarketing for Everyone",
                       faculty: "ACT Centre interdisciplinary team",
                       description:
-                        "Thapar Brain is a flagship neuromarketing platform designed to democratise access to attention, emotion, and engagement analytics. It integrates low-cost sensing, behavioural signals, creative testing, and ethical-by-design data practices.",
+                        "This strategic flagship project aims to democratize neuromarketing by developing a scalable, affordable, and privacy-first digital engagement platform. It enables universities, small businesses, and public institutions to understand why audiences engage with digital content by measuring attention, emotion, and engagement using low-cost, real-world signals. The platform integrates website analytics, creative testing, social media insights, and lab-grade validation within a unified, ethically compliant framework.",
                       image: "/media/ThaparBrain.png",
                     })
                   }

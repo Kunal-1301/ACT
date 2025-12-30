@@ -18,7 +18,7 @@ const ProposalFormat = () => {
             </p>
 
             <a
-              href="/docs/act-proposal-format.docx"
+              href="/docs/ProposalFormat.pdf"
               className="btn btn-primary"
               target="_blank"
               rel="noreferrer"
@@ -159,7 +159,7 @@ const ProposalFormat = () => {
             <div className="doc-sidebar-card">
               <h4>Quick Actions</h4>
               <a
-                href="/docs/act-proposal-format.docx"
+                href="/docs/ProposalFormat.pdf"
                 className="btn btn-secondary"
                 target="_blank"
                 rel="noreferrer"
