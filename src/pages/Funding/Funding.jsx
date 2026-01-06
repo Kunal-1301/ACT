@@ -114,7 +114,7 @@ const Funding = () => {
       {/* ================= HERO ================= */}
       <section className="section funding-hero">
         <img
-          src="/media/hero-campus-1600.jpg"
+          src="/media/funding.JPG"
           alt=""
           aria-hidden="true"
           className="funding-hero-bg"

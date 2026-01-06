@@ -88,7 +88,7 @@ function Home() {
     <div className="home-page">
       {/* ================= HERO ================= */}
       <section className="section home-hero home-hero-simple">
-        <img src="/media/research.JPG" className="home-hero-bg" alt="" />
+        <img src="/media/home.jpg" className="home-hero-bg" alt="" />
         <div className="home-hero-overlay" />
         <div className="container home-hero-inner">
           <div className="home-hero-left">
@@ -457,7 +457,7 @@ function Home() {
               </div>
             </article>
 
-            <article className="card home-flagship-card">
+            {/* <article className="card home-flagship-card">
               <div className="home-flagship-top">
                 <span className="chip chip-status-closed">
                   <span className="chip-dot" /> Completed
@@ -474,7 +474,7 @@ function Home() {
                   studies.
                 </p>
               </div>
-            </article>
+            </article> */}
           </div>
         </div>
       </section>

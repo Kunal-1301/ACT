@@ -95,13 +95,13 @@ const About = () => {
         aria-label="About the ACT Centre"
       >
         <img
-          src="/media/hero-campus-1600.jpg"
+          src="/media/about.jpg"
           alt=""
           aria-hidden="true"
           className="about-hero-bg"
           onError={(e) => {
             if (e.currentTarget.src.endsWith("hero-campus-1600.jpg")) {
-              e.currentTarget.src = "/media/hero-campus-1600.JPG";
+              e.currentTarget.src = "/media/about.jpg";
             }
           }}
         />
