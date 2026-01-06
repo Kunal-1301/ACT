@@ -63,18 +63,18 @@ const Navbar = () => {
           <NavLink to="/research" className={linkClass} onClick={closeMenu}>
             Research
           </NavLink>
-          <NavLink to="/facilities" className={linkClass} onClick={closeMenu}>
+          {/* <NavLink to="/facilities" className={linkClass} onClick={closeMenu}>
             Facilities
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/funding" className={linkClass} onClick={closeMenu}>
             Funding
           </NavLink>
-          <NavLink to="/events" className={linkClass} onClick={closeMenu}>
+          {/* <NavLink to="/events" className={linkClass} onClick={closeMenu}>
             Events
           </NavLink>
           <NavLink to="/news" className={linkClass} onClick={closeMenu}>
             News
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/contact" className={linkClass} onClick={closeMenu}>
             Contact
           </NavLink>

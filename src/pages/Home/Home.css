@@ -206,12 +206,24 @@
   animation: hero-text-reveal 620ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
 }
 
-.hero-delay-1 { animation-delay: 0.1s; }
-.hero-delay-2 { animation-delay: 0.2s; }
-.hero-delay-3 { animation-delay: 0.3s; }
-.hero-delay-4 { animation-delay: 0.4s; }
-.hero-delay-5 { animation-delay: 0.5s; }
-.hero-delay-6 { animation-delay: 0.6s; }
+.hero-delay-1 {
+  animation-delay: 0.1s;
+}
+.hero-delay-2 {
+  animation-delay: 0.2s;
+}
+.hero-delay-3 {
+  animation-delay: 0.3s;
+}
+.hero-delay-4 {
+  animation-delay: 0.4s;
+}
+.hero-delay-5 {
+  animation-delay: 0.5s;
+}
+.hero-delay-6 {
+  animation-delay: 0.6s;
+}
 
 @keyframes hero-text-reveal {
   to {
@@ -227,7 +239,6 @@
     transform: none;
   }
 }
-
 
 /* ================================
    RIGHT: HORIZONTAL FLOATING SLIDESHOW
@@ -247,7 +258,6 @@
   width: 100%;
   height: 100%;
 }
-
 
 /* IMAGES */
 .slideshow-track img {
@@ -274,6 +284,10 @@
   animation-delay: 6s;
 }
 
+.slideshow-track img:nth-child(4) {
+  animation-delay: 9s;
+}
+
 /* FADE ANIMATION */
 @keyframes hero-fade {
   0% {
@@ -292,7 +306,6 @@
     opacity: 0;
   }
 }
-
 
 /* ================================
    RESPONSIVE
@@ -348,8 +361,7 @@
    ================================ */
 
 .home-vision {
-  background:
-    radial-gradient(
+  background: radial-gradient(
       circle at 10% 0%,
       rgba(37, 99, 235, 0.04),
       transparent 55%
@@ -464,29 +476,72 @@
   }
 }
 
-/* ================================
-   3️⃣ RESEARCH THEMES PREVIEW
-   ================================ */
 /* =====================================================
    3️⃣ RESEARCH THEMES PREVIEW
    Purpose:
-   - Maintain consistent card heights
-   - Prevent image overflow
-   - Fully responsive grid
+   - Auto-scrolling horizontal carousel (desktop)
+   - Pauses on hover AND keyboard focus
+   - Swipeable on mobile
+   - Consistent card sizing & imagery
+   - Accessibility-aware (reduced motion safe)
+   ===================================================== */
+
+/* =====================================================
+   SECTION ROOT
    ===================================================== */
 
 .home-research-preview {
+  position: relative;           /* Required for gradient overlays */
   background: #f8fafc;
+  overflow: hidden;             /* Hard boundary for carousel */
 }
 
 /* =====================================================
-   GRID LAYOUT
+   CAROUSEL VIEWPORT (VISIBLE AREA)
+   - Controls how wide the loop appears
    ===================================================== */
 
-.home-research-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.home-research-carousel {
+  position: relative;
+  overflow: hidden;             /* 🔑 Keeps loop inside marked area */
+}
+
+/* =====================================================
+   CAROUSEL TRACK (ANIMATED STRIP)
+   ===================================================== */
+
+.home-research-track {
+  display: flex;
   gap: 1.5rem;
+  width: max-content;           /* Enables continuous scrolling */
+  animation: research-scroll 22s linear infinite;
+  will-change: transform;
+}
+
+/* -----------------------------------------------------
+   Pause animation on user interaction
+   - Hover (mouse)
+   - Focus-within (keyboard / screen reader)
+----------------------------------------------------- */
+
+.home-research-preview:hover .home-research-track,
+.home-research-preview:focus-within .home-research-track {
+  animation-play-state: paused;
+}
+
+/* =====================================================
+   AUTO-SCROLL KEYFRAMES
+   - Assumes 4 real cards + 4 duplicates
+   - Scrolls exactly half the track width
+   ===================================================== */
+
+@keyframes research-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* =====================================================
@@ -494,6 +549,8 @@
    ===================================================== */
 
 .home-research-card {
+  flex: 0 0 320px;              /* Fixed width = smooth loop */
+  max-width: 320px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -506,28 +563,28 @@
 }
 
 /* =====================================================
-   IMAGE CONTAINER (CRITICAL FIX)
+   IMAGE CONTAINER
+   - Prevents layout shift
+   - Prevents image overflow
    ===================================================== */
 
 .home-research-card .card-thumb {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;       /* 🔑 Locks image height */
-  overflow: hidden;          /* 🔑 Clips overflow */
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
   border-radius: 10px;
-  background: #e5e7eb;       /* graceful loading fallback */
+  background: #e5e7eb;          /* Loading fallback */
 }
 
-/* Image itself */
 .home-research-card .card-thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover;         /* 🔑 Prevents stretching */
+  object-fit: cover;
   display: block;
   transition: transform 420ms ease;
 }
 
-/* Subtle image zoom on hover */
 .home-research-card:hover .card-thumb img {
   transform: scale(1.04);
 }
@@ -543,27 +600,25 @@
   padding-top: 0.9rem;
 }
 
-/* Title */
 .home-research-card h3 {
   font-size: 1.08rem;
   margin-bottom: 0.45rem;
 }
 
-/* Description */
 .home-research-card p {
   font-size: 0.92rem;
+  line-height: 1.45;
   opacity: 0.88;
   margin-bottom: 0.9rem;
-  line-height: 1.45;
 }
 
-/* CTA stays pinned nicely */
+/* Keep CTA pinned to bottom */
 .home-research-card .btn-tertiary {
   margin-top: auto;
 }
 
 /* =====================================================
-   CTA BUTTON (TERTIARY)
+   TERTIARY CTA BUTTON
    ===================================================== */
 
 .btn-tertiary {
@@ -580,7 +635,6 @@
 .btn-tertiary:hover {
   background: rgba(31, 163, 163, 0.08);
   border-color: rgba(31, 163, 163, 0.5);
-  color: #0a1a3f;
   transform: translateX(4px);
 }
 
@@ -590,20 +644,57 @@
 }
 
 /* =====================================================
-   RESPONSIVE BEHAVIOUR
+   EDGE GRADIENT FADES
    ===================================================== */
 
-/* Tablets */
-@media (max-width: 1024px) {
-  .home-research-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.home-research-preview::before,
+.home-research-preview::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.home-research-preview::before {
+  left: 0;
+  background: linear-gradient(to right, #f8fafc, transparent);
+}
+
+.home-research-preview::after {
+  right: 0;
+  background: linear-gradient(to left, #f8fafc, transparent);
+}
+
+/* =====================================================
+   ACCESSIBILITY: REDUCED MOTION
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-research-track {
+    animation: none;
+    transform: none;
   }
 }
 
-/* Mobile */
+/* =====================================================
+   MOBILE BEHAVIOUR
+   - Disable auto-scroll
+   - Enable swipe
+   ===================================================== */
+
 @media (max-width: 768px) {
-  .home-research-grid {
-    grid-template-columns: 1fr;
+  .home-research-track {
+    animation: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem;
+  }
+
+  .home-research-card {
+    scroll-snap-align: start;
   }
 
   .home-research-card .btn-tertiary {
@@ -611,7 +702,6 @@
     text-align: center;
   }
 }
-
 
 
 /* ================================
@@ -714,7 +804,6 @@
   }
 }
 
-
 .gallery-item {
   border: none;
   background: transparent;
@@ -748,7 +837,7 @@
 .lightbox-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(2,6,23,0.7);
+  background: rgba(2, 6, 23, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -768,7 +857,7 @@
   max-width: 100%;
   max-height: 100%;
   border-radius: 8px;
-  box-shadow: 0 22px 60px rgba(2,6,23,0.6);
+  box-shadow: 0 22px 60px rgba(2, 6, 23, 0.6);
 }
 
 .lightbox-close {
@@ -788,7 +877,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
   border: none;
   color: #fff;
   padding: 0.4rem 0.6rem;
@@ -796,8 +885,12 @@
   cursor: pointer;
   border-radius: 6px;
 }
-.lightbox-prev { left: 1rem; }
-.lightbox-next { right: 1rem; }
+.lightbox-prev {
+  left: 1rem;
+}
+.lightbox-next {
+  right: 1rem;
+}
 
 @media (max-width: 480px) {
   .gallery-item img {
@@ -825,7 +918,7 @@
   place-items: center;
   font-size: 2.6rem;
   color: #fff;
-  background: rgba(2,6,23,0.35);
+  background: rgba(2, 6, 23, 0.35);
 }
 
 /* lightbox video */
@@ -919,7 +1012,6 @@
   }
 }
 
-
 /* ================================
    6️⃣ GLOBAL COLLABORATIONS
    ================================ */
@@ -934,7 +1026,11 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem;
-  background: linear-gradient(90deg, rgba(247,250,252,0.6), rgba(248,250,252,0.35));
+  background: linear-gradient(
+    90deg,
+    rgba(247, 250, 252, 0.6),
+    rgba(248, 250, 252, 0.35)
+  );
   border-radius: 10px;
 }
 
@@ -953,7 +1049,7 @@
   justify-content: center;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04);
   padding: 0.35rem 0.8rem;
   font-size: 0.9rem;
   color: #0f172a;
@@ -1216,34 +1312,105 @@
   }
 }
 
-
 /* 1️⃣1️⃣ NEWS & EVENTS */
+
+/* ================= NEWS & EVENTS LAYOUT ================= */
 
 .home-news-events-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
   gap: 1.8rem;
+  align-items: start;
 }
+
+/* ================= HEADINGS ================= */
 
 .home-news-heading {
   font-size: 1rem;
   margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+/* ================= NEWS: VERTICAL SCROLL ================= */
+
+.news-vertical-scroll {
+  height: 260px;
+  overflow: hidden;
+  position: relative;
+}
+
+.news-vertical-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  animation: news-scroll 12s linear infinite;
+}
+
+.news-vertical-scroll:hover .news-vertical-track {
+  animation-play-state: paused;
+}
+
+@keyframes news-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
 }
 
 .home-news-card {
-  margin-bottom: 0.9rem;
+  height: 115px;
+  margin-bottom: 0;
 }
 
+/* ================= EVENTS: HORIZONTAL CAROUSEL ================= */
+
+.events-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+}
+
+.events-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.events-carousel {
+  scrollbar-width: none;
+}
+
+.home-event-card {
+  min-width: 270px;
+  height: 120px;
+  scroll-snap-align: start;
+  display: flex;
+  gap: 1rem;
+}
+
+/* ================= MOBILE ================= */
+
 @media (max-width: 768px) {
+  .home-news-events-layout {
+    grid-template-columns: 1fr;
+  }
+
   .home-news-heading {
     font-size: 0.95rem;
   }
+
+  .news-vertical-scroll {
+    height: 220px;
+  }
 }
+
 
 /* 1️⃣2️⃣ CONTACT CTA STRIP (dark enhanced) */
 
 .home-contact-cta {
-  background: linear-gradient(180deg,#071430 0%, #0b2947 100%);
+  background: linear-gradient(180deg, #071430 0%, #0b2947 100%);
   color: #fff;
   border-radius: 10px;
   padding: 2.4rem 1rem;
@@ -1279,7 +1446,7 @@
 .home-contact-cta .btn-secondary {
   background: transparent;
   color: #fff;
-  border-color: rgba(255,255,255,0.18);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 /* ================================
@@ -1287,38 +1454,94 @@
    ================================ */
 
 @keyframes home-fade-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes home-fade-in-right {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes home-play-pulse {
-  from { transform: scale(1); opacity: 0.9; }
-  to { transform: scale(1.12); opacity: 0; }
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1.12);
+    opacity: 0;
+  }
 }
 
 /* Staggered classes for hero text */
-.animate-in-delay-1 { animation: home-fade-up 420ms ease-out forwards; animation-delay: 80ms; opacity: 0; }
-.animate-in-delay-2 { animation: home-fade-up 420ms ease-out forwards; animation-delay: 140ms; opacity: 0; }
-.animate-in-delay-3 { animation: home-fade-up 420ms ease-out forwards; animation-delay: 220ms; opacity: 0; }
-.animate-in-delay-4 { animation: home-fade-up 420ms ease-out forwards; animation-delay: 300ms; opacity: 0; }
-.animate-in-delay-5 { animation: home-fade-up 420ms ease-out forwards; animation-delay: 380ms; opacity: 0; }
-.home-hero-right.animate-in-delay-3 { animation-name: home-fade-in-right; }
+.animate-in-delay-1 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 80ms;
+  opacity: 0;
+}
+.animate-in-delay-2 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 140ms;
+  opacity: 0;
+}
+.animate-in-delay-3 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 220ms;
+  opacity: 0;
+}
+.animate-in-delay-4 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 300ms;
+  opacity: 0;
+}
+.animate-in-delay-5 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 380ms;
+  opacity: 0;
+}
+.home-hero-right.animate-in-delay-3 {
+  animation-name: home-fade-in-right;
+}
 
 /* Reveal-section pattern (used by useRevealOnScroll) */
-.reveal-section { opacity: 0; transform: translateY(10px); transition: all 520ms cubic-bezier(.2,.9,.2,1); }
-.reveal-section.is-visible { opacity: 1; transform: none; }
+.reveal-section {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 520ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .animate-in-delay-1, .animate-in-delay-2, .animate-in-delay-3, .animate-in-delay-4, .animate-in-delay-5 {
-    animation: none; opacity: 1; transform: none;
+  .animate-in-delay-1,
+  .animate-in-delay-2,
+  .animate-in-delay-3,
+  .animate-in-delay-4,
+  .animate-in-delay-5 {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
-  .home-media-play-btn::after { animation: none; opacity: 0; }
+  .home-media-play-btn::after {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 /* ================================
@@ -1326,34 +1549,84 @@
    ================================ */
 
 @media (max-width: 1024px) {
-  .home-hero-inner { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr); gap: 2.5rem; }
-  .home-media-main-img { height: 230px; }
-  .home-impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .home-research-grid, .home-flagship-grid, .home-funding-grid, .home-opportunities-grid, .home-people-grid {
+  .home-hero-inner {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+    gap: 2.5rem;
+  }
+  .home-media-main-img {
+    height: 230px;
+  }
+  .home-impact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .home-research-grid,
+  .home-flagship-grid,
+  .home-funding-grid,
+  .home-opportunities-grid,
+  .home-people-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
-  .home-hero-inner { grid-template-columns: minmax(0, 1fr); }
-  .home-hero-right { justify-content: flex-start; }
-  .home-hero { padding-top: 4.5rem; }
-  .home-media-video { right: 0; bottom: -1rem; }
-  .home-neuro-layout, .home-news-events-layout { grid-template-columns: minmax(0, 1fr); }
-  .home-section-header { flex-direction: column; align-items: flex-start; }
-  .home-section-header-cta { margin-left: 0; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .home-hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-hero-right {
+    justify-content: flex-start;
+  }
+  .home-hero {
+    padding-top: 4.5rem;
+  }
+  .home-media-video {
+    right: 0;
+    bottom: -1rem;
+  }
+  .home-neuro-layout,
+  .home-news-events-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .home-section-header-cta {
+    margin-left: 0;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-  .home-hero-actions { flex-direction: column; align-items: flex-start; }
-  .home-hero-stats { gap: 1.2rem; }
-  .home-media-main-img { height: 210px; }
-  .home-research-grid, .home-flagship-grid, .home-funding-grid, .home-opportunities-grid, .home-people-grid {
+  .home-hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .home-hero-stats {
+    gap: 1.2rem;
+  }
+  .home-media-main-img {
+    height: 210px;
+  }
+  .home-research-grid,
+  .home-flagship-grid,
+  .home-funding-grid,
+  .home-opportunities-grid,
+  .home-people-grid {
     grid-template-columns: minmax(0, 1fr);
   }
-  .home-impact-grid { grid-template-columns: minmax(0, 1fr); }
-  .home-contact-cta-inner { flex-direction: column; align-items: flex-start; }
-  .gallery-grid { grid-template-columns: 1fr; }
+  .home-impact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-contact-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
 }

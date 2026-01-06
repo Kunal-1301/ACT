@@ -88,7 +88,7 @@ function Home() {
     <div className="home-page">
       {/* ================= HERO ================= */}
       <section className="section home-hero home-hero-simple">
-        <img src="/media/bghome.png" className="home-hero-bg" alt="" />
+        <img src="/media/research.JPG" className="home-hero-bg" alt="" />
         <div className="home-hero-overlay" />
         <div className="container home-hero-inner">
           <div className="home-hero-left">
@@ -132,36 +132,35 @@ function Home() {
         </div>
       </section>
 
-{/* ================= VISION ================= */}
-<section
-  ref={visionRef}
-  className={`section home-vision reveal-section ${
-    visionVisible ? "is-visible" : ""
-  }`}
->
-  <div className="home-vision-container">
-    <div className="home-vision-content">
-      <h2 className="home-section-title">
-        <span className="vision-animated-text">Our vision</span>
-      </h2>
+      {/* ================= VISION ================= */}
+      <section
+        ref={visionRef}
+        className={`section home-vision reveal-section ${
+          visionVisible ? "is-visible" : ""
+        }`}
+      >
+        <div className="home-vision-container">
+          <div className="home-vision-content">
+            <h2 className="home-section-title">
+              <span className="vision-animated-text">Our vision</span>
+            </h2>
 
-      <p className="home-vision-text">
-        ACT envisions a future where{" "}
-        <span className="vision-highlight">
-          transdisciplinary cooperation
-        </span>{" "}
-        drives innovative and sustainable technologies to address complex
-        societal challenges, transforming knowledge into meaningful
-        real-world impact.
-      </p>
-    </div>
+            <p className="home-vision-text">
+              ACT envisions a future where{" "}
+              <span className="vision-highlight">
+                transdisciplinary cooperation
+              </span>{" "}
+              drives innovative and sustainable technologies to address complex
+              societal challenges, transforming knowledge into meaningful
+              real-world impact.
+            </p>
+          </div>
 
-    <div className="home-vision-visual">
-      <img src="/media/homebg2.png" alt="" />
-    </div>
-  </div>
-</section>
-
+          <div className="home-vision-visual">
+            <img src="/media/homebg2.png" alt="" />
+          </div>
+        </div>
+      </section>
 
       {/* 3️⃣ RESEARCH THEMES PREVIEW (thumbnails added) */}
       <section
@@ -169,113 +168,191 @@ function Home() {
         className={`section home-research-preview reveal-section ${
           researchVisible ? "is-visible" : ""
         }`}
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="ACT research themes"
       >
         <div className="container">
-          <div className="home-section-header">
+          {/* ===============================
+        SECTION HEADER
+       =============================== */}
+          <header className="home-section-header">
             <p className="section-eyebrow">Research at ACT</p>
             <div className="home-section-header-main">
               <h2 className="home-section-title">Research Themes</h2>
               <p className="home-section-intro">
-                
+                Key thematic areas where ACT brings technology and human
+                sciences together to address real-world challenges.
               </p>
             </div>
-          </div>
+          </header>
 
-          <div className="home-research-grid">
-            <article className="card home-research-card">
-              <div className="card-thumb">
-                <img
-                  src="/media/health.png"
-                  alt="Mobility thumbnail"
-                  onError={(e) => {
-                    if (e.currentTarget.src.endsWith("424A2199.JPG"))
-                      e.currentTarget.src = "/media/424A2199.jpg";
-                  }}
-                />
-              </div>
-              <div className="card-body">
-                <h3>Health &amp; Well-Being</h3>
-                <p>
-                  Unraveling health disparities, innovative healthcare delivery,
-                  and the development of interventions to enhance overall
-                  well-being.
-                </p>
-                <Link to="/research" className="btn btn-tertiary">
-                  View related projects →
-                </Link>
-              </div>
-            </article>
+          {/* ===============================
+        CAROUSEL VIEWPORT (BOUNDARY)
+       =============================== */}
+          <div className="home-research-carousel">
+            {/* ===============================
+          CAROUSEL TRACK
+          - 4 real cards
+          - 4 visual duplicates
+         =============================== */}
+            <div className="home-research-track" aria-live="off">
+              {/* ===== REAL CARDS ===== */}
 
-            <article className="card home-research-card">
-              <div className="card-thumb">
-                <img
-                  src="/media/energy.png"
-                  alt="Built environment thumbnail"
-                  onError={(e) => {
-                    if (e.currentTarget.src.endsWith("_DSC9441.JPG"))
-                      e.currentTarget.src = "/media/_DSC9441.jpg";
-                  }}
-                />
-              </div>
-              <div className="card-body">
-                <h3>Energy, Environment &amp; Sustainability</h3>
-                <p>
-                  Exploration of sustainable solutions to environmental
-                  challenges, including biodiversity preservation, and
-                  mitigation of climate change impacts.
-                </p>
-                <Link to="/research" className="btn btn-tertiary">
-                  View related projects →
-                </Link>
-              </div>
-            </article>
+              <article className="card home-research-card">
+                <div className="card-thumb">
+                  <img
+                    src="/media/health.png"
+                    alt="Health and well-being research"
+                  />
+                </div>
+                <div className="card-body">
+                  <h3>Health &amp; Well-Being</h3>
+                  <p>
+                    Understanding health behaviours, mental well-being, and
+                    designing technology-enabled interventions.
+                  </p>
+                  <Link to="/research" className="btn btn-tertiary">
+                    View related projects →
+                  </Link>
+                </div>
+              </article>
 
-            <article className="card home-research-card">
-              <div className="card-thumb">
-                <img
-                  src="/media/learning.png"
-                  alt="Human-AI thumbnail"
-                  onError={(e) => {
-                    if (e.currentTarget.src.endsWith("424A6960.JPG"))
-                      e.currentTarget.src = "/media/424A6960.jpg";
-                  }}
-                />
-              </div>
-              <div className="card-body">
-                <h3>Learning &amp; Pedagogy</h3>
-                <p>
-                  Investigating novel methods and strategies to advance
-                  education and pedagogical practices, with a focus on fostering
-                  lifelong learning.
-                </p>
-                <Link to="/research" className="btn btn-tertiary">
-                  View related projects →
-                </Link>
-              </div>
-            </article>
-            <article className="card home-research-card">
-              <div className="card-thumb">
-                <img
-                  src="/media/energy.png"
-                  alt="Built environment thumbnail"
-                  onError={(e) => {
-                    if (e.currentTarget.src.endsWith("_DSC9441.JPG"))
-                      e.currentTarget.src = "/media/_DSC9441.jpg";
-                  }}
-                />
-              </div>
-              <div className="card-body">
-                <h3>Cognition  &amp; Behaviour</h3>
-                <p>
-                  Exploration of sustainable solutions to environmental
-                  challenges, including biodiversity preservation, and
-                  mitigation of climate change impacts.
-                </p>
-                <Link to="/research" className="btn btn-tertiary">
-                  View related projects →
-                </Link>
-              </div>
-            </article>
+              <article className="card home-research-card">
+                <div className="card-thumb">
+                  <img
+                    src="/media/energy.png"
+                    alt="Energy, environment and sustainability research"
+                  />
+                </div>
+                <div className="card-body">
+                  <h3>Energy, Environment &amp; Sustainability</h3>
+                  <p>
+                    Studying sustainable systems, climate-aware behaviour, and
+                    data-driven environmental decision-making.
+                  </p>
+                  <Link to="/research" className="btn btn-tertiary">
+                    View related projects →
+                  </Link>
+                </div>
+              </article>
+
+              <article className="card home-research-card">
+                <div className="card-thumb">
+                  <img
+                    src="/media/learning.png"
+                    alt="Learning and pedagogy research"
+                  />
+                </div>
+                <div className="card-body">
+                  <h3>Learning &amp; Pedagogy</h3>
+                  <p>
+                    Exploring new approaches to teaching, learning technologies,
+                    and cognitive support systems.
+                  </p>
+                  <Link to="/research" className="btn btn-tertiary">
+                    View related projects →
+                  </Link>
+                </div>
+              </article>
+
+              <article className="card home-research-card">
+                <div className="card-thumb">
+                  <img
+                    src="/media/energy.png"
+                    alt="Cognition and behaviour research"
+                  />
+                </div>
+                <div className="card-body">
+                  <h3>Cognition &amp; Behaviour</h3>
+                  <p>
+                    Investigating attention, decision-making, and behaviour
+                    through experiments and data-driven methods.
+                  </p>
+                  <Link to="/research" className="btn btn-tertiary">
+                    View related projects →
+                  </Link>
+                </div>
+              </article>
+
+              {/* ===== VISUAL DUPLICATES (ARIA-HIDDEN) ===== */}
+              {/* Required only for seamless looping */}
+              <article className="card home-research-card">
+                <div className="card-thumb">
+                  <img
+                    src="/media/health.png"
+                    alt="Health and well-being research"
+                  />
+                </div>
+                <div className="card-body">
+                  <h3>Health &amp; Well-Being</h3>
+                  <p>
+                    Understanding health behaviours, mental well-being, and
+                    designing technology-enabled interventions.
+                  </p>
+                  <Link to="/research" className="btn btn-tertiary">
+                    View related projects →
+                  </Link>
+                </div>
+              </article>
+
+              <article className="card home-research-card">
+                <div className="card-thumb">
+                  <img
+                    src="/media/energy.png"
+                    alt="Energy, environment and sustainability research"
+                  />
+                </div>
+                <div className="card-body">
+                  <h3>Energy, Environment &amp; Sustainability</h3>
+                  <p>
+                    Studying sustainable systems, climate-aware behaviour, and
+                    data-driven environmental decision-making.
+                  </p>
+                  <Link to="/research" className="btn btn-tertiary">
+                    View related projects →
+                  </Link>
+                </div>
+              </article>
+
+              <article className="card home-research-card">
+                <div className="card-thumb">
+                  <img
+                    src="/media/learning.png"
+                    alt="Learning and pedagogy research"
+                  />
+                </div>
+                <div className="card-body">
+                  <h3>Learning &amp; Pedagogy</h3>
+                  <p>
+                    Exploring new approaches to teaching, learning technologies,
+                    and cognitive support systems.
+                  </p>
+                  <Link to="/research" className="btn btn-tertiary">
+                    View related projects →
+                  </Link>
+                </div>
+              </article>
+
+              <article className="card home-research-card">
+                <div className="card-thumb">
+                  <img
+                    src="/media/energy.png"
+                    alt="Cognition and behaviour research"
+                  />
+                </div>
+                <div className="card-body">
+                  <h3>Cognition &amp; Behaviour</h3>
+                  <p>
+                    Investigating attention, decision-making, and behaviour
+                    through experiments and data-driven methods.
+                  </p>
+                  <Link to="/research" className="btn btn-tertiary">
+                    View related projects →
+                  </Link>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -336,9 +413,7 @@ function Home() {
             <p className="section-eyebrow">Flagship initiatives</p>
             <div className="home-section-header-main">
               <h2 className="home-section-title">Flagship projects</h2>
-              <p className="home-section-intro">
-                
-              </p>
+              <p className="home-section-intro"></p>
             </div>
           </div>
 
@@ -411,9 +486,7 @@ function Home() {
             <p className="section-eyebrow">Perspectives</p>
             <div className="home-section-header-main">
               <h2 className="home-section-title">Ideas that shape ACT</h2>
-              <p className="home-section-intro">
-                
-              </p>
+              <p className="home-section-intro"></p>
             </div>
           </div>
 
@@ -448,6 +521,10 @@ function Home() {
                   allowFullScreen
                 />
               </div>
+              <blockquote className="featured-quote">
+                <p>“Empathy is mother Of excellence.”</p>
+                <footer>— Prof. Nair</footer>
+              </blockquote>
 
               <blockquote className="featured-quote">
                 <p>“The real world is not divided into departments.”</p>
@@ -560,9 +637,7 @@ function Home() {
               <h2 className="home-section-title">
                 Current &amp; upcoming calls
               </h2>
-              <p className="home-section-intro">
-               
-              </p>
+              <p className="home-section-intro"></p>
             </div>
             <Link
               to="/funding"
@@ -613,12 +688,12 @@ function Home() {
       >
         <div className="container">
           <div className="home-section-header">
-            <p className="section-eyebrow">For Faculty, Students &amp; Researchers</p>
+            <p className="section-eyebrow">
+              For Faculty, Students &amp; Researchers
+            </p>
             <div className="home-section-header-main">
               <h2 className="home-section-title">Ways To Get Involved</h2>
-              <p className="home-section-intro">
-                
-              </p>
+              <p className="home-section-intro"></p>
             </div>
           </div>
 
@@ -671,9 +746,7 @@ function Home() {
             <p className="section-eyebrow">Impact</p>
             <div className="home-section-header-main">
               <h2 className="home-section-title">ACT in numbers</h2>
-              <p className="home-section-intro">
-                
-              </p>
+              <p className="home-section-intro"></p>
             </div>
           </div>
 
@@ -710,9 +783,7 @@ function Home() {
             <p className="section-eyebrow">People</p>
             <div className="home-section-header-main">
               <h2 className="home-section-title">ACT Core Team</h2>
-              <p className="home-section-intro">
-                
-              </p>
+              <p className="home-section-intro"></p>
             </div>
             <Link
               to="/people"
@@ -769,7 +840,7 @@ function Home() {
                 <h3 className="home-person-name">Dr. Rahul Upadhyay</h3>
                 <p className="home-person-role">Head, ACT Centre</p>
                 <p className="home-person-meta">
-                Associate Professor @ TIET & TSLAS.
+                  Associate Professor @ TIET & TSLAS.
                 </p>
               </div>
             </article>
@@ -786,9 +857,7 @@ function Home() {
               <div className="home-person-body">
                 <h3 className="home-person-name">Dr. T. Brandon Evans </h3>
                 <p className="home-person-role">Coordinator, ACT Centre</p>
-                <p className="home-person-meta">
-                Assistant Professor @ TSLAS.
-                </p>
+                <p className="home-person-meta">Assistant Professor @ TSLAS.</p>
               </div>
             </article>
           </div>
@@ -797,83 +866,103 @@ function Home() {
 
       {/* 1️⃣1️⃣ NEWS & EVENTS */}
       <section
-        ref={updatesRef}
-        className={`section home-news-events reveal-section ${
-          updatesVisible ? "is-visible" : ""
-        }`}
-      >
-        <div className="container">
-          <div className="home-section-header">
-            <p className="section-eyebrow">Updates</p>
-            <div className="home-section-header-main">
-              <h2 className="home-section-title">News &amp; Events ###</h2>
-              <p className="home-section-intro">
-                Stay updated with ACT announcements, calls, seminars and
-                workshops.
+  ref={updatesRef}
+  className={`section home-news-events reveal-section ${
+    updatesVisible ? "is-visible" : ""
+  }`}
+>
+  <div className="container">
+    <div className="home-section-header">
+      <p className="section-eyebrow">Updates</p>
+      <div className="home-section-header-main">
+        <h2 className="home-section-title">News &amp; Events</h2>
+        <p className="home-section-intro">
+          Stay updated with ACT announcements, calls, seminars and workshops.
+        </p>
+      </div>
+    </div>
+
+    <div className="home-news-events-layout">
+      {/* ================= NEWS COLUMN ================= */}
+      <div className="home-news-column">
+        <h3 className="home-news-heading">News highlights</h3>
+
+        <div className="news-vertical-scroll">
+          <div className="news-vertical-track">
+            <article className="card home-news-card">
+              <span className="badge-new">New</span>
+              <h4>ACT launches campus mobility living lab</h4>
+              <p>
+                A new testbed integrates sensors, surveys and experiments to
+                study multimodal travel on campus.
               </p>
-            </div>
-          </div>
+            </article>
 
-          <div className="home-news-events-layout">
-            <div className="home-news-column">
-              <h3 className="home-news-heading">News highlights</h3>
-              <article className="card home-news-card">
-                <span className="badge-new">New</span>
-                <h4>ACT launches campus mobility living lab</h4>
-                <p>
-                  A new testbed integrates sensors, surveys and experiments to
-                  study multimodal travel on campus.
-                </p>
-              </article>
+            <article className="card home-news-card">
+              <h4>Workshop on cognition in built environments</h4>
+              <p>
+                Researchers and practitioners discussed how perception and
+                attention shape building and campus experiences.
+              </p>
+            </article>
 
-              <article className="card home-news-card">
-                <h4>Workshop on cognition in built environments</h4>
-                <p>
-                  Researchers and practitioners discussed how perception and
-                  attention shape building and campus experiences.
-                </p>
-              </article>
-
-              <Link to="/news" className="btn btn-tertiary">
-                View all news →
-              </Link>
-            </div>
-
-            <div className="home-events-column">
-              <h3 className="home-news-heading">Upcoming events</h3>
-              <article className="card home-event-card">
-                <div className="home-event-date">
-                  <span className="home-event-day">12</span>
-                  <span className="home-event-month">Apr</span>
-                </div>
-                <div className="home-event-body">
-                  <h4>
-                    Seminar: Human–AI collaboration in safety–critical work
-                  </h4>
-                  <p>Hybrid • ACT Seminar Room / Online</p>
-                </div>
-              </article>
-
-              <article className="card home-event-card">
-                <div className="home-event-date">
-                  <span className="home-event-day">26</span>
-                  <span className="home-event-month">Apr</span>
-                </div>
-                <div className="home-event-body">
-                  <h4>Studio: Designing for cognitive load</h4>
-                  <p>
-                    Hands–on studio linking cognition, UX and infrastructure.
-                  </p>
-                </div>
-              </article>
-
-              <Link to="/events" className="btn btn-tertiary">
-                View all events →
-              </Link>
-            </div>
+            {/* duplicate for seamless loop */}
+            <article className="card home-news-card">
+              <span className="badge-new">New</span>
+              <h4>ACT launches campus mobility living lab</h4>
+              <p>
+                A new testbed integrates sensors, surveys and experiments to
+                study multimodal travel on campus.
+              </p>
+            </article>
           </div>
         </div>
-      </section>
+
+        <Link to="/news" className="btn btn-tertiary">
+          View all news →
+        </Link>
+      </div>
+
+      {/* ================= EVENTS COLUMN ================= */}
+      <div className="home-events-column">
+        <h3 className="home-news-heading">Upcoming events</h3>
+
+        <div className="events-carousel">
+          <article className="card home-event-card">
+            <div className="home-event-date">
+              <span className="home-event-day">12</span>
+              <span className="home-event-month">Apr</span>
+            </div>
+            <div className="home-event-body">
+              <h4>
+                Seminar: Human–AI collaboration in safety–critical work
+              </h4>
+              <p>Hybrid • ACT Seminar Room / Online</p>
+            </div>
+          </article>
+
+          <article className="card home-event-card">
+            <div className="home-event-date">
+              <span className="home-event-day">26</span>
+              <span className="home-event-month">Apr</span>
+            </div>
+            <div className="home-event-body">
+              <h4>Studio: Designing for cognitive load</h4>
+              <p>
+                Hands–on studio linking cognition, UX and infrastructure.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <Link to="/events" className="btn btn-tertiary">
+          View all events →
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* 1️⃣2️⃣ CONTACT & CTA STRIP (dark enhanced) */}
       <section

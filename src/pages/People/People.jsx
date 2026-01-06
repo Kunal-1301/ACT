@@ -1,112 +1,84 @@
-import React, { useState } from "react";
+import React from "react";
 import "./People.css";
 import { Link } from "react-router-dom";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 /* ==========================================
-   GROUPS
+   DIRECTORY DATA
 ========================================== */
-const groups = [
-  "Core Faculty",
-  "Affiliated Faculty",
-  "Research Faculty",
-  "Research Scholars",
-];
 
-/* ==========================================
-   DIRECTORY DATA (placeholder)
-========================================== */
 const peopleData = [
   {
     name: "Dr. Efthymios Constantinides",
     role: "Chair",
-    department: "",
+    affiliation: "ACT Centre Professor, TSLAS",
     group: "Core Faculty",
-    interests: "ACT Centre Professor, TSLAS.",
     avatar: "/media/EC.jpg",
   },
   {
     name: "Dr. Vinay Kumar",
     role: "Dean",
-    department: "",
+    affiliation: "Professor, TSLAS, TIET",
     group: "Core Faculty",
-    interests: "TSLAS Professor, TIET.",
     avatar: "/media/Vinay.jpeg",
   },
   {
     name: "Dr. Rahul Upadhyay",
     role: "Head",
-    department: "",
+    affiliation: "ACT Centre Associate Professor, TIET",
     group: "Core Faculty",
-    interests: "ACT Centre Associate Professor, TIET.",
     avatar: "/media/rahul.jpeg",
   },
   {
     name: "Dr. T. Brandon Evans",
     role: "Coordinator",
-    department: "",
+    affiliation: "ACT Centre Associate Professor, TSLAS",
     group: "Core Faculty",
-    interests: "ACT Centre Associate Professor, TSLAS.",
     avatar: "/media/brandon.jpg",
   },
   {
     name: "Dr. Tanvi Dovedi",
     role: "Research Faculty",
-    department: "ACT Centre",
+    affiliation: "ACT Centre",
     group: "Research Faculty",
-    interests: "",
     avatar: "/media/tanvi.jpeg",
   },
   {
     name: "Dr. Manvir Kaur",
     role: "Research Faculty",
-    department: "",
+    affiliation: "ACT Centre",
     group: "Research Faculty",
-    interests: "",
     avatar: "/media/manvir.jpg",
   },
   {
     name: "Ms. Himanshi Upadhyay",
     role: "Research Scholar",
-    department: "",
+    affiliation: "ACT Centre",
     group: "Research Scholars",
-    interests: "",
     avatar: "/media/himanshi.jpeg",
   },
   {
     name: "Mr. Kunal Gupta",
-    role: "",
-    department: "",
-    group: "",
-    interests: "",
-    avatar: "/media/",
+    role: "Research Associate",
+    affiliation: "ACT Centre",
+    group: "Research Team",
+    avatar: "",
   },
 ];
 
 /* ==========================================
-   MAIN COMPONENT
+   COMPONENT
 ========================================== */
-const People = () => {
-  const [activeGroup, setActiveGroup] = useState("All");
 
-  /* ================================
-     REVEAL HOOKS (TUPLE-BASED)
-     ================================ */
+const People = () => {
   const [heroTextRef, heroTextVisible] = useRevealOnScroll();
   const [overviewRef, overviewVisible] = useRevealOnScroll();
   const [directoryRef, directoryVisible] = useRevealOnScroll();
   const [rolesRef, rolesVisible] = useRevealOnScroll();
 
-  const filteredPeople =
-    activeGroup === "All"
-      ? peopleData
-      : peopleData.filter((p) => p.group === activeGroup);
-
   return (
     <main className="people-page" id="people">
-      {/* ==========================================
-         HERO SECTION
-      ========================================== */}
+      {/* ================= HERO ================= */}
       <section
         className="section people-hero section--bg-campus"
         role="region"
@@ -117,11 +89,6 @@ const People = () => {
           alt=""
           aria-hidden="true"
           className="people-hero-bg"
-          onError={(e) => {
-            if (e.currentTarget.src.endsWith("hero-campus-1600.jpg")) {
-              e.currentTarget.src = "/media/hero-campus-1600.JPG";
-            }
-          }}
         />
 
         <div className="people-hero-overlay" aria-hidden />
@@ -136,15 +103,9 @@ const People = () => {
             <h1 className="people-hero-title">People at the ACT Centre</h1>
 
             <p className="people-hero-subtitle">
-              ACT is built around people —{" "}
-              <strong>faculty, researchers, students, and staff</strong> — who
-              work across disciplines to explore cognition, technology, and
-              society.
-            </p>
-
-            <p className="people-hero-subtitle secondary">
-              {/* This is a placeholder directory structure; as profiles are
-              finalised, photos, bios, and project links will be added. */}
+              The ACT Centre is driven by academic leadership, faculty, and
+              researchers working across disciplines to advance
+              transdisciplinary research.
             </p>
 
             <div className="people-hero-ctas">
@@ -152,19 +113,17 @@ const People = () => {
                 Explore Research Themes
               </Link>
               <Link to="/funding" className="btn btn-secondary">
-                See how to join projects
+                Funding & Opportunities
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ==========================================
-         MAIN CONTENT
-      ========================================== */}
+      {/* ================= MAIN ================= */}
       <section className="section people-main">
         <div className="container">
-          {/* OVERVIEW STRIP */}
+          {/* OVERVIEW */}
           <section
             ref={overviewRef}
             className={`people-block people-block-band reveal-section ${
@@ -174,40 +133,41 @@ const People = () => {
             <div className="people-block-header">
               <h2 className="people-block-title">People &amp; Roles</h2>
               <p className="people-block-subtitle">
-
+                ACT brings together leadership, faculty, researchers, and
+                scholars to support high-impact research and collaboration.
               </p>
             </div>
 
             <div className="people-overview-grid">
               <article className="people-overview-card card">
-                <h3>Core Faculty</h3>
+                <h3>Core Leadership & Faculty</h3>
                 <p>
-                  Lead ACT’s vision, shape calls and evaluation, and guide
-                  flagship projects.
+                  Provide strategic direction, governance, and academic
+                  leadership for the Centre.
                 </p>
               </article>
 
               <article className="people-overview-card card">
-                <h3>Affiliated Faculty</h3>
+                <h3>Research Faculty</h3>
                 <p>
-                  Bring disciplinary depth, co-lead projects, mentor students,
-                  and advise methods.
+                  Lead and contribute to funded projects, mentoring students and
+                  advancing ACT research themes.
                 </p>
               </article>
 
               <article className="people-overview-card card">
-                <h3>Researchers &amp; Students</h3>
+                <h3>Research Scholars & Associates</h3>
                 <p>
-                  Fellows, PhD scholars & students who build prototypes, conduct
-                  studies, and analyze data.
+                  Conduct studies, build prototypes, analyse data, and support
+                  project execution.
                 </p>
               </article>
 
               <article className="people-overview-card card">
-                <h3>Operations &amp; Support</h3>
+                <h3>Operations & Support</h3>
                 <p>
-                  Staff who coordinate labs, finances, schedules & processes so
-                  work runs smoothly.
+                  Coordinate facilities, funding processes, and administrative
+                  workflows.
                 </p>
               </article>
             </div>
@@ -222,27 +182,10 @@ const People = () => {
           >
             <div className="people-block-header people-block-header--tight">
               <h2 className="people-block-title">Directory</h2>
-              <p className="people-block-subtitle">
-                
-              </p>
-            </div>
-
-            <div className="people-filters">
-              {groups.map((g) => (
-                <button
-                  key={g}
-                  className={`people-filter-pill ${
-                    activeGroup === g ? "is-active" : ""
-                  }`}
-                  onClick={() => setActiveGroup(g)}
-                >
-                  {g}
-                </button>
-              ))}
             </div>
 
             <div className="people-grid">
-              {filteredPeople.map((p, i) => (
+              {peopleData.map((p, i) => (
                 <article key={i} className="people-card card">
                   <div className="people-card-header">
                     {p.avatar ? (
@@ -259,25 +202,19 @@ const People = () => {
 
                     <div className="people-card-main">
                       <h3 className="people-name">{p.name}</h3>
-                      <p className="people-role">
-                        {p.role} · {p.department}
-                      </p>
+                      <p className="people-role">{p.role}</p>
                     </div>
 
                     <span className="people-badge">{p.group}</span>
                   </div>
 
-                  <p className="people-interests">{p.interests}</p>
-
-                  <p className="people-placeholder-note">
-                    
-                  </p>
+                  <p className="people-interests">{p.affiliation}</p>
                 </article>
               ))}
             </div>
           </section>
 
-          {/* HOW TO JOIN */}
+          {/* JOIN */}
           <section
             ref={rolesRef}
             className={`people-block reveal-section ${
@@ -285,9 +222,10 @@ const People = () => {
             }`}
           >
             <div className="people-block-header">
-              <h2 className="people-block-title">Joining the ACT Community</h2>
+              <h2 className="people-block-title">Engaging with ACT</h2>
               <p className="people-block-subtitle">
-                Multiple pathways for students, faculty, and partners.
+                Opportunities to collaborate, contribute, and participate in
+                ACT initiatives.
               </p>
             </div>
 
@@ -295,40 +233,34 @@ const People = () => {
               <article className="people-join-card card">
                 <h3>Students</h3>
                 <p>
-                  Watch for ACT calls, project openings, and studio-style
-                  courses. Opportunities for projects, internships, and RAs.
+                  Participate through funded projects, internships, and
+                  research-driven learning opportunities.
                 </p>
-                <p className="people-join-link">
-                  <Link to="/funding" className="link-animated">
-                    Student calls & grants
-                  </Link>
-                </p>
+                <Link to="/funding" className="link-animated">
+                  Student opportunities
+                </Link>
               </article>
 
               <article className="people-join-card card">
-                <h3>Faculty &amp; Researchers</h3>
+                <h3>Faculty & Researchers</h3>
                 <p>
-                  Join ideation sessions, co-design calls, or lead projects that
-                  align with ACT themes.
+                  Propose and lead projects aligned with ACT research themes and
+                  calls.
                 </p>
-                <p className="people-join-link">
-                  <Link to="/research" className="link-animated">
-                    Research directions
-                  </Link>
-                </p>
+                <Link to="/research" className="link-animated">
+                  Research directions
+                </Link>
               </article>
 
               <article className="people-join-card card">
                 <h3>External Partners</h3>
                 <p>
-                  ACT will gradually open collaboration channels for
-                  industry–academic partnerships.
+                  Explore collaborations with industry, government, and civil
+                  society.
                 </p>
-                <p className="people-join-link">
-                  <Link to="/contact" className="link-animated">
-                    Contact the Centre
-                  </Link>
-                </p>
+                <Link to="/contact" className="link-animated">
+                  Contact ACT
+                </Link>
               </article>
             </div>
           </section>
