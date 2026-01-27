@@ -3,7 +3,7 @@
    ================================ */
 
 .doc-page {
-  color: #0f172a;
+  color: var(--color-text);
 }
 
 /* HERO */
@@ -22,18 +22,18 @@
 .doc-hero-subtitle {
   max-width: 42rem;
   font-size: 0.95rem;
-  color: #475569;
+  color: var(--color-info);
   margin-bottom: 1.4rem;
 }
 
 /* PLACEHOLDERS */
 .placeholder-box {
   border-radius: 12px;
-  background: #f1f5f9;
+  background: var(--color-text-light);
   border: 1px dashed #cbd5f5;
   display: grid;
   place-items: center;
-  color: #64748b;
+  color: var(--color-text-muted);
   font-size: 0.85rem;
   height: 220px;
 }
@@ -41,12 +41,6 @@
 /* CONTENT */
 .doc-content {
   padding: 3rem 0;
-}
-
-.doc-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
-  gap: 2.6rem;
 }
 
 .doc-main h2 {
@@ -63,7 +57,7 @@
 .doc-main li {
   font-size: 0.9rem;
   line-height: 1.65;
-  color: #334155;
+  color: var(--color-text-soft);
 }
 
 .doc-note {
@@ -82,7 +76,7 @@
 
 .doc-meta {
   font-size: 0.82rem;
-  color: #475569;
+  color: var(--color-info);
   margin-top: 0.6rem;
 }
 
@@ -95,10 +89,7 @@
 /* RESPONSIVE */
 @media (max-width: 1024px) {
   .doc-hero-layout,
-  .doc-layout {
-    grid-template-columns: minmax(0,1fr);
   }
-}
 /* ================================
    PDF EMBED PREVIEW
    ================================ */
@@ -114,20 +105,10 @@
 
 .doc-pdf-caption {
   font-size: 0.85rem;
-  color: #475569;
+  color: var(--color-info);
   margin-bottom: 1rem;
   max-width: 40rem;
 }
 
-.doc-pdf-embed {
-  width: 100%;
-  height: 75vh;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 10px;
-  background: #fff;
-}
 @media (max-width: 768px) {
-  .doc-pdf-embed {
-    height: 65vh;
   }
-}

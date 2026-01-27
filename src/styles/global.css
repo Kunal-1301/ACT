@@ -1,12 +1,18 @@
 /* src/styles/global.css */
 
-/* Reset-ish */
+/* ======================================================
+   BASIC RESET
+   Normalizes box sizing and removes default spacing
+   ====================================================== */
+
+/* Apply border-box sizing to all elements */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Remove default margin/padding and allow full-height layouts */
 html,
 body,
 #root {
@@ -15,6 +21,7 @@ body,
   height: 100%;
 }
 
+/* Global body typography and base colors */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -23,33 +30,44 @@ body {
   line-height: 1.5;
 }
 
-/* Layout shell */
+/* ======================================================
+   APP LAYOUT SHELL
+   ====================================================== */
+
+/* Root wrapper for entire app */
 .app-root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+/* Main content expands to fill space between header/footer */
 .app-main {
   flex: 1;
 }
 
-/* Utilities */
+/* ======================================================
+   GLOBAL LAYOUT UTILITIES
+   ====================================================== */
+
+/* Centered container with responsive padding */
 .container {
   padding-inline: clamp(1rem, 4vw, 3rem);
   max-width: 1500px;
   margin-inline: auto;
 }
 
-
+/* Standard vertical spacing for sections */
 .section {
   padding: 64px 0;
 }
 
+/* Section heading wrapper */
 .section-header {
   margin-bottom: 24px;
 }
 
+/* Small uppercase label above section titles */
 .section-eyebrow {
   font-size: 13px;
   font-weight: 600;
@@ -58,6 +76,7 @@ body {
   color: var(--color-text-muted);
 }
 
+/* Main section title */
 .section-title {
   font-size: 28px;
   font-weight: 650;
@@ -65,68 +84,50 @@ body {
   color: var(--color-primary);
 }
 
+/* Supporting subtitle text */
 .section-subtitle {
   font-size: 15px;
   color: var(--color-text-muted);
   max-width: 680px;
 }
 
-/* Links & buttons */
+/* ======================================================
+   LINKS & BUTTON BASICS
+   ====================================================== */
+
+/* Reset default anchor styling */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* Prevent underline on hover */
 a:hover {
   text-decoration: none;
 }
 
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-primary-light)
-  );
-  color: white;
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.18s ease, box-shadow 0.18s ease,
-    filter 0.18s ease;
-}
+/* ======================================================
+   RESPONSIVE ADJUSTMENTS
+   ====================================================== */
 
-.btn-primary:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.03);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
-}
-
-/* Responsive */
 @media (max-width: 768px) {
+  /* Reduce vertical spacing on small screens */
   .section {
     padding: 40px 0;
   }
 
+  /* Scale down section titles */
   .section-title {
     font-size: 22px;
   }
 }
 
-
-
-/* ================================
+/* ======================================================
    GLOBAL MOTION & INTERACTIONS
    Phase 1 – Buttons, Cards, Links
-   ================================ */
+   ====================================================== */
 
-/* 1. Smooth transitions for interactive elements */
+/* Smooth transitions for interactive elements */
 button,
 a,
 .card {
@@ -138,7 +139,11 @@ a,
     transform 180ms ease-out;
 }
 
-/* 2. Base button style */
+/* ======================================================
+   BASE BUTTON SYSTEM
+   ====================================================== */
+
+/* Shared base button style */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -158,28 +163,37 @@ a,
   background-color: transparent;
   color: var(--color-text);
 
+  /* Disable mobile tap highlight */
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Primary button */
+/* ======================================================
+   PRIMARY BUTTON VARIANT
+   ====================================================== */
+
 .btn-primary {
   background-color: var(--color-primary);
   color: #ffffff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
+/* Hover elevation */
 .btn-primary:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
   background-color: var(--color-primary-strong, var(--color-primary));
 }
 
+/* Active press state */
 .btn-primary:active {
   transform: translateY(-1px) scale(0.99);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
-/* Secondary / subtle button */
+/* ======================================================
+   SECONDARY BUTTON VARIANT
+   ====================================================== */
+
 .btn-secondary {
   background-color: var(--color-surface-alt, #f7f7f9);
   color: var(--color-text-soft, var(--color-text));
@@ -198,7 +212,10 @@ a,
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
 }
 
-/* 3. Global card style */
+/* ======================================================
+   GLOBAL CARD SYSTEM
+   ====================================================== */
+
 .card {
   position: relative;
   border-radius: 16px;
@@ -206,30 +223,43 @@ a,
   background-color: var(--color-surface, #ffffff);
   border: 1px solid var(--color-border-subtle, rgba(15, 23, 42, 0.08));
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
 }
 
+/* Card hover lift */
 .card:hover {
   transform: translateY(-3px);
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.10);
 }
 
+/* Buttons within cards align to bottom */
+.card .btn {
+  margin-top: auto;
+}
+
+/* Card heading */
 .card-header {
   margin-bottom: 0.75rem;
   font-weight: 600;
   font-size: 1.02rem;
 }
 
+/* Muted card metadata */
 .card-meta {
   font-size: 0.85rem;
   opacity: 0.7;
 }
 
-/* Make cards keyboard-focusable if needed */
+/* Enable pointer behavior for interactive cards */
 .card[tabindex] {
   cursor: pointer;
 }
 
-/* 4. Animated inline links */
+/* ======================================================
+   INLINE LINK ANIMATION
+   ====================================================== */
+
 .link-animated {
   position: relative;
   display: inline-block;
@@ -238,6 +268,7 @@ a,
   font-weight: 500;
 }
 
+/* Underline reveal animation */
 .link-animated::after {
   content: "";
   position: absolute;
@@ -255,7 +286,11 @@ a,
   transform: scaleX(1);
 }
 
-/* 5. Focus-visible accessibility */
+/* ======================================================
+   ACCESSIBILITY – FOCUS STATES
+   ====================================================== */
+
+/* Keyboard-visible focus ring */
 .btn:focus-visible,
 .card:focus-visible,
 .link-animated:focus-visible,
@@ -264,7 +299,7 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-/* Optional: remove default outline on mouse click, keep on keyboard */
+/* Remove focus outline on mouse click */
 .btn:focus:not(:focus-visible),
 .card:focus:not(:focus-visible),
 .link-animated:focus:not(:focus-visible),
@@ -272,13 +307,11 @@ a:focus:not(:focus-visible) {
   outline: none;
 }
 
-
-
-/* ================================
+/* ======================================================
    GLOBAL UTILITY CHIPS & BADGES
-   ================================ */
+   ====================================================== */
 
-/* Base chip */
+/* Base pill/chip style */
 .chip {
   display: inline-flex;
   align-items: center;
@@ -299,26 +332,27 @@ a:focus:not(:focus-visible) {
   white-space: nowrap;
 }
 
-/* Status chips for Funding / Calls */
+/* --- Status chips --- */
+
 .chip-status-open {
-  background-color: rgba(34, 197, 94, 0.12);    /* green-ish */
+  background-color: rgba(34, 197, 94, 0.12);
   color: #15803d;
   border-color: rgba(34, 197, 94, 0.5);
 }
 
 .chip-status-upcoming {
-  background-color: rgba(245, 158, 11, 0.12);   /* amber */
+  background-color: rgba(245, 158, 11, 0.12);
   color: #92400e;
   border-color: rgba(245, 158, 11, 0.5);
 }
 
 .chip-status-closed {
-  background-color: rgba(148, 163, 184, 0.18);  /* grey */
+  background-color: rgba(148, 163, 184, 0.18);
   color: #475569;
   border-color: rgba(148, 163, 184, 0.6);
 }
 
-/* Small dot inside chip (optional) */
+/* Optional colored dot inside chips */
 .chip-dot {
   width: 0.4rem;
   height: 0.4rem;
@@ -326,7 +360,10 @@ a:focus:not(:focus-visible) {
   background-color: currentColor;
 }
 
-/* Filter pill buttons (People, Events, News filters) */
+/* ======================================================
+   FILTER PILLS
+   ====================================================== */
+
 .pill-filter {
   border-radius: 999px;
   padding: 0.35rem 0.9rem;
@@ -350,6 +387,7 @@ a:focus:not(:focus-visible) {
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.07);
 }
 
+/* Active filter state */
 .pill-filter--active {
   background-color: var(--color-primary-soft, rgba(37, 99, 235, 0.12));
   color: var(--color-primary);
@@ -357,7 +395,10 @@ a:focus:not(:focus-visible) {
   box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
 }
 
-/* Tiny "NEW" badge for news / events */
+/* ======================================================
+   NEW / FEATURE BADGE
+   ====================================================== */
+
 .badge-new {
   display: inline-flex;
   align-items: center;
@@ -379,32 +420,47 @@ a:focus:not(:focus-visible) {
   color: #ffffff;
 }
 
-
 /* ================================
    SECTIONS & BACKGROUND SYSTEM
    Phase 2 – Sections + Backgrounds
    ================================ */
 
+/* Base section wrapper
+   - Provides vertical spacing
+   - Acts as positioning context for overlays/backgrounds */
 .section {
   position: relative;
   padding: 4rem 0;
 }
 
+/* Compact section variant
+   - Used for dense content blocks */
 .section--tight {
   padding: 2.5rem 0;
 }
 
+/* Extra-large section variant
+   - Used for hero / major emphasis areas */
 .section--xl {
   padding: 5.5rem 0;
 }
 
-/* Constrain width for content inside sections */
+/* Constrain width for content inside sections
+   - Keeps text readable on large screens
+   - Still responsive on small screens */
 .section .container {
   width: min(1120px, 100% - 2.5rem);
   margin: 0 auto;
 }
 
-/* Shared background behavior */
+/* ======================================================
+   SHARED BACKGROUND SECTION BEHAVIOR
+   ====================================================== */
+
+/* Common properties for all background-based sections
+   - White text
+   - Full-cover background images
+   - Hidden overflow for effects */
 .section--bg,
 .section--bg-tech,
 .section--bg-campus,
@@ -418,7 +474,9 @@ a:focus:not(:focus-visible) {
   background-repeat: no-repeat;
 }
 
-/* Dark overlay for readability */
+/* Dark overlay layer for text readability
+   - Uses gradients for depth
+   - Applied via ::before pseudo-element */
 .section--bg::before,
 .section--bg-tech::before,
 .section--bg-campus::before,
@@ -441,7 +499,7 @@ a:focus:not(:focus-visible) {
   pointer-events: none;
 }
 
-/* Ensure content is above overlay */
+/* Ensure section content sits above background overlays */
 .section--bg > .container,
 .section--bg-tech > .container,
 .section--bg-campus > .container,
@@ -451,7 +509,12 @@ a:focus:not(:focus-visible) {
   z-index: 1;
 }
 
-/* Tech / research feel – hero, research, etc. */
+/* ======================================================
+   BACKGROUND VARIANTS BY CONTEXT
+   ====================================================== */
+
+/* Tech / research / hero sections
+   - Subtle neon gradients + imagery */
 .section--bg-tech {
   background-image:
     radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.12), transparent 55%),
@@ -459,21 +522,24 @@ a:focus:not(:focus-visible) {
     url("/media/bg-hero-tech.jpg");
 }
 
-/* Campus / people / about / contact location */
+/* Campus / people / about / contact sections
+   - Darker, grounded atmosphere */
 .section--bg-campus {
   background-image:
     linear-gradient(135deg, rgba(15, 23, 42, 0.90), rgba(15, 23, 42, 0.85)),
     url("/media/bg-campus.jpg");
 }
 
-/* Lab / facilities */
+/* Lab / facilities sections
+   - More intense, focused blue tone */
 .section--bg-lab {
   background-image:
     linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 64, 175, 0.82)),
     url("/media/bg-lab.jpg");
 }
 
-/* Events / activities */
+/* Events / activities sections
+   - Energetic, colorful highlights */
 .section--bg-events {
   background-image:
     radial-gradient(circle at 10% 0, rgba(244, 63, 94, 0.18), transparent 55%),
@@ -481,12 +547,18 @@ a:focus:not(:focus-visible) {
     url("/media/bg-events.jpg");
 }
 
-/* Optional: a variant with softer overlay (for People, News strips) */
+/* ======================================================
+   SOFT BACKGROUND VARIANT
+   ====================================================== */
+
+/* Light-background variant
+   - Used for People, News, or subtle highlight strips */
 .section--bg-soft {
   color: #0f172a;
   background-image: radial-gradient(circle at 0 0, rgba(37, 99, 235, 0.08), transparent 55%);
 }
 
+/* Light overlay for soft sections */
 .section--bg-soft::before {
   background: linear-gradient(
     135deg,
@@ -496,6 +568,12 @@ a:focus:not(:focus-visible) {
   mix-blend-mode: normal;
 }
 
+/* ======================================================
+   BACKGROUND FLOAT ANIMATION
+   ====================================================== */
+
+/* Keyframe for subtle background movement
+   - Creates slow parallax-like effect */
 @keyframes bg-float {
   0% {
     background-position: 50% 50%;
@@ -505,14 +583,16 @@ a:focus:not(:focus-visible) {
   }
 }
 
-/* Apply gentle float to selected sections */
+/* Apply gentle floating animation
+   - Only to visually rich sections */
 .section--bg-tech,
 .section--bg-lab,
 .section--bg-events {
   animation: bg-float 18s ease-in-out infinite alternate;
 }
 
-/* Respect reduced motion preference */
+/* Respect reduced-motion user preference
+   - Disables animation for accessibility */
 @media (prefers-reduced-motion: reduce) {
   .section--bg-tech,
   .section--bg-lab,
@@ -522,12 +602,13 @@ a:focus:not(:focus-visible) {
   }
 }
 
-
 /* ================================
    SCROLL REVEAL SYSTEM
    ================================ */
 
-/* Base hidden state for revealable sections/blocks */
+/* Base hidden state for sections that animate on scroll
+   - Slight downward offset
+   - Fully transparent */
 .reveal-section {
   opacity: 0;
   transform: translateY(18px);
@@ -536,13 +617,14 @@ a:focus:not(:focus-visible) {
     transform 360ms ease-out;
 }
 
-/* When visible */
+/* Visible state triggered via JS (IntersectionObserver) */
 .reveal-section.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Optional: small variant for cards/rows */
+/* Smaller reveal variant
+   - Used for cards, list items, rows */
 .reveal-item {
   opacity: 0;
   transform: translateY(12px);
@@ -551,12 +633,15 @@ a:focus:not(:focus-visible) {
     transform 320ms ease-out;
 }
 
+/* Visible state for individual items */
 .reveal-item.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Reduced motion: just show everything */
+/* Accessibility: reduced motion mode
+   - Instantly show content
+   - No transforms or transitions */
 @media (prefers-reduced-motion: reduce) {
   .reveal-section,
   .reveal-section.is-visible,

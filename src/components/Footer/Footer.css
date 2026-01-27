@@ -2,7 +2,7 @@
 
 .footer {
   border-top: 1px solid rgba(226, 232, 240, 0.95);
-  background-color: #f8fafc;
+  background-color: var(--color-bg);
   padding: 2rem 0;
 }
 
@@ -39,12 +39,12 @@
 .footer-subtitle {
   margin: 0;
   font-size: 0.78rem;
-  color: #475569;
+  color: var(--color-info);
 }
 
 .footer-text {
   margin: 0;
-  color: #64748b;
+  color: var(--color-text-muted);
   line-height: 1.5;
   max-width: 26rem;
 }
@@ -52,6 +52,28 @@
 /* Right side */
 .footer-right {
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.footer-institutional-logos {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-institutional-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.footer-institutional-logo:hover {
+  opacity: 1;
 }
 
 /* ================================
@@ -66,5 +88,14 @@
 
   .footer-right {
     text-align: left;
+    align-items: flex-start;
+  }
+
+  .footer-institutional-logos {
+    gap: 1rem;
+  }
+
+  .footer-institutional-logo {
+    height: 50px;
   }
 }

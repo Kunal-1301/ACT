@@ -1,0 +1,18 @@
+/* Home Page - Modular Stylesheet Index */
+
+/* Base & shared home styles */
+@import './_base.css';
+
+/* Section modules (in page order) */
+@import './hero.css';
+@import './vision.css';
+@import './research.css';
+@import './neuroscience.css';
+@import './projects.css';
+@import './gallery.css';
+@import './collaborations.css';
+@import './funding.css';
+@import './opportunities.css';
+@import './stats.css';
+@import './news.css';
+@import './contact.css';

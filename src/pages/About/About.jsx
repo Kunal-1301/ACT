@@ -1,34 +1,76 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./About.css";
+import "../People/People.css"; // Import People styles
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+
+/* ======================================================
+   PEOPLE DATA
+   ====================================================== */
+
+const peopleData = [
+  {
+    name: "Dr. Efthymios Constantinides",
+    role: "Chair",
+    affiliation: "ACT Centre Professor, TSLAS",
+    group: "Core Faculty",
+    avatar: "/media/EC.jpg",
+  },
+  {
+    name: "Dr. Vinay Kumar",
+    role: "Dean",
+    affiliation: "Professor, TSLAS, TIET",
+    group: "Core Faculty",
+    avatar: "/media/Vinay.jpeg",
+  },
+  {
+    name: "Dr. Rahul Upadhyay",
+    role: "Head",
+    affiliation: "ACT Centre Associate Professor, TIET",
+    group: "Core Faculty",
+    avatar: "/media/rahul.jpeg",
+  },
+  {
+    name: "Dr. T. Brandon Evans",
+    role: "Coordinator",
+    affiliation: "ACT Centre Associate Professor, TSLAS",
+    group: "Core Faculty",
+    avatar: "/media/brandon.jpg",
+  },
+  {
+    name: "Dr. Tanvi Dovedi",
+    role: "Research Faculty",
+    affiliation: "ACT Centre",
+    group: "Research Faculty",
+    avatar: "/media/tanvi.jpeg",
+  },
+  {
+    name: "Dr. Manvir Kaur",
+    role: "Research Faculty",
+    affiliation: "ACT Centre",
+    group: "Research Faculty",
+    avatar: "/media/manvir.jpg",
+  },
+  {
+    name: "Ms. Himanshi Upadhyay",
+    role: "Research Scholar",
+    affiliation: "ACT Centre",
+    group: "Research Scholars",
+    avatar: "/media/himanshi.jpeg",
+  },
+  {
+    name: "Mr. Kunal Gupta",
+    role: "Research Associate",
+    affiliation: "ACT Centre",
+    group: "Research Team",
+    avatar: "",
+  },
+];
 
 /* ======================================================
    STATIC CONTENT
    ====================================================== */
 
-const timelineItems = [
-  {
-    title: "Initial Conversations & Concept Notes",
-    text:
-      "Faculty across departments identified the need for a shared institutional framework to support research at the intersection of cognition, technology, and society.",
-  },
-  {
-    title: "Core Group & Ideation Meetings",
-    text:
-      "A core faculty group defined priority themes, infrastructure needs, and principles for funding, evaluation, and collaboration.",
-  },
-  {
-    title: "Formalisation of Processes",
-    text:
-      "Project approval workflows, financial guidelines, recruitment processes, and evaluation criteria were developed and refined.",
-  },
-  {
-    title: "Launch & First Calls",
-    text:
-      "With governance and infrastructure in place, ACT prepared its first calls for proposals and pilot research projects.",
-  },
-];
 
 const structureCards = [
   {
@@ -36,8 +78,8 @@ const structureCards = [
     body:
       "A core leadership team provides strategic direction, approves calls for proposals, and oversees the overall functioning of the centre.",
     note:
-      "Details of leadership roles and committees will be listed on the People page.",
-    link: { to: "/people", text: "Meet the ACT leadership and teams" },
+      "Details of leadership roles and committees are listed in the Directory section below.",
+    link: { to: "#directory", text: "View ACT directory" },
   },
   {
     title: "Evaluation & Advisory",
@@ -82,9 +124,10 @@ const howCards = [
 const About = () => {
   const [heroTextRef, heroTextVisible] = useRevealOnScroll();
   const [missionRef, missionVisible] = useRevealOnScroll();
-  const [originRef, originVisible] = useRevealOnScroll();
   const [structureRef, structureVisible] = useRevealOnScroll();
   const [howRef, howVisible] = useRevealOnScroll();
+  const [rolesRef, rolesVisible] = useRevealOnScroll();
+  const [directoryRef, directoryVisible] = useRevealOnScroll();
 
   return (
     <main className="about-page" id="about">
@@ -95,15 +138,10 @@ const About = () => {
         aria-label="About the ACT Centre"
       >
         <img
-          src="/media/hero-campus-1600.jpg"
+          src="/media/about.jpg"
           alt=""
           aria-hidden="true"
           className="about-hero-bg"
-          onError={(e) => {
-            if (e.currentTarget.src.endsWith("hero-campus-1600.jpg")) {
-              e.currentTarget.src = "/media/hero-campus-1600.JPG";
-            }
-          }}
         />
 
         <div className="about-hero-overlay" aria-hidden />
@@ -111,9 +149,8 @@ const About = () => {
         <div className="container about-hero-layout">
           <div
             ref={heroTextRef}
-            className={`about-hero-text reveal-section ${
-              heroTextVisible ? "is-visible" : ""
-            }`}
+            className={`about-hero-text reveal-section ${heroTextVisible ? "is-visible" : ""
+              }`}
           >
             <h1 className="about-hero-title">About the ACT Centre</h1>
 
@@ -149,16 +186,15 @@ const About = () => {
           <section
             id="mission"
             ref={missionRef}
-            className={`about-block about-block-band reveal-section ${
-              missionVisible ? "is-visible" : ""
-            }`}
+            className={`about-block about-block-band reveal-section ${missionVisible ? "is-visible" : ""
+              }`}
           >
             <div className="about-block-header">
               <h2 id="mission-heading" className="about-block-title">
                 Mission, Vision &amp; Values
               </h2>
               <p className="about-block-subtitle">
-               
+
               </p>
             </div>
 
@@ -180,7 +216,7 @@ const About = () => {
                 </p>
               </article>
 
-              <article className="about-mvv-card card">
+              <article className="about-mvv-card card card-centered">
                 <h3>Values</h3>
                 <ul>
                   <li>Collaboration across disciplines by design.</li>
@@ -192,55 +228,25 @@ const About = () => {
             </div>
           </section>
 
-          {/* Origin / Timeline */}
-          <section
-            id="origin"
-            ref={originRef}
-            className={`about-block reveal-section ${
-              originVisible ? "is-visible" : ""
-            }`}
-            aria-labelledby="origin-heading"
-          >
-            <div className="about-block-header">
-              <h2 id="origin-heading" className="about-block-title">
-                How the ACT Centre Evolved
-              </h2>
-              <p className="about-block-subtitle">
-                
-              </p>
-            </div>
 
-            <div className="about-timeline" role="list">
-              {timelineItems.map((it, idx) => (
-                <div key={idx} className="about-timeline-item" role="listitem">
-                  <div className="about-timeline-dot" aria-hidden />
-                  <div className="about-timeline-content">
-                    <h3>{it.title}</h3>
-                    <p>{it.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
 
           {/* Governance & Structure */}
           <section
             id="structure"
             ref={structureRef}
-            className={`about-block about-block-soft reveal-section ${
-              structureVisible ? "is-visible" : ""
-            }`}
+            className={`about-block about-block-soft reveal-section ${structureVisible ? "is-visible" : ""
+              }`}
           >
             <div className="about-block-header">
               <h2 className="about-block-title">Governance &amp; Structure</h2>
               <p className="about-block-subtitle">
-                
+
               </p>
             </div>
 
             <div className="about-structure-grid">
               {structureCards.map((card, i) => (
-                <article key={i} className="about-structure-card card">
+                <article key={i} className="about-structure-card card card-centered">
                   <h3>{card.title}</h3>
                   <p>{card.body}</p>
                   {card.note && (
@@ -269,9 +275,8 @@ const About = () => {
           <section
             id="how"
             ref={howRef}
-            className={`about-block reveal-section ${
-              howVisible ? "is-visible" : ""
-            }`}
+            className={`about-block reveal-section ${howVisible ? "is-visible" : ""
+              }`}
             aria-labelledby="how-heading"
           >
             <div className="about-block-header">
@@ -279,13 +284,13 @@ const About = () => {
                 How ACT Projects Work
               </h2>
               <p className="about-block-subtitle">
-                
+
               </p>
             </div>
 
             <div className="about-how-grid">
               {howCards.map((c, i) => (
-                <article key={i} className="about-how-card card">
+                <article key={i} className="about-how-card card card-centered">
                   <h3>{c.title}</h3>
                   <p>{c.text}</p>
                   {c.link && (
@@ -295,6 +300,96 @@ const About = () => {
                       </Link>
                     </p>
                   )}
+                </article>
+              ))}
+            </div>
+          </section>
+
+          {/* People & Roles */}
+          <section
+            ref={rolesRef}
+            className={`about-block about-block-band reveal-section ${rolesVisible ? "is-visible" : ""
+              }`}
+          >
+            <div className="people-block-header">
+              <h2 className="people-block-title">People &amp; Roles</h2>
+              <p className="people-block-subtitle">
+                ACT brings together leadership, faculty, researchers, and
+                scholars to support high-impact research and collaboration.
+              </p>
+            </div>
+
+            <div className="people-overview-grid">
+              <article className="people-overview-card card">
+                <h3>Core Leadership &amp; Faculty</h3>
+                <p>
+                  Provide strategic direction, governance, and academic
+                  leadership for the Centre.
+                </p>
+              </article>
+
+              <article className="people-overview-card card">
+                <h3>Research Faculty</h3>
+                <p>
+                  Lead and contribute to funded projects, mentoring students and
+                  advancing ACT research themes.
+                </p>
+              </article>
+
+              <article className="people-overview-card card">
+                <h3>Research Scholars &amp; Associates</h3>
+                <p>
+                  Conduct studies, build prototypes, analyse data, and support
+                  project execution.
+                </p>
+              </article>
+
+              <article className="people-overview-card card">
+                <h3>Operations &amp; Support</h3>
+                <p>
+                  Coordinate facilities, funding processes, and administrative
+                  workflows.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          {/* Directory */}
+          <section
+            id="directory"
+            ref={directoryRef}
+            className={`about-block about-block-soft reveal-section ${directoryVisible ? "is-visible" : ""
+              }`}
+          >
+            <div className="people-block-header people-block-header--tight">
+              <h2 className="people-block-title">Directory</h2>
+            </div>
+
+            <div className="people-grid">
+              {peopleData.map((p, i) => (
+                <article key={i} className="people-card card">
+                  <div className="people-card-header">
+                    {p.avatar ? (
+                      <img
+                        src={p.avatar}
+                        alt={p.name}
+                        className="people-avatar-img"
+                      />
+                    ) : (
+                      <div className="people-avatar-placeholder">
+                        {p.name.charAt(0)}
+                      </div>
+                    )}
+
+                    <div className="people-card-main">
+                      <h3 className="people-name">{p.name}</h3>
+                      <p className="people-role">{p.role}</p>
+                    </div>
+
+                    <span className="people-badge">{p.group}</span>
+                  </div>
+
+                  <p className="people-interests">{p.affiliation}</p>
                 </article>
               ))}
             </div>

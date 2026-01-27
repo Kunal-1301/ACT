@@ -1,0 +1,157 @@
+/* ================================
+   THEME CARD TAG STYLES
+   ================================ */
+
+.research-theme-tag {
+  height: 1rem;
+  font-size: 0.75rem;
+  opacity: 0.65;
+  text-transform: uppercase;
+}
+
+.research-theme-card h4 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.research-theme-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  flex-grow: 1;
+}
+
+/* ================================
+   IDEA CLUSTERS
+   ================================ */
+
+.research-areas-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+  gap: 1.6rem;
+  align-items: flex-start;
+}
+
+.research-areas-list {
+  display: grid;
+  padding: 0.25rem 0.5rem;
+  padding-left: 1.2rem;
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.research-highlight-card h4 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+}
+
+.research-highlight-card p {
+  margin: 0 0 0.45rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ================================
+   ONGOING PROJECTS
+   ================================ */
+
+.research-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+  grid-auto-rows: 1fr; /* Equal height rows */
+}
+
+.research-project-card {
+  padding: 1.1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.research-project-card .btn {
+  margin-top: auto;
+}
+
+.research-project-status {
+  font-size: 0.78rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  display: inline-flex;
+  margin-bottom: 0.45rem;
+  flex-shrink: 0;
+  width: fit-content;
+}
+
+.research-status-ongoing {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--color-success);
+}
+
+.research-project-card h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.research-project-meta {
+  font-size: 0.82rem;
+  opacity: 0.75;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.research-project-meta span {
+  font-weight: 600;
+}
+
+.research-project-text {
+  font-size: 0.92rem;
+  opacity: 0.9;
+  flex-grow: 1;
+}
+
+.research-project-extra {
+  font-size: 0.82rem;
+  opacity: 0.75;
+  margin-top: 0.45rem;
+}
+
+/* ================================
+   COMPLETED PROJECTS
+   ================================ */
+
+.research-completed-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+  gap: 1.4rem;
+}
+
+.research-completed-list {
+  padding-left: 1.2rem;
+  display: grid;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.research-completed-note {
+  font-size: 0.88rem;
+  opacity: 0.9;
+}
+
+/* ================================
+   PROJECT IMAGE
+   ================================ */
+
+.research-project-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  margin-bottom: 0.75rem;
+}

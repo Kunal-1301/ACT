@@ -1,0 +1,248 @@
+/* ================================
+   1️⃣2️⃣ CONTACT CTA STRIP
+   ================================ */
+
+/* Dark call-to-action strip */
+.home-contact-cta {
+  background: linear-gradient(180deg, #071430 0%, #0b2947 100%);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 2.4rem 1rem;
+  margin-top: 1.4rem;
+}
+
+/* CTA inner layout */
+.home-contact-cta-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* CTA text block */
+.home-contact-cta-text {
+  max-width: 32rem;
+  color: #e6f6ff;
+}
+
+/* CTA action buttons */
+.home-contact-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+/* Primary CTA override */
+.home-contact-cta .btn-primary {
+  background: #06b6d4;
+  color: #042028;
+}
+
+/* Secondary CTA override */
+.home-contact-cta .btn-secondary {
+  background: transparent;
+  color: var(--color-white);
+  border-color: var(--overlay-light-medium);
+}
+
+/* ================================
+   ANIMATIONS & MOTION
+   ================================ */
+
+/* Fade-up reveal animation */
+@keyframes home-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in from right */
+@keyframes home-fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Pulse animation for play icon */
+@keyframes home-play-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+}
+
+/* Staggered animation utility classes */
+.animate-in-delay-1 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 80ms;
+  opacity: 0;
+}
+.animate-in-delay-2 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 140ms;
+  opacity: 0;
+}
+.animate-in-delay-3 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 220ms;
+  opacity: 0;
+}
+.animate-in-delay-4 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 300ms;
+  opacity: 0;
+}
+.animate-in-delay-5 {
+  animation: home-fade-up 420ms ease-out forwards;
+  animation-delay: 380ms;
+  opacity: 0;
+}
+
+/* Right-side hero animation override */
+.home-hero-right.animate-in-delay-3 {
+  animation-name: home-fade-in-right;
+}
+
+/* Scroll reveal base pattern */
+/* Reveal active state */
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-in-delay-1,
+  .animate-in-delay-2,
+  .animate-in-delay-3,
+  .animate-in-delay-4,
+  .animate-in-delay-5 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .home-media-play-btn::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ================================
+   RESPONSIVE – GLOBAL
+   ================================ */
+
+/* Large tablets / small desktops */
+@media (max-width: 1024px) {
+  .home-hero-inner {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+    gap: 2.5rem;
+  }
+
+  .home-media-main-img {
+    height: 230px;
+  }
+
+  .home-impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-research-grid,
+  .home-flagship-grid,
+  .home-funding-grid,
+  .home-opportunities-grid,
+  .home-people-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Medium screens */
+@media (max-width: 900px) {
+  .home-hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-hero-right {
+    justify-content: flex-start;
+  }
+
+  .home-hero {
+    padding-top: 4.5rem;
+  }
+
+  .home-media-video {
+    right: 0;
+    bottom: -1rem;
+  }
+
+  .home-neuro-layout,
+  .home-news-events-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-section-header-cta {
+    margin-left: 0;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small screens / mobile */
+@media (max-width: 768px) {
+  .home-hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-hero-stats {
+    gap: 1.2rem;
+  }
+
+  .home-media-main-img {
+    height: 210px;
+  }
+
+  .home-research-grid,
+  .home-flagship-grid,
+  .home-funding-grid,
+  .home-opportunities-grid,
+  .home-people-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-impact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-contact-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}

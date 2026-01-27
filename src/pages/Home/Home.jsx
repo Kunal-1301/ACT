@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Home.css";
+import "./styles/_base.css";
+import "./styles/hero.css";
+import "./styles/vision.css";
+import "./styles/research.css";
+import "./styles/neuroscience.css";
+import "./styles/projects.css";
+import "./styles/gallery.css";
+import "./styles/collaborations.css";
+import "./styles/funding.css";
+import "./styles/opportunities.css";
+import "./styles/stats.css";
+import "./styles/news.css";
+import "./styles/contact.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import { strategicProjects } from "../../data/strategicProjects";
 
 function Home() {
   /* ======================================================
@@ -66,6 +79,7 @@ function Home() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lightbox.open]);
 
   /* ======================================================
@@ -88,7 +102,7 @@ function Home() {
     <div className="home-page">
       {/* ================= HERO ================= */}
       <section className="section home-hero home-hero-simple">
-        <img src="/media/research.JPG" className="home-hero-bg" alt="" />
+        <img src="/media/home.jpg" className="home-hero-bg" alt="" />
         <div className="home-hero-overlay" />
         <div className="container home-hero-inner">
           <div className="home-hero-left">
@@ -135,24 +149,18 @@ function Home() {
       {/* ================= VISION ================= */}
       <section
         ref={visionRef}
-        className={`section home-vision reveal-section ${
-          visionVisible ? "is-visible" : ""
-        }`}
+        className={`section home-vision reveal-section ${visionVisible ? "is-visible" : ""
+          }`}
       >
-        <div className="home-vision-container">
+        <div className="container home-vision-container">
           <div className="home-vision-content">
+            <p className="section-eyebrow">Our vision</p>
             <h2 className="home-section-title">
-              <span className="vision-animated-text">Our vision</span>
+              <span className="vision-animated-text">Our Vision</span>
             </h2>
 
-            <p className="home-vision-text">
-              ACT envisions a future where{" "}
-              <span className="vision-highlight">
-                transdisciplinary cooperation
-              </span>{" "}
-              drives innovative and sustainable technologies to address complex
-              societal challenges, transforming knowledge into meaningful
-              real-world impact.
+            <p className="home-section-intro">
+              ACT envisions a future where transdisciplinary cooperation drives innovative and sustainable technologies to address complex societal challenges, transforming knowledge into meaningful real-world impact.
             </p>
           </div>
 
@@ -165,9 +173,8 @@ function Home() {
       {/* 3️⃣ RESEARCH THEMES PREVIEW (thumbnails added) */}
       <section
         ref={researchRef}
-        className={`section home-research-preview reveal-section ${
-          researchVisible ? "is-visible" : ""
-        }`}
+        className={`section home-research-preview reveal-section ${researchVisible ? "is-visible" : ""
+          }`}
         role="region"
         aria-roledescription="carousel"
         aria-label="ACT research themes"
@@ -360,9 +367,8 @@ function Home() {
       {/* 4️⃣ NEUROSCIENCE FOCUS */}
       <section
         ref={neuroRef}
-        className={`section section--bg-soft home-neuro reveal-section ${
-          neuroVisible ? "is-visible" : ""
-        }`}
+        className={`section section--bg-soft home-neuro reveal-section ${neuroVisible ? "is-visible" : ""
+          }`}
       >
         <div className="container home-neuro-layout">
           <div className="home-neuro-left">
@@ -404,77 +410,45 @@ function Home() {
       {/* 5️⃣ FLAGSHIP PROJECTS (thumbnails added) */}
       <section
         ref={flagshipRef}
-        className={`section home-flagship reveal-section ${
-          flagshipVisible ? "is-visible" : ""
-        }`}
+        className={`section home-flagship reveal-section ${flagshipVisible ? "is-visible" : ""
+          }`}
       >
         <div className="container">
           <div className="home-section-header">
-            <p className="section-eyebrow">Flagship initiatives</p>
+            <p className="section-eyebrow">Strategic initiatives</p>
             <div className="home-section-header-main">
-              <h2 className="home-section-title">Flagship projects</h2>
-              <p className="home-section-intro"></p>
+              <h2 className="home-section-title">Strategic Projects</h2>
+              <p className="home-section-intro">
+                Long-term initiatives defining ACT's institutional research vision.
+              </p>
             </div>
+            <Link
+              to="/research#projects-strategic"
+              className="btn btn-secondary home-section-header-cta"
+            >
+              View more projects
+            </Link>
           </div>
 
           <div className="home-flagship-grid">
-            <article className="card home-flagship-card">
-              <div className="home-flagship-top">
-                <span className="chip chip-status-open">
-                  <span className="chip-dot" /> Ongoing
-                </span>
-              </div>
-              <div className="card-body">
-                <h3>Human–Centred Campus Mobility Lab</h3>
-                <p>
-                  A living lab that studies multimodal travel behaviour,
-                  decision–making and information design across the TIET campus.
-                </p>
-                <p className="home-flagship-meta">
-                  In collaboration with campus planning and external mobility
-                  partners.
-                </p>
-              </div>
-            </article>
-
-            <article className="card home-flagship-card">
-              <div className="home-flagship-top">
-                <span className="chip chip-status-upcoming">
-                  <span className="chip-dot" /> In development
-                </span>
-              </div>
-              <div className="card-body">
-                <h3>Cognitive Workflows for Smart Infrastructure</h3>
-                <p>
-                  Mapping attention, coordination and decision bottlenecks in
-                  infrastructure operations rooms to inform better tools and
-                  displays.
-                </p>
-                <p className="home-flagship-meta">
-                  Bridging human factors, data visualisation and operations
-                  research.
-                </p>
-              </div>
-            </article>
-
-            <article className="card home-flagship-card">
-              <div className="home-flagship-top">
-                <span className="chip chip-status-closed">
-                  <span className="chip-dot" /> Completed
-                </span>
-              </div>
-              <div className="card-body">
-                <h3>Behaviour–Aware Information Systems</h3>
-                <p>
-                  Prototyping communication and nudging systems that respect
-                  cognitive limits while improving adherence and safety.
-                </p>
-                <p className="home-flagship-meta">
-                  Outputs include design guidelines, prototypes and evaluation
-                  studies.
-                </p>
-              </div>
-            </article>
+            {strategicProjects.map((project) => (
+              <article key={project.id} className="card home-flagship-card">
+                <img
+                  src={project.image}
+                  alt={project.shortTitle}
+                  className="home-flagship-image"
+                />
+                <div className="home-flagship-top">
+                  <span className="chip chip-status-open">
+                    <span className="chip-dot" /> {project.status}
+                  </span>
+                </div>
+                <div className="card-body">
+                  <h3>{project.title}</h3>
+                  <p>{project.shortDescription}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -501,14 +475,6 @@ function Home() {
                   allowFullScreen
                 />
               </div>
-
-              <blockquote className="featured-quote">
-                <p>
-                  “For every complex problem there is an answer that is clear,
-                  simple, and wrong.”
-                </p>
-                <footer>— H. L. Mencken</footer>
-              </blockquote>
             </article>
 
             {/* VIDEO 2 */}
@@ -522,13 +488,8 @@ function Home() {
                 />
               </div>
               <blockquote className="featured-quote">
-                <p>“Empathy is mother Of excellence.”</p>
+                <p>"Empathy is the mother of excellence."</p>
                 <footer>— Prof. Nair</footer>
-              </blockquote>
-
-              <blockquote className="featured-quote">
-                <p>“The real world is not divided into departments.”</p>
-                <footer>— Russell L. Ackoff</footer>
               </blockquote>
             </article>
           </div>
@@ -564,9 +525,8 @@ function Home() {
             ) : (
               <div className="lightbox-video">
                 <iframe
-                  src={`https://www.youtube.com/embed/${
-                    videoGallery[lightbox.index].youtubeId
-                  }?autoplay=1`}
+                  src={`https://www.youtube.com/embed/${videoGallery[lightbox.index].youtubeId
+                    }?autoplay=1`}
                   title="ACT video"
                   allow="accelerometer; clipboard-write; fullscreen; picture-in-picture"
                   allowFullScreen
@@ -626,9 +586,8 @@ function Home() {
       {/* 7️⃣ FUNDING ANNOUNCEMENTS PREVIEW */}
       <section
         ref={fundingRef}
-        className={`section home-funding-preview reveal-section ${
-          fundingVisible ? "is-visible" : ""
-        }`}
+        className={`section home-funding-preview reveal-section ${fundingVisible ? "is-visible" : ""
+          }`}
       >
         <div className="container">
           <div className="home-section-header">
@@ -650,12 +609,12 @@ function Home() {
           <div className="home-funding-grid">
             <article className="card home-funding-card">
               <div className="home-funding-top">
-                <span className="chip chip-status-open">
-                  <span className="chip-dot" /> Open
+                <span className="chip chip-status-closed">
+                  <span className="chip-dot" /> Closed
                 </span>
-                <span className="home-funding-deadline">Deadline: 15 May</span>
+                <span className="home-funding-deadline">Closed: 15 May</span>
               </div>
-              <h3>ACT Seed Grants for Interdisciplinary Pilots</h3>
+              <h3>Transdisciplinary Research Grants</h3>
               <p>
                 Small grants to help faculty and researchers run early–stage
                 pilots linked to ACT themes and testbeds.
@@ -664,10 +623,10 @@ function Home() {
 
             <article className="card home-funding-card">
               <div className="home-funding-top">
-                <span className="chip chip-status-closed">
-                  <span className="chip-dot" /> Closed
+                <span className="chip chip-status-open">
+                  <span className="chip-dot" /> Upcoming
                 </span>
-                <span className="home-funding-deadline">Closed: March</span>
+                <span className="home-funding-deadline">Upcoming: March</span>
               </div>
               <h3>Industry–Linked Pilot Projects</h3>
               <p>
@@ -682,9 +641,8 @@ function Home() {
       {/* 8️⃣ STUDENT & RESEARCHER OPPORTUNITIES PREVIEW */}
       <section
         ref={oppRef}
-        className={`section home-opportunities reveal-section ${
-          oppVisible ? "is-visible" : ""
-        }`}
+        className={`section home-opportunities reveal-section ${oppVisible ? "is-visible" : ""
+          }`}
       >
         <div className="container">
           <div className="home-section-header">
@@ -737,9 +695,8 @@ function Home() {
       {/* 9️⃣ ACT IMPACT STATS */}
       <section
         ref={impactRef}
-        className={`section home-impact reveal-section ${
-          impactVisible ? "is-visible" : ""
-        }`}
+        className={`section home-impact reveal-section ${impactVisible ? "is-visible" : ""
+          }`}
       >
         <div className="container">
           <div className="home-section-header home-impact-header">
@@ -752,13 +709,13 @@ function Home() {
 
           <div className="home-impact-grid">
             <div className="card home-impact-card">
-              <div className="home-impact-number">3+</div>
+              <div className="home-impact-number">10+</div>
               <div className="home-impact-label">
                 Interdisciplinary Projects Initiated
               </div>
             </div>
             <div className="card home-impact-card">
-              <div className="home-impact-number">10+</div>
+              <div className="home-impact-number">25+</div>
               <div className="home-impact-label">External Partners Engaged</div>
             </div>
             <div className="card home-impact-card">
@@ -774,9 +731,8 @@ function Home() {
       {/* 🔟 FEATURED PEOPLE */}
       <section
         ref={peopleRef}
-        className={`section home-featured-people reveal-section ${
-          peopleVisible ? "is-visible" : ""
-        }`}
+        className={`section home-featured-people reveal-section ${peopleVisible ? "is-visible" : ""
+          }`}
       >
         <div className="container">
           <div className="home-section-header">
@@ -866,110 +822,128 @@ function Home() {
 
       {/* 1️⃣1️⃣ NEWS & EVENTS */}
       <section
-  ref={updatesRef}
-  className={`section home-news-events reveal-section ${
-    updatesVisible ? "is-visible" : ""
-  }`}
->
-  <div className="container">
-    <div className="home-section-header">
-      <p className="section-eyebrow">Updates</p>
-      <div className="home-section-header-main">
-        <h2 className="home-section-title">News &amp; Events</h2>
-        <p className="home-section-intro">
-          Stay updated with ACT announcements, calls, seminars and workshops.
-        </p>
-      </div>
-    </div>
-
-    <div className="home-news-events-layout">
-      {/* ================= NEWS COLUMN ================= */}
-      <div className="home-news-column">
-        <h3 className="home-news-heading">News highlights</h3>
-
-        <div className="news-vertical-scroll">
-          <div className="news-vertical-track">
-            <article className="card home-news-card">
-              <span className="badge-new">New</span>
-              <h4>ACT launches campus mobility living lab</h4>
-              <p>
-                A new testbed integrates sensors, surveys and experiments to
-                study multimodal travel on campus.
+        ref={updatesRef}
+        className={`section home-news-events reveal-section ${updatesVisible ? "is-visible" : ""
+          }`}
+      >
+        <div className="container">
+          <div className="home-section-header">
+            <p className="section-eyebrow">Updates</p>
+            <div className="home-section-header-main">
+              <h2 className="home-section-title">News &amp; Events</h2>
+              <p className="home-section-intro">
+                Stay updated with ACT announcements, calls, seminars and workshops.
               </p>
-            </article>
+            </div>
+          </div>
 
-            <article className="card home-news-card">
-              <h4>Workshop on cognition in built environments</h4>
-              <p>
-                Researchers and practitioners discussed how perception and
-                attention shape building and campus experiences.
-              </p>
-            </article>
+          <div className="home-news-events-layout">
+            {/* ================= NEWS COLUMN ================= */}
+            <div className="home-news-column">
+              <h3 className="home-news-heading">News highlights</h3>
 
-            {/* duplicate for seamless loop */}
-            <article className="card home-news-card">
-              <span className="badge-new">New</span>
-              <h4>ACT launches campus mobility living lab</h4>
-              <p>
-                A new testbed integrates sensors, surveys and experiments to
-                study multimodal travel on campus.
-              </p>
-            </article>
+              <div className="news-vertical-scroll">
+                <div className="news-vertical-track">
+                  <article className="card home-news-card">
+                    <span className="badge-new">New</span>
+                    <h4>ACT launches campus mobility living lab</h4>
+                    <p>
+                      A new testbed integrates sensors, surveys and experiments to
+                      study multimodal travel on campus.
+                    </p>
+                  </article>
+
+                  <article className="card home-news-card">
+                    <h4>Workshop on cognition in built environments</h4>
+                    <p>
+                      Researchers and practitioners discussed how perception and
+                      attention shape building and campus experiences.
+                    </p>
+                  </article>
+
+                  {/* duplicate for seamless loop */}
+                  <article className="card home-news-card">
+                    <span className="badge-new">New</span>
+                    <h4>ACT launches campus mobility living lab</h4>
+                    <p>
+                      A new testbed integrates sensors, surveys and experiments to
+                      study multimodal travel on campus.
+                    </p>
+                  </article>
+                </div>
+              </div>
+
+              <Link to="/news" className="btn btn-tertiary">
+                View all news →
+              </Link>
+            </div>
+
+            {/* ================= EVENTS COLUMN ================= */}
+            <div className="home-events-column">
+              <h3 className="home-news-heading">Upcoming events</h3>
+
+              <div className="events-carousel">
+                <article className="card home-event-card">
+                  <div className="home-event-date">
+                    <span className="home-event-day">12</span>
+                    <span className="home-event-month">Apr</span>
+                  </div>
+                  <div className="home-event-body">
+                    <h4>
+                      Seminar: Human–AI collaboration in safety–critical work
+                    </h4>
+                    <p>Hybrid • ACT Seminar Room / Online</p>
+                  </div>
+                </article>
+
+                <article className="card home-event-card">
+                  <div className="home-event-date">
+                    <span className="home-event-day">26</span>
+                    <span className="home-event-month">Apr</span>
+                  </div>
+                  <div className="home-event-body">
+                    <h4>Studio: Designing for cognitive load</h4>
+                    <p>
+                      Hands–on studio linking cognition, UX and infrastructure.
+                    </p>
+                  </div>
+                </article>
+              </div>
+
+              <Link to="/events" className="btn btn-tertiary">
+                View all events →
+              </Link>
+            </div>
+
+            {/* ================= QUOTES COLUMN ================= */}
+            <div className="home-quotes-column">
+              <h3 className="home-news-heading">Thoughts that guide us</h3>
+
+              <div className="home-quotes-grid">
+                <blockquote className="card home-quote-card">
+                  <p>
+                    "For every complex problem there is an answer that is clear,
+                    simple, and wrong."
+                  </p>
+                  <footer>— H. L. Mencken</footer>
+                </blockquote>
+
+                <blockquote className="card home-quote-card">
+                  <p>"The real world is not divided into departments."</p>
+                  <footer>— Russell L. Ackoff</footer>
+                </blockquote>
+              </div>
+            </div>
           </div>
         </div>
-
-        <Link to="/news" className="btn btn-tertiary">
-          View all news →
-        </Link>
-      </div>
-
-      {/* ================= EVENTS COLUMN ================= */}
-      <div className="home-events-column">
-        <h3 className="home-news-heading">Upcoming events</h3>
-
-        <div className="events-carousel">
-          <article className="card home-event-card">
-            <div className="home-event-date">
-              <span className="home-event-day">12</span>
-              <span className="home-event-month">Apr</span>
-            </div>
-            <div className="home-event-body">
-              <h4>
-                Seminar: Human–AI collaboration in safety–critical work
-              </h4>
-              <p>Hybrid • ACT Seminar Room / Online</p>
-            </div>
-          </article>
-
-          <article className="card home-event-card">
-            <div className="home-event-date">
-              <span className="home-event-day">26</span>
-              <span className="home-event-month">Apr</span>
-            </div>
-            <div className="home-event-body">
-              <h4>Studio: Designing for cognitive load</h4>
-              <p>
-                Hands–on studio linking cognition, UX and infrastructure.
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <Link to="/events" className="btn btn-tertiary">
-          View all events →
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
 
       {/* 1️⃣2️⃣ CONTACT & CTA STRIP (dark enhanced) */}
       <section
         ref={contactRef}
-        className={`section section--bg-campus home-contact-cta reveal-section ${
-          contactVisible ? "is-visible" : ""
-        }`}
+        className={`section section--bg-campus home-contact-cta reveal-section ${contactVisible ? "is-visible" : ""
+          }`}
       >
         <div className="container home-contact-cta-inner">
           <div className="home-contact-cta-text">

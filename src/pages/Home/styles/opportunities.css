@@ -1,0 +1,33 @@
+/* ================================
+   8️⃣ OPPORTUNITIES PREVIEW
+   ================================ */
+
+/* Grid for opportunity cards */
+.home-opportunities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* Opportunity card title */
+.home-opportunity-card h3 {
+  font-size: 1.02rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Opportunity card description */
+.home-opportunity-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 0.4rem;
+}
+
+/* Full-width CTA on mobile */
+@media (max-width: 768px) {
+  .home-opportunity-card .btn-tertiary {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
+/* ================================

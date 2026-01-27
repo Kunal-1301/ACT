@@ -1,0 +1,9 @@
+/* Research Page - Modular Stylesheet Index */
+
+/* Import all section modules */
+@import './hero.css';
+@import './main.css';
+@import './projects.css';
+@import './publications.css';
+@import './animations.css';
+@import './responsive.css';

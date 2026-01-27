@@ -1,0 +1,324 @@
+/* ================================
+   5️⃣ FLAGSHIP PROJECTS
+   ================================ */
+
+/* Grid layout for flagship project cards */
+.home-flagship-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* Flagship card title */
+.home-flagship-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Flagship card description */
+.home-flagship-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Metadata (tags, status, date, etc.) */
+.home-flagship-meta {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  opacity: 0.8;
+}
+
+/* Top area inside flagship card (e.g. badge/chip row) */
+.home-flagship-top {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.7rem;
+}
+
+/* Tablet breakpoint: reduce to two columns */
+@media (max-width: 1024px) {
+  .home-flagship-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile breakpoint: single column */
+@media (max-width: 768px) {
+  .home-flagship-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   ####  GALLERY (INLINE)
+   ================================ */
+
+/* Gallery section spacing */
+.home-gallery {
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+}
+
+/* Grid for gallery items (images/videos) */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* Tablet: 2-column gallery */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small screens: single column gallery */
+@media (max-width: 520px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Individual gallery item (image/video thumbnail) */
+.gallery-item {
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  box-shadow: 0 8px 20px rgba(8, 15, 30, 0.06);
+}
+
+/* Gallery image */
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+/* Lift effect on hover */
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(8, 15, 30, 0.12);
+}
+
+/* Subtle zoom on hover */
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+/* ================================
+   LIGHTBOX OVERLAY
+   ================================ */
+
+/* Fullscreen dark backdrop */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Lightbox content wrapper */
+.lightbox-inner {
+  position: relative;
+  max-width: 92vw;
+  max-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Lightbox image */
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 22px 60px rgba(2, 6, 23, 0.6);
+}
+
+/* Close (X) button */
+.lightbox-close {
+  position: absolute;
+  top: -2.4rem;
+  right: -2.4rem;
+  background: transparent;
+  border: none;
+  color: var(--color-white);
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* ================================
+   LIGHTBOX NAVIGATION
+   ================================ */
+
+/* Previous / next navigation buttons */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  color: var(--color-white);
+  padding: 0.25rem 0.5rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* Left navigation */
+.lightbox-prev {
+  left: 1rem;
+}
+
+/* Right navigation */
+.lightbox-next {
+  right: 1rem;
+}
+
+/* Smaller image height on very small screens */
+@media (max-width: 480px) {
+  .gallery-item img {
+    height: 130px;
+  }
+}
+
+/* ================================
+   VIDEO THUMBNAILS
+   ================================ */
+
+/* Video thumbnail container */
+.gallery-video-thumb {
+  position: relative;
+  width: 100%;
+  height: 240px;
+}
+
+/* Video thumbnail image */
+.gallery-video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Play icon overlay */
+.gallery-play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2.6rem;
+  color: var(--color-white);
+  background: rgba(2, 6, 23, 0.35);
+}
+
+/* ================================
+   LIGHTBOX VIDEO
+   ================================ */
+
+/* Responsive video container */
+.lightbox-video {
+  width: min(92vw, 960px);
+  aspect-ratio: 16 / 9;
+}
+
+/* Embedded video iframe */
+.lightbox-video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: var(--radius-sm);
+}
+
+/* Gallery subsection title */
+.gallery-subtitle {
+  margin: 1.6rem 0 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Adjust heights for small screens */
+@media (max-width: 520px) {
+  .gallery-item img,
+  .gallery-video-thumb {
+    height: 210px;
+  }
+}
+
+/* ================================
+   FEATURED VIDEOS – ACT PHILOSOPHY
+   ================================ */
+
+.home-featured-videos {
+  padding-top: 2.4rem;
+  padding-bottom: 3rem;
+}
+
+.featured-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.featured-video-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* video */
+.featured-video-embed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+}
+
+.featured-video-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* quote */
+.featured-quote {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-primary);
+}
+
+.featured-quote p {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--color-text);
+  margin: 0 0 0.4rem;
+}
+
+.featured-quote footer {
+  font-size: 0.9rem;
+  color: var(--color-info);
+}
+@media (max-width: 900px) {
+  .featured-videos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-quote p {
+    font-size: 1rem;
+  }
+}
+

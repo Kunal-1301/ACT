@@ -1,0 +1,195 @@
+/* ================================
+   FLOW STEP HOVER STATE
+   ================================ */
+
+.funding-flow-step:hover {
+  transform: none;
+}
+
+/* step number */
+.funding-flow-circle {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 0.7rem;
+
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* step label */
+.funding-flow-step h4 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0;
+
+  color: var(--color-text-soft);
+}
+.funding-flow-step.is-active .funding-flow-circle {
+  background: var(--color-text);
+}
+
+/* =========================================================
+   RESPONSIVE – SCROLLABLE ON MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .funding-flow-steps {
+    grid-template-columns: repeat(6, minmax(140px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 0.8rem;
+  }
+
+  .funding-flow-steps::before {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   7. FUNDING CALL CARDS
+   ========================================================= */
+
+/* =========================================================
+   FUNDING CALLS – GRID
+   ========================================================= */
+
+.funding-calls-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.8rem;
+  align-items: stretch; /* ensures equal-height cards */
+  grid-auto-rows: 1fr; /* Equal height rows */
+}
+.funding-what-list {
+  margin-top: 0.8rem;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--color-info);
+}
+
+.funding-what-list li {
+  margin-bottom: 0.45rem;
+}
+
+/* =========================================================
+   FUNDING CALL CARD
+   ========================================================= */
+
+.funding-call-card {
+  background: var(--color-white);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 14px;
+  padding: 1.6rem 1.5rem;
+
+  display: flex;
+  flex-direction: column; /* enables footer alignment later */
+}
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.funding-call-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.funding-call-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-info);
+}
+
+/* =========================================================
+   STATUS CHIPS
+   ========================================================= */
+
+.funding-call-status {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.funding-status-open {
+  background: rgba(34, 197, 94, 0.14);
+  color: #166534;
+}
+
+.funding-status-upcoming {
+  background: rgba(245, 158, 11, 0.14);
+  color: var(--color-warning);
+}
+
+.funding-status-closed {
+  background: rgba(148, 163, 184, 0.14);
+  color: var(--color-info);
+}
+
+/* =========================================================
+   CARD BODY
+   ========================================================= */
+
+.funding-call-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.45rem;
+}
+
+.funding-call-text {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-info);
+  max-width: 42rem;
+  margin-bottom: 0.6rem;
+}
+
+/* =========================================================
+   META LIST — HORIZONTAL, COMPACT
+   ========================================================= */
+
+.funding-call-meta {
+  list-style: none;
+  padding: 0;
+  margin-top: auto; /* pushes meta to bottom for visual alignment */
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.4rem;
+
+  font-size: 0.83rem;
+  line-height: 1.4;
+  color: var(--color-info);
+}
+
+.funding-call-meta li {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.funding-call-meta span {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.funding-call-btn {
+  margin-top: 0.9rem;
+  align-self: flex-start;
+}

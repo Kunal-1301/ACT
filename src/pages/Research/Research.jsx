@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
-import "./Research.css";
+import "./styles/hero.css";
+import "./styles/main.css";
+import "./styles/projects.css";
+import "./styles/publications.css";
+import "./styles/animations.css";
+import "./styles/responsive.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import { strategicProjects } from "../../data/strategicProjects";
 
 const Research = () => {
   const [heroTextRef, heroTextVisible] = useRevealOnScroll();
@@ -11,7 +17,6 @@ const Research = () => {
   const [ongoingRef, ongoingVisible] = useRevealOnScroll();
   const [pubsRef, pubsVisible] = useRevealOnScroll();
   const [collabRef, collabVisible] = useRevealOnScroll();
-  const [oppRef, oppVisible] = useRevealOnScroll();
   const [activeProject, setActiveProject] = useState(null);
 
   return (
@@ -29,9 +34,8 @@ const Research = () => {
         <div className="container research-hero-inner">
           <div
             ref={heroTextRef}
-            className={`research-hero-text reveal-section ${
-              heroTextVisible ? "is-visible" : ""
-            }`}
+            className={`research-hero-text reveal-section ${heroTextVisible ? "is-visible" : ""
+              }`}
           >
             <h1 className="research-hero-title">Research at the ACT Centre</h1>
 
@@ -70,9 +74,6 @@ const Research = () => {
               <a href="#collaborations" className="research-chip">
                 Collaborations
               </a>
-              <a href="#opportunities" className="research-chip">
-                Openings
-              </a>
             </div>
           </div>
         </div>
@@ -85,9 +86,8 @@ const Research = () => {
           <section
             id="themes"
             ref={themesRef}
-            className={`research-block research-block-band reveal-section ${
-              themesVisible ? "is-visible" : ""
-            }`}
+            className={`research-block research-block-band reveal-section ${themesVisible ? "is-visible" : ""
+              }`}
           >
             <div className="research-block-header">
               <h3 className="research-block-title">Research Themes</h3>
@@ -104,7 +104,7 @@ const Research = () => {
               </article>
 
               <article className="research-theme-card card">
-          
+
                 <h4>Cognition & Behaviour</h4>
                 <p>
                   Attention, memory, decision-making, and behaviour analysis.
@@ -112,7 +112,7 @@ const Research = () => {
               </article>
 
               <article className="research-theme-card card">
-             
+
                 <h4>Energy & Environment</h4>
                 <p>
                   Sensing, sustainability, and climate-aligned interventions.
@@ -120,7 +120,7 @@ const Research = () => {
               </article>
 
               <article className="research-theme-card card">
-            
+
                 <h4>Learning & Pedagogy</h4>
                 <p>
                   AI-enabled learning systems, simulations, and immersive tools.
@@ -133,9 +133,8 @@ const Research = () => {
           <section
             id="areas"
             ref={areasRef}
-            className={`research-block research-block-soft reveal-section ${
-              areasVisible ? "is-visible" : ""
-            }`}
+            className={`research-block research-block-soft reveal-section ${areasVisible ? "is-visible" : ""
+              }`}
           >
             <div className="research-block-header">
               <h3 className="research-block-title">
@@ -175,9 +174,8 @@ const Research = () => {
           <section
             id="projects-ongoing"
             ref={ongoingRef}
-            className={`research-block reveal-section ${
-              ongoingVisible ? "is-visible" : ""
-            }`}
+            className={`research-block reveal-section ${ongoingVisible ? "is-visible" : ""
+              }`}
           >
             <div className="research-block-header">
               <h3 className="research-block-title">
@@ -310,6 +308,7 @@ const Research = () => {
             </div>
           </section>
 
+
           {/* STRATEGIC PROJECTS */}
           <section
             id="projects-strategic"
@@ -326,37 +325,37 @@ const Research = () => {
             </div>
 
             <div className="research-projects-grid">
-              <article className="research-project-card card">
-                <img
-                  src="/media/ThaparBrain.png"
-                  alt="Thapar Brain"
-                  className="research-project-image"
-                />
+              {strategicProjects.map((project) => (
+                <article key={project.id} className="research-project-card card">
+                  <img
+                    src={project.image}
+                    alt={project.shortTitle}
+                    className="research-project-image"
+                  />
 
-                <p className="research-project-status">Strategic Flagship</p>
+                  <p className="research-project-status">{project.status}</p>
 
-                <h4>Thapar Brain: Neuromarketing for Everyone</h4>
+                  <h4>{project.title}</h4>
 
-                <p className="research-project-text">
-                  Privacy-first neuromarketing platform for attention and
-                  engagement analysis.
-                </p>
+                  <p className="research-project-text">
+                    {project.shortDescription}
+                  </p>
 
-                <button
-                  className="btn btn-secondary btn-sm"
-                  onClick={() =>
-                    setActiveProject({
-                      title: "Thapar Brain: Neuromarketing for Everyone",
-                      faculty: "ACT Centre interdisciplinary team",
-                      description:
-                        "This strategic flagship project aims to democratize neuromarketing by developing a scalable, affordable, and privacy-first digital engagement platform. It enables universities, small businesses, and public institutions to understand why audiences engage with digital content by measuring attention, emotion, and engagement using low-cost, real-world signals. The platform integrates website analytics, creative testing, social media insights, and lab-grade validation within a unified, ethically compliant framework.",
-                      image: "/media/ThaparBrain.png",
-                    })
-                  }
-                >
-                  View details
-                </button>
-              </article>
+                  <button
+                    className="btn btn-secondary btn-sm"
+                    onClick={() =>
+                      setActiveProject({
+                        title: project.title,
+                        faculty: project.faculty,
+                        description: project.description,
+                        image: project.image,
+                      })
+                    }
+                  >
+                    View details
+                  </button>
+                </article>
+              ))}
             </div>
           </section>
 
@@ -401,9 +400,8 @@ const Research = () => {
           <section
             id="publications"
             ref={pubsRef}
-            className={`research-block reveal-section ${
-              pubsVisible ? "is-visible" : ""
-            }`}
+            className={`research-block reveal-section ${pubsVisible ? "is-visible" : ""
+              }`}
           >
             <div className="research-block-header">
               <h3 className="research-block-title">Publications</h3>
@@ -430,9 +428,8 @@ const Research = () => {
           <section
             id="collaborations"
             ref={collabRef}
-            className={`research-block research-block-soft reveal-section ${
-              collabVisible ? "is-visible" : ""
-            }`}
+            className={`research-block research-block-soft reveal-section ${collabVisible ? "is-visible" : ""
+              }`}
           >
             <div className="research-block-header">
               <h3 className="research-block-title">Collaborations</h3>
@@ -462,35 +459,6 @@ const Research = () => {
                   <li>Community-aligned interventions</li>
                 </ul>
               </article>
-            </div>
-          </section>
-
-          {/* OPPORTUNITIES */}
-          <section
-            id="opportunities"
-            ref={oppRef}
-            className={`research-block research-opportunities-block reveal-section ${
-              oppVisible ? "is-visible" : ""
-            }`}
-          >
-            <div className="research-opportunities-card card">
-              <h3>Openings & Opportunities</h3>
-              <ul>
-                <li>Research assistant and project positions</li>
-                <li>Student internships and thesis opportunities</li>
-                <li>Calls for interdisciplinary proposals</li>
-              </ul>
-              <p className="research-opportunities-note">
-                Visit{" "}
-                <Link to="/funding" className="link-animated">
-                  Funding
-                </Link>{" "}
-                and{" "}
-                <Link to="/events" className="link-animated">
-                  Events
-                </Link>{" "}
-                for current openings.
-              </p>
             </div>
           </section>
         </div>

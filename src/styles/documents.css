@@ -1,0 +1,55 @@
+/* ================================
+   SHARED DOCUMENT PAGE STYLES
+   Common styles for all document pages
+   ================================ */
+
+/* Document layout wrapper */
+.doc-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+/* PDF embed container */
+.doc-pdf-embed {
+  width: 100%;
+  min-height: 800px;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* Document info card */
+.doc-info-card {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-alt);
+  border-left: 4px solid var(--color-primary);
+}
+
+.doc-info-card h3 {
+  margin-top: 0;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+
+.doc-info-card p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .doc-layout {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .doc-pdf-embed {
+    min-height: 600px;
+  }
+}

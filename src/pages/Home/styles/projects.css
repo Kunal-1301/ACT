@@ -1,0 +1,59 @@
+/* ================================
+   FLAGSHIP PROJECTS
+   ================================ */
+
+/* Grid layout for flagship project cards */
+.home-flagship-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* Flagship project image */
+.home-flagship-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  margin: -1rem -1rem 1rem -1rem;
+}
+
+/* Flagship card title */
+.home-flagship-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Flagship card description */
+.home-flagship-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Metadata (tags, status, date, etc.) */
+.home-flagship-meta {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  opacity: 0.8;
+}
+
+/* Top area inside flagship card (e.g. badge/chip row) */
+.home-flagship-top {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.7rem;
+}
+
+/* Tablet breakpoint: reduce to two columns */
+@media (max-width: 1024px) {
+  .home-flagship-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile breakpoint: single column */
+@media (max-width: 768px) {
+  .home-flagship-grid {
+    grid-template-columns: 1fr;
+  }
+}

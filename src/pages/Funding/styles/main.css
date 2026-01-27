@@ -1,0 +1,106 @@
+h: 40rem;
+  opacity: 0.94;
+}
+
+.funding-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  margin: 1.4rem 0 1.2rem;
+}
+
+
+/* =========================================================
+   5. MAIN CONTENT WRAPPER
+   ========================================================= */
+
+.funding-main {
+  padding: 2.8rem 0 3rem;
+}
+
+/* Section blocks */
+.funding-section-block {
+  padding: 2.6rem 0;
+  border-top: 1px solid rgba(226, 232, 240, 0.6);
+  margin-bottom: 1.6rem;
+}
+
+.funding-section-block:first-of-type {
+  border-top: none;
+}
+
+/* Section header */
+.funding-section-header {
+  margin-bottom: 1.8rem;
+}
+
+.funding-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  position: relative;
+}
+
+/* Title underline */
+.funding-section-title::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  margin-top: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+  opacity: 0.6;
+}
+
+.funding-section-subtitle {
+  font-size: 0.9rem;
+  max-width: 40rem;
+  color: var(--color-text-muted);
+}
+
+/* =========================================================
+   6. FUNDING FLOW
+   ========================================================= */
+
+/* =========================================================
+   FUNDING FLOW – PROCESS RAIL
+   ========================================================= */
+
+.funding-flow-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.6rem;
+
+  padding: 0;
+  margin: 2rem 0 0;
+
+  position: relative;
+}
+
+/* connecting line */
+.funding-flow-steps::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(148, 163, 184, 0.35);
+  z-index: 0;
+}
+
+/* individual step */
+.funding-flow-step {
+  position: relative;
+  text-align: center;
+  font-size: 0.85rem;
+  z-index: 1;
+}
+
+/* REMOVE hover lift – this is a process, not a card */
+.funding-flow-step

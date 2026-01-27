@@ -22,11 +22,6 @@ const Navbar = () => {
               src="/media/act-logo.png"
               alt="ACT Centre Logo"
               className="logo-img"
-              onError={(e) => {
-                if (e.currentTarget.src.endsWith("act-logo.png")) {
-                  e.currentTarget.src = "/media/act-logo.png"; // fallback
-                }
-              }}
             />
 
             <div className="logo-text">
@@ -63,18 +58,18 @@ const Navbar = () => {
           <NavLink to="/research" className={linkClass} onClick={closeMenu}>
             Research
           </NavLink>
-          {/* <NavLink to="/facilities" className={linkClass} onClick={closeMenu}>
+          <NavLink to="/facilities" className={linkClass} onClick={closeMenu}>
             Facilities
-          </NavLink> */}
+          </NavLink>
           <NavLink to="/funding" className={linkClass} onClick={closeMenu}>
             Funding
           </NavLink>
-          {/* <NavLink to="/events" className={linkClass} onClick={closeMenu}>
+          <NavLink to="/events" className={linkClass} onClick={closeMenu}>
             Events
           </NavLink>
           <NavLink to="/news" className={linkClass} onClick={closeMenu}>
             News
-          </NavLink> */}
+          </NavLink>
           <NavLink to="/contact" className={linkClass} onClick={closeMenu}>
             Contact
           </NavLink>

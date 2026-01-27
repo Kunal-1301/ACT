@@ -1,0 +1,58 @@
+
+
+/* ================================
+   6️⃣ GLOBAL COLLABORATIONS
+   ================================ */
+
+/* Section header spacing */
+.home-collab-header {
+  margin-bottom: 1.8rem;
+}
+
+/* Collaboration strip
+   - Horizontal layout
+   - Light gradient background for separation */
+.home-collab-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(
+    90deg,
+    rgba(247, 250, 252, 0.6),
+    rgba(248, 250, 252, 0.35)
+  );
+  border-radius: var(--radius-md);
+}
+
+/* Logo group container */
+.home-collab-logos {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Individual collaboration logo / badge
+   - Neutral card-style appearance */
+.home-collab-logo {
+  min-width: 120px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04);
+  padding: 0.25rem 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+/* Supporting collaboration text */
+.home-collab-text {
+  font-size: 0.92rem;
+  opacity: 0.95;
+}
+

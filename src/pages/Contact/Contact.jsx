@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Contact.css";
+import "../People/People.css"; // Import People styles for engaging section
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { Link } from "react-router-dom";
 
@@ -9,26 +10,106 @@ const Contact = () => {
      ================================ */
 
   const [heroTextRef, heroTextVisible] = useRevealOnScroll();
-  const [heroInfoRef, heroInfoVisible] = useRevealOnScroll();
   const [locationRef, locationVisible] = useRevealOnScroll();
   const [contactsRef, contactsVisible] = useRevealOnScroll();
+  const [engagingRef, engagingVisible] = useRevealOnScroll();
   const [formRef, formVisible] = useRevealOnScroll();
 
-  const handleSubmit = (e) => {
+  /* ================================
+     FORM STATE MANAGEMENT
+     ================================ */
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    role: "",
+    topic: "",
+    message: "",
+  });
+
+  const [formStatus, setFormStatus] = useState({
+    submitting: false,
+    submitted: false,
+    error: null,
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Later: connect to backend / form service
+    setFormStatus({ submitting: true, submitted: false, error: null });
+
+    try {
+      // Using Web3Forms - Replace 'YOUR_ACCESS_KEY_HERE' with actual access key
+      // Get free access key from https://web3forms.com
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_ACCESS_KEY_HERE", // Replace with your Web3Forms access key
+          name: formData.name,
+          email: formData.email,
+          role: formData.role,
+          topic: formData.topic,
+          message: formData.message,
+          subject: `ACT Centre Contact Form - ${formData.topic || 'General Enquiry'}`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormStatus({ submitting: false, submitted: true, error: null });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          role: "",
+          topic: "",
+          message: "",
+        });
+
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus({ submitting: false, submitted: false, error: null });
+        }, 5000);
+      } else {
+        throw new Error(result.message || "Submission failed");
+      }
+    } catch (error) {
+      setFormStatus({
+        submitting: false,
+        submitted: false,
+        error: error.message || "Something went wrong. Please try again.",
+      });
+    }
   };
 
   return (
     <div className="contact-page" id="contact">
       {/* HERO – CAMPUS BACKGROUND */}
       <section className="section section--bg-campus contact-hero">
+        <img
+          src="/media/contact.png"
+          alt=""
+          aria-hidden="true"
+          className="contact-hero-bg"
+        />
+        <div className="contact-hero-overlay" aria-hidden="true" />
         <div className="container contact-hero-layout">
           <div
             ref={heroTextRef}
-            className={`contact-hero-text reveal-section ${
-              heroTextVisible ? "is-visible" : ""
-            }`}
+            className={`contact-hero-text reveal-section ${heroTextVisible ? "is-visible" : ""
+              }`}
           >
             <p className="section-eyebrow contact-hero-eyebrow">Contact</p>
             <h1 className="contact-hero-title">Contact the ACT Centre</h1>
@@ -51,72 +132,36 @@ const Contact = () => {
       {/* MAIN */}
       <section className="section contact-main">
         <div className="container">
-          {/* LOCATION / MAP-LIKE SECTION */}
+          {/* LOCATION / MAP SECTION */}
           <section
             id="map"
             ref={locationRef}
-            className={`contact-block contact-block-soft reveal-section ${
-              locationVisible ? "is-visible" : ""
-            }`}
+            className={`contact-block contact-block-soft reveal-section ${locationVisible ? "is-visible" : ""
+              }`}
           >
             <div className="contact-block-header">
               <h2 className="contact-block-title">Location on Campus</h2>
-              <p className="contact-block-subtitle">
-                This section can later embed a simple map snippet or campus
-                layout. For now, it gives a clear textual description of where
-                to find the ACT Centre once it is operational.
-              </p>
             </div>
 
-            <div className="contact-location-grid">
-              <article className="contact-location-info">
-                <h3>Reaching the ACT Centre</h3>
-                <ul>
-                  <li>
-                    <strong>From main gate:</strong> Directions and landmarks
-                    will be added once the final building is confirmed.
-                  </li>
-                  <li>
-                    <strong>Parking &amp; access:</strong> Information for
-                    visitors, speakers, and collaborators will be published here.
-                  </li>
-                  <li>
-                    <strong>Accessibility:</strong> The centre will follow
-                    campus accessibility norms; details will be documented.
-                  </li>
-                </ul>
-                <p className="contact-location-note">
-                  Until then, all meetings can be coordinated via email and
-                  confirmed by the ACT office.
-                </p>
-              </article>
-
-              <aside className="contact-location-placeholder card">
-                <p className="contact-location-placeholder-label">
-                  Map placeholder
-                </p>
-                <p className="contact-location-placeholder-text">
-                  A simplified campus map or static image can be placed here
-                  later, with a marker for the ACT Centre and nearby landmarks.
-                </p>
-                <a
-                  href="https://www.google.com/maps"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="link-animated contact-location-map-link"
-                >
-                  Open TIET on Google Maps (generic link for now)
-                </a>
-              </aside>
+            <div className="contact-map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.1877265654!2d76.36540931512!3d30.6509978814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390feb2d8d7c5b37%3A0x6d6b3b6b06b57f5!2sThapar%20Institute%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="ACT Centre Location - Thapar Institute"
+              />
             </div>
           </section>
 
           {/* CONTACT CARDS */}
           <section
             ref={contactsRef}
-            className={`contact-block reveal-section ${
-              contactsVisible ? "is-visible" : ""
-            }`}
+            className={`contact-block reveal-section ${contactsVisible ? "is-visible" : ""
+              }`}
           >
             <div className="contact-block-header">
               <h2 className="contact-block-title">Key Contact Channels</h2>
@@ -213,40 +258,108 @@ const Contact = () => {
             </div>
           </section>
 
+          {/* ENGAGING WITH ACT */}
+          <section
+            ref={engagingRef}
+            className={`contact-block contact-block-band reveal-section ${engagingVisible ? "is-visible" : ""
+              }`}
+          >
+            <div className="people-block-header">
+              <h2 className="people-block-title">Engaging with ACT</h2>
+              <p className="people-block-subtitle">
+                Opportunities to collaborate, contribute, and participate in
+                ACT initiatives.
+              </p>
+            </div>
+
+            <div className="people-join-grid">
+              <article className="people-join-card card">
+                <h3>Students</h3>
+                <p>
+                  Participate through funded projects, internships, and
+                  research-driven learning opportunities.
+                </p>
+                <Link to="/funding" className="link-animated">
+                  Student opportunities
+                </Link>
+              </article>
+
+              <article className="people-join-card card">
+                <h3>Faculty &amp; Researchers</h3>
+                <p>
+                  Propose and lead projects aligned with ACT research themes and
+                  calls.
+                </p>
+                <Link to="/research" className="link-animated">
+                  Research directions
+                </Link>
+              </article>
+
+              <article className="people-join-card card">
+                <h3>External Partners</h3>
+                <p>
+                  Explore collaborations with industry, government, and civil
+                  society.
+                </p>
+                <Link to="/contact" className="link-animated">
+                  Contact ACT
+                </Link>
+              </article>
+            </div>
+          </section>
+
           {/* ENQUIRY FORM */}
           <section
             ref={formRef}
-            className={`contact-block contact-form-block reveal-section ${
-              formVisible ? "is-visible" : ""
-            }`}
+            className={`contact-block contact-form-block reveal-section ${formVisible ? "is-visible" : ""
+              }`}
           >
             <div className="contact-form-card card">
               <div className="contact-form-header">
                 <h2 className="contact-block-title">Send an Enquiry</h2>
                 <p className="contact-block-subtitle">
-                  This is a placeholder form to show layout. Later, it can be
-                  connected to an email handler or ticketing system.
+                  Fill out the form below and we'll get back to you as soon as possible.
                 </p>
               </div>
+
+              {formStatus.submitted && (
+                <div className="contact-form-success">
+                  <p>✓ Thank you! Your message has been sent successfully. We'll get back to you soon.</p>
+                </div>
+              )}
+
+              {formStatus.error && (
+                <div className="contact-form-error">
+                  <p>✗ {formStatus.error}</p>
+                </div>
+              )}
 
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="contact-form-row">
                   <div className="contact-field">
-                    <label htmlFor="contact-name">Name</label>
+                    <label htmlFor="contact-name">Name *</label>
                     <input
                       id="contact-name"
                       name="name"
                       type="text"
                       placeholder="Your full name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      disabled={formStatus.submitting}
                     />
                   </div>
                   <div className="contact-field">
-                    <label htmlFor="contact-email">Email</label>
+                    <label htmlFor="contact-email">Email *</label>
                     <input
                       id="contact-email"
                       name="email"
                       type="email"
                       placeholder="you@example.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      disabled={formStatus.submitting}
                     />
                   </div>
                 </div>
@@ -261,6 +374,9 @@ const Contact = () => {
                       name="role"
                       type="text"
                       placeholder="Student, faculty, collaborator, etc."
+                      value={formData.role}
+                      onChange={handleInputChange}
+                      disabled={formStatus.submitting}
                     />
                   </div>
                   <div className="contact-field">
@@ -270,28 +386,37 @@ const Contact = () => {
                       name="topic"
                       type="text"
                       placeholder="Funding, facilities, events, general..."
+                      value={formData.topic}
+                      onChange={handleInputChange}
+                      disabled={formStatus.submitting}
                     />
                   </div>
                 </div>
 
                 <div className="contact-field contact-field-full">
-                  <label htmlFor="contact-message">Message</label>
+                  <label htmlFor="contact-message">Message *</label>
                   <textarea
                     id="contact-message"
                     name="message"
                     rows={4}
                     placeholder="Share a bit of context so the ACT team can connect you to the right person."
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    disabled={formStatus.submitting}
                   />
                 </div>
 
                 <div className="contact-form-footer">
-                  <button type="submit" className="btn btn-primary">
-                    Submit (placeholder)
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    disabled={formStatus.submitting}
+                  >
+                    {formStatus.submitting ? "Sending..." : "Submit Enquiry"}
                   </button>
                   <p className="contact-form-note">
-                    Submissions are not yet wired to a live system. For urgent
-                    matters, please contact the ACT office via the official
-                    email once it is published.
+                    * Required fields. Your information will be handled securely and used only to respond to your enquiry.
                   </p>
                 </div>
               </form>

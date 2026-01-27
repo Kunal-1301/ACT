@@ -1,0 +1,577 @@
+/* =========================================================
+   FUNDING PAGE – STABLE, COMMENTED, PRODUCTION SAFE
+   ========================================================= */
+
+/* =========================================================
+   1. OVERALL PAGE
+   ========================================================= */
+
+.funding-page {
+  min-height: 100vh;
+  color: var(--color-text, var(--color-text));
+}
+
+/* =========================================================
+   2. HERO SECTION (BACKGROUND + LAYOUT)
+   ========================================================= */
+
+.funding-hero {
+  position: relative;
+  overflow: hidden;
+  width : 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 3.5rem 0;
+  color: #f9fafb;
+}
+
+/* Background image */
+.funding-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.9) contrast(1.05);
+  z-index: 0;
+}
+
+/* Dark overlay for readability */
+.funding-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.65) 0%,
+    rgba(15, 23, 42, 0.78) 60%,
+    rgba(15, 23, 42, 0.9) 100%
+  );
+}
+
+/* Hero grid */
+.funding-hero-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+  gap: 2.4rem;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+/* =========================================================
+   3. HERO TEXT
+   ========================================================= */
+
+.funding-hero-title {
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin-bottom: 0.7rem;
+}
+
+.funding-hero-subtitle {
+  font-size: 0.98rem;
+  max-width: 40rem;
+  opacity: 0.94;
+}
+
+.funding-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1.4rem 0 1.2rem;
+}
+
+
+/* =========================================================
+   5. MAIN CONTENT WRAPPER
+   ========================================================= */
+
+.funding-main {
+  padding: 2.8rem 0 3rem;
+}
+
+/* Section blocks */
+.funding-section-block {
+  padding: 2.6rem 0;
+  border-top: 1px solid rgba(226, 232, 240, 0.6);
+  margin-bottom: 1.6rem;
+}
+
+.funding-section-block:first-of-type {
+  border-top: none;
+}
+
+/* Section header */
+.funding-section-header {
+  margin-bottom: 1.8rem;
+}
+
+.funding-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  position: relative;
+}
+
+/* Title underline */
+.funding-section-title::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  margin-top: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+  opacity: 0.6;
+}
+
+.funding-section-subtitle {
+  font-size: 0.9rem;
+  max-width: 40rem;
+  color: var(--color-text-muted);
+}
+
+/* =========================================================
+   6. FUNDING FLOW
+   ========================================================= */
+
+/* =========================================================
+   FUNDING FLOW – PROCESS RAIL
+   ========================================================= */
+
+.funding-flow-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.6rem;
+
+  padding: 0;
+  margin: 2rem 0 0;
+
+  position: relative;
+}
+
+/* connecting line */
+.funding-flow-steps::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(148, 163, 184, 0.35);
+  z-index: 0;
+}
+
+/* individual step */
+.funding-flow-step {
+  position: relative;
+  text-align: center;
+  font-size: 0.85rem;
+  z-index: 1;
+}
+
+/* REMOVE hover lift – this is a process, not a card */
+.funding-flow-step:hover {
+  transform: none;
+}
+
+/* step number */
+.funding-flow-circle {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 0.7rem;
+
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* step label */
+.funding-flow-step h4 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0;
+
+  color: var(--color-text-soft);
+}
+.funding-flow-step.is-active .funding-flow-circle {
+  background: var(--color-text);
+}
+
+/* =========================================================
+   RESPONSIVE – SCROLLABLE ON MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .funding-flow-steps {
+    grid-template-columns: repeat(6, minmax(140px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 0.8rem;
+  }
+
+  .funding-flow-steps::before {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   7. FUNDING CALL CARDS
+   ========================================================= */
+
+/* =========================================================
+   FUNDING CALLS – GRID
+   ========================================================= */
+
+.funding-calls-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.8rem;
+  align-items: stretch; /* ensures equal-height cards */
+}
+.funding-what-list {
+  margin-top: 0.8rem;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--color-info);
+}
+
+.funding-what-list li {
+  margin-bottom: 0.45rem;
+}
+
+/* =========================================================
+   FUNDING CALL CARD
+   ========================================================= */
+
+.funding-call-card {
+  background: var(--color-white);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 14px;
+  padding: 1.6rem 1.5rem;
+
+  display: flex;
+  flex-direction: column; /* enables footer alignment later */
+}
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.funding-call-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.funding-call-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-info);
+}
+
+/* =========================================================
+   STATUS CHIPS
+   ========================================================= */
+
+.funding-call-status {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.funding-status-open {
+  background: rgba(34, 197, 94, 0.14);
+  color: #166534;
+}
+
+.funding-status-upcoming {
+  background: rgba(245, 158, 11, 0.14);
+  color: var(--color-warning);
+}
+
+.funding-status-closed {
+  background: rgba(148, 163, 184, 0.14);
+  color: var(--color-info);
+}
+
+/* =========================================================
+   CARD BODY
+   ========================================================= */
+
+.funding-call-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.45rem;
+}
+
+.funding-call-text {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-info);
+  max-width: 42rem;
+  margin-bottom: 0.6rem;
+}
+
+/* =========================================================
+   META LIST — HORIZONTAL, COMPACT
+   ========================================================= */
+
+.funding-call-meta {
+  list-style: none;
+  padding: 0;
+  margin-top: auto; /* pushes meta to bottom for visual alignment */
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.4rem;
+
+  font-size: 0.83rem;
+  line-height: 1.4;
+  color: var(--color-info);
+}
+
+.funding-call-meta li {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.funding-call-meta span {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .funding-calls-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   8. DOCUMENT CARDS
+   ========================================================= */
+
+.funding-docs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.funding-doc-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  background: var(--color-white);
+}
+
+.funding-doc-image {
+  height: 140px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.funding-doc-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.funding-doc-content h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.funding-doc-content p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+/* =========================================================
+   9. FAQ
+   ========================================================= */
+
+/* =========================================================
+   FAQ – PROFESSIONAL ACCORDION
+   ========================================================= */
+
+.funding-faq-list {
+  max-width: 820px;
+  margin-top: 1.6rem;
+}
+
+/* Individual FAQ item */
+.funding-faq-card {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.95);
+  padding: 1.1rem 0;
+}
+
+/* Question button */
+.funding-faq-card h4 {
+  margin: 0;
+}
+
+.funding-faq-card button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Indicator */
+.funding-faq-card button::after {
+  content: "+";
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  transition: transform 180ms ease;
+}
+
+/* Expanded state */
+.funding-faq-card button[aria-expanded="true"]::after {
+  content: "–";
+}
+
+/* Answer */
+.funding-faq-card p {
+  margin-top: 0.6rem;
+  max-width: 44rem;
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-info);
+
+  animation: fadeIn 220ms ease;
+}
+
+/* Remove generic card behaviour */
+.funding-faq-card.card {
+  box-shadow: none;
+  border-radius: 0;
+  transform: none;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .funding-faq-list {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================================
+   10. CONTACT CARD
+   ========================================================= */
+
+.funding-contact-card {
+  padding: 1.5rem 1.3rem;
+  border-radius: 1rem;
+  background: linear-gradient(
+      135deg,
+      rgba(11, 46, 89, 0.97),
+      rgba(30, 75, 130, 0.95)
+    ),
+    var(--color-text);
+  color: var(--color-white);
+}
+
+.funding-contact-note {
+  font-size: 0.85rem;
+  opacity: 0.95;
+}
+
+/* =========================================================
+   11. REVEAL ANIMATION
+   ========================================================= */
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: all 420ms ease;
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   12. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .funding-flow-steps { grid-template-columns: repeat(3, 1fr); }
+  .funding-docs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .funding-hero-layout { grid-template-columns: 1fr; }
+  .funding-hero-side { order: -1; }
+  .funding-calls-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .funding-flow-steps,
+  .funding-docs-grid,
+  .funding-faq-grid {
+    grid-template-columns: 1fr;
+  }
+  .funding-hero-title { font-size: 1.7rem; }
+}
+
+@media (max-width: 480px) {
+  .funding-section-title { font-size: 1.1rem; }
+  .funding-section-subtitle { font-size: 0.85rem; }
+}

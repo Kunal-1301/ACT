@@ -4,8 +4,8 @@
 
 .about-page {
   min-height: 100vh;
-  color: var(--color-text, #0f172a);
-  background: var(--page-bg, #ffffff);
+  color: var(--color-text, var(--color-text));
+  background: var(--page-bg, var(--color-white));
   -webkit-font-smoothing: antialiased;
 }
 
@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;  /* vertically centers content */
   padding: 0;           /* remove padding-driven height */
-  color: #f9fafb;
+  color: var(--color-hero-text);
   overflow: hidden;
 }
 
@@ -83,7 +83,7 @@
 .about-hero-ctas {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  padding: 1rem;
   margin-top: 1.3rem;
 }
 
@@ -120,7 +120,7 @@
 
 .about-hero-info {
   position: relative;
-  color: #ffffff;
+  color: var(--color-white);
 
   /* Background image */
   background-image: url("/media/Vinay.jpg");
@@ -128,7 +128,7 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: 1.4rem 1.3rem 1.2rem;
   overflow: hidden;
 
@@ -156,7 +156,7 @@
 
 /* TEXT TUNING */
 .about-hero-info-title {
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .about-hero-info-text,
@@ -245,6 +245,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.3rem;
+  grid-auto-rows: 1fr; /* Equal height rows */
 }
 
 .about-mvv-card,
@@ -333,13 +334,3 @@
    REVEAL ANIMATION (shared)
    ========================================================= */
 
-.reveal-section {
-  opacity: 0;
-  transform: translateY(8px);
-  transition: all 520ms cubic-bezier(.2,.9,.2,1);
-}
-
-.reveal-section.is-visible {
-  opacity: 1;
-  transform: none;
-}

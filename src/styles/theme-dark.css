@@ -1,0 +1,117 @@
+/* ================================
+   ALTERNATIVE THEME: DARK MODE
+   To test: temporarily replace colors.css with this file
+   ================================ */
+
+:root {
+  /* ================================
+     BASE COLORS
+     ================================ */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* ================================
+     BACKGROUND SYSTEM (DARK)
+     ================================ */
+  --color-bg: #0f172a;              /* Dark navy background */
+  --color-surface: #1e293b;         /* Slightly lighter surface */
+  --color-surface-alt: #334155;     /* Alternative surface */
+  --color-surface-alt-strong: #475569; /* Stronger alternative */
+
+  /* ================================
+     BRAND COLORS (Adapted for dark)
+     ================================ */
+  --color-primary: #60a5fa;         /* Brighter blue for visibility */
+  --color-primary-light: #93c5fd;   /* Light blue */
+  --color-primary-soft: #3b82f6;    /* Softer blue */
+  --color-primary-strong: #2563eb;  /* Strong blue */
+  
+  --color-accent: #34d399;          /* Bright green accent */
+  --color-accent-green: #10b981;    /* Green */
+  --color-accent-cyan: #22d3ee;     /* Cyan */
+
+  /* ================================
+     TEXT SYSTEM (DARK)
+     ================================ */
+  --color-text: #f1f5f9;            /* Very light text */
+  --color-text-soft: #cbd5e1;       /* Soft light gray */
+  --color-text-muted: #94a3b8;      /* Muted gray */
+  --color-text-light: #64748b;      /* Lighter muted */
+  --color-text-white: #ffffff;      /* Pure white */
+
+  /* ================================
+     BORDER SYSTEM (DARK)
+     ================================ */
+  --color-border: rgba(148, 163, 184, 0.2);   /* Subtle border */
+  --color-border-subtle: rgba(100, 116, 139, 0.15); /* Very subtle */
+  --color-border-muted: rgba(148, 163, 184, 0.3);   /* Slightly stronger */
+  --color-border-light: rgba(203, 213, 225, 0.1);   /* Light border */
+
+  /* ================================
+     STATE COLORS (DARK)
+     ================================ */
+  /* Success (Green) */
+  --color-success: #22c55e;
+  --color-success-bg: rgba(34, 197, 94, 0.15);
+  --color-success-border: rgba(34, 197, 94, 0.4);
+  --color-success-light: #86efac;
+
+  /* Warning (Amber) */
+  --color-warning: #fbbf24;
+  --color-warning-bg: rgba(251, 191, 36, 0.15);
+  --color-warning-border: rgba(251, 191, 36, 0.4);
+
+  /* Info (Blue) */
+  --color-info: #60a5fa;
+  --color-info-bg: rgba(96, 165, 250, 0.15);
+  --color-info-border: rgba(96, 165, 250, 0.4);
+
+  /* ================================
+     OVERLAY SYSTEM (DARK)
+     ================================ */
+  --overlay-dark: rgba(0, 0, 0, 0.7);
+  --overlay-dark-strong: rgba(0, 0, 0, 0.85);
+  --overlay-dark-soft: rgba(0, 0, 0, 0.5);
+  
+  --overlay-light: rgba(255, 255, 255, 0.08);
+  --overlay-light-soft: rgba(255, 255, 255, 0.05);
+
+  /* ================================
+     SHADOW SYSTEM (DARK - adjusted)
+     ================================ */
+  --shadow-xs: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 8px 18px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 20px 45px rgba(0, 0, 0, 0.75);
+  --shadow-2xl: 0 25px 60px rgba(0, 0, 0, 0.8);
+  --shadow-3xl: 0 35px 80px rgba(0, 0, 0, 0.85);
+
+  --shadow-button-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-button-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-button-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow-primary: 0 8px 20px rgba(96, 165, 250, 0.3);
+
+  /* ================================
+     BORDER RADIUS (Same)
+     ================================ */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* ================================
+     SPACING SCALE (Same)
+     ================================ */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+}

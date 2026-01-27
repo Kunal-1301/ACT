@@ -85,7 +85,7 @@ const People = () => {
         aria-label="People at ACT Centre"
       >
         <img
-          src="/media/hero-campus-1600.jpg"
+          src="/media/people.jpeg"
           alt=""
           aria-hidden="true"
           className="people-hero-bg"

@@ -1,0 +1,102 @@
+/* ================================
+   SHARED PAGE SECTIONS
+   Common section patterns used across pages
+   ================================ */
+
+/* Page hero section */
+.page-hero {
+  position: relative;
+  padding: clamp(4rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.page-hero-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.1;
+}
+
+.page-hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  opacity: 0.95;
+  max-width: 42rem;
+  line-height: 1.5;
+}
+
+/* Content section */
+.content-section {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+
+.content-section--alt {
+  background: var(--color-surface-alt);
+}
+
+/* Section with background image */
+.section-bg-image {
+  position: relative;
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.section-bg-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--overlay-dark),
+    var(--overlay-dark-strong)
+  );
+  z-index: 1;
+}
+
+.section-bg-image > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Grid sections */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* Responsive grids */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}

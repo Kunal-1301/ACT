@@ -1,0 +1,140 @@
+25rem;
+}
+
+.research-modal-meta {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.6rem;
+}
+
+.research-modal-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  opacity: 0.95;
+}
+
+/* Close button */
+.research-modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.research-modal-close:hover {
+  opacity: 1;
+}
+/* ================================
+   PROJECT MODAL
+   ================================ */
+
+.research-modal-image {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+/* ================================
+   PUBLICATIONS
+   ================================ */
+
+.research-pubs-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+  gap: 1.4rem;
+}
+
+.research-pubs-feature h4 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.research-pubs-feature ul {
+  padding-left: 1.2rem;
+  display: grid;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.research-pubs-note-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ================================
+   COLLABORATIONS
+   ================================ */
+
+.research-collab-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.research-collab-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.research-collab-card h4 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.research-collab-card ul {
+  padding-left: 1.2rem;
+  display: grid;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  flex-grow: 1;
+}
+
+/* ================================
+   OPPORTUNITIES
+   ================================ */
+
+.research-opportunities-block {
+  padding-bottom: 0;
+}
+
+.research-opportunities-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.18rem;
+}
+
+.research-opportunities-card ul {
+  padding-left: 1.2rem;
+  display: grid;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.research-opportunities-note {
+  font-size: 0.88rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+/* ================================
+   ANIMATIONS
+   ================================ */
+
+.research-theme-card,
+.research-project-card,
+.research-collab-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 480ms ease;
+}
+
+.researc

@@ -4,7 +4,7 @@
 
 .facilities-page {
   min-height: 100vh;
-  color: var(--color-text, #0f172a);
+  color: var(--color-text, var(--color-text));
 }
 
 /* ================================
@@ -52,7 +52,7 @@
 }
 
 /* left text copy */
-.facilities-hero-text { color: #fff; }
+.facilities-hero-text { color: var(--color-white); }
 
 .facilities-hero-eyebrow {
   color: rgba(248, 250, 252, 0.9);
@@ -80,7 +80,7 @@
 
 .facilities-hero-ctas {
   display: flex;
-  gap: 0.85rem;
+  padding: 1rem;
   margin-top: 0.9rem;
 }
 
@@ -95,19 +95,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.28rem 0.8rem;
+  padding: 1rem;
   border-radius: 999px;
   font-size: 0.78rem;
   border: 1px solid rgba(248, 250, 252, 0.35);
   background: rgba(15, 23, 42, 0.22);
-  color: #e5e7eb;
+  color: var(--color-gray-light);
   text-decoration: none;
 }
 
 /* HERO MEDIA CARD */
 .facilities-hero-media {
   background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.14), transparent), rgba(15, 23, 42, 0.94);
-  color: #e5e7eb;
+  color: var(--color-gray-light);
   padding: 1.3rem 1.2rem 1.2rem;
   border-radius: 12px;
   overflow: hidden;
@@ -129,13 +129,13 @@
 /* badges inside media */
 .facilities-hero-badges {
   display: grid;
-  gap: 0.45rem;
+  padding: 0.25rem 0.5rem;
   margin: 0.9rem 0 1rem;
 }
 
 .facilities-hero-badge {
   border-radius: 0.7rem;
-  padding: 0.42rem 0.6rem;
+  padding: 0.25rem 0.5rem;
   border: 1px solid rgba(148, 163, 184, 0.48);
   background: rgba(15, 23, 42, 0.88);
 }
@@ -215,7 +215,7 @@
 .facilities-booking-card ul, .facilities-booking-card ol { padding-left: 1.1rem; display: grid; gap: 0.25rem; }
 
 /* CONTACT */
-.facilities-contact-card { border-radius: 1rem; padding: 1.5rem 1.3rem 1.4rem; background: linear-gradient(135deg, rgba(11,46,89,0.97), rgba(30,75,130,0.95)), #0f172a; color: #fff; }
+.facilities-contact-card { border-radius: 1rem; padding: 1.5rem 1.3rem 1.4rem; background: linear-gradient(135deg, rgba(11,46,89,0.97), rgba(30,75,130,0.95)), var(--color-text); color: var(--color-white); }
 .facilities-contact-card h2 { margin: 0 0 0.7rem; font-size: 1.15rem; }
 .facilities-contact-card p { margin: 0 0 0.7rem; font-size: 0.9rem; }
 .facilities-contact-note { font-size: 0.84rem; opacity: 0.96; }
@@ -223,9 +223,6 @@
 /* ================================
    ANIMATIONS & REVEAL
    ================================ */
-
-.reveal-section { opacity: 0; transform: translateY(18px); transition: all 420ms ease; }
-.reveal-section.is-visible { opacity: 1; transform: translateY(0); }
 
 /* ================================
    RESPONSIVE

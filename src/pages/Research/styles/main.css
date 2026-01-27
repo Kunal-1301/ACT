@@ -1,0 +1,101 @@
+/* ================================
+   CHIP/BUTTON HOVER STATES
+   ================================ */
+
+.research-chip:hover {
+  background: var(--overlay-light-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+}
+
+/* ================================
+   MAIN CONTENT
+   ================================ */
+
+.research-main {
+  padding-top: 2.6rem;
+}
+
+/* Block wrapper */
+.research-block {
+  padding-top: 2.3rem;
+  padding-bottom: 1.9rem;
+  border-top: 1px solid var(--color-border-medium);
+}
+
+.research-block-band {
+  border-radius: 1.2rem;
+  padding: 2.3rem 1.4rem 1.9rem;
+  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.08), transparent),
+    var(--color-surface, var(--color-white));
+  border: 1px solid var(--color-border-strong);
+}
+
+.research-block-soft {
+  background: var(--color-surface-alt, #f7f8fb);
+  padding: 2.4rem 1.5rem 2rem;
+  border-radius: 1rem;
+}
+
+/* Block header */
+.research-block-header {
+  margin-bottom: 1.4rem;
+}
+
+.research-block-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+}
+
+.research-block-subtitle {
+  font-size: 0.92rem;
+  opacity: 0.86;
+  max-width: 40rem;
+}
+
+/* ================================
+   THEMES GRID
+   ================================ */
+
+.research-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.4rem;
+  grid-auto-rows: 1fr; /* Equal height rows */
+}
+
+.research-theme-card {
+  position: relative;
+  padding: 1.2rem 1rem 1rem;
+  overflow: hidden;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Colored left bar */
+.research-theme-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary, #e11d48),
+    var(--color-accent, #22c55e)
+  );
+  opacity: 0.9;
+}
+
+.research-theme-tag {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+  font-size: 0.75rem;
+  opacity: 0.65;
+  text-transform: uppercase;
+}

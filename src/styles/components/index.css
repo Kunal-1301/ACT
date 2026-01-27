@@ -1,0 +1,8 @@
+/* ================================
+   SHARED COMPONENTS INDEX
+   Import all shared component styles
+   ================================ */
+
+@import './cards.css';
+@import './sections.css';
+@import './utilities.css';

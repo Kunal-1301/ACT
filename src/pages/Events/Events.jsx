@@ -9,7 +9,6 @@ const Events = () => {
      ================================ */
 
   const [heroTextRef, heroTextVisible] = useRevealOnScroll();
-  const [heroSideRef, heroSideVisible] = useRevealOnScroll();
   const [upcomingRef, upcomingVisible] = useRevealOnScroll();
   const [timelineRef, timelineVisible] = useRevealOnScroll();
   const [formatsRef, formatsVisible] = useRevealOnScroll();

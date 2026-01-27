@@ -9,7 +9,6 @@ const Facilities = () => {
      ================================ */
 
   const [heroTextRef, heroTextVisible] = useRevealOnScroll();
-  const [heroMediaRef, heroMediaVisible] = useRevealOnScroll();
   const [labsRef, labsVisible] = useRevealOnScroll();
   const [equipRef, equipVisible] = useRevealOnScroll();
   const [bookingRef, bookingVisible] = useRevealOnScroll();
@@ -30,8 +29,8 @@ const Facilities = () => {
           loading="eager"
           onError={(e) => {
             const cur = e.currentTarget.src;
-            if (cur.endsWith("hero-facilities-1600.jpg")) {
-              e.currentTarget.src = "/media/hero-facilities-1600.JPG";
+            if (cur.endsWith("hero-campus-1600.jpg")) {
+              e.currentTarget.src = "/media/hero-campus-1600.JPG";
             }
           }}
         />
@@ -41,9 +40,8 @@ const Facilities = () => {
         <div className="container facilities-hero-inner">
           <div
             ref={heroTextRef}
-            className={`facilities-hero-text reveal-section ${
-              heroTextVisible ? "is-visible" : ""
-            }`}
+            className={`facilities-hero-text reveal-section ${heroTextVisible ? "is-visible" : ""
+              }`}
           >
             <p className="section-eyebrow facilities-hero-eyebrow">
               Labs &amp; Spaces
@@ -92,9 +90,8 @@ const Facilities = () => {
           <section
             id="labs"
             ref={labsRef}
-            className={`facilities-block facilities-block-band reveal-section ${
-              labsVisible ? "is-visible" : ""
-            }`}
+            className={`facilities-block facilities-block-band reveal-section ${labsVisible ? "is-visible" : ""
+              }`}
           >
             <div className="facilities-block-header">
               <h2 className="facilities-block-title">
@@ -188,9 +185,8 @@ const Facilities = () => {
           <section
             id="equipment"
             ref={equipRef}
-            className={`facilities-block facilities-block-soft reveal-section ${
-              equipVisible ? "is-visible" : ""
-            }`}
+            className={`facilities-block facilities-block-soft reveal-section ${equipVisible ? "is-visible" : ""
+              }`}
           >
             <div className="facilities-block-header">
               <h2 className="facilities-block-title">
@@ -253,9 +249,8 @@ const Facilities = () => {
           <section
             id="booking"
             ref={bookingRef}
-            className={`facilities-block reveal-section ${
-              bookingVisible ? "is-visible" : ""
-            }`}
+            className={`facilities-block reveal-section ${bookingVisible ? "is-visible" : ""
+              }`}
           >
             <div className="facilities-block-header">
               <h2 className="facilities-block-title">
@@ -324,9 +319,8 @@ const Facilities = () => {
           <section
             id="support"
             ref={supportRef}
-            className={`facilities-block facilities-contact-block reveal-section ${
-              supportVisible ? "is-visible" : ""
-            }`}
+            className={`facilities-block facilities-contact-block reveal-section ${supportVisible ? "is-visible" : ""
+              }`}
           >
             <div className="facilities-contact-card card">
               <h2>Technical Support &amp; Queries</h2>

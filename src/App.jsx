@@ -1,13 +1,12 @@
 // src/App.jsx
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
-import People from "./pages/People/People";
 import Research from "./pages/Research/Research";
 import Facilities from "./pages/Facilities/Facilities";
 import Funding from "./pages/Funding/Funding";
@@ -28,7 +27,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/people" element={<People />} />
+          {/* <Route path="/people" element={<People />} /> */}
           <Route path="/research" element={<Research />} />
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/funding" element={<Funding />} />

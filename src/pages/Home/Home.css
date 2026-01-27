@@ -2,6 +2,10 @@
    HOME PAGE – GLOBAL
    ================================ */
 
+/* Root wrapper for the home page
+   - Full viewport height
+   - Sets default text color and background
+   - Enables font smoothing for better readability */
 .home-page {
   min-height: 100vh;
   color: #0f172a;
@@ -10,7 +14,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Generic section header layout used across home sections */
+/* ======================================================
+   GENERIC HOME SECTION HEADER
+   Used across multiple home sections
+   ====================================================== */
 
 .home-section-header {
   display: flex;
@@ -20,6 +27,7 @@
   margin-bottom: 2.5rem;
 }
 
+/* Small uppercase eyebrow label */
 .section-eyebrow {
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -28,30 +36,36 @@
   margin-bottom: 0.3rem;
 }
 
+/* Main header content (title + text) */
 .home-section-header-main {
   max-width: 40rem;
 }
 
+/* Right-aligned CTA inside section header */
 .home-section-header-cta {
   margin-left: auto;
   align-self: center;
 }
 
+/* Section title */
 .home-section-title {
   font-size: 1.7rem;
   margin-bottom: 0.7rem;
 }
 
+/* Short subtitle line */
 .home-section-subtitle {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
 
+/* Supporting intro text */
 .home-section-intro {
   font-size: 0.95rem;
   opacity: 0.85;
 }
 
+/* Slight spacing above tertiary buttons inside cards */
 .card .btn-tertiary {
   margin-top: 0.4rem;
 }
@@ -60,12 +74,20 @@
    1️⃣ HERO SECTION (FINAL)
    ================================ */
 
+/* Vertical spacing for hero section wrapper */
 .home-hero {
   padding-top: 5.5rem;
   padding-bottom: 5rem;
 }
 
-/* HERO WRAPPER */
+/* ======================================================
+   HERO CONTAINER
+   ====================================================== */
+
+/* Main hero layout wrapper
+   - Full-width
+   - Tall viewport presence
+   - Centers content vertically */
 .home-hero-simple {
   position: relative;
   width: 100%;
@@ -76,7 +98,7 @@
   margin-bottom: 2rem;
 }
 
-/* BACKGROUND IMAGE */
+/* Background image layer */
 .home-hero-bg {
   position: absolute;
   inset: 0;
@@ -86,7 +108,8 @@
   z-index: 0;
 }
 
-/* DARK OVERLAY */
+/* Dark overlay above image
+   - Improves text contrast */
 .home-hero-overlay {
   position: absolute;
   inset: 0;
@@ -98,7 +121,11 @@
   z-index: 1;
 }
 
-/* GRID */
+/* ======================================================
+   HERO GRID LAYOUT
+   ====================================================== */
+
+/* Inner grid containing left content + right slideshow */
 .home-hero-inner {
   position: relative;
   z-index: 2;
@@ -112,14 +139,15 @@
 }
 
 /* ================================
-   LEFT CONTENT
+   LEFT HERO CONTENT
    ================================ */
 
+/* Left column width constraint */
 .home-hero-left {
   max-width: 44rem;
 }
 
-/* EYEBROW */
+/* Eyebrow stack (pill + tagline) */
 .home-hero-eyebrow {
   display: flex;
   flex-direction: column;
@@ -127,6 +155,7 @@
   margin-bottom: 1.4rem;
 }
 
+/* Small translucent pill label */
 .home-hero-pill {
   align-self: flex-start;
   padding: 0.22rem 0.75rem;
@@ -140,12 +169,13 @@
   backdrop-filter: blur(6px);
 }
 
+/* Short hero tagline */
 .home-hero-tagline {
   font-size: 0.82rem;
   color: rgba(230, 240, 255, 0.95);
 }
 
-/* TITLE */
+/* Main hero heading */
 .home-hero-title {
   font-size: clamp(2.4rem, 4.5vw, 3.2rem);
   line-height: 1.05;
@@ -153,11 +183,12 @@
   color: #ffffff;
 }
 
+/* Accent text inside hero title */
 .home-hero-title-accent {
   color: #9be7e7;
 }
 
-/* SUBTITLE */
+/* Supporting hero description */
 .home-hero-subtitle {
   max-width: 38rem;
   font-size: 0.97rem;
@@ -166,7 +197,7 @@
   color: rgba(235, 241, 255, 0.95);
 }
 
-/* ACTIONS */
+/* Primary hero CTAs */
 .home-hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -174,23 +205,29 @@
   margin-bottom: 2rem;
 }
 
-/* STATS */
+/* ======================================================
+   HERO STATS
+   ====================================================== */
+
 .home-hero-stats {
   display: flex;
   flex-wrap: wrap;
   gap: 1.6rem;
 }
 
+/* Individual stat block */
 .home-stat {
   min-width: 7rem;
 }
 
+/* Stat number */
 .home-stat-number {
   font-size: 1.6rem;
   font-weight: 600;
   color: #ffffff;
 }
 
+/* Stat label */
 .home-stat-label {
   font-size: 0.8rem;
   color: rgba(235, 241, 255, 0.9);
@@ -200,31 +237,22 @@
    HERO TEXT ANIMATION (LEFT)
    ================================ */
 
+/* Base animated state for hero elements */
 .hero-animate {
   opacity: 0;
   transform: translateY(14px);
   animation: hero-text-reveal 620ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
 }
 
-.hero-delay-1 {
-  animation-delay: 0.1s;
-}
-.hero-delay-2 {
-  animation-delay: 0.2s;
-}
-.hero-delay-3 {
-  animation-delay: 0.3s;
-}
-.hero-delay-4 {
-  animation-delay: 0.4s;
-}
-.hero-delay-5 {
-  animation-delay: 0.5s;
-}
-.hero-delay-6 {
-  animation-delay: 0.6s;
-}
+/* Sequential animation delays */
+.hero-delay-1 { animation-delay: 0.1s; }
+.hero-delay-2 { animation-delay: 0.2s; }
+.hero-delay-3 { animation-delay: 0.3s; }
+.hero-delay-4 { animation-delay: 0.4s; }
+.hero-delay-5 { animation-delay: 0.5s; }
+.hero-delay-6 { animation-delay: 0.6s; }
 
+/* Text reveal animation */
 @keyframes hero-text-reveal {
   to {
     opacity: 1;
@@ -232,6 +260,7 @@
   }
 }
 
+/* Disable animation for reduced-motion users */
 @media (prefers-reduced-motion: reduce) {
   .hero-animate {
     animation: none;
@@ -244,6 +273,7 @@
    RIGHT: HORIZONTAL FLOATING SLIDESHOW
    ================================ */
 
+/* Slideshow container */
 .home-hero-slideshow {
   position: relative;
   width: 100%;
@@ -252,14 +282,14 @@
   overflow: hidden;
 }
 
-/* TRACK */
+/* Slideshow track wrapper */
 .slideshow-track {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-/* IMAGES */
+/* Individual slideshow images */
 .slideshow-track img {
   position: absolute;
   inset: 0;
@@ -272,45 +302,26 @@
   animation: hero-fade 18s infinite;
 }
 
-.slideshow-track img:nth-child(1) {
-  animation-delay: 0s;
-}
+/* Staggered fade timing */
+.slideshow-track img:nth-child(1) { animation-delay: 0s; }
+.slideshow-track img:nth-child(2) { animation-delay: 3s; }
+.slideshow-track img:nth-child(3) { animation-delay: 6s; }
+.slideshow-track img:nth-child(4) { animation-delay: 9s; }
 
-.slideshow-track img:nth-child(2) {
-  animation-delay: 3s;
-}
-
-.slideshow-track img:nth-child(3) {
-  animation-delay: 6s;
-}
-
-.slideshow-track img:nth-child(4) {
-  animation-delay: 9s;
-}
-
-/* FADE ANIMATION */
+/* Fade-in / fade-out slideshow animation */
 @keyframes hero-fade {
-  0% {
-    opacity: 0;
-  }
-  8% {
-    opacity: 1;
-  }
-  33% {
-    opacity: 1;
-  }
-  41% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  33% { opacity: 1; }
+  41% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 /* ================================
-   RESPONSIVE
+   RESPONSIVE ADJUSTMENTS
    ================================ */
 
+/* Tablet layout adjustments */
 @media (max-width: 900px) {
   .home-hero-inner {
     grid-template-columns: 1fr;
@@ -327,6 +338,7 @@
   }
 }
 
+/* Stack CTAs vertically on smaller screens */
 @media (max-width: 768px) {
   .home-hero-actions {
     flex-direction: column;
@@ -334,12 +346,14 @@
   }
 }
 
+/* Short viewport height handling */
 @media (max-height: 700px) {
   .home-hero-simple {
     min-height: 68vh;
   }
 }
 
+/* Mobile stat layout */
 @media (max-width: 480px) {
   .home-hero-stats {
     flex-direction: column;
@@ -347,6 +361,7 @@
   }
 }
 
+/* Redundant safety breakpoint for mid-sized devices */
 @media (max-width: 820px) {
   .home-hero-inner {
     grid-template-columns: 1fr;
@@ -356,10 +371,14 @@
 /* ================================
    2️⃣ VISION & MISSION
    ================================ */
+
 /* ================================
    VISION SECTION (EDITORIAL CORE)
    ================================ */
 
+/* Vision section wrapper
+   - Light academic/editorial background
+   - Soft radial accent for depth */
 .home-vision {
   background: radial-gradient(
       circle at 10% 0%,
@@ -370,7 +389,9 @@
   padding: clamp(3rem, 6vw, 4.5rem) 0;
 }
 
-/* SINGLE, STRONG CONTAINER */
+/* Single centered layout container
+   - Two-column grid (text + visual)
+   - Strong content hierarchy */
 .home-vision-container {
   max-width: 1120px;
   margin: 0 auto;
@@ -382,11 +403,15 @@
   gap: 3rem;
 }
 
-/* TEXT SIDE */
+/* ================================
+   TEXT COLUMN
+   ================================ */
+
 .home-vision-content {
   max-width: 46rem;
 }
 
+/* Vision section title override */
 .home-vision-content .home-section-title {
   font-size: 1.85rem;
   font-weight: 600;
@@ -394,18 +419,23 @@
   color: #0f172a;
 }
 
+/* Main vision paragraph */
 .home-vision-text {
   font-size: 1rem;
   line-height: 1.75;
   color: #334155;
 }
 
+/* Highlighted keywords / phrases */
 .vision-highlight {
   color: var(--color-primary);
   font-weight: 500;
 }
 
-/* VISUAL SIDE (NOT A CARD) */
+/* ================================
+   VISUAL COLUMN (IMAGE-LED, NOT CARD)
+   ================================ */
+
 .home-vision-visual {
   position: relative;
   border-radius: 16px;
@@ -413,6 +443,9 @@
   background: #f8fafc;
 }
 
+/* Vision image
+   - Full-bleed
+   - Maintains aspect integrity */
 .home-vision-visual img {
   width: 100%;
   height: 100%;
@@ -421,7 +454,9 @@
   display: block;
 }
 
-/* SUBTLE IMAGE DEPTH — NO HOVER GIMMICKS */
+/* Subtle overlay for depth
+   - No hover animation
+   - Editorial restraint */
 .home-vision-visual::after {
   content: "";
   position: absolute;
@@ -435,14 +470,17 @@
 }
 
 /* ================================
-   TITLE ACCENT (ACADEMIC)
+   TITLE ACCENT (ACADEMIC STYLE)
    ================================ */
 
+/* Wrapper for animated underline accent */
 .vision-animated-text {
   position: relative;
   display: inline-block;
 }
 
+/* Underline accent
+   - Reveals only when section is visible */
 .vision-animated-text::after {
   content: "";
   position: absolute;
@@ -456,13 +494,14 @@
   transition: opacity 400ms ease, transform 400ms ease;
 }
 
+/* Trigger underline reveal on scroll visibility */
 .reveal-section.is-visible .vision-animated-text::after {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* ================================
-   RESPONSIVE
+   RESPONSIVE: VISION SECTION
    ================================ */
 
 @media (max-width: 900px) {
@@ -478,18 +517,21 @@
 
 /* =====================================================
    3️⃣ RESEARCH THEMES PREVIEW
-   Purpose:
+   PURPOSE
    - Auto-scrolling horizontal carousel (desktop)
-   - Pauses on hover AND keyboard focus
+   - Pauses on hover & keyboard focus
    - Swipeable on mobile
-   - Consistent card sizing & imagery
-   - Accessibility-aware (reduced motion safe)
+   - Fixed card sizing for smooth looping
+   - Reduced-motion safe
    ===================================================== */
 
 /* =====================================================
    SECTION ROOT
    ===================================================== */
 
+/* Research preview section wrapper
+   - Controls overflow
+   - Hosts edge gradients */
 .home-research-preview {
   position: relative;           /* Required for gradient overlays */
   background: #f8fafc;
@@ -497,31 +539,32 @@
 }
 
 /* =====================================================
-   CAROUSEL VIEWPORT (VISIBLE AREA)
-   - Controls how wide the loop appears
+   CAROUSEL VIEWPORT
    ===================================================== */
 
+/* Visible carousel window */
 .home-research-carousel {
   position: relative;
-  overflow: hidden;             /* 🔑 Keeps loop inside marked area */
+  overflow: hidden;             /* Keeps animation contained */
 }
 
 /* =====================================================
    CAROUSEL TRACK (ANIMATED STRIP)
    ===================================================== */
 
+/* Continuous horizontal track */
 .home-research-track {
   display: flex;
   gap: 1.5rem;
-  width: max-content;           /* Enables continuous scrolling */
+  width: max-content;           /* Enables infinite scrolling illusion */
   animation: research-scroll 22s linear infinite;
   will-change: transform;
 }
 
 /* -----------------------------------------------------
-   Pause animation on user interaction
-   - Hover (mouse)
-   - Focus-within (keyboard / screen reader)
+   PAUSE ON USER INTERACTION
+   - Mouse hover
+   - Keyboard focus
 ----------------------------------------------------- */
 
 .home-research-preview:hover .home-research-track,
@@ -531,8 +574,8 @@
 
 /* =====================================================
    AUTO-SCROLL KEYFRAMES
-   - Assumes 4 real cards + 4 duplicates
-   - Scrolls exactly half the track width
+   - Assumes duplicated card set
+   - Scrolls half the total width
    ===================================================== */
 
 @keyframes research-scroll {
@@ -545,18 +588,20 @@
 }
 
 /* =====================================================
-   CARD BASE
+   RESEARCH CARD BASE
    ===================================================== */
 
+/* Fixed-width card for smooth looping */
 .home-research-card {
-  flex: 0 0 320px;              /* Fixed width = smooth loop */
-  max-width: 320px;
+  /* flex: 0 0 320px;
+  max-width: 320px; */
   display: flex;
   flex-direction: column;
-  height: 100%;
-  transition: transform 220ms ease, box-shadow 220ms ease;
+  /* height: 100%;
+  transition: transform 220ms ease, box-shadow 220ms ease; */
 }
 
+/* Hover lift for visual affordance */
 .home-research-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 42px rgba(2, 6, 23, 0.08);
@@ -564,10 +609,11 @@
 
 /* =====================================================
    IMAGE CONTAINER
-   - Prevents layout shift
-   - Prevents image overflow
    ===================================================== */
 
+/* Thumbnail wrapper
+   - Prevents CLS
+   - Enforces aspect ratio */
 .home-research-card .card-thumb {
   position: relative;
   width: 100%;
@@ -577,6 +623,7 @@
   background: #e5e7eb;          /* Loading fallback */
 }
 
+/* Thumbnail image */
 .home-research-card .card-thumb img {
   width: 100%;
   height: 100%;
@@ -585,6 +632,7 @@
   transition: transform 420ms ease;
 }
 
+/* Subtle zoom on hover */
 .home-research-card:hover .card-thumb img {
   transform: scale(1.04);
 }
@@ -600,11 +648,13 @@
   padding-top: 0.9rem;
 }
 
+/* Card title */
 .home-research-card h3 {
   font-size: 1.08rem;
   margin-bottom: 0.45rem;
 }
 
+/* Card description */
 .home-research-card p {
   font-size: 0.92rem;
   line-height: 1.45;
@@ -612,7 +662,7 @@
   margin-bottom: 0.9rem;
 }
 
-/* Keep CTA pinned to bottom */
+/* Keep CTA aligned to bottom */
 .home-research-card .btn-tertiary {
   margin-top: auto;
 }
@@ -621,6 +671,7 @@
    TERTIARY CTA BUTTON
    ===================================================== */
 
+/* Minimal inline CTA */
 .btn-tertiary {
   align-self: flex-start;
   font-size: 0.85rem;
@@ -632,12 +683,14 @@
   transition: all 180ms ease;
 }
 
+/* Hover affordance */
 .btn-tertiary:hover {
   background: rgba(31, 163, 163, 0.08);
   border-color: rgba(31, 163, 163, 0.5);
   transform: translateX(4px);
 }
 
+/* Keyboard focus state */
 .btn-tertiary:focus-visible {
   outline: 2px solid rgba(31, 163, 163, 0.6);
   outline-offset: 2px;
@@ -647,6 +700,7 @@
    EDGE GRADIENT FADES
    ===================================================== */
 
+/* Gradient masks for carousel edges */
 .home-research-preview::before,
 .home-research-preview::after {
   content: "";
@@ -658,11 +712,13 @@
   pointer-events: none;
 }
 
+/* Left fade */
 .home-research-preview::before {
   left: 0;
   background: linear-gradient(to right, #f8fafc, transparent);
 }
 
+/* Right fade */
 .home-research-preview::after {
   right: 0;
   background: linear-gradient(to left, #f8fafc, transparent);
@@ -682,7 +738,7 @@
 /* =====================================================
    MOBILE BEHAVIOUR
    - Disable auto-scroll
-   - Enable swipe
+   - Enable swipe gestures
    ===================================================== */
 
 @media (max-width: 768px) {
@@ -703,11 +759,13 @@
   }
 }
 
-
 /* ================================
    4️⃣ NEUROSCIENCE FOCUS
    ================================ */
 
+/* Layout wrapper for neuroscience section
+   - Two-column grid
+   - Balanced text + supporting content */
 .home-neuro-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
@@ -715,19 +773,22 @@
   align-items: flex-start;
 }
 
+/* Bullet/list content inside neuroscience section */
 .home-neuro-list {
-  padding-left: 1.1rem;
+  padding-left: 1.1rem;         /* Indentation for list bullets */
   margin: 0.4rem 0 0.8rem;
   display: grid;
   gap: 0.4rem;
   font-size: 0.93rem;
 }
 
+/* Footer / closing line for neuroscience section */
 .home-neuro-footer {
   font-size: 0.9rem;
   opacity: 0.95;
 }
 
+/* Reduce spacing on smaller screens */
 @media (max-width: 768px) {
   .home-neuro-layout {
     gap: 1.2rem;
@@ -738,39 +799,48 @@
    5️⃣ FLAGSHIP PROJECTS
    ================================ */
 
+/* Grid layout for flagship project cards */
 .home-flagship-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
+  grid-auto-rows: 1fr; /* Equal height rows */
 }
 
+/* Flagship card title */
 .home-flagship-card h3 {
   font-size: 1.1rem;
   margin-bottom: 0.4rem;
 }
 
+/* Flagship card description */
 .home-flagship-card p {
   font-size: 0.9rem;
   opacity: 0.9;
 }
 
+/* Metadata (tags, status, date, etc.) */
 .home-flagship-meta {
   margin-top: 0.4rem;
   font-size: 0.82rem;
   opacity: 0.8;
 }
 
+/* Top area inside flagship card (e.g. badge/chip row) */
 .home-flagship-top {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 0.7rem;
 }
+
+/* Tablet breakpoint: reduce to two columns */
 @media (max-width: 1024px) {
   .home-flagship-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* Mobile breakpoint: single column */
 @media (max-width: 768px) {
   .home-flagship-grid {
     grid-template-columns: 1fr;
@@ -778,32 +848,37 @@
 }
 
 /* ================================
-   GALLERY (inline)
+   ####  GALLERY (INLINE)
    ================================ */
 
+/* Gallery section spacing */
 .home-gallery {
   padding-top: 2rem;
   padding-bottom: 2.5rem;
 }
 
+/* Grid for gallery items (images/videos) */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
+/* Tablet: 2-column gallery */
 @media (max-width: 900px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* Small screens: single column gallery */
 @media (max-width: 520px) {
   .gallery-grid {
     grid-template-columns: 1fr;
   }
 }
 
+/* Individual gallery item (image/video thumbnail) */
 .gallery-item {
   border: none;
   background: transparent;
@@ -816,6 +891,7 @@
   box-shadow: 0 8px 20px rgba(8, 15, 30, 0.06);
 }
 
+/* Gallery image */
 .gallery-item img {
   display: block;
   width: 100%;
@@ -824,16 +900,22 @@
   transition: transform 300ms ease;
 }
 
+/* Lift effect on hover */
 .gallery-item:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 40px rgba(8, 15, 30, 0.12);
 }
 
+/* Subtle zoom on hover */
 .gallery-item:hover img {
   transform: scale(1.04);
 }
 
-/* lightbox */
+/* ================================
+   LIGHTBOX OVERLAY
+   ================================ */
+
+/* Fullscreen dark backdrop */
 .lightbox-backdrop {
   position: fixed;
   inset: 0;
@@ -844,6 +926,7 @@
   z-index: 9999;
 }
 
+/* Lightbox content wrapper */
 .lightbox-inner {
   position: relative;
   max-width: 92vw;
@@ -853,6 +936,7 @@
   justify-content: center;
 }
 
+/* Lightbox image */
 .lightbox-img {
   max-width: 100%;
   max-height: 100%;
@@ -860,6 +944,7 @@
   box-shadow: 0 22px 60px rgba(2, 6, 23, 0.6);
 }
 
+/* Close (X) button */
 .lightbox-close {
   position: absolute;
   top: -2.4rem;
@@ -872,7 +957,11 @@
   padding: 0.25rem;
 }
 
-/* inline navs */
+/* ================================
+   LIGHTBOX NAVIGATION
+   ================================ */
+
+/* Previous / next navigation buttons */
 .lightbox-nav {
   position: absolute;
   top: 50%;
@@ -885,32 +974,43 @@
   cursor: pointer;
   border-radius: 6px;
 }
+
+/* Left navigation */
 .lightbox-prev {
   left: 1rem;
 }
+
+/* Right navigation */
 .lightbox-next {
   right: 1rem;
 }
 
+/* Smaller image height on very small screens */
 @media (max-width: 480px) {
   .gallery-item img {
     height: 130px;
   }
 }
 
-/* video thumbnail */
+/* ================================
+   VIDEO THUMBNAILS
+   ================================ */
+
+/* Video thumbnail container */
 .gallery-video-thumb {
   position: relative;
   width: 100%;
   height: 240px;
 }
 
+/* Video thumbnail image */
 .gallery-video-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Play icon overlay */
 .gallery-play {
   position: absolute;
   inset: 0;
@@ -921,12 +1021,17 @@
   background: rgba(2, 6, 23, 0.35);
 }
 
-/* lightbox video */
+/* ================================
+   LIGHTBOX VIDEO
+   ================================ */
+
+/* Responsive video container */
 .lightbox-video {
   width: min(92vw, 960px);
   aspect-ratio: 16 / 9;
 }
 
+/* Embedded video iframe */
 .lightbox-video iframe {
   width: 100%;
   height: 100%;
@@ -934,6 +1039,7 @@
   border-radius: 8px;
 }
 
+/* Gallery subsection title */
 .gallery-subtitle {
   margin: 1.6rem 0 0.6rem;
   font-size: 1.1rem;
@@ -941,12 +1047,14 @@
   color: #0f172a;
 }
 
+/* Adjust heights for small screens */
 @media (max-width: 520px) {
   .gallery-item img,
   .gallery-video-thumb {
     height: 210px;
   }
 }
+
 /* ================================
    FEATURED VIDEOS – ACT PHILOSOPHY
    ================================ */
@@ -1012,14 +1120,20 @@
   }
 }
 
+
+
 /* ================================
    6️⃣ GLOBAL COLLABORATIONS
    ================================ */
 
+/* Section header spacing */
 .home-collab-header {
   margin-bottom: 1.8rem;
 }
 
+/* Collaboration strip
+   - Horizontal layout
+   - Light gradient background for separation */
 .home-collab-strip {
   display: flex;
   align-items: center;
@@ -1034,6 +1148,7 @@
   border-radius: 10px;
 }
 
+/* Logo group container */
 .home-collab-logos {
   display: flex;
   gap: 1rem;
@@ -1041,6 +1156,8 @@
   flex-wrap: wrap;
 }
 
+/* Individual collaboration logo / badge
+   - Neutral card-style appearance */
 .home-collab-logo {
   min-width: 120px;
   height: 44px;
@@ -1055,6 +1172,7 @@
   color: #0f172a;
 }
 
+/* Supporting collaboration text */
 .home-collab-text {
   font-size: 0.92rem;
   opacity: 0.95;
@@ -1064,22 +1182,27 @@
    7️⃣ FUNDING PREVIEW
    ================================ */
 
+/* Grid layout for funding cards */
 .home-funding-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
+/* Funding card title */
 .home-funding-card h3 {
   font-size: 1.02rem;
   margin-bottom: 0.4rem;
 }
 
+/* Funding card description */
 .home-funding-card p {
   font-size: 0.9rem;
   opacity: 0.9;
 }
 
+/* Top row inside funding card
+   - Status chip + meta info */
 .home-funding-top {
   display: flex;
   justify-content: space-between;
@@ -1088,11 +1211,13 @@
   gap: 0.5rem;
 }
 
+/* Funding deadline text */
 .home-funding-deadline {
   font-size: 0.78rem;
   opacity: 0.7;
 }
 
+/* Stack funding meta on small screens */
 @media (max-width: 768px) {
   .home-funding-top {
     flex-direction: column;
@@ -1105,22 +1230,27 @@
    8️⃣ OPPORTUNITIES PREVIEW
    ================================ */
 
+/* Grid for opportunity cards */
 .home-opportunities-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
+/* Opportunity card title */
 .home-opportunity-card h3 {
   font-size: 1.02rem;
   margin-bottom: 0.4rem;
 }
 
+/* Opportunity card description */
 .home-opportunity-card p {
   font-size: 0.9rem;
   opacity: 0.9;
   margin-bottom: 0.4rem;
 }
+
+/* Full-width CTA on mobile */
 @media (max-width: 768px) {
   .home-opportunity-card .btn-tertiary {
     align-self: stretch;
@@ -1132,26 +1262,31 @@
    9️⃣ IMPACT STATS
    ================================ */
 
+/* Impact section header spacing */
 .home-impact-header {
   margin-bottom: 2rem;
 }
 
+/* Grid layout for impact statistics */
 .home-impact-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.1rem;
 }
 
+/* Individual impact card */
 .home-impact-card {
   text-align: left;
 }
 
+/* Primary metric number */
 .home-impact-number {
   font-size: 1.6rem;
   font-weight: 600;
   margin-bottom: 0.3rem;
 }
 
+/* Metric label */
 .home-impact-label {
   font-size: 0.85rem;
   opacity: 0.8;
@@ -1161,14 +1296,16 @@
    IMPACT SECTION – RESPONSIVE
    ================================ */
 
-/* Default (desktop) already good */
+/* Desktop layout (default) */
 .home-impact-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.1rem;
 }
 
-/* Tablets */
+/* Tablet breakpoint
+   - Reduce columns
+   - Slightly smaller numbers */
 @media (max-width: 1024px) {
   .home-impact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1180,7 +1317,9 @@
   }
 }
 
-/* Mobile */
+/* Mobile breakpoint
+   - Single column
+   - Tighter spacing */
 @media (max-width: 768px) {
   .home-impact-grid {
     grid-template-columns: 1fr;
@@ -1200,12 +1339,17 @@
   }
 }
 
-/* 🔟 FEATURED PEOPLE */
+/* ================================
+   🔟 FEATURED PEOPLE
+   ================================ */
 
 /* ================================
    FEATURED PEOPLE – PYRAMID LAYOUT
    ================================ */
 
+/* Grid layout for featured people
+   - 3-column pyramid on desktop
+   - Center-aligned cards */
 .home-people-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1213,13 +1357,15 @@
   justify-items: center;
 }
 
-/* Top featured card */
+/* Top highlighted person
+   - Spans all columns
+   - Visually emphasized */
 .home-person-card--featured {
   grid-column: 1 / -1; /* span all columns */
   max-width: 360px;
 }
 
-/* Base card styling */
+/* Base person card styling */
 .home-person-card {
   padding: 1.4rem 1.2rem;
   text-align: center;
@@ -1232,7 +1378,7 @@
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
-/* Hover polish */
+/* Hover elevation for interaction feedback */
 .home-person-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 36px rgba(2, 6, 23, 0.08);
@@ -1242,6 +1388,7 @@
    PHOTO
    ================================ */
 
+/* Circular portrait container */
 .home-person-photo {
   width: 250px;
   height: 250px;
@@ -1250,6 +1397,7 @@
   background: #f1f5f9;
 }
 
+/* Profile image */
 .home-person-photo img {
   width: 100%;
   height: 100%;
@@ -1257,30 +1405,35 @@
 }
 
 /* ================================
-   TEXT
+   TEXT CONTENT
    ================================ */
 
+/* Person name */
 .home-person-name {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.15rem;
 }
 
+/* Role / title */
 .home-person-role {
   font-size: 0.85rem;
   opacity: 0.85;
   margin-bottom: 0.35rem;
 }
 
+/* Supporting bio / metadata */
 .home-person-meta {
   font-size: 0.84rem;
   opacity: 0.8;
   line-height: 1.45;
 }
+
 /* ================================
-   RESPONSIVE
+   RESPONSIVE: FEATURED PEOPLE
    ================================ */
 
+/* Tablet: two-column layout */
 @media (max-width: 1024px) {
   .home-people-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1291,6 +1444,7 @@
   }
 }
 
+/* Mobile: single-column stack */
 @media (max-width: 768px) {
   .home-people-grid {
     grid-template-columns: 1fr;
@@ -1300,22 +1454,27 @@
     max-width: 100%;
   }
 
+  /* Smaller avatars on mobile */
   .home-person-photo {
     width: 88px;
     height: 88px;
   }
 }
 
+/* Extra-small screens */
 @media (max-width: 480px) {
   .home-person-meta {
     font-size: 0.82rem;
   }
 }
 
-/* 1️⃣1️⃣ NEWS & EVENTS */
+/* ================================
+   1️⃣1️⃣ NEWS & EVENTS
+   ================================ */
 
 /* ================= NEWS & EVENTS LAYOUT ================= */
 
+/* Two-column layout for news and events */
 .home-news-events-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
@@ -1325,6 +1484,7 @@
 
 /* ================= HEADINGS ================= */
 
+/* Section sub-headings */
 .home-news-heading {
   font-size: 1rem;
   margin-bottom: 0.8rem;
@@ -1333,12 +1493,14 @@
 
 /* ================= NEWS: VERTICAL SCROLL ================= */
 
+/* Container for auto-scrolling news list */
 .news-vertical-scroll {
   height: 260px;
   overflow: hidden;
   position: relative;
 }
 
+/* Vertical scrolling track */
 .news-vertical-track {
   display: flex;
   flex-direction: column;
@@ -1346,10 +1508,12 @@
   animation: news-scroll 12s linear infinite;
 }
 
+/* Pause scroll on hover */
 .news-vertical-scroll:hover .news-vertical-track {
   animation-play-state: paused;
 }
 
+/* Vertical scroll animation */
 @keyframes news-scroll {
   0% {
     transform: translateY(0);
@@ -1359,6 +1523,7 @@
   }
 }
 
+/* Individual news card */
 .home-news-card {
   height: 115px;
   margin-bottom: 0;
@@ -1366,6 +1531,7 @@
 
 /* ================= EVENTS: HORIZONTAL CAROUSEL ================= */
 
+/* Horizontal scroll container for events */
 .events-carousel {
   display: flex;
   gap: 1rem;
@@ -1374,14 +1540,17 @@
   padding-bottom: 0.5rem;
 }
 
+/* Hide scrollbar (WebKit) */
 .events-carousel::-webkit-scrollbar {
   display: none;
 }
 
+/* Hide scrollbar (Firefox) */
 .events-carousel {
   scrollbar-width: none;
 }
 
+/* Event card */
 .home-event-card {
   min-width: 270px;
   height: 120px;
@@ -1406,9 +1575,11 @@
   }
 }
 
+/* ================================
+   1️⃣2️⃣ CONTACT CTA STRIP
+   ================================ */
 
-/* 1️⃣2️⃣ CONTACT CTA STRIP (dark enhanced) */
-
+/* Dark call-to-action strip */
 .home-contact-cta {
   background: linear-gradient(180deg, #071430 0%, #0b2947 100%);
   color: #fff;
@@ -1417,6 +1588,7 @@
   margin-top: 1.4rem;
 }
 
+/* CTA inner layout */
 .home-contact-cta-inner {
   display: flex;
   flex-wrap: wrap;
@@ -1427,22 +1599,26 @@
   margin: 0 auto;
 }
 
+/* CTA text block */
 .home-contact-cta-text {
   max-width: 32rem;
   color: #e6f6ff;
 }
 
+/* CTA action buttons */
 .home-contact-cta-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
 }
 
+/* Primary CTA override */
 .home-contact-cta .btn-primary {
   background: #06b6d4;
   color: #042028;
 }
 
+/* Secondary CTA override */
 .home-contact-cta .btn-secondary {
   background: transparent;
   color: #fff;
@@ -1453,6 +1629,7 @@
    ANIMATIONS & MOTION
    ================================ */
 
+/* Fade-up reveal animation */
 @keyframes home-fade-up {
   from {
     opacity: 0;
@@ -1464,6 +1641,7 @@
   }
 }
 
+/* Fade-in from right */
 @keyframes home-fade-in-right {
   from {
     opacity: 0;
@@ -1475,6 +1653,7 @@
   }
 }
 
+/* Pulse animation for play icon */
 @keyframes home-play-pulse {
   from {
     transform: scale(1);
@@ -1486,7 +1665,7 @@
   }
 }
 
-/* Staggered classes for hero text */
+/* Staggered animation utility classes */
 .animate-in-delay-1 {
   animation: home-fade-up 420ms ease-out forwards;
   animation-delay: 80ms;
@@ -1512,22 +1691,26 @@
   animation-delay: 380ms;
   opacity: 0;
 }
+
+/* Right-side hero animation override */
 .home-hero-right.animate-in-delay-3 {
   animation-name: home-fade-in-right;
 }
 
-/* Reveal-section pattern (used by useRevealOnScroll) */
+/* Scroll reveal base pattern */
 .reveal-section {
   opacity: 0;
   transform: translateY(10px);
   transition: all 520ms cubic-bezier(0.2, 0.9, 0.2, 1);
 }
+
+/* Reveal active state */
 .reveal-section.is-visible {
   opacity: 1;
   transform: none;
 }
 
-/* Reduced motion */
+/* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   .animate-in-delay-1,
   .animate-in-delay-2,
@@ -1538,6 +1721,7 @@
     opacity: 1;
     transform: none;
   }
+
   .home-media-play-btn::after {
     animation: none;
     opacity: 0;
@@ -1545,20 +1729,24 @@
 }
 
 /* ================================
-   RESPONSIVE
+   RESPONSIVE – GLOBAL
    ================================ */
 
+/* Large tablets / small desktops */
 @media (max-width: 1024px) {
   .home-hero-inner {
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
     gap: 2.5rem;
   }
+
   .home-media-main-img {
     height: 230px;
   }
+
   .home-impact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
   .home-research-grid,
   .home-flagship-grid,
   .home-funding-grid,
@@ -1566,52 +1754,65 @@
   .home-people-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
+/* Medium screens */
 @media (max-width: 900px) {
   .home-hero-inner {
     grid-template-columns: minmax(0, 1fr);
   }
+
   .home-hero-right {
     justify-content: flex-start;
   }
+
   .home-hero {
     padding-top: 4.5rem;
   }
+
   .home-media-video {
     right: 0;
     bottom: -1rem;
   }
+
   .home-neuro-layout,
   .home-news-events-layout {
     grid-template-columns: minmax(0, 1fr);
   }
+
   .home-section-header {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .home-section-header-cta {
     margin-left: 0;
   }
+
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* Small screens / mobile */
 @media (max-width: 768px) {
   .home-hero-actions {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .home-hero-stats {
     gap: 1.2rem;
   }
+
   .home-media-main-img {
     height: 210px;
   }
+
   .home-research-grid,
   .home-flagship-grid,
   .home-funding-grid,
@@ -1619,13 +1820,16 @@
   .home-people-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+
   .home-impact-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+
   .home-contact-cta-inner {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .gallery-grid {
     grid-template-columns: 1fr;
   }

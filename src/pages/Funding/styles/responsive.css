@@ -1,0 +1,83 @@
+e: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-info);
+
+  animation: fadeIn 220ms ease;
+}
+
+/* Remove generic card behaviour */
+.funding-faq-card.card {
+  box-shadow: none;
+  border-radius: 0;
+  transform: none;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .funding-faq-list {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================================
+   10. CONTACT CARD
+   ========================================================= */
+
+.funding-contact-card {
+  padding: 1.5rem 1.3rem;
+  border-radius: 1rem;
+  background: linear-gradient(
+      135deg,
+      rgba(11, 46, 89, 0.97),
+      rgba(30, 75, 130, 0.95)
+    ),
+    var(--color-text);
+  color: var(--color-white);
+}
+
+.funding-contact-note {
+  font-size: 0.85rem;
+  opacity: 0.95;
+}
+
+/* =========================================================
+   11. REVEAL ANIMATION
+   ========================================================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   12. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .funding-flow-steps { grid-template-columns: repeat(3, 1fr); }
+  .funding-docs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .funding-hero-layout { grid-template-columns: 1fr; }
+  .funding-hero-side { order: -1; }
+  .funding-calls-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .funding-flow-steps,
+  .funding-docs-grid,
+  .funding-faq-grid {
+    grid-template-columns: 1fr;
+  }
+  .funding-hero-title { font-size: 1.7rem; }
+}
+
+@media (max-width: 480px) {
+  .funding-section-title { font-size: 1.1rem; }
+  .funding-section-subtitle { font-size: 0.85rem; }
+}

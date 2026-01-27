@@ -1,0 +1,243 @@
+/* =====================================================
+   3️⃣ RESEARCH THEMES PREVIEW
+   PURPOSE
+   - Auto-scrolling horizontal carousel (desktop)
+   - Pauses on hover & keyboard focus
+   - Swipeable on mobile
+   - Fixed card sizing for smooth looping
+   - Reduced-motion safe
+   ===================================================== */
+
+/* =====================================================
+   SECTION ROOT
+   ===================================================== */
+
+/* Research preview section wrapper
+   - Controls overflow
+   - Hosts edge gradients */
+.home-research-preview {
+  position: relative;           /* Required for gradient overlays */
+  background: var(--color-bg);
+  overflow: hidden;             /* Hard boundary for carousel */
+}
+
+/* =====================================================
+   CAROUSEL VIEWPORT
+   ===================================================== */
+
+/* Visible carousel window */
+.home-research-carousel {
+  position: relative;
+  overflow: hidden;             /* Keeps animation contained */
+}
+
+/* =====================================================
+   CAROUSEL TRACK (ANIMATED STRIP)
+   ===================================================== */
+
+/* Continuous horizontal track */
+.home-research-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;           /* Enables infinite scrolling illusion */
+  animation: research-scroll 22s linear infinite;
+  will-change: transform;
+}
+
+/* -----------------------------------------------------
+   PAUSE ON USER INTERACTION
+   - Mouse hover
+   - Keyboard focus
+----------------------------------------------------- */
+
+.home-research-preview:hover .home-research-track,
+.home-research-preview:focus-within .home-research-track {
+  animation-play-state: paused;
+}
+
+/* =====================================================
+   AUTO-SCROLL KEYFRAMES
+   - Assumes duplicated card set
+   - Scrolls half the total width
+   ===================================================== */
+
+@keyframes research-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =====================================================
+   RESEARCH CARD BASE
+   ===================================================== */
+
+/* Fixed-width card for smooth looping */
+.home-research-card {
+  flex: 0 0 320px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+/* Hover lift for visual affordance */
+.home-research-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(2, 6, 23, 0.08);
+}
+
+/* =====================================================
+   IMAGE CONTAINER
+   ===================================================== */
+
+/* Thumbnail wrapper
+   - Prevents CLS
+   - Enforces aspect ratio */
+.home-research-card .card-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-gray-light);          /* Loading fallback */
+}
+
+/* Thumbnail image */
+.home-research-card .card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 420ms ease;
+}
+
+/* Subtle zoom on hover */
+.home-research-card:hover .card-thumb img {
+  transform: scale(1.04);
+}
+
+/* =====================================================
+   CARD BODY
+   ===================================================== */
+
+.home-research-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-top: 0.9rem;
+}
+
+/* Card title */
+.home-research-card h3 {
+  font-size: 1.08rem;
+  margin-bottom: 0.45rem;
+}
+
+/* Card description */
+.home-research-card p {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  opacity: 0.88;
+  margin-bottom: 0.9rem;
+}
+
+/* Keep CTA aligned to bottom */
+.home-research-card .btn-tertiary {
+  margin-top: auto;
+}
+
+/* =====================================================
+   TERTIARY CTA BUTTON
+   ===================================================== */
+
+/* Minimal inline CTA */
+.btn-tertiary {
+  align-self: flex-start;
+  font-size: 0.85rem;
+  padding: 1rem;
+  border-radius: 999px;
+  color: #0a1a3f;
+  border: 1px solid rgba(10, 26, 63, 0.25);
+  background: transparent;
+  transition: all 180ms ease;
+}
+
+/* Hover affordance */
+.btn-tertiary:hover {
+  background: rgba(31, 163, 163, 0.08);
+  border-color: rgba(31, 163, 163, 0.5);
+  transform: translateX(4px);
+}
+
+/* Keyboard focus state */
+.btn-tertiary:focus-visible {
+  outline: 2px solid rgba(31, 163, 163, 0.6);
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   EDGE GRADIENT FADES
+   ===================================================== */
+
+/* Gradient masks for carousel edges */
+.home-research-preview::before,
+.home-research-preview::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Left fade */
+.home-research-preview::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg), transparent);
+}
+
+/* Right fade */
+.home-research-preview::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg), transparent);
+}
+
+/* =====================================================
+   ACCESSIBILITY: REDUCED MOTION
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-research-track {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* =====================================================
+   MOBILE BEHAVIOUR
+   - Disable auto-scroll
+   - Enable swipe gestures
+   ===================================================== */
+
+@media (max-width: 768px) {
+  .home-research-track {
+    animation: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem;
+  }
+
+  .home-research-card {
+    scroll-snap-align: start;
+  }
+
+  .home-research-card .btn-tertiary {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+

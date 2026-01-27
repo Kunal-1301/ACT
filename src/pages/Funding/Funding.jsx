@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Funding.css";
+import "./styles/hero.css";
+import "./styles/main.css";
+import "./styles/calls.css";
+import "./styles/docs-faq.css";
+import "./styles/responsive.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 /* ================================
@@ -114,7 +118,7 @@ const Funding = () => {
       {/* ================= HERO ================= */}
       <section className="section funding-hero">
         <img
-          src="/media/hero-campus-1600.jpg"
+          src="/media/funding.JPG"
           alt=""
           aria-hidden="true"
           className="funding-hero-bg"
@@ -124,9 +128,8 @@ const Funding = () => {
         <div className="container funding-hero-layout">
           <div
             ref={heroTextRef}
-            className={`funding-hero-text ${
-              heroTextVisible ? "is-visible" : ""
-            }`}
+            className={`funding-hero-text ${heroTextVisible ? "is-visible" : ""
+              }`}
           >
             <h1 className="funding-hero-title">
               Support for Projects &amp; Research
@@ -162,9 +165,8 @@ const Funding = () => {
           {/* FLOW */}
           <section
             ref={flowRef}
-            className={`funding-section-block ${
-              flowVisible ? "is-visible" : ""
-            }`}
+            className={`funding-section-block ${flowVisible ? "is-visible" : ""
+              }`}
           >
             <h3 className="funding-section-title">Funding Flow at a Glance</h3>
 
@@ -189,41 +191,63 @@ const Funding = () => {
           <section
             id="current-calls"
             ref={callsRef}
-            className={`funding-section-block ${
-              callsVisible ? "is-visible" : ""
-            }`}
+            className={`funding-section-block ${callsVisible ? "is-visible" : ""
+              }`}
           >
             <h3 className="funding-section-title">Current Funding Calls</h3>
 
             <div className="funding-calls-grid">
-              {callsData.map((c) => (
-                <article key={c.id} className="funding-call-card card">
+              {callsData.map((call) => (
+                <article
+                  key={call.id}
+                  className="funding-call-card card card-centered"
+                >
                   <div className="funding-call-header">
+                    <span className="funding-call-tag">{call.audience}</span>
                     <span
-                      className={`funding-call-status funding-status-${c.status}`}
+                      className={`funding-call-status funding-status-${call.status}`}
                     >
-                      {c.status}
+                      {call.status}
                     </span>
-                    <p className="funding-call-tag">{c.audience}</p>
                   </div>
 
-                  <h4 className="funding-call-title">{c.title}</h4>
-                  <p className="funding-call-text">{c.description}</p>
+                  <div className="card-body">
+                    <h3 className="funding-call-title">{call.title}</h3>
+                    <p className="funding-call-text">{call.description}</p>
 
-                  <ul className="funding-call-meta">
-                    {Object.entries(c.meta).map(([k, v]) => (
-                      <li key={k}>
-                        <span>{k}:</span> {v}
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="funding-call-meta">
+                      {call.meta.maxFunding && (
+                        <li>
+                          <strong>Max:</strong> {call.meta.maxFunding}
+                        </li>
+                      )}
+                      {call.meta.duration && (
+                        <li>
+                          <strong>Duration:</strong> {call.meta.duration}
+                        </li>
+                      )}
+                      {call.meta.team && (
+                        <li>
+                          <strong>Team:</strong> {call.meta.team}
+                        </li>
+                      )}
+                      {call.meta.callWindow && (
+                        <li>
+                          <strong>Window:</strong> {call.meta.callWindow}
+                        </li>
+                      )}
+                    </ul>
 
-                  <button
-                    className="btn btn-secondary funding-call-btn"
-                    disabled
-                  >
-                    {c.cta.label}
-                  </button>
+                    {call.cta.href ? (
+                      <Link to={call.cta.href} className="btn btn-secondary btn-sm">
+                        {call.cta.label}
+                      </Link>
+                    ) : (
+                      <button className="btn btn-secondary btn-sm" disabled>
+                        {call.cta.label}
+                      </button>
+                    )}
+                  </div>
                 </article>
               ))}
             </div>
@@ -233,9 +257,8 @@ const Funding = () => {
           <section
             id="what-we-fund"
             ref={whatRef}
-            className={`funding-section-block reveal-section ${
-              whatVisible ? "is-visible" : ""
-            }`}
+            className={`funding-section-block reveal-section ${whatVisible ? "is-visible" : ""
+              }`}
           >
             <div className="funding-section-header">
               <h3 className="funding-section-title">What ACT Can Fund</h3>
@@ -290,9 +313,8 @@ const Funding = () => {
           <section
             id="evaluation"
             ref={evalRef}
-            className={`funding-section-block reveal-section ${
-              evalVisible ? "is-visible" : ""
-            }`}
+            className={`funding-section-block reveal-section ${evalVisible ? "is-visible" : ""
+              }`}
           >
             <div className="funding-section-header">
               <h3 className="funding-section-title">
@@ -350,9 +372,8 @@ const Funding = () => {
           <section
             id="documents"
             ref={docsRef}
-            className={`funding-section-block funding-soft-block reveal-section ${
-              docsVisible ? "is-visible" : ""
-            }`}
+            className={`funding-section-block funding-soft-block reveal-section ${docsVisible ? "is-visible" : ""
+              }`}
           >
             <div className="funding-section-header">
               <h3 className="funding-section-title">
@@ -396,9 +417,8 @@ const Funding = () => {
           <section
             id="faq"
             ref={faqRef}
-            className={`funding-section-block reveal-section ${
-              faqVisible ? "is-visible" : ""
-            }`}
+            className={`funding-section-block reveal-section ${faqVisible ? "is-visible" : ""
+              }`}
           >
             <div className="funding-section-header">
               <h3 className="funding-section-title">
@@ -451,9 +471,8 @@ const Funding = () => {
           <section
             id="contact-funding"
             ref={contactRef}
-            className={`funding-section-block funding-contact-block reveal-section ${
-              contactVisible ? "is-visible" : ""
-            }`}
+            className={`funding-section-block funding-contact-block reveal-section ${contactVisible ? "is-visible" : ""
+              }`}
           >
             <div className="funding-contact-card card">
               <h3>Need Help with Applications?</h3>
