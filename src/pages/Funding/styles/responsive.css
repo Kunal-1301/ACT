@@ -1,9 +1,4 @@
-e: 0.9rem;
-  line-height: 1.6;
-  color: var(--color-info);
 
-  animation: fadeIn 220ms ease;
-}
 
 /* Remove generic card behaviour */
 .funding-faq-card.card {

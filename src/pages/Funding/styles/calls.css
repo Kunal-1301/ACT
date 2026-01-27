@@ -53,6 +53,10 @@
     right: auto;
     width: 100%;
   }
+
+  .funding-calls-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =========================================================

@@ -1,4 +1,5 @@
-h: 40rem;
+.funding-hero-subtitle {
+  max-width: 40rem;
   opacity: 0.94;
 }
 
@@ -103,4 +104,3 @@ h: 40rem;
 }
 
 /* REMOVE hover lift – this is a process, not a card */
-.funding-flow-step

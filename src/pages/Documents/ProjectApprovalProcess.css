@@ -88,8 +88,11 @@
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .doc-hero-layout,
+  .doc-hero-layout {
+    grid-template-columns: 1fr;
   }
+}
+
 /* ================================
    PDF EMBED PREVIEW
    ================================ */
@@ -111,4 +114,5 @@
 }
 
 @media (max-width: 768px) {
-  }
+  /* Mobile adjustments */
+}

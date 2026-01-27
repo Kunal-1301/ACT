@@ -20,9 +20,12 @@ import FinancialGuidelines from "./pages/Documents/FinancialGuidelines";
 import RecruitmentProcess from "./pages/Documents/RecruitmentProcess";
 import ProjectApprovalProcess from "./pages/Documents/ProjectApprovalProcess";
 
+import ScrollToTop from "./utils/ScrollToTop";
+
 const App = () => {
   return (
     <div className="app-root">
+      <ScrollToTop />
       <Navbar />
       <main className="app-main">
         <Routes>
