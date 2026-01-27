@@ -18,12 +18,12 @@ const Facilities = () => {
     <div className="facilities-page" id="facilities">
       {/* HERO */}
       <section
-        className="section facilities-hero facilities-hero-simple"
+        className="page-hero facilities-hero-simple"
         role="banner"
         aria-label="ACT Centre facilities hero"
       >
         <img
-          className="facilities-hero-bg"
+          className="page-hero-bg"
           src="/media/hero-campus-1600.jpg"
           alt="Labs and spaces at ACT Centre"
           loading="eager"
@@ -35,21 +35,17 @@ const Facilities = () => {
           }}
         />
 
-        <div className="facilities-hero-overlay" aria-hidden />
+        <div className="page-hero-overlay" aria-hidden />
 
-        <div className="container facilities-hero-inner">
-          <div
-            ref={heroTextRef}
-            className={`facilities-hero-text reveal-section ${heroTextVisible ? "is-visible" : ""
-              }`}
-          >
-            <p className="section-eyebrow facilities-hero-eyebrow">
+        <div className="page-hero-layout">
+          <div className="facilities-hero-text">
+            <p className="section-eyebrow facilities-hero-eyebrow hero-animate hero-delay-1">
               Labs &amp; Spaces
             </p>
-            <h1 className="facilities-hero-title">
+            <h1 className="page-hero-title hero-animate hero-delay-2">
               Facilities at ACT Centre
             </h1>
-            <p className="facilities-hero-subtitle">
+            <p className="page-hero-subtitle hero-animate hero-delay-3">
               ACT provides shared labs, studios, and testbeds where{" "}
               <strong>engineering</strong>,{" "}
               <strong>cognitive science</strong>,{" "}
@@ -57,12 +53,12 @@ const Facilities = () => {
               <strong>social sciences</strong> can meet. Spaces are designed for
               both controlled experiments and open exploration.
             </p>
-            <p className="facilities-hero-subtitle secondary">
+            <p className="page-hero-subtitle secondary hero-animate hero-delay-4">
               Overview of core labs, key equipment clusters, and how to book and
               use the spaces.
             </p>
 
-            <div className="facilities-hero-ctas">
+            <div className="page-hero-actions hero-animate hero-delay-5">
               <a href="#labs" className="btn btn-primary">
                 Explore Labs &amp; Testbeds
               </a>
@@ -71,7 +67,7 @@ const Facilities = () => {
               </a>
             </div>
 
-            <div className="facilities-hero-quick-links">
+            <div className="facilities-hero-quick-links hero-animate hero-delay-5" style={{ marginTop: '1.5rem' }}>
               <a href="#equipment" className="facilities-chip">
                 Equipment clusters
               </a>
@@ -105,7 +101,7 @@ const Facilities = () => {
 
             <div className="facilities-lab-strips">
               <article className="facilities-lab-strip">
-                <div className="facilities-lab-main card">
+                <div className="facilities-lab-main card card-tint-blue">
                   <h3>Cognition &amp; Behaviour Lab</h3>
                   <p>
                     Configurable space for behavioural experiments, cognitive
@@ -134,7 +130,7 @@ const Facilities = () => {
               </article>
 
               <article className="facilities-lab-strip">
-                <div className="facilities-lab-main card">
+                <div className="facilities-lab-main card card-tint-green">
                   <h3>Data &amp; Sensing Testbed</h3>
                   <p>
                     Infrastructure for deploying sensors, collecting data, and
@@ -158,7 +154,7 @@ const Facilities = () => {
               </article>
 
               <article className="facilities-lab-strip">
-                <div className="facilities-lab-main card">
+                <div className="facilities-lab-main card card-tint-violet">
                   <h3>Learning &amp; Interaction Studio</h3>
                   <p>
                     Flexible studio for learning experiments, workshops, games,
@@ -199,7 +195,7 @@ const Facilities = () => {
             </div>
 
             <div className="facilities-equipment-grid">
-              <article className="facilities-equipment-card card">
+              <article className="facilities-equipment-card card card-tint-blue">
                 <h3>Human Studies &amp; Sensing</h3>
                 <ul>
                   <li>
@@ -217,7 +213,7 @@ const Facilities = () => {
                 </ul>
               </article>
 
-              <article className="facilities-equipment-card card">
+              <article className="facilities-equipment-card card card-tint-violet">
                 <h3>Prototyping &amp; Interaction</h3>
                 <ul>
                   <li>
@@ -232,7 +228,7 @@ const Facilities = () => {
                 </ul>
               </article>
 
-              <article className="facilities-equipment-card card">
+              <article className="facilities-equipment-card card card-tint-green">
                 <h3>Data &amp; Computing</h3>
                 <ul>
                   <li>
@@ -262,7 +258,7 @@ const Facilities = () => {
             </div>
 
             <div className="facilities-booking-grid">
-              <article className="facilities-booking-card card">
+              <article className="facilities-booking-card card card-tint-blue">
                 <h3>Who Can Book?</h3>
                 <ul>
                   <li>
@@ -277,7 +273,7 @@ const Facilities = () => {
                 </ul>
               </article>
 
-              <article className="facilities-booking-card card">
+              <article className="facilities-booking-card card card-tint-blue">
                 <h3>How Booking Works (Indicative)</h3>
                 <ol>
                   <li>
@@ -295,7 +291,7 @@ const Facilities = () => {
                 </ol>
               </article>
 
-              <article className="facilities-booking-card card">
+              <article className="facilities-booking-card card card-tint-blue">
                 <h3>Norms &amp; Responsibilities</h3>
                 <ul>
                   <li>
@@ -322,7 +318,7 @@ const Facilities = () => {
             className={`facilities-block facilities-contact-block reveal-section ${supportVisible ? "is-visible" : ""
               }`}
           >
-            <div className="facilities-contact-card card">
+            <div className="facilities-contact-card card card-tint-blue">
               <h2>Technical Support &amp; Queries</h2>
               <p>
                 For access, equipment, or feasibility queries, contact ACT

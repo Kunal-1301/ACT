@@ -18,22 +18,25 @@ const News = () => {
   return (
     <div className="news-page" id="news">
       {/* HERO / LATEST STRIP */}
-      <section className="section news-hero">
-        <div className="container">
-          <header
-            ref={heroRef}
-            className={`news-hero-inner reveal-section ${
-              heroVisible ? "is-visible" : ""
-            }`}
-          >
+      <section className="page-hero">
+        <img
+          className="page-hero-bg"
+          src="/media/hero-campus-1600.jpg"
+          alt=""
+          loading="eager"
+        />
+        <div className="page-hero-overlay" aria-hidden />
+
+        <div className="page-hero-layout">
+          <header className="news-hero-inner">
             <div className="news-hero-text">
-              <p className="section-eyebrow news-hero-eyebrow">
+              <p className="section-eyebrow news-hero-eyebrow hero-animate hero-delay-1">
                 News &amp; Updates
               </p>
-              <h1 className="news-hero-title">
+              <h1 className="page-hero-title hero-animate hero-delay-2">
                 What’s happening at the ACT Centre
               </h1>
-              <p className="news-hero-subtitle">
+              <p className="page-hero-subtitle hero-animate hero-delay-3">
                 This page gathers{" "}
                 <strong>announcements, short highlights, calls,</strong>{" "}
                 and <strong>deadlines</strong> related to the ACT Centre – in one
@@ -41,7 +44,7 @@ const News = () => {
               </p>
             </div>
 
-            <div className="news-hero-side">
+            <div className="news-hero-side hero-animate hero-delay-4">
               <p className="news-hero-side-label">Status snapshot</p>
               <ul className="news-hero-bullets">
                 <li>Initial calls and processes being finalised</li>
@@ -70,9 +73,8 @@ const News = () => {
           {/* FEATURED NEWS */}
           <section
             ref={featuredRef}
-            className={`news-block news-featured-block reveal-section ${
-              featuredVisible ? "is-visible" : ""
-            }`}
+            className={`news-block news-featured-block reveal-section ${featuredVisible ? "is-visible" : ""
+              }`}
           >
             <div className="news-block-header">
               <h2 className="news-block-title">
@@ -84,7 +86,7 @@ const News = () => {
               </p>
             </div>
 
-            <article className="news-featured card">
+            <article className="news-featured card card-tint-blue">
               <div className="news-featured-tag-row">
                 <span className="news-pill">Announcement</span>
                 <span className="news-featured-status">Coming soon</span>
@@ -114,9 +116,8 @@ const News = () => {
           {/* RECENT UPDATES */}
           <section
             ref={updatesRef}
-            className={`news-block reveal-section ${
-              updatesVisible ? "is-visible" : ""
-            }`}
+            className={`news-block reveal-section ${updatesVisible ? "is-visible" : ""
+              }`}
           >
             <div className="news-block-header">
               <h2 className="news-block-title">News &amp; Short Updates</h2>
@@ -127,7 +128,7 @@ const News = () => {
             </div>
 
             <div className="news-updates-list">
-              <article className="news-item card">
+              <article className="news-item card card-tint-blue">
                 <div className="news-item-header">
                   <span className="news-item-label">Process</span>
                   <span className="news-item-date">To be updated</span>
@@ -149,7 +150,7 @@ const News = () => {
                 </p>
               </article>
 
-              <article className="news-item card">
+              <article className="news-item card card-tint-green">
                 <div className="news-item-header">
                   <span className="news-item-label">Funding</span>
                   <span className="news-item-date">To be updated</span>
@@ -172,7 +173,7 @@ const News = () => {
                 </p>
               </article>
 
-              <article className="news-item card">
+              <article className="news-item card card-tint-violet">
                 <div className="news-item-header">
                   <span className="news-item-label">Infrastructure</span>
                   <span className="news-item-date">To be updated</span>
@@ -198,9 +199,8 @@ const News = () => {
           {/* CALLS */}
           <section
             ref={callsRef}
-            className={`news-block news-block-band reveal-section ${
-              callsVisible ? "is-visible" : ""
-            }`}
+            className={`news-block news-block-band reveal-section ${callsVisible ? "is-visible" : ""
+              }`}
           >
             <div className="news-block-header news-block-header--tight">
               <h2 className="news-block-title">Calls &amp; Key Deadlines</h2>
@@ -210,7 +210,7 @@ const News = () => {
             </div>
 
             <div className="news-calls-grid">
-              <article className="news-call-card card">
+              <article className="news-call-card card card-tint-blue">
                 <div className="news-call-chip-row">
                   <span className="news-call-status news-call-status--upcoming">
                     Upcoming
@@ -234,7 +234,7 @@ const News = () => {
                 </ul>
               </article>
 
-              <article className="news-call-card card">
+              <article className="news-call-card card card-tint-violet">
                 <div className="news-call-chip-row">
                   <span className="news-call-status news-call-status--planned">
                     Planned
@@ -258,7 +258,7 @@ const News = () => {
                 </ul>
               </article>
 
-              <article className="news-call-card card">
+              <article className="news-call-card card card-tint-blue">
                 <div className="news-call-chip-row">
                   <span className="news-call-status news-call-status--info">
                     Info
@@ -287,9 +287,8 @@ const News = () => {
           {/* ARCHIVE */}
           <section
             ref={archiveRef}
-            className={`news-block reveal-section ${
-              archiveVisible ? "is-visible" : ""
-            }`}
+            className={`news-block reveal-section ${archiveVisible ? "is-visible" : ""
+              }`}
           >
             <div className="news-block-header">
               <h2 className="news-block-title">Archive (Future View)</h2>
@@ -313,11 +312,10 @@ const News = () => {
           {/* SUBSCRIBE */}
           <section
             ref={subscribeRef}
-            className={`news-block news-subscribe-block reveal-section ${
-              subscribeVisible ? "is-visible" : ""
-            }`}
+            className={`news-block news-subscribe-block reveal-section ${subscribeVisible ? "is-visible" : ""
+              }`}
           >
-            <div className="news-subscribe card">
+            <div className="news-subscribe card card-tint-blue">
               <div className="news-subscribe-main">
                 <h2 className="news-subscribe-title">Staying Updated</h2>
                 <p className="news-subscribe-text">

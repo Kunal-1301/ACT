@@ -16,7 +16,7 @@ const callsData = [
     id: "student-seed-2025",
     status: "upcoming",
     audience: "UG Students",
-    title: "Student Project Grant (Interships) ",
+    title: "Student Project Grant (Internships) ",
     description:
       "Small grants to support innovative student-led pilots and experiments aligned with ACT themes.",
     meta: {
@@ -37,8 +37,8 @@ const callsData = [
       "Support for multi-department projects that bring together expertise across technology, cognition, environment, and education.",
     meta: {
       maxFunding: "12.50 Lacs",
-      duration: "Initally granted for two years",
-      team: "Collaboration between atleast three departments mandatory",
+      duration: "Initially granted for two years",
+      team: "Collaboration between at least three departments mandatory",
     },
     cta: {
       label: "Call details coming soon",
@@ -116,32 +116,28 @@ const Funding = () => {
   return (
     <main className="funding-page" id="funding">
       {/* ================= HERO ================= */}
-      <section className="section funding-hero">
+      <section className="page-hero">
         <img
           src="/media/funding.JPG"
           alt=""
           aria-hidden="true"
-          className="funding-hero-bg"
+          className="page-hero-bg"
         />
-        <div className="funding-hero-overlay" />
+        <div className="page-hero-overlay" />
 
-        <div className="container funding-hero-layout">
-          <div
-            ref={heroTextRef}
-            className={`funding-hero-text ${heroTextVisible ? "is-visible" : ""
-              }`}
-          >
-            <h1 className="funding-hero-title">
+        <div className="page-hero-layout">
+          <div className="funding-hero-text">
+            <h1 className="page-hero-title hero-animate hero-delay-1">
               Support for Projects &amp; Research
             </h1>
 
-            <p className="funding-hero-subtitle">
+            <p className="page-hero-subtitle hero-animate hero-delay-2">
               ACT Centre provides competitive internal funding to help
               transdisciplinary ideas move from{" "}
               <strong>early sketches and pilots to full projects</strong>.
             </p>
 
-            <div className="funding-hero-ctas">
+            <div className="page-hero-actions hero-animate hero-delay-3">
               <a href="#current-calls" className="btn btn-primary">
                 View Current Calls
               </a>
@@ -174,7 +170,7 @@ const Funding = () => {
               {[
                 "Call For Proposal ->",
                 "Submission Closed ->",
-                "Elibility Check For Transdisciplinary Approach ->",
+                "Eligibility Check For Transdisciplinary Approach ->",
                 "Evaluation & Feedback ->",
                 "Presentation ->",
                 "Decision & Project Sanction",
@@ -200,7 +196,12 @@ const Funding = () => {
               {callsData.map((call) => (
                 <article
                   key={call.id}
-                  className="funding-call-card card card-centered"
+                  className={`funding-call-card card card-centered ${call.status === "upcoming"
+                      ? "card-tint-blue"
+                      : call.status === "open"
+                        ? "card-tint-green"
+                        : "card-tint-rose"
+                    }`}
                 >
                   <div className="funding-call-header">
                     <span className="funding-call-tag">{call.audience}</span>
@@ -327,7 +328,7 @@ const Funding = () => {
             </div>
 
             <div className="funding-eval-grid">
-              <article className="funding-eval-card card">
+              <article className="funding-eval-card card card-tint-violet">
                 <h4>Evaluation Parameters</h4>
 
                 <ul className="funding-eval-list">
@@ -448,7 +449,7 @@ const Funding = () => {
               ].map((f, i) => (
                 <article
                   key={i}
-                  className="funding-faq-card card"
+                  className="funding-faq-card card card-tint-blue"
                   role="listitem"
                 >
                   <h4>
@@ -474,7 +475,7 @@ const Funding = () => {
             className={`funding-section-block funding-contact-block reveal-section ${contactVisible ? "is-visible" : ""
               }`}
           >
-            <div className="funding-contact-card card">
+            <div className="funding-contact-card card card-tint-blue">
               <h3>Need Help with Applications?</h3>
               <p>
                 For queries related to project alignment, evaluation process,

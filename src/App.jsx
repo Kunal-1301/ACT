@@ -7,11 +7,12 @@ import Footer from "./components/Footer/Footer";
 
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
+// import People from "./pages/People/People";
 import Research from "./pages/Research/Research";
-import Facilities from "./pages/Facilities/Facilities";
+// import Facilities from "./pages/Facilities/Facilities";
 import Funding from "./pages/Funding/Funding";
-import Events from "./pages/Events/Events";
-import News from "./pages/News/News";
+// import Events from "./pages/Events/Events";
+// import News from "./pages/News/News";
 import Contact from "./pages/Contact/Contact";
 import ProposalFormat from "./pages/Documents/ProposalFormat";
 import EvaluationMatrix from "./pages/Documents/EvaluationMatrix";
@@ -29,10 +30,10 @@ const App = () => {
           <Route path="/about" element={<About />} />
           {/* <Route path="/people" element={<People />} /> */}
           <Route path="/research" element={<Research />} />
-          <Route path="/facilities" element={<Facilities />} />
+          {/* <Route path="/facilities" element={<Facilities />} /> */}
           <Route path="/funding" element={<Funding />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/news" element={<News />} />
+          {/* <Route path="/events" element={<Events />} />
+          <Route path="/news" element={<News />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/documents/project-approval-process"

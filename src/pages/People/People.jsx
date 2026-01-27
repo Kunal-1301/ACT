@@ -80,7 +80,7 @@ const People = () => {
     <main className="people-page" id="people">
       {/* ================= HERO ================= */}
       <section
-        className="section people-hero section--bg-campus"
+        className="page-hero section--bg-campus"
         role="region"
         aria-label="People at ACT Centre"
       >
@@ -88,27 +88,22 @@ const People = () => {
           src="/media/people.jpeg"
           alt=""
           aria-hidden="true"
-          className="people-hero-bg"
+          className="page-hero-bg"
         />
 
-        <div className="people-hero-overlay" aria-hidden />
+        <div className="page-hero-overlay" aria-hidden />
 
-        <div className="container people-hero-layout">
-          <div
-            ref={heroTextRef}
-            className={`people-hero-text reveal-section ${
-              heroTextVisible ? "is-visible" : ""
-            }`}
-          >
-            <h1 className="people-hero-title">People at the ACT Centre</h1>
+        <div className="page-hero-layout">
+          <div className="people-hero-text">
+            <h1 className="page-hero-title hero-animate hero-delay-1">People at the ACT Centre</h1>
 
-            <p className="people-hero-subtitle">
+            <p className="page-hero-subtitle hero-animate hero-delay-2">
               The ACT Centre is driven by academic leadership, faculty, and
               researchers working across disciplines to advance
               transdisciplinary research.
             </p>
 
-            <div className="people-hero-ctas">
+            <div className="page-hero-actions hero-animate hero-delay-3">
               <Link to="/research" className="btn btn-primary">
                 Explore Research Themes
               </Link>
@@ -126,9 +121,8 @@ const People = () => {
           {/* OVERVIEW */}
           <section
             ref={overviewRef}
-            className={`people-block people-block-band reveal-section ${
-              overviewVisible ? "is-visible" : ""
-            }`}
+            className={`people-block people-block-band reveal-section ${overviewVisible ? "is-visible" : ""
+              }`}
           >
             <div className="people-block-header">
               <h2 className="people-block-title">People &amp; Roles</h2>
@@ -139,7 +133,7 @@ const People = () => {
             </div>
 
             <div className="people-overview-grid">
-              <article className="people-overview-card card">
+              <article className="people-overview-card card card-tint-blue">
                 <h3>Core Leadership & Faculty</h3>
                 <p>
                   Provide strategic direction, governance, and academic
@@ -147,7 +141,7 @@ const People = () => {
                 </p>
               </article>
 
-              <article className="people-overview-card card">
+              <article className="people-overview-card card card-tint-violet">
                 <h3>Research Faculty</h3>
                 <p>
                   Lead and contribute to funded projects, mentoring students and
@@ -155,7 +149,7 @@ const People = () => {
                 </p>
               </article>
 
-              <article className="people-overview-card card">
+              <article className="people-overview-card card card-tint-green">
                 <h3>Research Scholars & Associates</h3>
                 <p>
                   Conduct studies, build prototypes, analyse data, and support
@@ -163,7 +157,7 @@ const People = () => {
                 </p>
               </article>
 
-              <article className="people-overview-card card">
+              <article className="people-overview-card card card-tint-rose">
                 <h3>Operations & Support</h3>
                 <p>
                   Coordinate facilities, funding processes, and administrative
@@ -176,9 +170,8 @@ const People = () => {
           {/* DIRECTORY */}
           <section
             ref={directoryRef}
-            className={`people-block people-block-soft reveal-section ${
-              directoryVisible ? "is-visible" : ""
-            }`}
+            className={`people-block people-block-soft reveal-section ${directoryVisible ? "is-visible" : ""
+              }`}
           >
             <div className="people-block-header people-block-header--tight">
               <h2 className="people-block-title">Directory</h2>
@@ -186,7 +179,7 @@ const People = () => {
 
             <div className="people-grid">
               {peopleData.map((p, i) => (
-                <article key={i} className="people-card card">
+                <article key={i} className={`people-card card ${p.group === "Core Faculty" ? "card-tint-blue" : p.group === "Research Faculty" ? "card-tint-violet" : "card-tint-green"}`}>
                   <div className="people-card-header">
                     {p.avatar ? (
                       <img
@@ -217,9 +210,8 @@ const People = () => {
           {/* JOIN */}
           <section
             ref={rolesRef}
-            className={`people-block reveal-section ${
-              rolesVisible ? "is-visible" : ""
-            }`}
+            className={`people-block reveal-section ${rolesVisible ? "is-visible" : ""
+              }`}
           >
             <div className="people-block-header">
               <h2 className="people-block-title">Engaging with ACT</h2>
@@ -230,35 +222,35 @@ const People = () => {
             </div>
 
             <div className="people-join-grid">
-              <article className="people-join-card card">
+              <article className="people-join-card card card-tint-blue">
                 <h3>Students</h3>
                 <p>
                   Participate through funded projects, internships, and
                   research-driven learning opportunities.
                 </p>
-                <Link to="/funding" className="link-animated">
+                <Link to="/funding" className="btn btn-secondary mt-auto">
                   Student opportunities
                 </Link>
               </article>
 
-              <article className="people-join-card card">
+              <article className="people-join-card card card-tint-violet">
                 <h3>Faculty & Researchers</h3>
                 <p>
                   Propose and lead projects aligned with ACT research themes and
                   calls.
                 </p>
-                <Link to="/research" className="link-animated">
+                <Link to="/research" className="btn btn-secondary mt-auto">
                   Research directions
                 </Link>
               </article>
 
-              <article className="people-join-card card">
+              <article className="people-join-card card card-tint-rose">
                 <h3>External Partners</h3>
                 <p>
                   Explore collaborations with industry, government, and civil
                   society.
                 </p>
-                <Link to="/contact" className="link-animated">
+                <Link to="/contact" className="btn btn-secondary mt-auto">
                   Contact ACT
                 </Link>
               </article>

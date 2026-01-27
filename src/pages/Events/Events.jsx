@@ -17,30 +17,27 @@ const Events = () => {
   return (
     <div className="events-page" id="events">
       {/* HERO */}
-      <section className="section section--bg-events events-hero">
-        <div className="container events-hero-layout">
-          <div
-            ref={heroTextRef}
-            className={`events-hero-text reveal-section ${
-              heroTextVisible ? "is-visible" : ""
-            }`}
-          >
-            <p className="section-eyebrow events-hero-eyebrow">
+      <section className="page-hero section--bg-events">
+        <div className="page-hero-overlay" aria-hidden />
+
+        <div className="page-hero-layout">
+          <div className="events-hero-text">
+            <p className="section-eyebrow events-hero-eyebrow hero-animate hero-delay-1">
               Events &amp; Activities
             </p>
-            <h1 className="events-hero-title">Events at the ACT Centre</h1>
-            <p className="events-hero-subtitle">
+            <h1 className="page-hero-title hero-animate hero-delay-2">Events at the ACT Centre</h1>
+            <p className="page-hero-subtitle hero-animate hero-delay-3">
               The ACT Centre runs <strong>talks, workshops, studios,</strong>{" "}
               and <strong>public-facing events</strong> that connect research
               with teaching, practice, and communities.
             </p>
-            <p className="events-hero-subtitle secondary">
+            <p className="page-hero-subtitle secondary hero-animate hero-delay-4">
               This page will become the living home for upcoming events,
               archives, and formats — from intimate lab sessions to larger
               cross-campus gatherings.
             </p>
 
-            <div className="events-hero-ctas">
+            <div className="page-hero-actions hero-animate hero-delay-5">
               <a href="#upcoming" className="btn btn-primary">
                 View Upcoming Events
               </a>
@@ -49,7 +46,7 @@ const Events = () => {
               </a>
             </div>
 
-            <div className="events-hero-quick-links">
+            <div className="events-hero-quick-links hero-animate hero-delay-5" style={{ marginTop: '1.5rem' }}>
               <a href="#formats" className="events-chip">
                 Event formats
               </a>
@@ -68,9 +65,8 @@ const Events = () => {
           <section
             id="upcoming"
             ref={upcomingRef}
-            className={`events-block events-block-soft reveal-section ${
-              upcomingVisible ? "is-visible" : ""
-            }`}
+            className={`events-block events-block-soft reveal-section ${upcomingVisible ? "is-visible" : ""
+              }`}
           >
             <div className="events-block-header">
               <h2 className="events-block-title">Upcoming Events</h2>
@@ -82,7 +78,7 @@ const Events = () => {
             </div>
 
             <div className="events-upcoming-grid">
-              <article className="events-upcoming-card card">
+              <article className="events-upcoming-card card card-tint-violet">
                 <div className="events-date-tile">
                   <span className="events-date-day">12</span>
                   <span className="events-date-month">Mar</span>
@@ -105,7 +101,7 @@ const Events = () => {
                 </div>
               </article>
 
-              <article className="events-upcoming-card card">
+              <article className="events-upcoming-card card card-tint-green">
                 <div className="events-date-tile">
                   <span className="events-date-day">28</span>
                   <span className="events-date-month">Mar</span>
@@ -134,9 +130,8 @@ const Events = () => {
           <section
             id="timeline"
             ref={timelineRef}
-            className={`events-block reveal-section ${
-              timelineVisible ? "is-visible" : ""
-            }`}
+            className={`events-block reveal-section ${timelineVisible ? "is-visible" : ""
+              }`}
           >
             <div className="events-block-header">
               <h2 className="events-block-title">
@@ -170,7 +165,7 @@ const Events = () => {
               ].map((item, i) => (
                 <div key={i} className="events-timeline-item">
                   <div className="events-timeline-dot" />
-                  <div className="events-timeline-card card">
+                  <div className="events-timeline-card card card-tint-blue">
                     <div className="events-timeline-date">
                       Semester Placeholder
                     </div>
@@ -186,9 +181,8 @@ const Events = () => {
           <section
             id="formats"
             ref={formatsRef}
-            className={`events-block events-block-band reveal-section ${
-              formatsVisible ? "is-visible" : ""
-            }`}
+            className={`events-block events-block-band reveal-section ${formatsVisible ? "is-visible" : ""
+              }`}
           >
             <div className="events-block-header">
               <h2 className="events-block-title">Event Formats at ACT</h2>
@@ -200,7 +194,7 @@ const Events = () => {
             </div>
 
             <div className="events-formats-grid">
-              <article className="events-format-card card">
+              <article className="events-format-card card card-tint-blue">
                 <h3>Conversation Series</h3>
                 <p>
                   Short, focused talks or dialogues between people from
@@ -213,7 +207,7 @@ const Events = () => {
                 </ul>
               </article>
 
-              <article className="events-format-card card">
+              <article className="events-format-card card card-tint-green">
                 <h3>Studios &amp; Workshops</h3>
                 <p>
                   Hands-on sessions where participants try methods, tools, or
@@ -226,7 +220,7 @@ const Events = () => {
                 </ul>
               </article>
 
-              <article className="events-format-card card">
+              <article className="events-format-card card card-tint-rose">
                 <h3>Showcases &amp; Open Days</h3>
                 <p>
                   Events where ongoing projects open their work to wider
@@ -239,7 +233,7 @@ const Events = () => {
                 </ul>
               </article>
 
-              <article className="events-format-card card">
+              <article className="events-format-card card card-tint-violet">
                 <h3>Reading / Reflection Circles</h3>
                 <p>
                   Regular, small-group sessions focused on key texts, cases, or
@@ -258,11 +252,10 @@ const Events = () => {
           <section
             id="participate"
             ref={participateRef}
-            className={`events-block events-contact-block reveal-section ${
-              participateVisible ? "is-visible" : ""
-            }`}
+            className={`events-block events-contact-block reveal-section ${participateVisible ? "is-visible" : ""
+              }`}
           >
-            <div className="events-contact-card card">
+            <div className="events-contact-card card card-tint-blue">
               <h2>Hosting or Proposing an Event</h2>
               <p>
                 As ACT processes are finalised, there will be a simple way to

@@ -97,29 +97,24 @@ const Contact = () => {
   return (
     <div className="contact-page" id="contact">
       {/* HERO – CAMPUS BACKGROUND */}
-      <section className="section section--bg-campus contact-hero">
+      <section className="page-hero section--bg-campus">
         <img
           src="/media/contact.png"
           alt=""
           aria-hidden="true"
-          className="contact-hero-bg"
+          className="page-hero-bg"
         />
-        <div className="contact-hero-overlay" aria-hidden="true" />
-        <div className="container contact-hero-layout">
-          <div
-            ref={heroTextRef}
-            className={`contact-hero-text reveal-section ${heroTextVisible ? "is-visible" : ""
-              }`}
-          >
-            <p className="section-eyebrow contact-hero-eyebrow">Contact</p>
-            <h1 className="contact-hero-title">Contact the ACT Centre</h1>
-            <p className="contact-hero-subtitle">
+        <div className="page-hero-overlay" aria-hidden="true" />
+        <div className="page-hero-layout">
+          <div className="contact-hero-text">
+            <h1 className="page-hero-title hero-animate hero-delay-2">Contact the ACT Centre</h1>
+            <p className="page-hero-subtitle hero-animate hero-delay-3">
               Whether you are a <strong>student</strong>,{" "}
               <strong>faculty member</strong>, or{" "}
               <strong>external collaborator</strong>, this page is your starting
               point to reach the ACT Centre.
             </p>
-            <p className="contact-hero-subtitle secondary">
+            <p className="page-hero-subtitle secondary hero-animate hero-delay-4">
               As processes and teams are finalised, this section will be updated
               with specific contact points for{" "}
               <strong>projects, funding, facilities,</strong> and{" "}
@@ -172,7 +167,7 @@ const Contact = () => {
             </div>
 
             <div className="contact-cards-grid">
-              <article className="contact-card card">
+              <article className="contact-card card card-tint-blue">
                 <div className="contact-card-icon">
                   <span className="contact-icon-dot" />
                 </div>
@@ -196,7 +191,7 @@ const Contact = () => {
                 </div>
               </article>
 
-              <article className="contact-card card">
+              <article className="contact-card card card-tint-green">
                 <div className="contact-card-icon contact-card-icon--accent">
                   <span className="contact-icon-dot" />
                 </div>
@@ -224,7 +219,7 @@ const Contact = () => {
                 </div>
               </article>
 
-              <article className="contact-card card">
+              <article className="contact-card card card-tint-violet">
                 <div className="contact-card-icon contact-card-icon--alt">
                   <span className="contact-icon-dot" />
                 </div>
@@ -273,35 +268,35 @@ const Contact = () => {
             </div>
 
             <div className="people-join-grid">
-              <article className="people-join-card card">
+              <article className="people-join-card card card-tint-blue">
                 <h3>Students</h3>
                 <p>
                   Participate through funded projects, internships, and
                   research-driven learning opportunities.
                 </p>
-                <Link to="/funding" className="link-animated">
+                <Link to="/funding" className="btn btn-secondary mt-auto">
                   Student opportunities
                 </Link>
               </article>
 
-              <article className="people-join-card card">
+              <article className="people-join-card card card-tint-violet">
                 <h3>Faculty &amp; Researchers</h3>
                 <p>
                   Propose and lead projects aligned with ACT research themes and
                   calls.
                 </p>
-                <Link to="/research" className="link-animated">
+                <Link to="/research" className="btn btn-secondary mt-auto">
                   Research directions
                 </Link>
               </article>
 
-              <article className="people-join-card card">
+              <article className="people-join-card card card-tint-rose">
                 <h3>External Partners</h3>
                 <p>
                   Explore collaborations with industry, government, and civil
                   society.
                 </p>
-                <Link to="/contact" className="link-animated">
+                <Link to="/contact" className="btn btn-secondary mt-auto">
                   Contact ACT
                 </Link>
               </article>
@@ -314,7 +309,7 @@ const Contact = () => {
             className={`contact-block contact-form-block reveal-section ${formVisible ? "is-visible" : ""
               }`}
           >
-            <div className="contact-form-card card">
+            <div className="contact-form-card card card-tint-blue">
               <div className="contact-form-header">
                 <h2 className="contact-block-title">Send an Enquiry</h2>
                 <p className="contact-block-subtitle">

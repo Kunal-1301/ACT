@@ -22,59 +22,26 @@ const Research = () => {
   return (
     <div className="research-page" id="research">
       {/* HERO */}
-      <section className="section research-hero research-hero-simple">
+      <section className="page-hero section--bg-tech">
         <img
           src="/media/research.JPG"
           alt="ACT Centre campus"
-          className="research-hero-bg"
+          className="page-hero-bg"
           loading="eager"
         />
-        <div className="research-hero-overlay" aria-hidden />
+        <div className="page-hero-overlay" aria-hidden />
 
-        <div className="container research-hero-inner">
-          <div
-            ref={heroTextRef}
-            className={`research-hero-text reveal-section ${heroTextVisible ? "is-visible" : ""
-              }`}
-          >
-            <h1 className="research-hero-title">Research at the ACT Centre</h1>
+        <div className="page-hero-layout">
+          <div className="research-hero-text">
+            <h1 className="page-hero-title hero-animate hero-delay-1">Research at the ACT Centre</h1>
 
-            <p className="research-hero-subtitle">
+            <p className="page-hero-subtitle hero-animate hero-delay-2">
               ACT conducts interdisciplinary research across engineering,
               cognitive science, arts & humanities, and social sciences —
               addressing real-world challenges in learning, behaviour,
               sustainability, and society.
             </p>
 
-            <div className="research-hero-ctas">
-              <Link to="/funding" className="btn btn-primary">
-                Explore Funding Calls
-              </Link>
-              <Link to="/resources" className="btn btn-secondary">
-                Proposal Templates
-              </Link>
-            </div>
-
-            <div className="research-quick-nav">
-              <a href="#themes" className="research-chip">
-                Themes
-              </a>
-              <a href="#areas" className="research-chip">
-                Idea Clusters
-              </a>
-              <a href="#projects-strategic" className="research-chip">
-                Strategic
-              </a>
-              <a href="#projects-ongoing" className="research-chip">
-                Ongoing
-              </a>
-              <a href="#publications" className="research-chip">
-                Publications
-              </a>
-              <a href="#collaborations" className="research-chip">
-                Collaborations
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -98,12 +65,12 @@ const Research = () => {
             </div>
 
             <div className="research-theme-grid">
-              <article className="research-theme-card card">
+              <article className="research-theme-card card card-tint-rose">
                 <h4>Health & Well-being</h4>
                 <p>Digital companions, serious games, and behavioural tools.</p>
               </article>
 
-              <article className="research-theme-card card">
+              <article className="research-theme-card card card-tint-blue">
 
                 <h4>Cognition & Behaviour</h4>
                 <p>
@@ -111,7 +78,7 @@ const Research = () => {
                 </p>
               </article>
 
-              <article className="research-theme-card card">
+              <article className="research-theme-card card card-tint-green">
 
                 <h4>Energy & Environment</h4>
                 <p>
@@ -119,7 +86,7 @@ const Research = () => {
                 </p>
               </article>
 
-              <article className="research-theme-card card">
+              <article className="research-theme-card card card-tint-violet">
 
                 <h4>Learning & Pedagogy</h4>
                 <p>
@@ -185,7 +152,7 @@ const Research = () => {
 
             <div className="research-projects-grid">
               {/* Project 1 */}
-              <article className="research-project-card card">
+              <article className="research-project-card card card-tint-violet">
                 <img
                   src="/media/p1.png"
                   alt="Personalized Learning"
@@ -226,7 +193,7 @@ const Research = () => {
               </article>
 
               {/* Project 2 */}
-              <article className="research-project-card card">
+              <article className="research-project-card card card-tint-green">
                 <img
                   src="/media/p2.png"
                   alt="Sustainable Crop Production"
@@ -267,7 +234,7 @@ const Research = () => {
               </article>
 
               {/* Project 3 */}
-              <article className="research-project-card card">
+              <article className="research-project-card card card-tint-rose">
                 <img
                   src="/media/p3.png"
                   alt="Myths and Morality"
@@ -326,7 +293,7 @@ const Research = () => {
 
             <div className="research-projects-grid">
               {strategicProjects.map((project) => (
-                <article key={project.id} className="research-project-card card">
+                <article key={project.id} className="research-project-card card card-tint-blue">
                   <img
                     src={project.image}
                     alt={project.shortTitle}

@@ -103,6 +103,7 @@ function Home() {
       {/* ================= HERO ================= */}
       <section className="section home-hero home-hero-simple">
         <img src="/media/home.jpg" className="home-hero-bg" alt="" />
+        <img src="/media/home.jpg" className="home-hero-bg" alt="" />
         <div className="home-hero-overlay" />
         <div className="container home-hero-inner">
           <div className="home-hero-left">
@@ -112,20 +113,20 @@ function Home() {
               </span>
             </div>
 
-            <h1 className="home-hero-title hero-animate hero-delay-3">
+            <h1 className="page-hero-title hero-animate hero-delay-3">
               Where Discipline Converges{" "}
               <span className="home-hero-title-accent">&amp; Impact</span>
               <br />
-              Imerges
+              Emerges
             </h1>
 
-            <p className="home-hero-subtitle hero-animate hero-delay-4">
+            <p className="page-hero-subtitle hero-animate hero-delay-4">
               The ACT Centre envisions a future where trans-disciplinary
               collaboration is not just encouraged but embedded in our
               educational and research culture.
             </p>
 
-            <div className="home-hero-actions hero-animate hero-delay-5">
+            <div className="page-hero-actions hero-animate hero-delay-5">
               <Link to="/research" className="btn btn-primary">
                 Explore research themes
               </Link>
@@ -206,7 +207,7 @@ function Home() {
             <div className="home-research-track" aria-live="off">
               {/* ===== REAL CARDS ===== */}
 
-              <article className="card home-research-card">
+              <article className="card home-research-card card-tint-rose">
                 <div className="card-thumb">
                   <img
                     src="/media/health.png"
@@ -225,7 +226,7 @@ function Home() {
                 </div>
               </article>
 
-              <article className="card home-research-card">
+              <article className="card home-research-card card-tint-green">
                 <div className="card-thumb">
                   <img
                     src="/media/energy.png"
@@ -244,7 +245,7 @@ function Home() {
                 </div>
               </article>
 
-              <article className="card home-research-card">
+              <article className="card home-research-card card-tint-violet">
                 <div className="card-thumb">
                   <img
                     src="/media/learning.png"
@@ -263,7 +264,7 @@ function Home() {
                 </div>
               </article>
 
-              <article className="card home-research-card">
+              <article className="card home-research-card card-tint-blue">
                 <div className="card-thumb">
                   <img
                     src="/media/energy.png"
@@ -284,7 +285,7 @@ function Home() {
 
               {/* ===== VISUAL DUPLICATES (ARIA-HIDDEN) ===== */}
               {/* Required only for seamless looping */}
-              <article className="card home-research-card">
+              <article className="card home-research-card card-tint-rose">
                 <div className="card-thumb">
                   <img
                     src="/media/health.png"
@@ -303,7 +304,7 @@ function Home() {
                 </div>
               </article>
 
-              <article className="card home-research-card">
+              <article className="card home-research-card card-tint-green">
                 <div className="card-thumb">
                   <img
                     src="/media/energy.png"
@@ -322,7 +323,7 @@ function Home() {
                 </div>
               </article>
 
-              <article className="card home-research-card">
+              <article className="card home-research-card card-tint-violet">
                 <div className="card-thumb">
                   <img
                     src="/media/learning.png"
@@ -341,7 +342,7 @@ function Home() {
                 </div>
               </article>
 
-              <article className="card home-research-card">
+              <article className="card home-research-card card-tint-blue">
                 <div className="card-thumb">
                   <img
                     src="/media/energy.png"

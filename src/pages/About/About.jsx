@@ -133,7 +133,7 @@ const About = () => {
     <main className="about-page" id="about">
       {/* ================= HERO ================= */}
       <section
-        className="section about-hero section--bg-campus"
+        className="page-hero section--bg-campus"
         role="region"
         aria-label="About the ACT Centre"
       >
@@ -144,7 +144,7 @@ const About = () => {
           className="about-hero-bg"
         />
 
-        <div className="about-hero-overlay" aria-hidden />
+        <div className="page-hero-overlay" aria-hidden />
 
         <div className="container about-hero-layout">
           <div
@@ -154,20 +154,20 @@ const About = () => {
           >
             <h1 className="about-hero-title">About the ACT Centre</h1>
 
-            <p className="about-hero-subtitle">
+            <p className="page-hero-subtitle hero-animate hero-delay-2">
               The ACT Centre is a transdisciplinary research initiative at{" "}
               <strong>Thapar Institute of Engineering and Technology</strong>,
               bringing together engineering, cognitive science, social sciences,
               and the humanities to address complex real-world challenges.
             </p>
 
-            <p className="about-hero-subtitle secondary">
+            <p className="page-hero-subtitle secondary hero-animate hero-delay-3">
               ACT supports research questions that cannot be effectively
               addressed within a single discipline, through shared
               infrastructure, structured funding, and collaborative processes.
             </p>
 
-            <div className="about-hero-ctas">
+            <div className="page-hero-actions hero-animate hero-delay-4">
               <Link to="/research" className="btn btn-primary">
                 Explore Research Themes
               </Link>
@@ -199,7 +199,7 @@ const About = () => {
             </div>
 
             <div className="about-mvv-grid">
-              <article className="about-mvv-card card">
+              <article className="about-mvv-card card card-tint-blue">
                 <h3>Mission</h3>
                 <p>
                   To enable rigorous, collaborative research that integrates
@@ -208,7 +208,7 @@ const About = () => {
                 </p>
               </article>
 
-              <article className="about-mvv-card card">
+              <article className="about-mvv-card card card-tint-violet">
                 <h3>Vision</h3>
                 <p>
                   To establish ACT as a recognised hub for applied cognition and

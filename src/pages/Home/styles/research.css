@@ -150,35 +150,6 @@
 }
 
 /* =====================================================
-   TERTIARY CTA BUTTON
-   ===================================================== */
-
-/* Minimal inline CTA */
-.btn-tertiary {
-  align-self: flex-start;
-  font-size: 0.85rem;
-  padding: 1rem;
-  border-radius: 999px;
-  color: #0a1a3f;
-  border: 1px solid rgba(10, 26, 63, 0.25);
-  background: transparent;
-  transition: all 180ms ease;
-}
-
-/* Hover affordance */
-.btn-tertiary:hover {
-  background: rgba(31, 163, 163, 0.08);
-  border-color: rgba(31, 163, 163, 0.5);
-  transform: translateX(4px);
-}
-
-/* Keyboard focus state */
-.btn-tertiary:focus-visible {
-  outline: 2px solid rgba(31, 163, 163, 0.6);
-  outline-offset: 2px;
-}
-
-/* =====================================================
    EDGE GRADIENT FADES
    ===================================================== */
 
