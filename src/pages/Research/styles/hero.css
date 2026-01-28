@@ -107,4 +107,7 @@
 }
 
 .research-chip:hover {
-  back
+  background: var(--overlay-light-bright);
+  border-color: var(--overlay-light-border-hover);
+  color: var(--color-text);
+}

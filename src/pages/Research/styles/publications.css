@@ -1,4 +1,17 @@
-gin-bottom: 0.6rem;
+/* ================================
+   PUBLICATIONS
+   ================================ */
+
+.research-pubs-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+  gap: 1.4rem;
+}
+
+.research-pubs-feature h4 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 /* ================================
@@ -42,4 +55,6 @@ gin-bottom: 0.6rem;
 .research-modal h3 {
   margin-top: 0;
   margin-bottom: 0.4rem;
-  font-size: 1.
+  font-size: 1.3rem;
+  color: var(--color-primary);
+}
