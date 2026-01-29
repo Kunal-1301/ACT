@@ -70,7 +70,7 @@ const News = () => {
       {/* MAIN CONTENT */}
       <section className="section news-main">
         <div className="container">
-          {/* FEATURED NEWS */}
+          {/* SANCTIONED PROJECTS */}
           <section
             ref={featuredRef}
             className={`news-block news-featured-block reveal-section ${featuredVisible ? "is-visible" : ""
@@ -78,39 +78,154 @@ const News = () => {
           >
             <div className="news-block-header">
               <h2 className="news-block-title">
-                Featured Highlight (Placeholder)
+                Recently Sanctioned Projects
               </h2>
               <p className="news-block-subtitle">
-                Once ACT is announced, the latest major update or story can be
-                featured here with a prominent card, image, or video snippet.
+                Highlighting recent research initiatives and PI-led grants sanctioned at the ACT Centre.
               </p>
             </div>
 
-            <article className="news-featured card card-tint-blue">
-              <div className="news-featured-tag-row">
-                <span className="news-pill">Announcement</span>
-                <span className="news-featured-status">Coming soon</span>
-              </div>
+            <div className="news-projects-grid">
+              {/* Project 1 */}
+              <article className="news-featured card card-tint-blue">
+                <div className="news-featured-tag-row">
+                  <span className="news-pill">New Grant</span>
+                  <span className="news-featured-status">TIET/ACT/2026/01</span>
+                </div>
+                <h3 className="news-featured-title">
+                  Centralized Sanitary Pad Incinerator
+                </h3>
+                <p className="news-featured-meta">
+                  PI: Dr. S.S Mallick, Prof. MED
+                </p>
+                <p className="news-featured-text">
+                  <strong>Design and Development of Centralized Sanitary Pad Incinerator for Institutional Purposes</strong>
+                </p>
+                <p className="news-featured-note">
+                  Co-PIs: Dr. K.K Gupta, Dr. Dhamodaran, Dr. Sayan Sadhu, Dr. Pankaj Kumar
+                </p>
+              </article>
 
-              <h3 className="news-featured-title">
-                Placeholder: Launch of the ACT Centre &amp; First Calls
-              </h3>
-              <p className="news-featured-meta">
-                Date · Location · Link to detailed note – to be updated
-              </p>
+              {/* Project 2 */}
+              <article className="news-featured card card-tint-green">
+                <div className="news-featured-tag-row">
+                  <span className="news-pill">New Grant</span>
+                  <span className="news-featured-status">TIET/ACT/2026/02</span>
+                </div>
+                <h3 className="news-featured-title">
+                  Gamified Civil Engineering Education
+                </h3>
+                <p className="news-featured-meta">
+                  PI: Dr. Abhinay Kumar
+                </p>
+                <p className="news-featured-text">
+                  <strong>Enhancing Civil Engineering Education through Gamified Learning</strong>
+                </p>
+                <p className="news-featured-note">
+                  Co-PIs: Dr. Jyoti Maggu, Dr. Richa Nigam
+                </p>
+              </article>
 
-              <p className="news-featured-text">
-                This featured space can later carry a short narrative about the
-                formal launch of ACT, the core themes, and how students and
-                faculty can start engaging with the centre.
-              </p>
+              {/* Project 3 */}
+              <article className="news-featured card card-tint-rose">
+                <div className="news-featured-tag-row">
+                  <span className="news-pill">New Grant</span>
+                  <span className="news-featured-status">TIET/ACT/2026/03</span>
+                </div>
+                <h3 className="news-featured-title">
+                  Elder Care Ecosystem
+                </h3>
+                <p className="news-featured-meta">
+                  PI: Dr. Richa Nigam
+                </p>
+                <p className="news-featured-text">
+                  <strong>The Elder Care Ecosystem in Punjab</strong>
+                </p>
+                <p className="news-featured-note">
+                  Co-PIs: Dr. Shilpi Tyagi, Dr. Sanat Sogani
+                </p>
+              </article>
 
-              <p className="news-featured-note">
-                In the future this card may also include a{" "}
-                <span className="news-pill-soft">View photos</span> or{" "}
-                <span className="news-pill-soft">Read full note</span> link.
-              </p>
-            </article>
+              {/* Project 4 */}
+              <article className="news-featured card card-tint-violet">
+                <div className="news-featured-tag-row">
+                  <span className="news-pill">New Grant</span>
+                  <span className="news-featured-status">TIET/ACT/2026/04</span>
+                </div>
+                <h3 className="news-featured-title">
+                  Adaptive AI-Driven E-Skin
+                </h3>
+                <p className="news-featured-meta">
+                  PI: Dr. Abhisek Pal
+                </p>
+                <p className="news-featured-text">
+                  <strong>The Relational Interface: Adaptive AI-Driven E-Skin for Personalized Health and Social Connection</strong>
+                </p>
+                <p className="news-featured-note">
+                  Co-PIs: Dr. Raj Kumar Khan, Dr. Payal Mittal, Dr. Aarushi Mahajan, Prof. Anil K Verma
+                </p>
+              </article>
+
+              {/* Project 5 */}
+              <article className="news-featured card card-tint-blue">
+                <div className="news-featured-tag-row">
+                  <span className="news-pill">New Grant</span>
+                  <span className="news-featured-status">TIET/ACT/2026/05</span>
+                </div>
+                <h3 className="news-featured-title">
+                  Sustainable Nanotechnology
+                </h3>
+                <p className="news-featured-meta">
+                  PI: Prof. Manmohan Chhiber
+                </p>
+                <p className="news-featured-text">
+                  <strong>Sustainable Nanotechnology for Mitigating Microplastic-Induced Cognitive and Physiological Impairments in Honeybees</strong>
+                </p>
+                <p className="news-featured-note">
+                  Co-PIs: Dr. Neloy Kumar Chakroborty, Dr. Irshad Mohiuddin, Dr. Priyankar Dey
+                </p>
+              </article>
+
+              {/* Project 6 */}
+              <article className="news-featured card card-tint-green">
+                <div className="news-featured-tag-row">
+                  <span className="news-pill">New Grant</span>
+                  <span className="news-featured-status">TIET/ACT/2026/06</span>
+                </div>
+                <h3 className="news-featured-title">
+                  MXene-Based Biosensors
+                </h3>
+                <p className="news-featured-meta">
+                  PI: Dr. Atul Upadhyay
+                </p>
+                <p className="news-featured-text">
+                  <strong>Synthesis and Functionalization of MXene-Based Biosensors for Comprehensive Allergen Detection</strong>
+                </p>
+                <p className="news-featured-note">
+                  Co-PIs: Dr. Mohit Agrawal, Dr. Rajesh Mehta, Dr. Ovais Qadri, Miss Rasman Kaur
+                </p>
+              </article>
+
+              {/* Project 7 */}
+              <article className="news-featured card card-tint-rose">
+                <div className="news-featured-tag-row">
+                  <span className="news-pill">New Grant</span>
+                  <span className="news-featured-status">TIET/ACT/2026/07</span>
+                </div>
+                <h3 className="news-featured-title">
+                  Portable Breath Analyzer
+                </h3>
+                <p className="news-featured-meta">
+                  PI: Dr. Maninder Kaur
+                </p>
+                <p className="news-featured-text">
+                  <strong>Breath to Insight: Portable Multi Gas Breath Analyzer for Gut Health Screening</strong>
+                </p>
+                <p className="news-featured-note">
+                  Co-PIs: Dr. Mandeep Singh, Dr. Babita Ghai
+                </p>
+              </article>
+            </div>
           </section>
 
           {/* RECENT UPDATES */}

@@ -1,17 +1,11 @@
+a=[]
+a.append(10)
+print(a)
+a.append(20)
+print(a)
 
-var=100
-if var==200:
-    print("1 - Got a true expression value")
-    print(var)
+a.insert(0,5)
+print(a)
 
-elif var==150:
-    print("2 - Got a true expression value")
-    print(var)
-elif var==100:
-    print("3 - Got a true expression value")
-    print(var)
-else:
-    print("4 - Got a false expression value")
-    print(var)      
-
-print("Good bye!")
+a.extend([30,40,50])
+print(a)

@@ -34,13 +34,13 @@
 }
 
 .news-hero-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: 1.1;
   margin-bottom: 0.6rem;
 }
 
 .news-hero-subtitle {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   max-width: 40rem;
   color: var(--color-text-muted);
   margin: 0;
@@ -60,7 +60,7 @@
 
 .news-hero-side-label {
   margin: 0 0 0.4rem;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--color-text-muted);
@@ -69,7 +69,7 @@
 .news-hero-bullets {
   margin: 0 0 0.5rem;
   padding-left: 1.1rem;
-  font-size: 0.86rem;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
   display: grid;
   gap: 0.2rem;
@@ -109,7 +109,7 @@
 }
 
 .news-block-subtitle {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   color: var(--color-text-muted);
   margin: 0;
   max-width: 40rem;
@@ -149,7 +149,7 @@
   justify-content: center;
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   background: linear-gradient(
     135deg,
     var(--color-primary),
@@ -161,7 +161,7 @@
 }
 
 .news-featured-status {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
   background-color: rgba(15, 23, 42, 0.04);
@@ -174,7 +174,7 @@
   justify-content: center;
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   background-color: rgba(148, 163, 184, 0.18);
   color: var(--color-text-soft);
 }
@@ -193,15 +193,31 @@
 
 .news-featured-text {
   margin: 0 0 0.4rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
 .news-featured-note {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   color: var(--color-text-soft, #4b5563);
   opacity: 0.9;
+}
+
+/* ================================
+   PROJECTS (New Grid)
+   ================================ */
+
+.news-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+
+@media (max-width: 900px) {
+  .news-projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 /* ================================
@@ -239,19 +255,19 @@
 
 .news-item-title {
   margin: 0 0 0.3rem;
-  font-size: 0.98rem;
+  font-size: 1.1rem;
   color: var(--color-primary);
 }
 
 .news-item-text {
   margin: 0 0 0.35rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
 .news-item-link {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   color: var(--color-text-soft, #4b5563);
 }
 
@@ -277,7 +293,7 @@
 }
 
 .news-call-status {
-  font-size: 0.74rem;
+  font-size: 0.85rem;
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
   text-transform: uppercase;
@@ -300,7 +316,7 @@
 }
 
 .news-call-tag {
-  font-size: 0.74rem;
+  font-size: 0.85rem;
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
   background-color: rgba(15, 23, 42, 0.04);
@@ -315,14 +331,14 @@
 
 .news-call-text {
   margin: 0 0 0.4rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
 .news-call-meta {
   margin: 0;
   padding-left: 1.1rem;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
   display: grid;
   gap: 0.2rem;
@@ -342,13 +358,13 @@
 
 .news-archive-text {
   margin: 0 0 0.35rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
 .news-archive-note {
   margin: 0;
-  font-size: 0.84rem;
+  font-size: 0.94rem;
   color: var(--color-text-soft, #4b5563);
   opacity: 0.95;
 }
@@ -383,13 +399,13 @@
 
 .news-subscribe-text {
   margin: 0 0 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .news-subscribe-list {
   margin: 0;
   padding-left: 1.1rem;
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   display: grid;
   gap: 0.2rem;
 }

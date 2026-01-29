@@ -166,7 +166,7 @@ function Home() {
           </div>
 
           <div className="home-vision-visual">
-            <img src="/media/homebg2.png" alt="" />
+            <img src="/media/vision.jpeg" alt="" />
           </div>
         </div>
       </section>
@@ -378,26 +378,23 @@ function Home() {
               Neuroscience–informed design of complex systems.
             </h2>
             <p className="home-section-intro">
-              ACT is gradually building a neuroscience–informed pillar that
-              brings together cognitive science, brain–behaviour measures and
-              applied technology for real–world settings.
+              Neuromanagement-driven design of leadership, decision, and communication systems.</p>
+            <p className="home-section-intro">ACT is strengthening a Neuromanagement pillar that brings together management science, cognitive neuroscience, and behavioural analytics to understand and improve how individuals and institutions lead, decide, communicate, and create in complex real-world environments.
             </p>
           </div>
           <div className="home-neuro-right card">
             <h3 className="home-section-subtitle">Neuroscience focus at ACT</h3>
             <ul className="home-neuro-list">
               <li>
-                Incorporating cognitive load, attention and perception metrics
-                into interface and system design.
+                Integrating cognitive load, attention, emotion, and trust metrics into managerial decision-making, leadership practices, and organizational communication.
               </li>
               <li>
-                Exploring neuro–ergonomics in safety–critical domains like
-                mobility, healthcare and infrastructure.
+                Exploring neuromanagement approaches to decision-making under stress, bias, uncertainty, and digital overload across education, governance, and public institutions.
               </li>
               <li>
-                Building collaborations for EEG, eye–tracking and other sensing
-                modalities linked to behaviour in the wild.
+                Advancing creativity and problem-solving in teams and classrooms through brain-aware interventions, environmental design, and human–AI collaboration frameworks.
               </li>
+              <li>Building interdisciplinary collaborations using behavioural sensing, EEG, eye-tracking, and lightweight digital signals to study managerial cognition and behaviour in naturalistic settings.</li>
             </ul>
             <div className="home-neuro-footer">
               <Link to="/contact" className="btn btn-tertiary">
@@ -833,7 +830,7 @@ function Home() {
             <div className="home-section-header-main">
               <h2 className="home-section-title">News &amp; Events</h2>
               <p className="home-section-intro">
-                Stay updated with ACT announcements, calls, seminars and workshops.
+                Stay tuned for the update on calls for strategic project.
               </p>
             </div>
           </div>
@@ -845,31 +842,60 @@ function Home() {
 
               <div className="news-vertical-scroll">
                 <div className="news-vertical-track">
-                  <article className="card home-news-card">
-                    <span className="badge-new">New</span>
-                    <h4>ACT launches campus mobility living lab</h4>
+                  <article className="card home-news-card news-card-header">
+                    <h4>List of Recently Sanctioned Projects</h4>
                     <p>
-                      A new testbed integrates sensors, surveys and experiments to
-                      study multimodal travel on campus.
+                      Highlighting recent research initiatives and PI-led grants sanctioned at the ACT Centre.
                     </p>
                   </article>
 
                   <article className="card home-news-card">
-                    <h4>Workshop on cognition in built environments</h4>
-                    <p>
-                      Researchers and practitioners discussed how perception and
-                      attention shape building and campus experiences.
-                    </p>
+                    <span className="badge-new">New</span>
+                    <h4>Centralized Sanitary Pad Incinerator</h4>
+                    <p><strong>Design and Development of Centralized Sanitary Pad Incinerator for Institutional Purposes</strong></p>
+                    <p className="news-card-meta">PI: Dr. S.S Mallick, Prof. MED | TIET/ACT/2026/01</p>
                   </article>
 
-                  {/* duplicate for seamless loop */}
                   <article className="card home-news-card">
                     <span className="badge-new">New</span>
-                    <h4>ACT launches campus mobility living lab</h4>
-                    <p>
-                      A new testbed integrates sensors, surveys and experiments to
-                      study multimodal travel on campus.
-                    </p>
+                    <h4>Gamified Civil Engineering Education</h4>
+                    <p><strong>Enhancing Civil Engineering Education through Gamified Learning</strong></p>
+                    <p className="news-card-meta">PI: Dr. Abhinay Kumar | TIET/ACT/2026/02</p>
+                  </article>
+
+                  <article className="card home-news-card">
+                    <span className="badge-new">New</span>
+                    <h4>Elder Care Ecosystem</h4>
+                    <p><strong>The Elder Care Ecosystem in Punjab</strong></p>
+                    <p className="news-card-meta">PI: Dr. Richa Nigam | TIET/ACT/2026/03</p>
+                  </article>
+
+                  <article className="card home-news-card">
+                    <span className="badge-new">New</span>
+                    <h4>Adaptive AI-Driven E-Skin</h4>
+                    <p><strong>The Relational Interface: Adaptive AI-Driven E-Skin for Personalized Health and Social Connection</strong></p>
+                    <p className="news-card-meta">PI: Dr. Abhisek Pal | TIET/ACT/2026/04</p>
+                  </article>
+
+                  <article className="card home-news-card">
+                    <span className="badge-new">New</span>
+                    <h4>Sustainable Nanotechnology</h4>
+                    <p><strong>Sustainable Nanotechnology for Mitigating Microplastic-Induced Cognitive and Physiological Impairments in Honeybees</strong></p>
+                    <p className="news-card-meta">PI: Prof. Manmohan Chhiber | TIET/ACT/2026/05</p>
+                  </article>
+
+                  <article className="card home-news-card">
+                    <span className="badge-new">New</span>
+                    <h4>MXene-Based Biosensors</h4>
+                    <p><strong>Synthesis and Functionalization of MXene-Based Biosensors for Comprehensive Allergen Detection</strong></p>
+                    <p className="news-card-meta">PI: Dr. Atul Upadhyay | TIET/ACT/2026/06</p>
+                  </article>
+
+                  <article className="card home-news-card">
+                    <span className="badge-new">New</span>
+                    <h4>Portable Breath Analyzer</h4>
+                    <p><strong>Breath to Insight: Portable Multi Gas Breath Analyzer for Gut Health Screening</strong></p>
+                    <p className="news-card-meta">PI: Dr. Maninder Kaur | TIET/ACT/2026/07</p>
                   </article>
                 </div>
               </div>

@@ -12,7 +12,7 @@ import Research from "./pages/Research/Research";
 // import Facilities from "./pages/Facilities/Facilities";
 import Funding from "./pages/Funding/Funding";
 // import Events from "./pages/Events/Events";
-// import News from "./pages/News/News";
+import News from "./pages/News/News";
 import Contact from "./pages/Contact/Contact";
 import ProposalFormat from "./pages/Documents/ProposalFormat";
 import EvaluationMatrix from "./pages/Documents/EvaluationMatrix";
@@ -35,8 +35,8 @@ const App = () => {
           <Route path="/research" element={<Research />} />
           {/* <Route path="/facilities" element={<Facilities />} /> */}
           <Route path="/funding" element={<Funding />} />
-          {/* <Route path="/events" element={<Events />} />
-          <Route path="/news" element={<News />} /> */}
+          {/* <Route path="/events" element={<Events />} /> */}
+          <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/documents/project-approval-process"

@@ -63,7 +63,7 @@ const peopleData = [
     role: "Research Associate",
     affiliation: "ACT Centre",
     group: "Research Team",
-    avatar: "",
+    avatar: "/media/Kunal.jpeg",
   },
 ];
 

@@ -140,7 +140,7 @@ const Contact = () => {
 
             <div className="contact-map-container">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.1877265654!2d76.36540931512!3d30.6509978814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390feb2d8d7c5b37%3A0x6d6b3b6b06b57f5!2sThapar%20Institute%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=30.356409,76.372170&z=15&output=embed"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
@@ -179,13 +179,7 @@ const Contact = () => {
                   </p>
                   <ul>
                     <li>
-                      Email: <span>To be updated</span>
-                    </li>
-                    <li>
-                      Office phone: <span>To be updated</span>
-                    </li>
-                    <li>
-                      Office hours: <span>To be updated</span>
+                      Email: <span>act@thapar.edu</span>
                     </li>
                   </ul>
                 </div>
@@ -203,10 +197,7 @@ const Contact = () => {
                   </p>
                   <ul>
                     <li>
-                      Funding coordination: <span>To be updated</span>
-                    </li>
-                    <li>
-                      Proposal helpdesk: <span>To be updated</span>
+                      Email: <span>act@thapar.edu</span>
                     </li>
                   </ul>
                   <p className="contact-card-link">
@@ -231,10 +222,7 @@ const Contact = () => {
                   </p>
                   <ul>
                     <li>
-                      Facilities / lab coordination: <span>To be updated</span>
-                    </li>
-                    <li>
-                      Events &amp; communication: <span>To be updated</span>
+                      Email: <span>act@thapar.edu</span>
                     </li>
                   </ul>
                   <p className="contact-card-link">

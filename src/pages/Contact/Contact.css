@@ -57,13 +57,13 @@
 }
 
 .contact-hero-title {
-  font-size: 2.1rem;
+  font-size: 2.5rem;
   line-height: 1.1;
   margin-bottom: 0.7rem;
 }
 
 .contact-hero-subtitle {
-  font-size: 0.97rem;
+  font-size: 1.15rem;
   max-width: 42rem;
   opacity: 0.95;
   margin-bottom: 0.6rem;
@@ -86,18 +86,18 @@
 
 .contact-hero-card-title {
   margin: 0 0 0.45rem;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
 }
 
 .contact-hero-card-text {
   margin: 0 0 0.6rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   opacity: 0.96;
 }
 
 .contact-hero-location-heading {
   margin: 0 0 0.2rem;
-  font-size: 0.84rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   opacity: 0.8;
@@ -105,7 +105,7 @@
 
 .contact-hero-location-text {
   margin: 0 0 0.7rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .contact-hero-map-btn {
@@ -114,7 +114,7 @@
 
 .contact-hero-card-note {
   margin: 0;
-  font-size: 0.86rem;
+  font-size: 0.95rem;
   opacity: 0.92;
 }
 
@@ -144,14 +144,14 @@
 }
 
 .contact-block-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--color-primary);
   margin: 0 0 0.35rem;
 }
 
 .contact-block-subtitle {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   color: var(--color-text-muted);
   margin: 0;
   max-width: 40rem;
@@ -219,20 +219,20 @@
 
 .contact-card-main h3 {
   margin: 0 0 0.3rem;
-  font-size: 0.98rem;
+  font-size: 1.1rem;
   color: var(--color-primary);
 }
 
 .contact-card-main p {
   margin: 0 0 0.4rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
 .contact-card-main ul {
   margin: 0;
   padding-left: 1.1rem;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
   display: grid;
   gap: 0.2rem;
@@ -244,7 +244,7 @@
 
 .contact-card-link {
   margin-top: 0.3rem;
-  font-size: 0.86rem;
+  font-size: 0.95rem;
 }
 
 /* ================================
@@ -317,7 +317,7 @@
 }
 
 .contact-field label {
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--color-text-soft, #4b5563);
 }
@@ -327,7 +327,7 @@
   border-radius: 0.55rem;
   border: 1px solid rgba(209, 213, 219, 0.9);
   padding: 0.25rem 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: inherit;
   outline: none;
   background-color: var(--color-white);
@@ -371,7 +371,7 @@
 
 .contact-form-note {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   color: var(--color-text-muted);
   max-width: 28rem;
 }

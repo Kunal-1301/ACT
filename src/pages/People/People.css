@@ -56,13 +56,13 @@
 
 /* Typography */
 .people-hero-title {
-  font-size: 2.1rem;
+  font-size: 2.5rem;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
 .people-hero-subtitle {
-  font-size: 0.97rem;
+  font-size: 1.15rem;
   max-width: 42rem;
   color: rgba(236, 244, 255, 0.95);
 }
@@ -125,7 +125,7 @@
 }
 
 .people-block-subtitle {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   max-width: 40rem;
   color: var(--color-text-muted);
 }
@@ -141,7 +141,7 @@
 }
 
 .people-overview-card p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   opacity: 0.9;
 }
 /* Emphasise leadership subtly */
@@ -221,7 +221,7 @@
 
 /* Text */
 .people-name {
-  font-size: 1rem;
+  font-size: 1.15rem;
   margin: 0;
   font-weight: 600;
   color: var(--color-primary);
@@ -230,7 +230,7 @@
 }
 
 .people-role {
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   margin: 0;
   opacity: 0.85;
 }
@@ -248,14 +248,14 @@
 }
 
 .people-interests {
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   color: var(--color-text-muted);
   margin: 0 0 0.4rem;
   margin-bottom: 0.2rem;
 }
 
 .people-placeholder-note {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   opacity: 0.9;
 }
 
@@ -270,7 +270,7 @@
 }
 
 .people-join-card p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 

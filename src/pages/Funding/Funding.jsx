@@ -475,7 +475,7 @@ const Funding = () => {
             className={`funding-section-block funding-contact-block reveal-section ${contactVisible ? "is-visible" : ""
               }`}
           >
-            <div className="funding-contact-card card card-tint-blue">
+            <div className="funding-contact-card card">
               <h3>Need Help with Applications?</h3>
               <p>
                 For queries related to project alignment, evaluation process,

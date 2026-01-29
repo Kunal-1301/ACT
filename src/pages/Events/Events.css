@@ -39,7 +39,7 @@
 }
 
 .events-hero-subtitle {
-  font-size: 0.97rem;
+  font-size: 1.15rem;
   max-width: 42rem;
   opacity: 0.95;
   margin-bottom: 0.6rem;
@@ -72,7 +72,7 @@
   justify-content: center;
   padding: 1rem;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   border: 1px solid rgba(248, 250, 252, 0.4);
   background-color: rgba(15, 23, 42, 0.2);
   color: var(--color-gray-light);
@@ -101,19 +101,19 @@
 
 .events-hero-side-title {
   margin: 0 0 0.4rem;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
 }
 
 .events-hero-side-text {
   margin: 0 0 0.7rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   opacity: 0.95;
 }
 
 .events-hero-bullets {
   margin: 0 0 0.6rem;
   padding-left: 1.1rem;
-  font-size: 0.86rem;
+  font-size: 0.95rem;
   opacity: 0.92;
   display: grid;
   gap: 0.2rem;
@@ -165,7 +165,7 @@
 }
 
 .events-block-subtitle {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   color: var(--color-text-muted);
   margin: 0;
   max-width: 40rem;
@@ -227,26 +227,26 @@
 
 .events-upcoming-title {
   margin: 0 0 0.25rem;
-  font-size: 0.98rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--color-primary);
 }
 
 .events-upcoming-meta {
   margin: 0 0 0.35rem;
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   color: var(--color-text-muted);
 }
 
 .events-upcoming-text {
   margin: 0 0 0.35rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
 .events-upcoming-note {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--color-text-soft, #4b5563);
   opacity: 0.9;
 }
@@ -316,13 +316,13 @@
 
 .events-timeline-title {
   margin: 0 0 0.3rem;
-  font-size: 0.98rem;
+  font-size: 1.1rem;
   color: var(--color-primary);
 }
 
 .events-timeline-text {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
@@ -344,14 +344,14 @@
 
 .events-format-card p {
   margin: 0 0 0.4rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
 .events-format-card ul {
   margin: 0;
   padding-left: 1.1rem;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
   display: grid;
   gap: 0.25rem;
@@ -401,14 +401,14 @@
 
 .events-participate-column p {
   margin: 0 0 0.4rem;
-  font-size: 0.88rem;
+  font-size: 0.98rem;
 }
 
 .events-participate-column ol,
 .events-participate-column ul {
   margin: 0;
   padding-left: 1.1rem;
-  font-size: 0.86rem;
+  font-size: 0.96rem;
   display: grid;
   gap: 0.25rem;
 }

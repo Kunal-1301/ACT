@@ -56,21 +56,21 @@
 
 .facilities-hero-eyebrow {
   color: rgba(248, 250, 252, 0.9);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-bottom: 0.4rem;
 }
 
 .facilities-hero-title {
-  font-size: clamp(1.8rem, 3vw + 1.2rem, 2.4rem);
+  font-size: clamp(2.2rem, 3.5vw + 1.2rem, 3rem);
   line-height: 1.12;
   margin-bottom: 0.8rem;
   font-weight: 600;
 }
 
 .facilities-hero-subtitle {
-  font-size: 0.98rem;
+  font-size: 1.15rem;
   max-width: 42rem;
   opacity: 0.94;
   margin-bottom: 0.6rem;
@@ -97,7 +97,7 @@
   justify-content: center;
   padding: 1rem;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   border: 1px solid rgba(248, 250, 252, 0.35);
   background: rgba(15, 23, 42, 0.22);
   color: var(--color-gray-light);
@@ -114,7 +114,7 @@
 }
 
 .facilities-hero-media-label {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   opacity: 0.82;
@@ -122,7 +122,7 @@
 }
 
 .facilities-hero-media-caption {
-  font-size: 0.88rem;
+  font-size: 1rem;
   opacity: 0.92;
 }
 
@@ -141,14 +141,14 @@
 }
 
 .facilities-hero-badge-label {
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   opacity: 0.95;
   display: block;
 }
 
 /* media footer */
 .facilities-hero-media-footer p {
-  font-size: 0.86rem;
+  font-size: 0.96rem;
   opacity: 0.94;
 }
 
@@ -176,7 +176,7 @@
 
 .facilities-block-header { margin-bottom: 1.4rem; }
 .facilities-block-title { font-size: 1.25rem; font-weight: 600; color: var(--color-primary); margin: 0 0 0.35rem; }
-.facilities-block-subtitle { font-size: 0.9rem; color: var(--color-text-muted); max-width: 40rem; }
+.facilities-block-subtitle { font-size: 1.05rem; color: var(--color-text-muted); max-width: 40rem; }
 
 /* LAB STRIPS */
 .facilities-lab-strips { display: grid; gap: 1.6rem; }
@@ -188,12 +188,12 @@
   align-items: stretch;
 }
 
-.facilities-lab-main h3 { margin: 0 0 0.4rem; font-size: 1.02rem; color: var(--color-primary); }
-.facilities-lab-main p, .facilities-lab-main ul { margin: 0 0 0.5rem; font-size: 0.9rem; color: var(--color-text-muted); }
+.facilities-lab-main h3 { margin: 0 0 0.4rem; font-size: 1.15rem; color: var(--color-primary); }
+.facilities-lab-main p, .facilities-lab-main ul { margin: 0 0 0.5rem; font-size: 1rem; color: var(--color-text-muted); }
 .facilities-lab-main ul { padding-left: 1.1rem; display: grid; gap: 0.25rem; }
 
-.facilities-lab-meta { font-size: 0.88rem; color: var(--color-text-muted); padding: 1rem; border-radius: 12px; }
-.facilities-lab-meta h4 { margin: 0 0 0.3rem; font-size: 0.95rem; color: var(--color-primary); }
+.facilities-lab-meta { font-size: 1rem; color: var(--color-text-muted); padding: 1rem; border-radius: 12px; }
+.facilities-lab-meta h4 { margin: 0 0 0.3rem; font-size: 1.05rem; color: var(--color-primary); }
 .facilities-lab-meta--glass { background: linear-gradient(135deg, rgba(148,163,184,0.18), rgba(148,163,184,0.05)); backdrop-filter: blur(8px); }
 
 /* EQUIPMENT */
@@ -202,7 +202,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.3rem;
 }
-.facilities-equipment-card h3 { margin: 0 0 0.4rem; font-size: 1rem; color: var(--color-primary); }
+.facilities-equipment-card h3 { margin: 0 0 0.4rem; font-size: 1.15rem; color: var(--color-primary); }
 .facilities-equipment-card ul { padding-left: 1.1rem; display: grid; gap: 0.25rem; }
 
 /* BOOKING */
@@ -211,14 +211,14 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.3rem;
 }
-.facilities-booking-card h3 { margin: 0 0 0.4rem; font-size: 1rem; color: var(--color-primary); }
+.facilities-booking-card h3 { margin: 0 0 0.4rem; font-size: 1.1rem; color: var(--color-primary); }
 .facilities-booking-card ul, .facilities-booking-card ol { padding-left: 1.1rem; display: grid; gap: 0.25rem; }
 
 /* CONTACT */
 .facilities-contact-card { border-radius: 1rem; padding: 1.5rem 1.3rem 1.4rem; background: linear-gradient(135deg, rgba(11,46,89,0.97), rgba(30,75,130,0.95)), var(--color-text); color: var(--color-white); }
 .facilities-contact-card h2 { margin: 0 0 0.7rem; font-size: 1.15rem; }
-.facilities-contact-card p { margin: 0 0 0.7rem; font-size: 0.9rem; }
-.facilities-contact-note { font-size: 0.84rem; opacity: 0.96; }
+.facilities-contact-card p { margin: 0 0 0.7rem; font-size: 1rem; }
+.facilities-contact-note { font-size: 0.94rem; opacity: 0.96; }
 
 /* ================================
    ANIMATIONS & REVEAL
