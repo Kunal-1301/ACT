@@ -375,10 +375,8 @@ function Home() {
           <div className="home-neuro-left">
             <p className="section-eyebrow">Future direction</p>
             <h2 className="home-section-title">
-              Neuroscience–informed design of complex systems.
+              Neuromanagement-driven design of leadership, decision, and communication systems.
             </h2>
-            <p className="home-section-intro">
-              Neuromanagement-driven design of leadership, decision, and communication systems.</p>
             <p className="home-section-intro">ACT is strengthening a Neuromanagement pillar that brings together management science, cognitive neuroscience, and behavioural analytics to understand and improve how individuals and institutions lead, decide, communicate, and create in complex real-world environments.
             </p>
           </div>
@@ -768,7 +766,7 @@ function Home() {
             <article className="card home-person-card">
               <div className="home-person-photo">
                 <img
-                  src="/media/Vinay.jpeg"
+                  src="/media/vinay_home.JPG"
                   alt="Dr. Vinay Kumar"
                   loading="lazy"
                 />
@@ -784,7 +782,7 @@ function Home() {
             <article className="card home-person-card">
               <div className="home-person-photo">
                 <img
-                  src="/media/rahul.jpeg"
+                  src="/media/rahul_home.jpg"
                   alt="Dr. Rahul Upadhyay"
                   loading="lazy"
                 />
