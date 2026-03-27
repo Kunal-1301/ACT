@@ -94,23 +94,23 @@
      SHADOW SYSTEM
      ================================ */
   
-  --shadow-xs: 0 4px 12px rgba(0, 0, 0, 0.06);
-  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 8px 18px rgba(15, 23, 42, 0.07);
-  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.08);
-  --shadow-xl: 0 18px 40px rgba(15, 23, 42, 0.18);
-  --shadow-2xl: 0 20px 45px rgba(15, 23, 42, 0.10);
-  --shadow-3xl: 0 40px 80px rgba(0, 0, 0, 0.25);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 4px 14px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.05), 0 4px 12px rgba(15, 23, 42, 0.03);
+  --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.08), 0 5px 15px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 30px 60px rgba(15, 23, 42, 0.12), 0 10px 20px rgba(15, 23, 42, 0.05);
+  --shadow-2xl: 0 40px 90px rgba(15, 23, 42, 0.15), 0 15px 30px rgba(15, 23, 42, 0.06);
+  --shadow-3xl: 0 60px 120px rgba(0, 0, 0, 0.20);
   
-  --shadow-button-sm: 0 6px 18px rgba(0, 0, 0, 0.2);
-  --shadow-button-md: 0 10px 30px rgba(0, 0, 0, 0.18);
-  --shadow-button-lg: 0 16px 40px rgba(0, 0, 0, 0.22);
-  --shadow-button-hover: 0 10px 26px rgba(0, 0, 0, 0.12);
+  --shadow-button-sm: 0 4px 12px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-button-md: 0 8px 24px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-button-lg: 0 16px 40px rgba(0, 0, 0, 0.18), 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-button-hover: 0 12px 28px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.08);
   
-  --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.08);
-  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.04);
-  --shadow-card-hover: 0 20px 45px rgba(15, 23, 42, 0.10);
-  --shadow-primary: 0 10px 24px rgba(37, 99, 235, 0.25);
+  --shadow-soft: 0 12px 36px rgba(15, 23, 42, 0.06);
+  --shadow-card: 0 8px 24px rgba(15, 23, 42, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-card-hover: 0 25px 60px rgba(15, 23, 42, 0.12), 0 8px 20px rgba(15, 23, 42, 0.04);
+  --shadow-primary: 0 12px 28px rgba(37, 99, 235, 0.2);
   
   /* ================================
      BORDER RADIUS SYSTEM

@@ -10,16 +10,29 @@
 }
 
 /* Flagship project image */
-.home-flagship-image {
-  width: 100%;
+.home-flagship-image,
+.home-flagship-placeholder {
+  width: calc(100% + 2.5rem);
   height: 200px;
   object-fit: cover;
   border-radius: 8px 8px 0 0;
-  margin: -1rem -1rem 1rem -1rem;
+  margin: -1.25rem -1.25rem 1rem -1.25rem;
+}
+
+/* Gradient placeholder for cards without images */
+.home-flagship-placeholder {
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-strong));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  opacity: 0.9;
 }
 
 /* Flagship card title */
-.home-flagship-card h3 {
+.home-flagship-card h3,
+.home-opportunity-card h3 {
   font-size: 1.1rem;
   margin-bottom: 0.4rem;
 }

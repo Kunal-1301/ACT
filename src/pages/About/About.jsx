@@ -79,7 +79,6 @@ const structureCards = [
       "A core leadership team provides strategic direction, approves calls for proposals, and oversees the overall functioning of the centre.",
     note:
       "Details of leadership roles and committees are listed in the Directory section below.",
-    link: { to: "#directory", text: "View ACT directory" },
   },
   {
     title: "Evaluation & Advisory",
@@ -95,7 +94,7 @@ const structureCards = [
     title: "Operations & Labs",
     body:
       "Operations teams manage shared facilities, equipment access, financial workflows, and reporting requirements, enabling researchers to focus on their work.",
-    link: { to: "/facilities", text: "Explore labs & shared facilities" },
+    
   },
 ];
 

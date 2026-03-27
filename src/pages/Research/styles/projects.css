@@ -64,6 +64,75 @@
   grid-auto-rows: 1fr; /* Equal height rows */
 }
 
+/* Carousel Styles */
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.carousel-btn {
+  background: white;
+  border: 1px solid var(--color-border);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.carousel-btn:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.research-projects-carousel-wrapper {
+  position: relative;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+}
+
+.carousel-grid {
+  display: flex !important;
+  grid-template-columns: none !important;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 1.5rem;
+  padding: 0.5rem 0.25rem 1.5rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.carousel-grid::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.carousel-grid .research-project-card {
+  flex: 0 0 350px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+  .carousel-grid .research-project-card {
+    flex: 0 0 280px;
+  }
+}
+
 .research-project-card {
   padding: 1.1rem 1rem 1rem;
   display: flex;

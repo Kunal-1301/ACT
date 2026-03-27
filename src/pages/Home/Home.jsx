@@ -25,7 +25,6 @@ function Home() {
   const [neuroRef, neuroVisible] = useRevealOnScroll();
   const [flagshipRef, flagshipVisible] = useRevealOnScroll();
   const [fundingRef, fundingVisible] = useRevealOnScroll();
-  const [oppRef, oppVisible] = useRevealOnScroll();
   const [impactRef, impactVisible] = useRevealOnScroll();
   const [peopleRef, peopleVisible] = useRevealOnScroll();
   const [updatesRef, updatesVisible] = useRevealOnScroll();
@@ -403,7 +402,7 @@ function Home() {
         </div>
       </section>
 
-      {/* 5️⃣ FLAGSHIP PROJECTS (thumbnails added) */}
+      {/* 5️⃣ STRATEGIC PROJECTS & OPPORTUNITIES */}
       <section
         ref={flagshipRef}
         className={`section home-flagship reveal-section ${flagshipVisible ? "is-visible" : ""
@@ -428,7 +427,7 @@ function Home() {
 
           <div className="home-flagship-grid">
             {strategicProjects.map((project) => (
-              <article key={project.id} className="card home-flagship-card">
+              <article key={project.id} className="card home-flagship-card stagger-1">
                 <img
                   src={project.image}
                   alt={project.shortTitle}
@@ -445,6 +444,31 @@ function Home() {
                 </div>
               </article>
             ))}
+
+            {/* Opportunities (Moved into Strategic Projects) */}
+            <article className="card home-flagship-card home-opportunity-card stagger-2">
+              <div className="home-flagship-placeholder">🎓</div>
+              <h3>Student projects &amp; capstones</h3>
+              <p>
+                Work on supervised projects linked to real testbeds, data and
+                stakeholders, with clear research and deployment outcomes.
+              </p>
+              <Link to="/events" className="btn btn-tertiary">
+                See current calls →
+              </Link>
+            </article>
+
+            <article className="card home-flagship-card home-opportunity-card stagger-3">
+              <div className="home-flagship-placeholder">💼</div>
+              <h3>Research assistantships &amp; internships</h3>
+              <p>
+                Join multi–disciplinary teams to support data collection,
+                analysis, prototyping and field work.
+              </p>
+              <Link to="/funding" className="btn btn-tertiary">
+                Explore funded roles →
+              </Link>
+            </article>
           </div>
         </div>
       </section>
@@ -603,90 +627,71 @@ function Home() {
           </div>
 
           <div className="home-funding-grid">
-            <article className="card home-funding-card">
+            <article className="card home-funding-card stagger-1">
               <div className="home-funding-top">
                 <span className="chip chip-status-closed">
-                  <span className="chip-dot" /> Closed
+                  <span className="chip-dot" /> Upcoming
                 </span>
-                <span className="home-funding-deadline">Closed: 15 May</span>
+                <span className="home-funding-deadline">Upcoming: May 2026</span>
               </div>
               <h3>Transdisciplinary Research Grants</h3>
               <p>
                 Small grants to help faculty and researchers run early–stage
-                pilots linked to ACT themes and testbeds.
+                pilots linked to ACT themes.
               </p>
+              <button className="btn btn-tertiary" disabled>
+                Call details coming soon
+              </button>
             </article>
 
-            <article className="card home-funding-card">
+            {/* Student Project Grant (Internships) */}
+            <article className="card home-funding-card stagger-2">
               <div className="home-funding-top">
-                <span className="chip chip-status-open">
+                <span className="home-funding-target">UG Students</span>
+                <span className="chip chip-status-closed">
                   <span className="chip-dot" /> Upcoming
                 </span>
-                <span className="home-funding-deadline">Upcoming: March</span>
               </div>
-              <h3>Industry–Linked Pilot Projects</h3>
+              <h3>Student Project Grant (Internships)</h3>
               <p>
-                Short projects co–designed with partners to demonstrate
-                feasibility and generate shared evidence.
+                Small grants to support innovative student-led pilots and
+                experiments aligned with ACT themes.
               </p>
+              <div className="home-funding-meta">
+                <p><strong>Max:</strong> As Per Institute Norms &nbsp;|&nbsp; <strong>Window:</strong> Closed</p>
+              </div>
+              <button className="btn btn-tertiary" disabled>
+                Call details coming soon
+              </button>
             </article>
+
+            {/* Transdisciplinary Project Grant (Faculty) */}
+            <article className="card home-funding-card stagger-3">
+              <div className="home-funding-top">
+                <span className="home-funding-target">Faculty</span>
+                <span className="chip chip-status-closed">
+                  <span className="chip-dot" /> Upcoming
+                </span>
+              </div>
+              <h3>Transdisciplinary Project Grant</h3>
+              <p>
+                Support for multi-department projects that bring together
+                expertise across technology, cognition, environment, and education.
+              </p>
+              <div className="home-funding-meta">
+                <p><strong>Max:</strong> 12.50 Lacs &nbsp;|&nbsp; <strong>Duration:</strong> Initially granted for two years</p>
+                <p style={{ marginTop: '0.4rem' }}><strong>Team:</strong> Collaboration between at least three departments mandatory</p>
+              </div>
+              <button className="btn btn-tertiary" disabled>
+                Call details coming soon
+              </button>
+            </article>
+
+
           </div>
         </div>
       </section>
 
-      {/* 8️⃣ STUDENT & RESEARCHER OPPORTUNITIES PREVIEW */}
-      <section
-        ref={oppRef}
-        className={`section home-opportunities reveal-section ${oppVisible ? "is-visible" : ""
-          }`}
-      >
-        <div className="container">
-          <div className="home-section-header">
-            <p className="section-eyebrow">
-              For Faculty, Students &amp; Researchers
-            </p>
-            <div className="home-section-header-main">
-              <h2 className="home-section-title">Ways To Get Involved</h2>
-              <p className="home-section-intro"></p>
-            </div>
-          </div>
-
-          <div className="home-opportunities-grid">
-            <article className="card home-opportunity-card">
-              <h3>Student projects &amp; capstones</h3>
-              <p>
-                Work on supervised projects linked to real testbeds, data and
-                stakeholders, with clear research and deployment outcomes.
-              </p>
-              <Link to="/events" className="btn btn-tertiary">
-                See current calls →
-              </Link>
-            </article>
-
-            <article className="card home-opportunity-card">
-              <h3>Research assistantships &amp; internships</h3>
-              <p>
-                Join multi–disciplinary teams to support data collection,
-                analysis, prototyping and field work.
-              </p>
-              <Link to="/funding" className="btn btn-tertiary">
-                Explore funded roles →
-              </Link>
-            </article>
-
-            <article className="card home-opportunity-card">
-              <h3>Workshops &amp; Conferences </h3>
-              <p>
-                Take part in shorter formats that connect cognitive science,
-                design, engineering and policy questions.
-              </p>
-              <Link to="/events" className="btn btn-tertiary">
-                View upcoming activities →
-              </Link>
-            </article>
-          </div>
-        </div>
-      </section>
 
       {/* 9️⃣ ACT IMPACT STATS */}
       <section
@@ -710,10 +715,10 @@ function Home() {
                 Interdisciplinary Projects Initiated
               </div>
             </div>
-            <div className="card home-impact-card">
+            {/* <div className="card home-impact-card">
               <div className="home-impact-number">25+</div>
               <div className="home-impact-label">External Partners Engaged</div>
-            </div>
+            </div> */}
             <div className="card home-impact-card">
               <div className="home-impact-number">1+</div>
               <div className="home-impact-label">
@@ -833,131 +838,37 @@ function Home() {
             </div>
           </div>
 
-          <div className="home-news-events-layout">
-            {/* ================= NEWS COLUMN ================= */}
-            <div className="home-news-column">
-              <h3 className="home-news-heading">News highlights</h3>
+          <div className="home-news-bento-grid">
+            {/* LARGE NEWS CARD (Spotlight) */}
+            <div className="bento-item bento-news-spotlight stagger-1">
+              <article className="card glass-card home-news-spotlight-card">
+                <div className="spotlight-badge">Recent Success</div>
+                <h3>In the third call for proposal <span className="text-highlight">seven transdisciplinary projects</span> were sanctioned.</h3>
+                <p>Highlighting ACT's commitment to bridging disciplines for real-world impact.</p>
+                <div className="spotlight-icon">📢</div>
+              </article>
+            </div>
 
-              <div className="news-vertical-scroll">
-                <div className="news-vertical-track">
-                  <article className="card home-news-card news-card-header">
-                    <h4>List of Recently Sanctioned Projects</h4>
-                    <p>
-                      Highlighting recent research initiatives and PI-led grants sanctioned at the ACT Centre.
-                    </p>
-                  </article>
-
-                  <article className="card home-news-card">
-                    <span className="badge-new">New</span>
-                    <h4>Centralized Sanitary Pad Incinerator</h4>
-                    <p><strong>Design and Development of Centralized Sanitary Pad Incinerator for Institutional Purposes</strong></p>
-                    <p className="news-card-meta">PI: Dr. S.S Mallick, Prof. MED | TIET/ACT/2026/01</p>
-                  </article>
-
-                  <article className="card home-news-card">
-                    <span className="badge-new">New</span>
-                    <h4>Gamified Civil Engineering Education</h4>
-                    <p><strong>Enhancing Civil Engineering Education through Gamified Learning</strong></p>
-                    <p className="news-card-meta">PI: Dr. Abhinay Kumar | TIET/ACT/2026/02</p>
-                  </article>
-
-                  <article className="card home-news-card">
-                    <span className="badge-new">New</span>
-                    <h4>Elder Care Ecosystem</h4>
-                    <p><strong>The Elder Care Ecosystem in Punjab</strong></p>
-                    <p className="news-card-meta">PI: Dr. Richa Nigam | TIET/ACT/2026/03</p>
-                  </article>
-
-                  <article className="card home-news-card">
-                    <span className="badge-new">New</span>
-                    <h4>Adaptive AI-Driven E-Skin</h4>
-                    <p><strong>The Relational Interface: Adaptive AI-Driven E-Skin for Personalized Health and Social Connection</strong></p>
-                    <p className="news-card-meta">PI: Dr. Abhisek Pal | TIET/ACT/2026/04</p>
-                  </article>
-
-                  <article className="card home-news-card">
-                    <span className="badge-new">New</span>
-                    <h4>Sustainable Nanotechnology</h4>
-                    <p><strong>Sustainable Nanotechnology for Mitigating Microplastic-Induced Cognitive and Physiological Impairments in Honeybees</strong></p>
-                    <p className="news-card-meta">PI: Prof. Manmohan Chhiber | TIET/ACT/2026/05</p>
-                  </article>
-
-                  <article className="card home-news-card">
-                    <span className="badge-new">New</span>
-                    <h4>MXene-Based Biosensors</h4>
-                    <p><strong>Synthesis and Functionalization of MXene-Based Biosensors for Comprehensive Allergen Detection</strong></p>
-                    <p className="news-card-meta">PI: Dr. Atul Upadhyay | TIET/ACT/2026/06</p>
-                  </article>
-
-                  <article className="card home-news-card">
-                    <span className="badge-new">New</span>
-                    <h4>Portable Breath Analyzer</h4>
-                    <p><strong>Breath to Insight: Portable Multi Gas Breath Analyzer for Gut Health Screening</strong></p>
-                    <p className="news-card-meta">PI: Dr. Maninder Kaur | TIET/ACT/2026/07</p>
-                  </article>
+            {/* UPCOMING EVENTS (Small card) */}
+            <div className="bento-item bento-events-stay-tuned stagger-2">
+              <article className="card home-news-small-card">
+                <h4 className="home-news-heading">Upcoming events</h4>
+                <div className="event-placeholder-mini">
+                  <span className="mini-icon">📅</span>
+                  <p>Stay tuned for new calls and events!</p>
                 </div>
-              </div>
-
-              <Link to="/news" className="btn btn-tertiary">
-                View all news →
-              </Link>
+              </article>
             </div>
 
-            {/* ================= EVENTS COLUMN ================= */}
-            <div className="home-events-column">
-              <h3 className="home-news-heading">Upcoming events</h3>
-
-              <div className="events-carousel">
-                <article className="card home-event-card">
-                  <div className="home-event-date">
-                    <span className="home-event-day">12</span>
-                    <span className="home-event-month">Apr</span>
-                  </div>
-                  <div className="home-event-body">
-                    <h4>
-                      Seminar: Human–AI collaboration in safety–critical work
-                    </h4>
-                    <p>Hybrid • ACT Seminar Room / Online</p>
-                  </div>
-                </article>
-
-                <article className="card home-event-card">
-                  <div className="home-event-date">
-                    <span className="home-event-day">26</span>
-                    <span className="home-event-month">Apr</span>
-                  </div>
-                  <div className="home-event-body">
-                    <h4>Studio: Designing for cognitive load</h4>
-                    <p>
-                      Hands–on studio linking cognition, UX and infrastructure.
-                    </p>
-                  </div>
-                </article>
-              </div>
-
-              <Link to="/events" className="btn btn-tertiary">
-                View all events →
-              </Link>
-            </div>
-
-            {/* ================= QUOTES COLUMN ================= */}
-            <div className="home-quotes-column">
-              <h3 className="home-news-heading">Thoughts that guide us</h3>
-
-              <div className="home-quotes-grid">
-                <blockquote className="card home-quote-card">
-                  <p>
-                    "For every complex problem there is an answer that is clear,
-                    simple, and wrong."
-                  </p>
-                  <footer>— H. L. Mencken</footer>
-                </blockquote>
-
-                <blockquote className="card home-quote-card">
+            {/* THOUGHTS / QUOTES (Small card) */}
+            <div className="bento-item bento-quotes stagger-3">
+              <article className="card home-news-small-card">
+                <h4 className="home-news-heading">Thoughts that guide us</h4>
+                <blockquote className="bento-quote">
                   <p>"The real world is not divided into departments."</p>
                   <footer>— Russell L. Ackoff</footer>
                 </blockquote>
-              </div>
+              </article>
             </div>
           </div>
         </div>

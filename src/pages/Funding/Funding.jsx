@@ -83,13 +83,7 @@ const docs = [
     slug: "/documents/project-approval-process",
     image: "/media/projectapproval.png",
   },
-  {
-    id: "ideation-notes",
-    title: "ACT Ideation Notes",
-    description: "",
-    slug: "/documents/ideation-notes",
-    image: "/media/ideation.png",
-  },
+  
 ];
 
 /* ================================

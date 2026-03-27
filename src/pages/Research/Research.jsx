@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import { Link } from "react-router-dom";
 import "./styles/hero.css";
@@ -8,6 +8,7 @@ import "./styles/publications.css";
 import "./styles/animations.css";
 import "./styles/responsive.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import { ongoingProjects } from "../../data/ongoingProjects";
 import { strategicProjects } from "../../data/strategicProjects";
 
 const Research = () => {
@@ -18,6 +19,18 @@ const Research = () => {
   const [pubsRef, pubsVisible] = useRevealOnScroll();
   const [collabRef, collabVisible] = useRevealOnScroll();
   const [activeProject, setActiveProject] = useState(null);
+  
+  const carouselRef = useRef(null);
+
+  const scrollCarousel = (direction) => {
+    if (carouselRef.current) {
+      const scrollAmount = 350; // Approximated card width + gap
+      carouselRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <div className="research-page" id="research">
@@ -144,136 +157,76 @@ const Research = () => {
             className={`research-block reveal-section ${ongoingVisible ? "is-visible" : ""
               }`}
           >
-            <div className="research-block-header">
+            <div className="research-block-header carousel-header">
               <h3 className="research-block-title">
                 Ongoing Research Projects
               </h3>
+              <div className="carousel-controls">
+                <button
+                  className="carousel-btn carousel-btn-prev"
+                  onClick={() => scrollCarousel("left")}
+                  aria-label="Previous slide"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button
+                  className="carousel-btn carousel-btn-next"
+                  onClick={() => scrollCarousel("right")}
+                  aria-label="Next slide"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
             </div>
 
-            <div className="research-projects-grid">
-              {/* Project 1 */}
-              <article className="research-project-card card card-tint-violet">
-                <img
-                  src="/media/p1.png"
-                  alt="Personalized Learning"
-                  className="research-project-image"
-                />
+            <div className="research-projects-carousel-wrapper">
+              <div className="research-projects-grid carousel-grid" ref={carouselRef}>
+                {ongoingProjects.map((project) => (
+                  <article key={project.id} className={`research-project-card card card-tint-${project.tint}`}>
+                    <img
+                      src={project.image}
+                      alt={project.shortTitle}
+                      className="research-project-image"
+                    />
 
-                <p className="research-project-status research-status-ongoing">
-                  Ongoing
-                </p>
+                    <p className={`research-project-status research-status-${project.status.toLowerCase()}`}>
+                      {project.status}
+                    </p>
 
-                <h4>Towards a Personalized Learning Experience</h4>
+                    <h4>{project.shortTitle}</h4>
 
-                <p className="research-project-meta">
-                  <span>Faculty:</span> Dr. Pankaj Narula, Dr. Harpreet Singh,
-                  Dr. Aastha Dhoopar
-                </p>
+                    <p className="research-project-meta">
+                      <span>Faculty:</span> {project.faculty}
+                    </p>
 
-                <p className="research-project-text">
-                  AI-driven framework using advanced knowledge tracing
-                  techniques.
-                </p>
+                    <p className="research-project-text">
+                      {project.shortDescription}
+                    </p>
 
-                <button
-                  className="btn btn-secondary btn-sm"
-                  onClick={() =>
-                    setActiveProject({
-                      title: "Towards Personalized Learning Experience: Developing a Learning Material Recommender Framework based on Knowledge Tracing",
-                      faculty:
-                        "Dr. Pankaj Narula, Dr. Harpreet Singh, Dr. Aastha Dhoopar",
-                      description:
-                        "This project focuses on developing an intelligent, AI-driven framework to personalize learning for individual students by continuously modelling how their knowledge evolves over time. Using advanced knowledge tracing techniques, including deep learning and transformer-based models, the system analyses students’ interactions with learning materials to identify strengths, gaps, and learning patterns. Based on these insights, it recommends customized learning resources and adaptive study paths tailored to each learner’s needs. The project aims to improve learning outcomes, reduce academic disengagement, and support students in mastering skills more effectively through data-driven, personalized educational interventions.",
-                      image: "/media/p1.png",
-                    })
-                  }
-                >
-                  View details
-                </button>
-              </article>
-
-              {/* Project 2 */}
-              <article className="research-project-card card card-tint-green">
-                <img
-                  src="/media/p2.png"
-                  alt="Sustainable Crop Production"
-                  className="research-project-image"
-                />
-
-                <p className="research-project-status research-status-ongoing">
-                  Ongoing
-                </p>
-
-                <h4>Sustainable Crop Production in Punjab</h4>
-
-                <p className="research-project-meta">
-                  <span>Faculty:</span> Dr. Richa Babbar, Prof. Dwarikanath
-                  Ratha, Dr. Kavita, Dr. Sheikh Adil Edrisi
-                </p>
-
-                <p className="research-project-text">
-                  Interdisciplinary project addressing climate change and
-                  groundwater depletion.
-                </p>
-
-                <button
-                  className="btn btn-secondary btn-sm"
-                  onClick={() =>
-                    setActiveProject({
-                      title: "A Socio-Economic Approach for Addressing Sustainable Crop Production in Punjab under Impending Climate Change Effects",
-                      faculty:
-                        "Dr. Richa Babbar, Prof. Dwarikanath Ratha, Dr. Kavita, Dr. Sheikh Adil Edrisi",
-                      description:
-                        "This project addresses the growing challenges of sustainable agriculture in Punjab caused by climate change, groundwater depletion, and increasing weather extremes. It adopts an interdisciplinary approach that integrates climate science, socio-economic analysis, and community participation to develop a composite socio-economic index for climate-resilient crop production. By combining climate trends, groundwater conditions, farmers’ social vulnerability, and economic feasibility of adaptation strategies, the project aims to identify locally acceptable and sustainable solutions. The outcomes are intended to support farmers and policymakers in making informed decisions that enhance agricultural resilience, protect livelihoods, and promote long-term food and water security.",
-                      image: "/media/p2.png",
-                    })
-                  }
-                >
-                  View details
-                </button>
-              </article>
-
-              {/* Project 3 */}
-              <article className="research-project-card card card-tint-rose">
-                <img
-                  src="/media/p3.png"
-                  alt="Myths and Morality"
-                  className="research-project-image"
-                />
-
-                <p className="research-project-status research-status-ongoing">
-                  Ongoing
-                </p>
-
-                <h4>Myths and Morality</h4>
-
-                <p className="research-project-meta">
-                  <span>Faculty:</span> Dr. Andrea Raimondi, Dr. Ruchika Jain,
-                  Dr. Shruti Krishna Bhat
-                </p>
-
-                <p className="research-project-text">
-                  Study of myths and narratives shaping moral reasoning.
-                </p>
-
-                <button
-                  className="btn btn-secondary btn-sm"
-                  onClick={() =>
-                    setActiveProject({
-                      title: "Myths and Morality",
-                      faculty:
-                        "Dr. Andrea Raimondi, Dr. Ruchika Jain, Dr. Shruti Krishna Bhat",
-                      description:
-                        "This project explores how myths, epics, and traditional narratives shape moral understanding and ethical behaviour in society. Drawing on Hindu, Buddhist, and Jain traditions, it examines stories such as the Ramayana, Mahabharata, and Jataka tales to understand how virtues, vices, and moral dilemmas are conveyed through narrative rather than formal moral theory. By combining philosophy, literary studies, and religious studies, the project analyses how these narratives guide moral reasoning, character formation, and ethical reflection. The research highlights the continued relevance of ancient stories in addressing contemporary moral questions and advances Indian virtue ethics as a distinct and rigorous ethical framework.",
-                      image: "/media/p3.png",
-                    })
-                  }
-                >
-                  View details
-                </button>
-              </article>
+                    <button
+                      className="btn btn-secondary btn-sm"
+                      onClick={() =>
+                        setActiveProject({
+                          title: project.title,
+                          faculty: project.faculty,
+                          description: project.description,
+                          image: project.image,
+                        })
+                      }
+                    >
+                      View details
+                    </button>
+                  </article>
+                ))}
+              </div>
             </div>
           </section>
+
+
 
 
           {/* STRATEGIC PROJECTS */}
@@ -364,7 +317,7 @@ const Research = () => {
           )}
 
           {/* PUBLICATIONS */}
-          <section
+          {/* <section
             id="publications"
             ref={pubsRef}
             className={`research-block reveal-section ${pubsVisible ? "is-visible" : ""
@@ -389,10 +342,10 @@ const Research = () => {
                 </p>
               </div>
             </div>
-          </section>
+          </section> */}
 
           {/* COLLABORATIONS */}
-          <section
+          {/* <section
             id="collaborations"
             ref={collabRef}
             className={`research-block research-block-soft reveal-section ${collabVisible ? "is-visible" : ""
@@ -427,7 +380,7 @@ const Research = () => {
                 </ul>
               </article>
             </div>
-          </section>
+          </section> */}
         </div>
       </section>
     </div>

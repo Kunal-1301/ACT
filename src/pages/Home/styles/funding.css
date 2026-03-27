@@ -31,13 +31,34 @@
   gap: 0.5rem;
 }
 
-/* Funding deadline text */
-.home-funding-deadline {
-  font-size: 0.78rem;
-  opacity: 0.7;
+/* Meta text for funding details */
+.home-funding-meta {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
 }
 
-/* Stack funding meta on small screens */
+.home-funding-meta p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* User target text (Faculty, Student, etc.) */
+.home-funding-target {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Ensure consistent button width for grid cards */
+.home-funding-card .btn-tertiary {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .home-funding-top {
     flex-direction: column;
