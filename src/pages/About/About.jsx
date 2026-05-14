@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./About.css";
-import "../People/People.css"; // Import People styles
+import "../../styles/people-shared.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 /* ======================================================
@@ -67,11 +67,6 @@ const peopleData = [
   },
 ];
 
-/* ======================================================
-   STATIC CONTENT
-   ====================================================== */
-
-
 const structureCards = [
   {
     title: "Core Leadership",
@@ -94,7 +89,6 @@ const structureCards = [
     title: "Operations & Labs",
     body:
       "Operations teams manage shared facilities, equipment access, financial workflows, and reporting requirements, enabling researchers to focus on their work.",
-    
   },
 ];
 
@@ -116,12 +110,7 @@ const howCards = [
   },
 ];
 
-/* ======================================================
-   COMPONENT
-   ====================================================== */
-
 const About = () => {
-  const [heroTextRef, heroTextVisible] = useRevealOnScroll();
   const [missionRef, missionVisible] = useRevealOnScroll();
   const [structureRef, structureVisible] = useRevealOnScroll();
   const [howRef, howVisible] = useRevealOnScroll();
@@ -132,7 +121,7 @@ const About = () => {
     <main className="about-page" id="about">
       {/* ================= HERO ================= */}
       <section
-        className="page-hero section--bg-campus"
+        className="page-hero about-hero section--bg-campus"
         role="region"
         aria-label="About the ACT Centre"
       >
@@ -143,24 +132,22 @@ const About = () => {
           className="about-hero-bg"
         />
 
-        <div className="page-hero-overlay" aria-hidden />
+        <div className="about-hero-overlay" aria-hidden />
 
         <div className="container about-hero-layout">
-          <div
-            ref={heroTextRef}
-            className={`about-hero-text reveal-section ${heroTextVisible ? "is-visible" : ""
-              }`}
-          >
-            <h1 className="about-hero-title">About the ACT Centre</h1>
+          <div className="about-hero-text">
+            <h1 className="about-hero-title hero-animate hero-delay-1">
+              About the ACT Centre
+            </h1>
 
-            <p className="page-hero-subtitle hero-animate hero-delay-2">
+            <p className="about-hero-subtitle hero-animate hero-delay-2">
               The ACT Centre is a transdisciplinary research initiative at{" "}
               <strong>Thapar Institute of Engineering and Technology</strong>,
               bringing together engineering, cognitive science, social sciences,
               and the humanities to address complex real-world challenges.
             </p>
 
-            <p className="page-hero-subtitle secondary hero-animate hero-delay-3">
+            <p className="about-hero-subtitle secondary hero-animate hero-delay-3">
               ACT supports research questions that cannot be effectively
               addressed within a single discipline, through shared
               infrastructure, structured funding, and collaborative processes.
@@ -175,6 +162,22 @@ const About = () => {
               </Link>
             </div>
           </div>
+
+          <aside className="about-hero-info hero-animate hero-delay-5">
+            <h3 className="about-hero-info-title">At a Glance</h3>
+            <p className="about-hero-info-text">
+              Bridging the gap between technological innovation and human
+              experience.
+            </p>
+            <ul className="about-hero-bullets">
+              <li>10+ Sanctioned Projects</li>
+              <li>Shared Research Labs</li>
+              <li>Interdisciplinary Teams</li>
+            </ul>
+            <Link to="/contact" className="link-animated">
+              Get in Touch
+            </Link>
+          </aside>
         </div>
       </section>
 
@@ -185,20 +188,18 @@ const About = () => {
           <section
             id="mission"
             ref={missionRef}
-            className={`about-block about-block-band reveal-section ${missionVisible ? "is-visible" : ""
-              }`}
+            className={`about-block about-block-band reveal-section ${
+              missionVisible ? "is-visible" : ""
+            }`}
           >
             <div className="about-block-header">
               <h2 id="mission-heading" className="about-block-title">
                 Mission, Vision &amp; Values
               </h2>
-              <p className="about-block-subtitle">
-
-              </p>
             </div>
 
             <div className="about-mvv-grid">
-              <article className="about-mvv-card card card-tint-blue">
+              <article className="about-mvv-card card card-tint-blue stagger-1">
                 <h3>Mission</h3>
                 <p>
                   To enable rigorous, collaborative research that integrates
@@ -207,7 +208,7 @@ const About = () => {
                 </p>
               </article>
 
-              <article className="about-mvv-card card card-tint-violet">
+              <article className="about-mvv-card card card-tint-violet stagger-2">
                 <h3>Vision</h3>
                 <p>
                   To establish ACT as a recognised hub for applied cognition and
@@ -215,7 +216,7 @@ const About = () => {
                 </p>
               </article>
 
-              <article className="about-mvv-card card card-centered">
+              <article className="about-mvv-card card card-centered stagger-3">
                 <h3>Values</h3>
                 <ul>
                   <li>Collaboration across disciplines by design.</li>
@@ -227,25 +228,24 @@ const About = () => {
             </div>
           </section>
 
-
-
           {/* Governance & Structure */}
           <section
             id="structure"
             ref={structureRef}
-            className={`about-block about-block-soft reveal-section ${structureVisible ? "is-visible" : ""
-              }`}
+            className={`about-block about-block-soft reveal-section ${
+              structureVisible ? "is-visible" : ""
+            }`}
           >
             <div className="about-block-header">
               <h2 className="about-block-title">Governance &amp; Structure</h2>
-              <p className="about-block-subtitle">
-
-              </p>
             </div>
 
             <div className="about-structure-grid">
               {structureCards.map((card, i) => (
-                <article key={i} className="about-structure-card card card-centered">
+                <article
+                  key={i}
+                  className={`about-structure-card card stagger-${(i % 3) + 1}`}
+                >
                   <h3>{card.title}</h3>
                   <p>{card.body}</p>
                   {card.note && (
@@ -258,13 +258,6 @@ const About = () => {
                       ))}
                     </ul>
                   )}
-                  {card.link && (
-                    <p className="about-structure-link">
-                      <Link to={card.link.to} className="link-animated">
-                        {card.link.text}
-                      </Link>
-                    </p>
-                  )}
                 </article>
               ))}
             </div>
@@ -274,31 +267,25 @@ const About = () => {
           <section
             id="how"
             ref={howRef}
-            className={`about-block reveal-section ${howVisible ? "is-visible" : ""
-              }`}
+            className={`about-block reveal-section ${
+              howVisible ? "is-visible" : ""
+            }`}
             aria-labelledby="how-heading"
           >
             <div className="about-block-header">
               <h2 id="how-heading" className="about-block-title">
                 How ACT Projects Work
               </h2>
-              <p className="about-block-subtitle">
-
-              </p>
             </div>
 
             <div className="about-how-grid">
               {howCards.map((c, i) => (
-                <article key={i} className="about-how-card card card-centered">
+                <article
+                  key={i}
+                  className={`about-how-card card stagger-${(i % 3) + 1}`}
+                >
                   <h3>{c.title}</h3>
                   <p>{c.text}</p>
-                  {c.link && (
-                    <p className="about-how-link">
-                      <Link to={c.link.to} className="link-animated">
-                        {c.link.text}
-                      </Link>
-                    </p>
-                  )}
                 </article>
               ))}
             </div>
@@ -307,8 +294,9 @@ const About = () => {
           {/* People & Roles */}
           <section
             ref={rolesRef}
-            className={`about-block about-block-band reveal-section ${rolesVisible ? "is-visible" : ""
-              }`}
+            className={`about-block about-block-band reveal-section ${
+              rolesVisible ? "is-visible" : ""
+            }`}
           >
             <div className="people-block-header">
               <h2 className="people-block-title">People &amp; Roles</h2>
@@ -319,7 +307,7 @@ const About = () => {
             </div>
 
             <div className="people-overview-grid">
-              <article className="people-overview-card card">
+              <article className="people-overview-card card stagger-1">
                 <h3>Core Leadership &amp; Faculty</h3>
                 <p>
                   Provide strategic direction, governance, and academic
@@ -327,7 +315,7 @@ const About = () => {
                 </p>
               </article>
 
-              <article className="people-overview-card card">
+              <article className="people-overview-card card stagger-2">
                 <h3>Research Faculty</h3>
                 <p>
                   Lead and contribute to funded projects, mentoring students and
@@ -335,7 +323,7 @@ const About = () => {
                 </p>
               </article>
 
-              <article className="people-overview-card card">
+              <article className="people-overview-card card stagger-3">
                 <h3>Research Scholars &amp; Associates</h3>
                 <p>
                   Conduct studies, build prototypes, analyse data, and support
@@ -343,7 +331,7 @@ const About = () => {
                 </p>
               </article>
 
-              <article className="people-overview-card card">
+              <article className="people-overview-card card stagger-4">
                 <h3>Operations &amp; Support</h3>
                 <p>
                   Coordinate facilities, funding processes, and administrative
@@ -357,8 +345,9 @@ const About = () => {
           <section
             id="directory"
             ref={directoryRef}
-            className={`about-block about-block-soft reveal-section ${directoryVisible ? "is-visible" : ""
-              }`}
+            className={`about-block about-block-soft reveal-section ${
+              directoryVisible ? "is-visible" : ""
+            }`}
           >
             <div className="people-block-header people-block-header--tight">
               <h2 className="people-block-title">Directory</h2>
@@ -366,27 +355,27 @@ const About = () => {
 
             <div className="people-grid">
               {peopleData.map((p, i) => (
-                <article key={i} className="people-card card">
-                  <div className="people-card-header">
-                    {p.avatar ? (
-                      <img
-                        src={p.avatar}
-                        alt={p.name}
-                        className="people-avatar-img"
-                      />
-                    ) : (
-                      <div className="people-avatar-placeholder">
-                        {p.name.charAt(0)}
-                      </div>
-                    )}
-
-                    <div className="people-card-main">
-                      <h3 className="people-name">{p.name}</h3>
-                      <p className="people-role">{p.role}</p>
+                <article
+                  key={i}
+                  className={`people-card card stagger-${(i % 4) + 1}`}
+                >
+                  {p.avatar ? (
+                    <img
+                      src={p.avatar}
+                      alt={p.name}
+                      className="people-avatar-img"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="people-avatar-placeholder">
+                      {p.name.charAt(0)}
                     </div>
+                  )}
 
-                    <span className="people-badge">{p.group}</span>
-                  </div>
+                  <span className="people-badge">{p.group}</span>
+
+                  <h3 className="people-name">{p.name}</h3>
+                  <p className="people-role">{p.role}</p>
 
                   <p className="people-interests">{p.affiliation}</p>
                 </article>

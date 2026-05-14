@@ -19,7 +19,7 @@ const RecruitmentProcess = () => {
             </p>
 
             <a
-              href="/docs/ProcessRecruitment.pdf"
+              href="/docs/RecruitmentProcess.pdf"
               className="btn btn-primary"
               target="_blank"
               rel="noreferrer"
@@ -28,10 +28,6 @@ const RecruitmentProcess = () => {
             </a>
           </div>
 
-          {/* IMAGE PLACEHOLDER */}
-          <div className="doc-hero-image placeholder-box">
-            <span>Image placeholder</span>
-          </div>
         </div>
       </section>
 
@@ -175,7 +171,7 @@ const RecruitmentProcess = () => {
               </p>
 
               <iframe
-                src="/docs/ProcessRecruitment.pdf"
+                src="/docs/RecruitmentProcess.pdf"
                 title="ACT Recruitment Process PDF"
                 className="doc-pdf-embed"
               />
@@ -195,7 +191,7 @@ const RecruitmentProcess = () => {
               </p>
 
               <a
-                href="/docs/ProcessRecruitment.pdf"
+                href="/docs/RecruitmentProcess.pdf"
                 className="btn btn-secondary"
                 target="_blank"
                 rel="noreferrer"
@@ -204,9 +200,6 @@ const RecruitmentProcess = () => {
               </a>
             </div>
 
-            <div className="doc-sidebar-image placeholder-box">
-              <span>Image placeholder</span>
-            </div>
           </aside>
 
         </div>

@@ -53,35 +53,35 @@ const docs = [
     title: "ACT Project Proposal Format",
     description: "",
     slug: "/documents/proposal-format",
-    image: "/media/projectproposal.png",
+    image: "/media/projectproposal.webp",
   },
   {
     id: "finance-guidelines",
     title: "Financial Assistance & Budget Guidelines",
     description: "",
     slug: "/documents/financial-guidelines",
-    image: "/media/finance.png",
+    image: "/media/finance.webp",
   },
   {
     id: "evaluation-matrix",
     title: "Evaluation Matrix",
     description: "",
     slug: "/documents/evaluation-matrix",
-    image: "/media/evaluation.png",
+    image: "/media/evaluation.webp",
   },
   {
     id: "recruitment-process",
     title: "Recruitment Process for Project Staff",
     description: "",
     slug: "/documents/recruitment-process",
-    image: "/media/recruitment.png",
+    image: "/media/recruitment.webp",
   },
   {
     id: "timesheet",
     title: "Project Approval & Implementation Process",
     description: "",
     slug: "/documents/project-approval-process",
-    image: "/media/projectapproval.png",
+    image: "/media/projectapproval.webp",
   },
   
 ];
@@ -98,7 +98,6 @@ const Funding = () => {
      REVEAL HOOKS (TUPLE-BASED)
      ================================ */
 
-  const [heroTextRef, heroTextVisible] = useRevealOnScroll();
   const [flowRef, flowVisible] = useRevealOnScroll();
   const [callsRef, callsVisible] = useRevealOnScroll();
   const [whatRef, whatVisible] = useRevealOnScroll();
@@ -357,6 +356,17 @@ const Funding = () => {
                     rel="noreferrer"
                   >
                     View project approval &amp; implementation process
+                  </a>
+                </p>
+
+                <p className="funding-eval-download">
+                  <a
+                    href="/docs/RecruitmentProcess.pdf"
+                    className="link-animated"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Download recruitment process (PDF)
                   </a>
                 </p>
               </article>

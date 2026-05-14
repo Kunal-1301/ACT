@@ -27,10 +27,6 @@ const ProposalFormat = () => {
             </a>
           </div>
 
-          {/* IMAGE PLACEHOLDER */}
-          <div className="doc-hero-image placeholder-box">
-            <span>Image placeholder</span>
-          </div>
         </div>
       </section>
 
@@ -177,9 +173,6 @@ const ProposalFormat = () => {
               </p>
             </div>
 
-            <div className="doc-sidebar-image placeholder-box">
-              <span>Image placeholder</span>
-            </div>
           </aside>
         </div>
       </section>

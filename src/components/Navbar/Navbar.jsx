@@ -19,7 +19,7 @@ const Navbar = () => {
         <div className="navbar-left">
           <NavLink to="/" className="navbar-logo" onClick={closeMenu} end>
             <img
-              src="/media/act-logo.png"
+              src="/media/act-logo.webp"
               alt="ACT Centre Logo"
               className="logo-img"
             />
@@ -52,24 +52,12 @@ const Navbar = () => {
           <NavLink to="/about" className={linkClass} onClick={closeMenu}>
             About
           </NavLink>
-          {/* <NavLink to="/people" className={linkClass} onClick={closeMenu}>
-            People
-          </NavLink> */}
           <NavLink to="/research" className={linkClass} onClick={closeMenu}>
             Research
           </NavLink>
-          {/* <NavLink to="/facilities" className={linkClass} onClick={closeMenu}>
-            Facilities
-          </NavLink> */}
           <NavLink to="/funding" className={linkClass} onClick={closeMenu}>
             Funding
           </NavLink>
-          {/* <NavLink to="/events" className={linkClass} onClick={closeMenu}>
-            Events
-          </NavLink>
-          <NavLink to="/news" className={linkClass} onClick={closeMenu}>
-            News
-          </NavLink> */}
           <NavLink to="/contact" className={linkClass} onClick={closeMenu}>
             Contact
           </NavLink>

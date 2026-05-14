@@ -1,0 +1,36 @@
+/* Shared styles originally from People page — used by About and Contact */
+
+.people-block-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.people-block-subtitle {
+  font-size: 1.05rem;
+  max-width: 40rem;
+  color: var(--color-text-muted);
+}
+
+.people-join-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+.people-join-card p {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 1024px) {
+  .people-join-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .people-join-grid {
+    grid-template-columns: 1fr;
+  }
+}

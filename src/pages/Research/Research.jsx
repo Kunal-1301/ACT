@@ -12,12 +12,9 @@ import { ongoingProjects } from "../../data/ongoingProjects";
 import { strategicProjects } from "../../data/strategicProjects";
 
 const Research = () => {
-  const [heroTextRef, heroTextVisible] = useRevealOnScroll();
   const [themesRef, themesVisible] = useRevealOnScroll();
   const [areasRef, areasVisible] = useRevealOnScroll();
   const [ongoingRef, ongoingVisible] = useRevealOnScroll();
-  const [pubsRef, pubsVisible] = useRevealOnScroll();
-  const [collabRef, collabVisible] = useRevealOnScroll();
   const [activeProject, setActiveProject] = useState(null);
   
   const carouselRef = useRef(null);
@@ -187,11 +184,10 @@ const Research = () => {
               <div className="research-projects-grid carousel-grid" ref={carouselRef}>
                 {ongoingProjects.map((project) => (
                   <article key={project.id} className={`research-project-card card card-tint-${project.tint}`}>
-                    <img
-                      src={project.image}
-                      alt={project.shortTitle}
-                      className="research-project-image"
-                    />
+                    {project.image
+                      ? <img src={project.image} alt={project.shortTitle} className="research-project-image" />
+                      : <div className="project-image-fallback" data-tint={project.tint} />
+                    }
 
                     <p className={`research-project-status research-status-${project.status.toLowerCase()}`}>
                       {project.status}

@@ -24,7 +24,6 @@ function Home() {
   const [researchRef, researchVisible] = useRevealOnScroll();
   const [neuroRef, neuroVisible] = useRevealOnScroll();
   const [flagshipRef, flagshipVisible] = useRevealOnScroll();
-  const [fundingRef, fundingVisible] = useRevealOnScroll();
   const [impactRef, impactVisible] = useRevealOnScroll();
   const [peopleRef, peopleVisible] = useRevealOnScroll();
   const [updatesRef, updatesVisible] = useRevealOnScroll();
@@ -137,10 +136,10 @@ function Home() {
 
           <div className="home-hero-slideshow">
             <div className="slideshow-track">
-              <img src="/media/tiet.png" alt="" />
-              <img src="/media/act-home.png" alt="" />
-              <img src="/media/tslas.png" alt="" />
-              <img src="/media/ThaparBrain.png" alt="" />
+              <img src="/media/tiet.webp" alt="" />
+              <img src="/media/act-home.webp" alt="" />
+              <img src="/media/tslas.webp" alt="" />
+              <img src="/media/ThaparBrain.webp" alt="" />
             </div>
           </div>
         </div>
@@ -209,7 +208,7 @@ function Home() {
               <article className="card home-research-card card-tint-rose">
                 <div className="card-thumb">
                   <img
-                    src="/media/health.png"
+                    src="/media/health.webp"
                     alt="Health and well-being research"
                   />
                 </div>
@@ -228,7 +227,7 @@ function Home() {
               <article className="card home-research-card card-tint-green">
                 <div className="card-thumb">
                   <img
-                    src="/media/energy.png"
+                    src="/media/energy.webp"
                     alt="Energy, environment and sustainability research"
                   />
                 </div>
@@ -247,7 +246,7 @@ function Home() {
               <article className="card home-research-card card-tint-violet">
                 <div className="card-thumb">
                   <img
-                    src="/media/learning.png"
+                    src="/media/learning.webp"
                     alt="Learning and pedagogy research"
                   />
                 </div>
@@ -266,7 +265,7 @@ function Home() {
               <article className="card home-research-card card-tint-blue">
                 <div className="card-thumb">
                   <img
-                    src="/media/energy.png"
+                    src="/media/energy.webp"
                     alt="Cognition and behaviour research"
                   />
                 </div>
@@ -284,10 +283,10 @@ function Home() {
 
               {/* ===== VISUAL DUPLICATES (ARIA-HIDDEN) ===== */}
               {/* Required only for seamless looping */}
-              <article className="card home-research-card card-tint-rose">
+              <article aria-hidden="true" className="card home-research-card card-tint-rose">
                 <div className="card-thumb">
                   <img
-                    src="/media/health.png"
+                    src="/media/health.webp"
                     alt="Health and well-being research"
                   />
                 </div>
@@ -306,7 +305,7 @@ function Home() {
               <article className="card home-research-card card-tint-green">
                 <div className="card-thumb">
                   <img
-                    src="/media/energy.png"
+                    src="/media/energy.webp"
                     alt="Energy, environment and sustainability research"
                   />
                 </div>
@@ -325,7 +324,7 @@ function Home() {
               <article className="card home-research-card card-tint-violet">
                 <div className="card-thumb">
                   <img
-                    src="/media/learning.png"
+                    src="/media/learning.webp"
                     alt="Learning and pedagogy research"
                   />
                 </div>
@@ -344,7 +343,7 @@ function Home() {
               <article className="card home-research-card card-tint-blue">
                 <div className="card-thumb">
                   <img
-                    src="/media/energy.png"
+                    src="/media/energy.webp"
                     alt="Cognition and behaviour research"
                   />
                 </div>
@@ -447,7 +446,6 @@ function Home() {
 
             {/* Opportunities (Moved into Strategic Projects) */}
             <article className="card home-flagship-card home-opportunity-card stagger-2">
-              <div className="home-flagship-placeholder">🎓</div>
               <h3>Student projects &amp; capstones</h3>
               <p>
                 Work on supervised projects linked to real testbeds, data and
@@ -459,7 +457,6 @@ function Home() {
             </article>
 
             <article className="card home-flagship-card home-opportunity-card stagger-3">
-              <div className="home-flagship-placeholder">💼</div>
               <h3>Research assistantships &amp; internships</h3>
               <p>
                 Join multi–disciplinary teams to support data collection,
@@ -603,94 +600,6 @@ function Home() {
         </div>
       </section> */}
 
-      {/* 7️⃣ FUNDING ANNOUNCEMENTS PREVIEW */}
-      <section
-        ref={fundingRef}
-        className={`section home-funding-preview reveal-section ${fundingVisible ? "is-visible" : ""
-          }`}
-      >
-        <div className="container">
-          <div className="home-section-header">
-            <p className="section-eyebrow">Funding</p>
-            <div className="home-section-header-main">
-              <h2 className="home-section-title">
-                Current &amp; upcoming calls
-              </h2>
-              <p className="home-section-intro"></p>
-            </div>
-            <Link
-              to="/funding"
-              className="btn btn-secondary home-section-header-cta"
-            >
-              View all funding calls
-            </Link>
-          </div>
-
-          <div className="home-funding-grid">
-            <article className="card home-funding-card stagger-1">
-              <div className="home-funding-top">
-                <span className="chip chip-status-closed">
-                  <span className="chip-dot" /> Upcoming
-                </span>
-                <span className="home-funding-deadline">Upcoming: May 2026</span>
-              </div>
-              <h3>Transdisciplinary Research Grants</h3>
-              <p>
-                Small grants to help faculty and researchers run early–stage
-                pilots linked to ACT themes.
-              </p>
-              <button className="btn btn-tertiary" disabled>
-                Call details coming soon
-              </button>
-            </article>
-
-            {/* Student Project Grant (Internships) */}
-            <article className="card home-funding-card stagger-2">
-              <div className="home-funding-top">
-                <span className="home-funding-target">UG Students</span>
-                <span className="chip chip-status-closed">
-                  <span className="chip-dot" /> Upcoming
-                </span>
-              </div>
-              <h3>Student Project Grant (Internships)</h3>
-              <p>
-                Small grants to support innovative student-led pilots and
-                experiments aligned with ACT themes.
-              </p>
-              <div className="home-funding-meta">
-                <p><strong>Max:</strong> As Per Institute Norms &nbsp;|&nbsp; <strong>Window:</strong> Closed</p>
-              </div>
-              <button className="btn btn-tertiary" disabled>
-                Call details coming soon
-              </button>
-            </article>
-
-            {/* Transdisciplinary Project Grant (Faculty) */}
-            <article className="card home-funding-card stagger-3">
-              <div className="home-funding-top">
-                <span className="home-funding-target">Faculty</span>
-                <span className="chip chip-status-closed">
-                  <span className="chip-dot" /> Upcoming
-                </span>
-              </div>
-              <h3>Transdisciplinary Project Grant</h3>
-              <p>
-                Support for multi-department projects that bring together
-                expertise across technology, cognition, environment, and education.
-              </p>
-              <div className="home-funding-meta">
-                <p><strong>Max:</strong> 12.50 Lacs &nbsp;|&nbsp; <strong>Duration:</strong> Initially granted for two years</p>
-                <p style={{ marginTop: '0.4rem' }}><strong>Team:</strong> Collaboration between at least three departments mandatory</p>
-              </div>
-              <button className="btn btn-tertiary" disabled>
-                Call details coming soon
-              </button>
-            </article>
-
-
-          </div>
-        </div>
-      </section>
 
 
       {/* 9️⃣ ACT IMPACT STATS */}

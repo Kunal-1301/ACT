@@ -8,7 +8,6 @@ const News = () => {
      REVEAL HOOKS (TUPLE-BASED)
      ================================ */
 
-  const [heroRef, heroVisible] = useRevealOnScroll();
   const [featuredRef, featuredVisible] = useRevealOnScroll();
   const [updatesRef, updatesVisible] = useRevealOnScroll();
   const [callsRef, callsVisible] = useRevealOnScroll();
@@ -49,7 +48,6 @@ const News = () => {
               <ul className="news-hero-bullets">
                 <li>Initial calls and processes being finalised</li>
                 <li>Facilities and recruitment flows under design</li>
-                <li>Sample placeholders here will turn into real items</li>
               </ul>
               <p className="news-hero-side-link">
                 For deeper background, see{" "}
@@ -417,9 +415,6 @@ const News = () => {
               <p className="news-archive-text">
                 The archive could allow filtering by{" "}
                 <strong>year, type,</strong> and <strong>status</strong>.
-              </p>
-              <p className="news-archive-note">
-                This is a placeholder until real content is published.
               </p>
             </div>
           </section>

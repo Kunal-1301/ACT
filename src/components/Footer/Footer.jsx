@@ -12,7 +12,7 @@ const Footer = () => {
           {/* TIET BLOCK */}
           <div className="footer-institution-block">
             <img
-              src="/media/tiet.png"
+              src="/media/tiet.webp"
               alt="Thapar Institute of Engineering and Technology"
               className="footer-inst-logo"
             />
@@ -27,7 +27,7 @@ const Footer = () => {
           {/* TSLAS BLOCK */}
           <div className="footer-institution-block">
             <img
-              src="/media/tslas.png"
+              src="/media/tslas.webp"
               alt="Thapar School of Liberal Arts & Sciences"
               className="footer-inst-logo"
             />

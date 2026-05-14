@@ -28,10 +28,6 @@ const ProjectApprovalProcess = () => {
             </a>
           </div>
 
-          {/* IMAGE PLACEHOLDER */}
-          <div className="doc-hero-image placeholder-box">
-            <span>Image placeholder</span>
-          </div>
         </div>
       </section>
 
@@ -167,9 +163,6 @@ const ProjectApprovalProcess = () => {
               </a>
             </div>
 
-            <div className="doc-sidebar-image placeholder-box">
-              <span>Image placeholder</span>
-            </div>
           </aside>
 
         </div>

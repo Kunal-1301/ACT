@@ -1,14 +1,12 @@
 /* =========================================================
-   ABOUT PAGE – GLOBAL
+   ABOUT PAGE – DESIGN SYSTEM ALIGNED
    ========================================================= */
 
 .about-page {
   min-height: 100vh;
-  color: var(--color-text, var(--color-text));
-  background: var(--page-bg, var(--color-white));
-  -webkit-font-smoothing: antialiased;
+  color: var(--color-text, #0f172a);
+  background: var(--color-white, #ffffff);
 }
-
 
 /* =========================================================
    HERO SECTION
@@ -16,14 +14,13 @@
 
 .about-hero {
   position: relative;
-  min-height: 80vh;     /* 🔑 THIS IS THE KEY */
+  min-height: 80vh;
   display: flex;
-  align-items: center;  /* vertically centers content */
-  padding: 0;           /* remove padding-driven height */
-  color: var(--color-hero-text);
+  align-items: center;
+  padding: 3.5rem 0;
+  color: var(--color-white, #ffffff);
   overflow: hidden;
 }
-
 
 .about-hero-bg {
   position: absolute;
@@ -32,6 +29,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 0;
+  filter: brightness(0.95) contrast(1.02);
 }
 
 .about-hero-overlay {
@@ -40,152 +38,98 @@
   z-index: 1;
   background: linear-gradient(
     180deg,
-    rgba(6, 21, 43, 0.62),
-    rgba(6, 21, 43, 0.78)
+    rgba(15, 23, 42, 0.6) 0%,
+    rgba(15, 23, 42, 0.75) 60%,
+    rgba(15, 23, 42, 0.88) 100%
   );
 }
 
-/* Layout */
+/* Layout - Aligned with Research/Funding hero grid */
 .about-hero-layout {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
-  gap: 2.4rem;
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 1.1fr);
+  gap: 3rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   align-items: center;
 }
 
-/* Hero text */
-.about-hero-eyebrow {
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.9;
+.about-hero-text {
+  max-width: 50rem;
 }
 
 .about-hero-title {
-  font-size: 2.1rem;
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.12;
   letter-spacing: -0.02em;
-  margin-bottom: 0.7rem;
+  margin-bottom: 1.2rem;
+  color: var(--color-white);
 }
 
 .about-hero-subtitle {
-  font-size: 0.97rem;
-  max-width: 42rem;
-  opacity: 0.95;
-  margin-bottom: 0.6rem;
+  font-size: 1.18rem;
+  line-height: 1.6;
+  opacity: 0.96;
+  margin-bottom: 1rem;
 }
 
-.about-hero-ctas {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 1rem;
-  margin-top: 1.3rem;
-}
-
-.about-hero-ctas .btn {
-  box-shadow: 0 10px 26px rgba(2, 6, 23, 0.35);
-}
-
-
-/* =========================================================
-   HERO INFO CARD
-   ========================================================= */
-
-.about-hero-info {
-  background: rgba(15, 23, 42, 0.96);
-  padding: 1.3rem 1.2rem;
-  border-radius: 12px;
-  box-shadow: 0 12px 36px rgba(4, 10, 20, 0.28);
-}
-
-.about-hero-info-title {
+.about-hero-subtitle.secondary {
   font-size: 1.05rem;
-  margin-bottom: 0.4rem;
+  opacity: 0.88;
+  margin-top: 0.5rem;
 }
 
-.about-hero-info-text,
+/* Hero Info Card - Glassmorphism aligned with Research chips */
+.about-hero-info {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 1.8rem;
+  border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  color: var(--color-white);
+}
+
+.about-hero-info-title {
+  font-size: 1.15rem;
+  font-weight: 650;
+  margin-bottom: 0.8rem;
+  color: var(--color-white);
+}
+
+.about-hero-info-text {
+  font-size: 0.98rem;
+  opacity: 0.92;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
 .about-hero-bullets {
-  font-size: 0.9rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.4rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.about-hero-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.92rem;
   opacity: 0.95;
 }
 
-/* =========================================================
-   ABOUT HERO INFO – IMAGE BACKGROUND CARD
-   ========================================================= */
-
-.about-hero-info {
-  position: relative;
-  color: var(--color-white);
-
-  /* Background image */
-  background-image: url("/media/Vinay.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  border-radius: var(--radius-lg);
-  padding: 1.4rem 1.3rem 1.2rem;
-  overflow: hidden;
-
-  box-shadow: 0 20px 60px rgba(2, 6, 23, 0.45);
-}
-
-/* DARK OVERLAY */
-.about-hero-info::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(6, 21, 43, 0.75),
-    rgba(6, 21, 43, 0.88)
-  );
-  z-index: 0;
-}
-
-/* CONTENT ABOVE OVERLAY */
-.about-hero-info > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* TEXT TUNING */
-.about-hero-info-title {
-  color: var(--color-white);
-}
-
-.about-hero-info-text,
-.about-hero-bullets {
-  color: rgba(235, 241, 248, 0.94);
-}
-
-/* LINK */
-.about-hero-info .link-animated {
-  color: #9be7e7;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.about-hero-info .link-animated::after {
+.about-hero-bullets li::before {
   content: "→";
-  margin-left: 0.35rem;
-  transition: transform 160ms ease;
-}
-
-.about-hero-info .link-animated:hover::after {
-  transform: translateX(4px);
-}
-
-@media (max-width: 768px) {
-  .about-hero-info {
-    background-position: center top;
-    padding: 1.2rem 1.1rem;
-  }
+  color: #9be7e7;
+  font-weight: bold;
 }
 
 /* =========================================================
@@ -193,50 +137,65 @@
    ========================================================= */
 
 .about-main {
-  padding-top: 2.4rem;
+  padding-top: 2.8rem;
 }
 
+/* Block wrapper - Aligned with Research/News blocks */
 .about-block {
-  padding: 2.2rem 0 1.8rem;
-  border-top: 1px solid rgba(226, 232, 240, 0.95);
-  margin-bottom: 1.2rem;
+  padding: 2.6rem 0;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.about-block:first-of-type {
+  border-top: none;
+}
+
+.about-block-band {
+  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.08), transparent 45%),
+              var(--color-surface, #ffffff);
+  border-radius: 14px;
+  padding: 2.4rem 1.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+}
+
+.about-block-soft {
+  background-color: var(--color-surface-alt, #f7f8fb);
+  border-radius: 12px;
+  padding: 2.4rem 1.6rem;
 }
 
 .about-block-header {
-  position: relative;
-  padding-left: 0.8rem;
-  margin-bottom: 1.4rem;
-}
-
-.about-block-header::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.35rem;
-  width: 3px;
-  height: 1.6rem;
-  background: linear-gradient(
-    180deg,
-    var(--color-primary),
-    var(--color-primary-light)
-  );
-  border-radius: 3px;
+  margin-bottom: 2rem;
 }
 
 .about-block-title {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.35rem;
+  font-weight: 650;
+  margin-bottom: 0.4rem;
+  color: var(--color-primary);
+  position: relative;
+}
+
+/* Section title accent - Aligned with Funding/News underline */
+.about-block-title::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 3px;
+  margin-top: 0.6rem;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  border-radius: 2px;
 }
 
 .about-block-subtitle {
-  font-size: 0.9rem;
-  max-width: 40rem;
-  opacity: 0.85;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 42rem;
 }
 
-
 /* =========================================================
-   GRIDS (MVV / STRUCTURE / HOW)
+   GRIDS & CARDS
    ========================================================= */
 
 .about-mvv-grid,
@@ -244,93 +203,134 @@
 .about-how-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.3rem;
-  grid-auto-rows: 1fr; /* Equal height rows */
+  gap: 1.5rem;
 }
 
 .about-mvv-card,
 .about-structure-card,
 .about-how-card {
-  padding: 1.4rem 1.3rem;
-  transition: transform 220ms ease, box-shadow 220ms ease;
+  padding: 1.8rem 1.6rem;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 12px;
+  transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 220ms ease;
 }
 
 .about-mvv-card:hover,
 .about-structure-card:hover,
 .about-how-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(2, 6, 23, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(148, 163, 184, 0.2);
 }
 
+.about-mvv-card h3,
+.about-structure-card h3,
+.about-how-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.7rem;
+  color: var(--color-primary);
+}
+
+.about-mvv-card p,
+.about-structure-card p,
+.about-how-card p {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
 
 /* =========================================================
-   TIMELINE
+   DIRECTORY (People)
    ========================================================= */
 
-.about-timeline {
-  border-left: 2px solid rgba(209, 213, 219, 0.95);
-  padding-left: 1.3rem;
+.people-grid {
   display: grid;
-  gap: 1.3rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
 }
 
-.about-timeline-dot {
-  transition: transform 180ms ease, box-shadow 180ms ease;
+.people-card {
+  padding: 1.2rem;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  transition: all 0.3s ease;
 }
 
-.about-timeline-item:hover .about-timeline-dot {
-  transform: scale(1.15);
+.people-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(148, 163, 184, 0.15);
+  border-color: var(--color-primary-soft);
 }
 
+.people-avatar-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  background-color: #f1f5f9;
+}
+
+.people-name {
+  font-size: 1.05rem;
+  font-weight: 650;
+  margin: 0 0 0.15rem;
+  color: var(--color-text);
+}
+
+.people-role {
+  font-size: 0.88rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Badge - Aligned with News call status chips */
+.people-badge {
+  display: inline-flex;
+  padding: 0.2rem 0.65rem;
+  background: rgba(148, 163, 184, 0.12);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.people-interests {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
 
 /* =========================================================
    RESPONSIVE
    ========================================================= */
 
-@media (max-width: 1024px) {
-  .about-hero-layout {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 1200px) {
+  .people-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 
-  .about-mvv-grid,
-  .about-structure-grid,
-  .about-how-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1024px) {
+  .about-hero-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-mvv-grid, .about-structure-grid, .about-how-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 768px) {
-  .about-hero {
-    padding: 3rem 0 2.6rem;
-  }
-
-  .about-hero-title {
-    font-size: 1.8rem;
-  }
-
-  .about-mvv-grid,
-  .about-structure-grid,
-  .about-how-grid {
+  .about-hero-title { font-size: 1.85rem; }
+  .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-mvv-grid, .about-structure-grid, .about-how-grid {
     grid-template-columns: 1fr;
   }
-
-  .about-hero-info {
-    padding: 1.1rem;
-  }
+  .about-block-title { font-size: 1.2rem; }
 }
 
 @media (max-width: 480px) {
-  .about-hero-title {
-    font-size: 1.65rem;
-  }
-
-  .about-block-title {
-    font-size: 1.15rem;
-  }
+  .people-grid { grid-template-columns: 1fr; }
 }
-
-
-/* =========================================================
-   REVEAL ANIMATION (shared)
-   ========================================================= */
-

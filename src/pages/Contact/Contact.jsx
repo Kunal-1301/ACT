@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Contact.css";
-import "../People/People.css"; // Import People styles for engaging section
+import "../../styles/people-shared.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,6 @@ const Contact = () => {
      REVEAL HOOKS (TUPLE-BASED)
      ================================ */
 
-  const [heroTextRef, heroTextVisible] = useRevealOnScroll();
   const [locationRef, locationVisible] = useRevealOnScroll();
   const [contactsRef, contactsVisible] = useRevealOnScroll();
   const [engagingRef, engagingVisible] = useRevealOnScroll();
@@ -43,33 +42,18 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormStatus({ submitting: true, submitted: false, error: null });
 
-    try {
-      // Using Web3Forms - Replace 'YOUR_ACCESS_KEY_HERE' with actual access key
-      // Get free access key from https://web3forms.com
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE", // Replace with your Web3Forms access key
-          name: formData.name,
-          email: formData.email,
-          role: formData.role,
-          topic: formData.topic,
-          message: formData.message,
-          subject: `ACT Centre Contact Form - ${formData.topic || 'General Enquiry'}`,
-        }),
-      });
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
 
-      const result = await response.json();
+    // Simulation mode for development/testing if key is missing or placeholder
+    if (!accessKey || accessKey === "YOUR_ACTUAL_KEY_HERE" || accessKey === "your_web3forms_access_key_here") {
+      setFormStatus({ submitting: true, submitted: false, error: null });
 
-      if (result.success) {
+      // Simulate network delay
+      setTimeout(() => {
         setFormStatus({ submitting: false, submitted: true, error: null });
-        // Reset form
+        console.log("FORM SIMULATION (No API Key):", formData);
+        
         setFormData({
           name: "",
           email: "",
@@ -78,7 +62,46 @@ const Contact = () => {
           message: "",
         });
 
-        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus({ submitting: false, submitted: false, error: null });
+        }, 5000);
+      }, 1500);
+      return;
+    }
+
+    setFormStatus({ submitting: true, submitted: false, error: null });
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          from_name: formData.name,
+          name: formData.name,
+          email: formData.email,
+          role: formData.role,
+          topic: formData.topic,
+          message: formData.message,
+          subject: `ACT Enquiry: ${formData.topic || 'General'} from ${formData.name}`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormStatus({ submitting: false, submitted: true, error: null });
+        setFormData({
+          name: "",
+          email: "",
+          role: "",
+          topic: "",
+          message: "",
+        });
+
         setTimeout(() => {
           setFormStatus({ submitting: false, submitted: false, error: null });
         }, 5000);
@@ -99,7 +122,7 @@ const Contact = () => {
       {/* HERO – CAMPUS BACKGROUND */}
       <section className="page-hero section--bg-campus">
         <img
-          src="/media/contact.png"
+          src="/media/contact.webp"
           alt=""
           aria-hidden="true"
           className="page-hero-bg"
@@ -160,10 +183,6 @@ const Contact = () => {
           >
             <div className="contact-block-header">
               <h2 className="contact-block-title">Key Contact Channels</h2>
-              <p className="contact-block-subtitle">
-                As responsibilities are assigned, this section will list clear
-                contact points. For now, the details below are placeholders.
-              </p>
             </div>
 
             <div className="contact-cards-grid">

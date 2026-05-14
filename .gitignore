@@ -11,6 +11,15 @@ node_modules
 dist
 dist-ssr
 *.local
+/.env
+
+# Development artefacts
+*.backup
+*.bak
+tempCodeRunnerFile.*
+*_UPDATE.md
+*_SUMMARY.md
+FORM_SETUP_GUIDE.md
 
 # Editor directories and files
 .vscode/*
