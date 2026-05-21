@@ -39,7 +39,7 @@ export const ongoingProjects = [
     faculty: "Dr. Sunil Agrawal, Dr. Shalu Garg, Dr. Pawan Verma",
     description: "This project aims to synthesize and functionalize metal oxide nanoparticles to mitigate water pollutants. The study combines computational modeling with material science to develop high-efficiency adsorbents and catalysts for removing heavy metals and organic toxins from contaminated water sources.",
     shortDescription: "Synthesizing nanoparticles for water purification and pollutant mitigation.",
-    image: "",
+    image: "/media/p4.png",
     status: "Ongoing",
     tint: "blue"
   },
@@ -50,7 +50,7 @@ export const ongoingProjects = [
     faculty: "Dr. Pankaj Singh, Dr. Kapil, Dr. Anshul, Dr. Rahul Malhotra",
     description: "This research focuses on developing smart, adaptive textiles capable of monitoring physiological signals and facilitating social interaction. By integrating sensors and actuators into fabric, the project aims to create wearables that adapt to the wearer's health status and environmental context, providing a seamless interface for personalized healthcare and enhanced social connectivity.",
     shortDescription: "Developing smart textiles for physiological monitoring and social interaction.",
-    image: "",
+    image: "/media/p5.png",
     status: "Ongoing",
     tint: "violet"
   },
@@ -61,7 +61,7 @@ export const ongoingProjects = [
     faculty: "Dr. Manoj Kumar, Dr. Tanvi, Dr. Shuvendu, Dr. Priyanka",
     description: "This study investigates the impact of microplastics on honeybees and explores nanotechnology-based interventions to mitigate cognitive and physiological impairments. The project aims to develop nano-formulations that can protect bee health, ensuring the stability of pollination services and biodiversity in the face of environmental pollution.",
     shortDescription: "Using nanotechnology to protect honeybees from microplastic-induced impairments.",
-    image: "",
+    image: "/media/p6.png",
     status: "Ongoing",
     tint: "green"
   },
@@ -72,7 +72,7 @@ export const ongoingProjects = [
     faculty: "Dr. Amit, Dr. Rishu Agrawal",
     description: "This project introduces gamification into the civil engineering curriculum to enhance student engagement and learning outcomes. By incorporating game-design elements like points, levels, and leaderboards into core engineering subjects, the research aims to make complex concepts more accessible and improve practical problem-solving skills among students.",
     shortDescription: "Integrating game elements into civil engineering curriculum for better learning.",
-    image: "",
+    image: "/media/p7.png",
     status: "Ongoing",
     tint: "rose"
   },
@@ -83,7 +83,7 @@ export const ongoingProjects = [
     faculty: "Dr. Anjum, Dr. Amit",
     description: "This research aims to design a comprehensive ecosystem for elderly care in India, addressing their physical, psychological, and social needs. The project focuses on creating a multi-layered support system that includes community-based care, digital health monitoring, and social engagement platforms to improve the quality of life for the aging population.",
     shortDescription: "A comprehensive support ecosystem for the elderly population in India.",
-    image: "",
+    image: "/media/p8.png",
     status: "Ongoing",
     tint: "blue"
   },
@@ -94,7 +94,7 @@ export const ongoingProjects = [
     faculty: "Dr. Mondeep Singh, Dr. Tanu Gha",
     description: "This project involves the development of a portable breath-gas tracking device designed for non-invasive monitoring of gut health. By analyzing specific gases in the breath, the device aims to provide real-time insights into digestive processes and detect early signs of gastrointestinal issues, offering a convenient tool for personalized wellness.",
     shortDescription: "Non-invasive gut-health monitoring via a portable breath analysis device.",
-    image: "",
+    image: "/media/p9.png",
     status: "Ongoing",
     tint: "violet"
   },
@@ -105,7 +105,7 @@ export const ongoingProjects = [
     faculty: "Dr. Deepak Sahu, Dr. Prerna, Dr. Ashish Kumar, Dr. Sangita, Dr. Pankaj Kumar",
     description: "This project focuses on designing and developing an automated incubator for the sustainable management of sanitary pads in institutions. The goal is to provide a hygienic and eco-friendly solution for the disposal and processing of menstrual waste, promoting better health outcomes and environmental sustainability in campus and workplace settings.",
     shortDescription: "Sustainable and automated management of sanitary pads in institutions.",
-    image: "",
+    image: "/media/p10.png",
     status: "Ongoing",
     tint: "green"
   }
