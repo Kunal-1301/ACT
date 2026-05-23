@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./ProjectApprovalProcess.css";
 
 const ProjectApprovalProcess = () => {
+  useEffect(() => {
+    document.title = "Project Approval Process — ACT Documents";
+  }, []);
+
   return (
     <div className="doc-page">
 

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./RecruitmentProcess.css";
 
 const RecruitmentProcess = () => {
+  useEffect(() => {
+    document.title = "Recruitment Process — ACT Documents";
+  }, []);
+
   return (
     <div className="doc-page">
 

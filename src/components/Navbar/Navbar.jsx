@@ -1,19 +1,34 @@
 // src/components/Navbar/Navbar.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navRef = useRef(null);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (isOpen && navRef.current && !navRef.current.contains(e.target)) {
+        closeMenu();
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
+    };
+  }, [isOpen]);
 
   const linkClass = ({ isActive }) =>
     `navbar-link${isActive ? " active" : ""}`;
 
   return (
-    <header className="navbar">
+    <header className="navbar" ref={navRef}>
       <div className="container navbar-inner">
         {/* Left: Logo */}
         <div className="navbar-left">

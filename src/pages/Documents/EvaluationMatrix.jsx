@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./EvaluationMatrix.css";
 
 const EvaluationMatrix = () => {
+  useEffect(() => {
+    document.title = "Evaluation Matrix — ACT Documents";
+  }, []);
+
   return (
     <div className="doc-page">
 

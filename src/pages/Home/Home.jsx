@@ -17,6 +17,10 @@ import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { strategicProjects } from "../../data/strategicProjects";
 
 function Home() {
+  useEffect(() => {
+    document.title = "ACT Centre — Thapar University";
+  }, []);
+
   /* ======================================================
      REVEAL HOOKS
      ====================================================== */
@@ -33,10 +37,10 @@ function Home() {
      LIGHTBOX STATE
      ====================================================== */
   const imageGallery = [
-    "/media/hero-campus-800.JPG",
-    "/media/hero-campus-800.JPG",
-    "/media/hero-campus-800.JPG",
-    "/media/hero-campus-800.JPG",
+    "/media/hero-campus-800.jpg",
+    "/media/about.jpg",
+    "/media/research.jpg",
+    "/media/funding.jpg",
   ];
 
   const videoGallery = [
@@ -81,16 +85,14 @@ function Home() {
   }, [lightbox.open]);
 
   /* ======================================================
-     🔥 FAILSAFE VISIBILITY FIX
+     FAILSAFE VISIBILITY FIX (reduced-motion only)
      ====================================================== */
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       document
         .querySelectorAll(".reveal-section")
         .forEach((el) => el.classList.add("is-visible"));
-    }, 900);
-
-    return () => clearTimeout(timeout);
+    }
   }, []);
 
   /* ======================================================
@@ -100,8 +102,7 @@ function Home() {
     <div className="home-page">
       {/* ================= HERO ================= */}
       <section className="section home-hero home-hero-simple">
-        <img src="/media/home.jpg" className="home-hero-bg" alt="" />
-        <img src="/media/home.jpg" className="home-hero-bg" alt="" />
+        <img src="/media/home.jpg" className="home-hero-bg" alt="" loading="eager" fetchpriority="high" />
         <div className="home-hero-overlay" />
         <div className="container home-hero-inner">
           <div className="home-hero-left">
@@ -649,13 +650,12 @@ function Home() {
             <p className="section-eyebrow">People</p>
             <div className="home-section-header-main">
               <h2 className="home-section-title">ACT Core Team</h2>
-              <p className="home-section-intro"></p>
             </div>
             <Link
-              to="/people"
+              to="/about"
               className="btn btn-secondary home-section-header-cta"
             >
-              View all people
+              Meet the team
             </Link>
           </div>
 
@@ -680,7 +680,7 @@ function Home() {
             <article className="card home-person-card">
               <div className="home-person-photo">
                 <img
-                  src="/media/vinay_home.JPG"
+                  src="/media/vinay_home.jpg"
                   alt="Dr. Vinay Kumar"
                   loading="lazy"
                 />

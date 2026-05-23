@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Contact.css";
 import "../../styles/people-shared.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
+
 
 const Contact = () => {
+  useEffect(() => {
+    document.title = "Contact — ACT Centre";
+  }, []);
+
   /* ================================
      REVEAL HOOKS (TUPLE-BASED)
      ================================ */
@@ -43,17 +49,17 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
+    const serviceId = import.meta.env.VITE_SERVICE_ID;
+    const templateId = import.meta.env.VITE_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
-    // Simulation mode for development/testing if key is missing or placeholder
-    if (!accessKey || accessKey === "YOUR_ACTUAL_KEY_HERE" || accessKey === "your_web3forms_access_key_here") {
+    // Simulation mode for development/testing if keys are missing
+    if (!serviceId || !templateId || !publicKey || publicKey === "YOUR_PUBLIC_KEY_HERE" || publicKey === "YOUR_ACTUAL_KEY_HERE" || publicKey === "your_web3forms_access_key_here") {
       setFormStatus({ submitting: true, submitted: false, error: null });
 
       // Simulate network delay
       setTimeout(() => {
         setFormStatus({ submitting: false, submitted: true, error: null });
-        console.log("FORM SIMULATION (No API Key):", formData);
-        
         setFormData({
           name: "",
           email: "",
@@ -72,47 +78,38 @@ const Contact = () => {
     setFormStatus({ submitting: true, submitted: false, error: null });
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: accessKey,
-          from_name: formData.name,
-          name: formData.name,
-          email: formData.email,
-          role: formData.role,
-          topic: formData.topic,
-          message: formData.message,
-          subject: `ACT Enquiry: ${formData.topic || 'General'} from ${formData.name}`,
-        }),
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        role: formData.role,
+        topic: formData.topic,
+        message: formData.message,
+        // Include old-style template fields just in case
+        user_name: formData.name,
+        user_email: formData.email,
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, {
+        publicKey: publicKey,
       });
 
-      const result = await response.json();
+      setFormStatus({ submitting: false, submitted: true, error: null });
+      setFormData({
+        name: "",
+        email: "",
+        role: "",
+        topic: "",
+        message: "",
+      });
 
-      if (result.success) {
-        setFormStatus({ submitting: false, submitted: true, error: null });
-        setFormData({
-          name: "",
-          email: "",
-          role: "",
-          topic: "",
-          message: "",
-        });
-
-        setTimeout(() => {
-          setFormStatus({ submitting: false, submitted: false, error: null });
-        }, 5000);
-      } else {
-        throw new Error(result.message || "Submission failed");
-      }
+      setTimeout(() => {
+        setFormStatus({ submitting: false, submitted: false, error: null });
+      }, 5000);
     } catch (error) {
       setFormStatus({
         submitting: false,
         submitted: false,
-        error: error.message || "Something went wrong. Please try again.",
+        error: error.message || error.text || "Something went wrong. Please try again.",
       });
     }
   };

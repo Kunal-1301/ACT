@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./About.css";
 import "../../styles/people-shared.css";
@@ -111,6 +111,10 @@ const howCards = [
 ];
 
 const About = () => {
+  useEffect(() => {
+    document.title = "About — ACT Centre";
+  }, []);
+
   const [missionRef, missionVisible] = useRevealOnScroll();
   const [structureRef, structureVisible] = useRevealOnScroll();
   const [howRef, howVisible] = useRevealOnScroll();

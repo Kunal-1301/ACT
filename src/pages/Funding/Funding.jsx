@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./styles/hero.css";
 import "./styles/main.css";
@@ -91,6 +91,10 @@ const docs = [
    ================================ */
 
 const Funding = () => {
+  useEffect(() => {
+    document.title = "Funding & Opportunities — ACT Centre";
+  }, []);
+
   const [openFaq, setOpenFaq] = useState(null);
   const toggleFaq = (i) => setOpenFaq(openFaq === i ? null : i);
 
@@ -111,7 +115,7 @@ const Funding = () => {
       {/* ================= HERO ================= */}
       <section className="page-hero">
         <img
-          src="/media/funding.JPG"
+          src="/media/funding.jpg"
           alt=""
           aria-hidden="true"
           className="page-hero-bg"

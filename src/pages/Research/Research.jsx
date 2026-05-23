@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import "./styles/hero.css";
@@ -12,6 +12,10 @@ import { ongoingProjects } from "../../data/ongoingProjects";
 import { strategicProjects } from "../../data/strategicProjects";
 
 const Research = () => {
+  useEffect(() => {
+    document.title = "Research — ACT Centre";
+  }, []);
+
   const [themesRef, themesVisible] = useRevealOnScroll();
   const [areasRef, areasVisible] = useRevealOnScroll();
   const [ongoingRef, ongoingVisible] = useRevealOnScroll();
@@ -34,7 +38,7 @@ const Research = () => {
       {/* HERO */}
       <section className="page-hero section--bg-tech">
         <img
-          src="/media/research.JPG"
+          src="/media/research.jpg"
           alt="ACT Centre campus"
           className="page-hero-bg"
           loading="eager"

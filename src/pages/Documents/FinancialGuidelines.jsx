@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./FinancialGuidelines.css";
 
 const FinancialGuidelines = () => {
+  useEffect(() => {
+    document.title = "Financial Guidelines — ACT Documents";
+  }, []);
+
   return (
     <div className="doc-page">
 

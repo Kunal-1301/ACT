@@ -921,3 +921,7 @@ a:focus:not(:focus-visible) {
     justify-content: center;
   }
 }
+
+.page-loading {
+  min-height: 60vh;
+}

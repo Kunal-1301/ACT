@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./News.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 const News = () => {
+  useEffect(() => {
+    document.title = "News & Updates — ACT Centre";
+  }, []);
+
   /* ================================
      REVEAL HOOKS (TUPLE-BASED)
      ================================ */

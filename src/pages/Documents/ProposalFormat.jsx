@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./ProposalFormat.css";
 
 const ProposalFormat = () => {
+  useEffect(() => {
+    document.title = "Proposal Format — ACT Documents";
+  }, []);
+
   return (
     <div className="doc-page">
       {/* HERO */}
